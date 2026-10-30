@@ -1,0 +1,8 @@
+src/
+dist/
+old/
+.design-review/
+qa*.py
+qa.html
+sheet.py
+build.sh
