@@ -2267,18 +2267,6 @@ $('#ueLink2').href=UE;
     var l=$('#vLive');l.textContent=s.open?'Open now · till '+fmt12(s.closeAt):'Closed · opens '+fmt12(s.openAt);l.classList.toggle('off',!s.open)}
   paintV();setInterval(paintV,60000)})();
 
-/* floating food: fixed in the side margins like the reference */
-(function(){if(RM||!W.matchMedia('(min-width:1100px)').matches)return;
-  var lay=D.createElement('div');lay.className='g-float';lay.setAttribute('aria-hidden','true');D.body.appendChild(lay);
-  var L=[['smash-burger',14,88,40,-8,0],['mexicana-wrap',34,84,22,14,0],['prime-sauce',52,52,30,-20,1],['mac-bites',68,74,62,10,0],['prime-dog',90,80,70,-58,0]],R=[['fries',22,104,-14,-18,0],['philly-steak-wrap',43,92,-36,24,.8],['wings8',66,96,-30,-14,1],['nuggets',89,74,-6,12,0]],items=[];
-  [[L,'left'],[R,'right']].forEach(function(g,gi){g[0].forEach(function(x,i){var el=D.createElement('span');el.className='g-fl-i';el.style.top=x[1]+'%';el.style[g[1]]=x[3]+'px';el.style.setProperty('--w',x[2]+'px');if(x[5])el.style.setProperty('--b',x[5]+'px');
-    el.style.setProperty('--d',(-(i*1.7+gi*0.9)).toFixed(1)+'s');el.style.setProperty('--r',x[4]+'deg');
-    el.innerHTML='<img src="photos/cut/'+x[0]+'.webp" alt="" decoding="async">';lay.appendChild(el);items.push({el:el,k:(i%2?1:-1)*(1+i*.6)})})});
-  var hero=D.getElementById('hero'),raf=0;
-  function tick(){raf=0;var y=W.scrollY,h=hero?hero.offsetHeight*.55:200;lay.classList.toggle('on',y>h);items.forEach(function(it){it.el.style.transform='translate3d(0,'+(Math.sin(y/500+it.k)*12).toFixed(1)+'px,0) rotate('+(Math.sin(y/700+it.k)*10).toFixed(1)+'deg)'})}
-  var hz=[D.getElementById('mq'),D.getElementById('eat')].filter(Boolean),hv={};if('IntersectionObserver' in W){var hio=new IntersectionObserver(function(es){es.forEach(function(e){hv[e.target.id]=e.isIntersecting});lay.classList.toggle('hid',Object.keys(hv).some(function(k){return hv[k]}))},{rootMargin:'-15% 0px -15% 0px'});hz.forEach(function(e){hio.observe(e)})}
-  tick();W.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(tick)},{passive:true})})();
-
 /* loader: ring draws, logo resolves, curtain lifts */
 (function(){var ld=$('#ld');if(!ld.querySelector)return;var H=D.documentElement;
   var heroRv=$$('#hero .rv');

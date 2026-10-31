@@ -1658,18 +1658,6 @@ var mn=$('#mnav');function mo2(o){mn.classList.toggle('open',o);mn.setAttribute(
 $('#mOpen').addEventListener('click',function(){mo2(true)});$('#mClose').addEventListener('click',function(){mo2(false)});$$('#mnav a').forEach(function(a){a.addEventListener('click',function(){mo2(false)})});
 var els=$$('.g-rv');if('IntersectionObserver' in W){var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});els.forEach(function(e){o.observe(e)})}else els.forEach(function(e){e.classList.add('in')});
 var RM=W.matchMedia&&W.matchMedia('(prefers-reduced-motion: reduce)').matches;
-/* floating food: fixed in the side margins like the reference */
-(function(){if(RM||!W.matchMedia('(min-width:1100px)').matches)return;
-  var lay=D.createElement('div');lay.className='g-float';lay.setAttribute('aria-hidden','true');D.body.appendChild(lay);
-  var L=[['smash-burger',14,88,40,-8,0],['mexicana-wrap',34,84,22,14,0],['prime-sauce',52,52,30,-20,1],['mac-bites',68,74,62,10,0],['prime-dog',90,80,70,-58,0]],R=[['fries',22,104,-14,-18,0],['philly-steak-wrap',43,92,-36,24,.8],['wings8',66,96,-30,-14,1],['nuggets',89,74,-6,12,0]],items=[];
-  [[L,'left'],[R,'right']].forEach(function(g,gi){g[0].forEach(function(x,i){var el=D.createElement('span');el.className='g-fl-i';el.style.top=x[1]+'%';el.style[g[1]]=x[3]+'px';el.style.setProperty('--w',x[2]+'px');if(x[5])el.style.setProperty('--b',x[5]+'px');
-    el.style.setProperty('--d',(-(i*1.7+gi*0.9)).toFixed(1)+'s');el.style.setProperty('--r',x[4]+'deg');
-    el.innerHTML='<img src="photos/cut/'+x[0]+'.webp" alt="" decoding="async">';lay.appendChild(el);items.push({el:el,k:(i%2?1:-1)*(1+i*.6)})})});
-  var hero=D.querySelector('.st-hero'),raf=0;
-  function tick(){raf=0;var y=W.scrollY,h=hero?hero.offsetHeight*.55:200;lay.classList.toggle('on',y>h);items.forEach(function(it){it.el.style.transform='translate3d(0,'+(Math.sin(y/500+it.k)*12).toFixed(1)+'px,0) rotate('+(Math.sin(y/700+it.k)*10).toFixed(1)+'deg)'})}
-  var mq=D.getElementById('mq');if(mq&&'IntersectionObserver' in W)new IntersectionObserver(function(es){lay.classList.toggle('hid',es[0].isIntersecting)},{rootMargin:'-15% 0px -15% 0px'}).observe(mq);
-  tick();W.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(tick)},{passive:true})})();
-
 })();
 </script>
 </body></html>
