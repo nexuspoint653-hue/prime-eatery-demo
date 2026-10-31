@@ -787,20 +787,14 @@ function smoke(cfg,seed){
 }
 
 /* ---------- hero: one dish at a time, wordmark behind ---------- */
-var HERO=[
- {k:'mexicana-burger',tag:'Signature',smoke:{n:7,x:[25,75],d:[5.6,7.4],s:[90,160],dx:[-60,20],dy:[-240,-330],sc:[2,3.2],rt:50,o:.2}},
- {k:'nacho-burger',tag:'Most posted',smoke:{n:6,x:[30,70],d:[4.2,5.8],s:[70,120],dx:[0,70],dy:[-260,-340],sc:[1.8,2.8],rt:80,o:.17}},
- {k:'prime-burger',tag:'The big one',smoke:{n:8,x:[20,80],d:[6.5,8.8],s:[110,190],dx:[-80,-10],dy:[-200,-280],sc:[2.2,3.4],rt:30,o:.22}},
- {k:'steak-bbq-burger',tag:'Loaded',smoke:{n:6,x:[28,72],d:[5,6.8],s:[80,140],dx:[-30,50],dy:[-230,-300],sc:[2,3],rt:60,o:.19}},
- {k:'asian-zing-chicken',tag:'Sweet heat',smoke:{n:5,x:[35,65],d:[4.8,6.4],s:[60,110],dx:[-20,40],dy:[-280,-360],sc:[1.6,2.6],rt:90,o:.15}}
-];
+var HERO=[{k:'classic-burger',tag:'Signature'}];
 var call=$('#callout'),hi=0,htimer=null;
 function paintCall(){var h=HERO[hi],it=IDX[h.k];
-  call.innerHTML='<div class="row"><span>No. 0'+(hi+1)+' · '+esc(h.tag)+'</span><b>$'+it[2]+'</b></div><h3>'+esc(it[1])+'</h3><p>'+esc(it[3])+'</p><div class="nx">'+HERO.map(function(x,j){return '<button type="button" class="'+(j===hi?'on':'')+'" data-h="'+j+'" aria-label="Show '+esc(IDX[x.k][1])+'"></button>'}).join('')+'</div>';
+  call.innerHTML='<div class="row"><span>'+esc(h.tag)+'</span><b>$'+it[2]+'</b></div><h3>'+esc(it[1])+'</h3><p>'+esc(it[3])+'</p>'+(HERO.length>1?'<div class="nx">'+HERO.map(function(x,j){return '<button type="button" class="'+(j===hi?'on':'')+'" data-h="'+j+'" aria-label="Show '+esc(IDX[x.k][1])+'"></button>'}).join('')+'</div>':'');
   $$('[data-h]',call).forEach(function(b){b.addEventListener('click',function(){heroGo(+b.getAttribute('data-h'));heroPlay()})});
 }
 function heroGo(i){if(i===hi)return;hi=(i+HERO.length)%HERO.length;call.classList.add('swap');setTimeout(function(){paintCall();call.classList.remove('swap')},300)}
-function heroPlay(){heroStop();if(!RM){htimer=setInterval(function(){heroGo(hi+1)},5200)}smokeOn=true;smokeLoop()}
+function heroPlay(){heroStop();if(!RM&&HERO.length>1){htimer=setInterval(function(){heroGo(hi+1)},5200)}smokeOn=true;smokeLoop()}
 function heroStop(){if(htimer){clearInterval(htimer);htimer=null}smokeOn=false}
 paintCall();
 
