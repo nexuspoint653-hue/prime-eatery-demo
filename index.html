@@ -985,6 +985,28 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .sh-foot .fine{font-size:12px;color:var(--muted);max-width:36ch}
 @media (max-width:760px){.sheet{grid-template-columns:0 1fr}.sh-item{grid-template-columns:64px minmax(0,1fr)}.thumb{width:64px;height:64px}.sh-item .r{grid-column:2;justify-items:start;grid-auto-flow:column;align-items:center;gap:14px}}
 body.lock{overflow:hidden}
+/* ---- reviews v4: O Auto Brokers layout ---- */
+#reviews{overflow:hidden;isolation:isolate}
+#reviews::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(42% 46% at 72% 22%,rgba(255,212,0,.075),transparent 70%),radial-gradient(30% 40% at 18% 70%,rgba(255,212,0,.035),transparent 70%)}
+.rv4-wrap{max-width:1220px;margin:0 auto;padding-inline:var(--gut)}
+#reviews .rv2-h{border-bottom:0;padding-bottom:0;margin-bottom:0;align-items:center;gap:40px}
+#reviews .rv2-l{gap:14px}
+.rv4-eb{margin:0;display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.rv4-eb::before{content:"";width:2px;height:12px;background:var(--accent)}
+#reviews .rv2-l h2{font-weight:900;font-stretch:100%;text-transform:uppercase;font-size:clamp(34px,3.2vw,48px);letter-spacing:-.01em;line-height:1}
+#reviews .rv2-l .lead{font-size:16px;margin-top:2px}
+#reviews .rv2-link{margin-top:12px;font-family:var(--f);font-weight:800;font-size:12px;letter-spacing:.18em}
+.rv4-rule{position:relative;height:1px;background:var(--line);margin:34px 0 44px}
+.rv4-rule i{position:absolute;left:0;top:-.5px;height:2px;width:64px;background:var(--accent)}
+#reviews .rv2-rows{gap:16px}
+#reviews .rv2c{width:356px;border-radius:4px;background:linear-gradient(180deg,#161617,#111112);padding:24px 24px 20px}
+#reviews .rv2c p{font-size:14.5px;margin:18px 0 20px}
+#reviews .rv2c-av{width:36px;height:36px;font-size:11px;letter-spacing:.04em}
+#reviews .rv2c-tag{font-size:9.5px}
+#reviews .rv2-cta{margin-top:40px;gap:20px}
+.rv4-btn{display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 26px;background:var(--accent);color:#121108;font-weight:800;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;transition:background-color .35s var(--ease),color .35s var(--ease)}
+.rv4-btn .arr{color:inherit;transition:transform .3s var(--ease)}.rv4-btn:hover{background:#121108;color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--accent)}.rv4-btn:hover .arr{transform:translateX(3px)}
+@media (max-width:860px){#reviews .rv2-h{gap:26px}#reviews .lau{justify-self:start}#reviews .rv2c{width:82vw}}
 </style>
 
 </head><body><header class="hdr" id="hdr">
@@ -1177,13 +1199,16 @@ body.lock{overflow:hidden}
 </section>
 
 <section class="band rv2" id="reviews">
-  <div class="wide rv2-h">
-    <div class="rv2-l"><p class="eyebrow">Real Google reviews</p><h2 class="rv">What regulars say.</h2><p class="lead">Straight from Google, unedited. Late-night runs, family orders and first visits.</p>
-      <a class="rv2-link" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener">Read them on Google <span class="arr">→</span></a></div>
-    <a class="lau" id="lau" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener" aria-label="Rated 4.8 out of 5 from 1,742 Google reviews"></a>
+  <div class="rv4-wrap">
+    <div class="rv2-h">
+      <div class="rv2-l"><p class="rv4-eb">Real Google reviews</p><h2 class="rv">What regulars say</h2><p class="lead">Unedited, straight from Google.</p>
+        <a class="rv2-link" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener">Read them on Google <span class="arr">→</span></a></div>
+      <a class="lau" id="lau" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener" aria-label="Rated 4.8 out of 5 from 1,742 Google reviews"></a>
+    </div>
+    <div class="rv4-rule" aria-hidden="true"><i></i></div>
   </div>
   <div class="rv2-rows" id="mq"><div class="rrow" id="rrA"></div><div class="rrow rev" id="rrB"></div></div>
-  <div class="wide rv2-cta"><a class="btn btn-p" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener">See all reviews on Google <span class="arr">→</span></a><span>Rated 4.8 from 1,742 Google reviews</span></div>
+  <div class="rv4-wrap rv2-cta"><a class="rv4-btn" data-dd="reviews" href="#" target="_blank" rel="noopener">Join them · Order ahead <span class="arr">→</span></a><span>Rated 4.8 from 1,742 Google reviews</span></div>
 </section>
 
 <section class="band" id="story">
