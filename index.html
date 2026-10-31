@@ -1,9 +1,10 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#101011"><link rel="icon" href="brand/logo.png"><title>Prime Eatery Dearborn</title>
+<script>document.documentElement.classList.add('ldg')</script>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Prime Eatery, Dearborn. Loaded burgers, rice bowls and chicken sandwiches, made to order and open until 3 AM. 100% halal. Order on DoorDash.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Doto:wght@700;900&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Archivo:wdth,wght@62..125,400..900&family=Doto:wght@700;900&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>
 /* Prime Eatery v2: follows the Griddlecar template section for section. Near-black night palette, Prime yellow only for action + live state. */
 :root{
@@ -1145,20 +1146,346 @@ h2.t2>span,h2.t2>em{display:block;white-space:nowrap}
 h2.t2>em{font-style:normal!important;font-family:inherit!important;font-weight:inherit!important;color:var(--accent)!important;letter-spacing:inherit!important}
 @media (max-width:700px){h2.t2{font-size:clamp(22px,7.1vw,40px)!important}}
 @media (max-width:640px){.cb-row{padding-left:0}.cb-row::before{display:none}.cb-h span{position:static;width:30px;height:30px;box-shadow:none}.cb-seg{grid-template-columns:1fr}.cb-ev button{aspect-ratio:1}}
+
+/* =================== v17: Grab Your Food system, Prime yellow =================== */
+:root{--f:"Inter","Helvetica Neue",Arial,sans-serif;--disp:"Anton","Impact","Arial Narrow",sans-serif;--ink:#0d0d0e;--g-mut:#9d9a94;--g-line:rgba(255,255,255,.08)}
+body{background:var(--ink);font-family:var(--f)}
+#hero{--f:"Archivo","Helvetica Neue",Arial,sans-serif;font-family:var(--f)}
+#hero .hero-copy{--f:"Inter","Helvetica Neue",Arial,sans-serif;font-family:var(--f)}
+html.ldg,html.ldg body{overflow:hidden}
+
+/* type + buttons */
+.g-eb{display:flex;align-items:center;gap:10px;margin:0 0 18px;font:800 11px/1 var(--f);letter-spacing:.26em;text-transform:uppercase;color:var(--accent)}
+.g-eb b{color:#f2efe8;font-weight:800}
+.g-eb.c{justify-content:center}
+.g-h{margin:0;font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(46px,5.4vw,84px);line-height:.94;letter-spacing:.004em;color:#f2efe8;text-wrap:nowrap}
+.g-h em,#order .g-h em,#reels .g-h em,#catering .g-h em{font-family:var(--disp)!important;font-style:normal!important;font-weight:400!important;letter-spacing:inherit!important;color:var(--accent)}
+.g-p{margin:22px 0 0;color:var(--g-mut);font-size:15.5px;line-height:1.75;max-width:52ch}
+.g-p.sm{margin-top:14px;font-size:13.5px;color:#7d7a75}
+.g-acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}.g-acts.c{justify-content:center}
+.g-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 26px;border:1px solid var(--accent);border-radius:4px;background:var(--accent);color:#0d0d0e;font:800 11px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;cursor:pointer;box-shadow:0 14px 34px -14px rgba(255,212,0,.55);transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease)}
+.g-btn:hover{background:#fff;border-color:#fff;transform:translateY(-2px);box-shadow:0 18px 40px -16px rgba(255,255,255,.35)}
+.g-btn.o{background:transparent;color:#f2efe8;border-color:rgba(255,255,255,.16);box-shadow:none}
+.g-btn.o:hover{border-color:var(--accent);color:var(--accent);background:transparent}
+.g-btn.sm{height:40px;padding:0 18px;font-size:10.5px}
+.g-btn:disabled{opacity:.35;pointer-events:none}
+.g-link{display:inline-flex;gap:10px;align-items:center;margin-top:18px;padding:0 0 4px;border:0;border-bottom:1px solid var(--accent);background:none;color:var(--accent);font:800 11px/1.4 var(--f);letter-spacing:.2em;text-transform:uppercase;cursor:pointer}
+.g-link span{transition:transform .3s var(--ease)}.g-link:hover span{transform:translateX(4px)}
+.g-wrap{max-width:1280px;margin:0 auto;padding-inline:max(clamp(24px,5vw,80px),var(--gut))}
+.g-wrap.wide-x{max-width:1560px}
+.g-sec{position:relative;z-index:2;padding-block:clamp(84px,10vw,150px)}
+.g-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px 60px;flex-wrap:wrap;margin-bottom:clamp(34px,4vw,56px)}
+.g-head-r{display:flex;align-items:center;gap:18px 26px;flex-wrap:wrap}
+.g-head-r .g-p{margin:0;max-width:40ch;font-size:14.5px}
+.g-rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1.1s cubic-bezier(.16,1,.3,1)}
+.g-rv.in{opacity:1;transform:none}
+.g-born-ph.g-rv{transition-delay:.12s}
+
+/* header */
+.hdr .brand{font-family:var(--disp);font-weight:400;font-stretch:100%;font-size:23px;letter-spacing:.03em}
+.hdr .brand img{width:46px;height:46px}
+.nav{gap:30px;font:700 11px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;color:#cfcbc3}
+.nav a{position:relative;padding:8px 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+.nav a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav a:hover{color:#fff}
+.hdr-r .ph{font:700 11px var(--f);letter-spacing:.14em}
+.mnav a{font-family:var(--disp);font-weight:400;text-transform:uppercase;letter-spacing:.01em}
+
+/* hero copy (fonts only) */
+#hero .hero-top .sub{display:none}
+.hero-copy .hc-kick{font:800 10.5px/1 var(--f);letter-spacing:.24em;color:var(--accent);margin-bottom:20px}
+.hero-copy .hc-kick i{background:rgba(255,212,0,.45)}
+.hero-copy h1{font-family:var(--disp);font-weight:400;font-stretch:100%;text-transform:uppercase;font-size:clamp(36px,3.05vw,50px);line-height:.98;letter-spacing:.006em;color:#f2efe8;text-wrap:nowrap}
+.hero-copy h1 span{display:block;white-space:nowrap}
+.hero-copy h1 em{font-family:var(--disp);font-style:normal;font-weight:400;font-size:1em;letter-spacing:inherit;color:var(--accent)}
+.hero-copy .lead{font-size:15px;line-height:1.7;color:#bdb9b1;max-width:38ch;margin-top:18px}
+.hero-copy .hero-cta{gap:10px;margin-top:26px}
+.hero-copy .hc-proof{font-size:12.5px;color:#bdb9b1;border-top-color:rgba(255,255,255,.1)}
+.hero-copy .hc-proof b{font-family:var(--disp);font-weight:400;font-size:17px;color:#f2efe8;letter-spacing:.02em}
+
+/* marquee */
+.g-mq{position:relative;z-index:8;margin:-34px -2vw 0;background:var(--accent);transform:rotate(-2deg);overflow:hidden;padding:15px 0 13px;box-shadow:0 24px 60px -24px rgba(255,212,0,.5),0 0 0 1px rgba(0,0,0,.2)}
+.g-mq::before,.g-mq::after{content:"";position:absolute;left:0;right:0;height:1px;background:rgba(13,13,14,.25)}.g-mq::before{top:6px}.g-mq::after{bottom:6px}
+.g-mq-t{display:flex;width:max-content;animation:gmq 32s linear infinite}
+.g-mq-s{display:flex;align-items:center;flex:none;font-family:var(--disp);font-size:clamp(22px,2.1vw,32px);line-height:1;text-transform:uppercase;letter-spacing:.02em;color:#0d0d0e;white-space:nowrap}
+.g-mq-s i{display:inline-block;width:.62em;height:.62em;margin:0 .8em;background:#0d0d0e;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);animation:gspin 6s linear infinite}
+@keyframes gmq{to{transform:translateX(-50%)}}
+@keyframes gspin{to{transform:rotate(360deg)}}
+
+/* too good to sit still */
+.g-tg{min-height:clamp(720px,62vw,900px);display:grid;place-items:center;overflow:hidden;padding-block:clamp(120px,12vw,180px)}
+.g-tg-c{position:relative;z-index:3;text-align:center;display:grid;justify-items:center;max-width:720px;padding-inline:24px}
+.g-tg .g-h{font-size:clamp(60px,7.2vw,118px)}
+.g-tg .g-p{text-align:center;max-width:50ch}
+.g-tg-food{position:absolute;inset:0;z-index:1;pointer-events:none}
+.g-tg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(38% 46% at 50% 50%,rgba(13,13,14,.75),rgba(13,13,14,0) 100%)}
+.tg-i{position:absolute;display:block;pointer-events:auto;opacity:0;transform:translate3d(var(--fx,0),var(--fy,0),0) rotate(var(--fr,0deg)) scale(.7);transition:opacity 1.1s var(--ease),transform 1.6s cubic-bezier(.16,1,.3,1);transition-delay:var(--d,0s)}
+.tg-i[data-from=l]{--fx:-55vw;--fr:-38deg}.tg-i[data-from=r]{--fx:55vw;--fr:38deg}
+.g-tg.in .tg-i{opacity:1;transform:translate3d(0,var(--py,0px),0) rotate(var(--r,0deg)) scale(1)}
+.tg-f{display:block;animation:gfloat var(--t,7s) ease-in-out infinite;animation-delay:var(--fd,0s)}
+.tg-i img{display:block;width:100%;height:auto;filter:drop-shadow(0 34px 40px rgba(0,0,0,.65)) brightness(.9) saturate(1.05);transition:transform .8s cubic-bezier(.16,1,.3,1),filter .6s}
+.tg-i:hover img{transform:scale(1.08) rotate(-2deg);filter:drop-shadow(0 40px 46px rgba(0,0,0,.7)) brightness(1.05) saturate(1.15)}
+@keyframes gfloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(2deg)}}
+.tg1{left:-1%;top:4%;width:clamp(200px,21vw,330px);--r:-14deg;--d:.05s;--t:7.5s}
+.tg2{left:5%;top:40%;width:clamp(160px,15vw,240px);--r:10deg;--d:.2s;--t:6.4s;--fd:-2s}
+.tg3{left:8%;bottom:-2%;width:clamp(180px,18vw,280px);--r:-10deg;--d:.32s;--t:8s;--fd:-1s}
+.tg4{right:-1%;top:2%;width:clamp(210px,22vw,340px);--r:12deg;--d:.1s;--t:7s;--fd:-3s}
+.tg5{right:6%;top:42%;width:clamp(160px,15vw,240px);--r:-8deg;--d:.26s;--t:6.8s}
+.tg6{right:4%;bottom:-3%;width:clamp(190px,19vw,300px);--r:14deg;--d:.38s;--t:7.8s;--fd:-4s}
+.tg7{left:30%;top:7%;width:clamp(56px,5vw,84px);--r:-16deg;--d:.5s;--t:5.6s;opacity:.9}
+.tg8{right:31%;bottom:9%;width:clamp(60px,5.4vw,90px);--r:12deg;--d:.56s;--t:6s;--fd:-2.4s}
+.g-tg.in .tg7,.g-tg.in .tg8{opacity:.85}
+
+/* born from a hunger */
+.g-born-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:clamp(40px,6vw,96px);align-items:center}
+.g-born .g-h{font-size:clamp(52px,5.6vw,88px)}
+.g-stats{display:flex;gap:clamp(28px,4vw,56px);margin-top:30px;padding-top:26px;border-top:1px solid var(--g-line)}
+.g-stats div{display:grid;gap:6px}
+.g-stats b{font-family:var(--disp);font-weight:400;font-size:clamp(34px,3vw,44px);line-height:1;color:var(--accent);letter-spacing:.01em}
+.g-stats b i{font-style:normal;font-size:.8em;margin-left:2px}
+.g-stats span{font:800 9.5px/1 var(--f);letter-spacing:.22em;text-transform:uppercase;color:#7d7a75}
+.g-studio{position:relative;aspect-ratio:1/1.06;border-radius:4px;overflow:hidden;background:radial-gradient(70% 58% at 50% 40%,#2b241a 0%,#17130f 46%,#0a0a0a 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05),0 50px 90px -40px rgba(0,0,0,.9);display:grid;place-items:center}
+.g-studio::before{content:"";position:absolute;left:14%;right:14%;bottom:12%;height:9%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.85),transparent);filter:blur(6px)}
+.g-studio::after{content:"";position:absolute;inset:0;background:radial-gradient(40% 30% at 50% 12%,rgba(255,212,0,.12),transparent 70%),linear-gradient(0deg,rgba(10,10,10,.55),transparent 30%);pointer-events:none}
+.g-studio img{position:relative;z-index:1;width:84%;height:auto;transform:translateY(-3%);filter:drop-shadow(0 30px 34px rgba(0,0,0,.7));transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+.g-studio:hover img{transform:translateY(-5%) scale(1.04)}
+.g-born-tag{position:absolute;left:22px;bottom:20px;z-index:2;display:grid;gap:6px}
+.g-born-tag small{font:800 9.5px/1 var(--f);letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+.g-born-tag b{font-family:var(--disp);font-weight:400;font-size:26px;text-transform:uppercase;letter-spacing:.02em}
+
+/* menu board */
+.g-menu .g-h{font-size:clamp(46px,5vw,80px)}
+.g-board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.g-card{position:relative;display:grid;grid-template-rows:auto 1fr;text-align:left;padding:0;border:1px solid var(--g-line);border-radius:4px;background:#121213;color:#f2efe8;cursor:pointer;overflow:hidden;transition:border-color .4s,transform .6s cubic-bezier(.16,1,.3,1)}
+.g-card:hover{border-color:rgba(255,212,0,.4);transform:translateY(-6px)}
+.g-card-ph{position:relative;aspect-ratio:4/3;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 55%,#2a2419 0%,#151413 55%,#121213 100%);overflow:hidden}
+.g-card-ph img{width:76%;max-height:84%;object-fit:contain;filter:drop-shadow(0 24px 26px rgba(0,0,0,.6));transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.g-card:hover .g-card-ph img{transform:scale(1.08) rotate(-2deg)}
+.g-card-tag{position:absolute;left:16px;top:16px;font:800 9.5px/1 var(--f);letter-spacing:.22em;text-transform:uppercase;color:#0d0d0e;background:var(--accent);padding:6px 8px;border-radius:2px}
+.g-card-tx{display:grid;grid-template-columns:1fr auto;gap:8px 16px;padding:20px 22px 24px;align-content:start}
+.g-card-tx h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(22px,1.9vw,28px);letter-spacing:.01em;line-height:1}
+.g-card-tx b{font-family:var(--disp);font-weight:400;font-size:24px;color:var(--accent);line-height:1}
+.g-card-tx p{grid-column:1/-1;margin:0;color:var(--g-mut);font-size:13.5px;line-height:1.6}
+
+/* order ahead */
+.g-ord-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(48px,7vw,120px);align-items:center}
+.g-ord .g-h{font-size:clamp(56px,6vw,96px)}
+.g-steps{display:grid;margin-top:30px;border-top:1px solid var(--g-line);max-width:540px}
+.g-steps button{position:relative;display:grid;grid-template-columns:44px 1fr;gap:4px;align-items:baseline;padding:18px 0;border:0;border-bottom:1px solid var(--g-line);background:none;color:#f2efe8;text-align:left;cursor:pointer}
+.g-steps i{font:800 11px var(--f);font-style:normal;letter-spacing:.14em;color:#5f5c58;transition:color .3s}
+.g-steps b{display:block;font-family:var(--disp);font-weight:400;font-size:22px;text-transform:uppercase;letter-spacing:.01em;color:#8a8780;transition:color .3s}
+.g-steps small{display:block;max-height:0;overflow:hidden;opacity:0;margin-top:0;color:var(--g-mut);font-size:14px;line-height:1.6;transition:max-height .5s var(--ease),opacity .4s,margin .4s}
+.g-steps u{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left}
+.g-steps button.on i{color:var(--accent)}.g-steps button.on b{color:#f2efe8}
+.g-steps button.on small{max-height:60px;opacity:1;margin-top:6px}
+.g-steps button.on u{animation:gbar 4.2s linear forwards}
+.g-steps button:hover b{color:#f2efe8}
+@keyframes gbar{to{transform:scaleX(1)}}
+.g-ord-ph{position:relative;padding:20px 60px}
+.g-ord-ph::before{content:"";position:absolute;left:50%;top:50%;width:150%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(255,212,0,.2),rgba(255,212,0,.05) 50%,transparent);pointer-events:none}
+.g-ord-ph .iph{position:relative;z-index:1;margin:0 auto}
+.g-badge{position:absolute;z-index:2;display:grid;gap:5px;padding:14px 18px;border-radius:4px;background:#f2efe8;color:#0d0d0e;box-shadow:0 30px 60px -24px rgba(0,0,0,.8);animation:gfloat 6s ease-in-out infinite}
+.g-badge b{font-family:var(--disp);font-weight:400;font-size:24px;line-height:1}
+.g-badge small{font:800 9px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;color:#5b5852}
+.g-badge.b1{left:-130px;top:30%}.g-badge.b2{right:-104px;bottom:24%;background:var(--accent);animation-delay:-3s}
+.g-badge.b2 small{color:#3d3410}
+
+/* vibe (instagram) */
+.g-vibe .g-h{font-size:clamp(46px,5vw,80px)}
+.g-prof{display:flex;align-items:center;gap:12px}
+.g-av{width:46px;height:46px;border-radius:50%;padding:2px;background:conic-gradient(from 200deg,var(--accent),#ff8a00,#ffd400);display:grid;place-items:center}
+.g-av img{width:100%;height:100%;border-radius:50%;border:2px solid var(--ink);object-fit:cover}
+.g-prof b{display:block;font-family:var(--disp);font-weight:400;font-size:19px;letter-spacing:.02em}
+.g-prof small{font-size:12.5px;color:var(--g-mut)}
+.g-vibe .ig3{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.g-vibe .ig3-t{border-radius:4px}
+.g-vibe .ig3-t.big{aspect-ratio:auto}
+.g-vibe .ig3-cap b{font-family:var(--disp);font-weight:400;text-transform:uppercase;letter-spacing:.02em}
+.g-vibe .ig3-t.big .ig3-cap b{font-size:clamp(26px,2.4vw,36px);letter-spacing:.02em}
+.g-vibe .ig3-tg{font:800 9px/1 var(--f);letter-spacing:.2em;border-radius:2px}
+
+/* catering */
+.g-cat-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(40px,5vw,80px);align-items:stretch}
+.g-cat .g-h{font-size:clamp(52px,5.4vw,86px)}
+.g-cf{margin-top:30px;padding:26px 26px 22px;border:1px solid var(--g-line);border-radius:6px;background:linear-gradient(180deg,#151516,#111112);box-shadow:0 40px 80px -40px rgba(0,0,0,.9)}
+.g-cf-top{display:flex;justify-content:space-between;font:800 10px/1 var(--f);letter-spacing:.22em;text-transform:uppercase;color:#7d7a75}
+.g-cf-top #cfName{color:var(--accent)}
+.g-cf-bar{height:2px;margin:14px 0 22px;background:rgba(255,255,255,.07)}
+.g-cf-bar i{display:block;height:100%;width:16.66%;background:var(--accent);transition:width .6s cubic-bezier(.16,1,.3,1)}
+.g-cf-body{min-height:178px}
+.g-cf-body h4{margin:0 0 16px;font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:28px;letter-spacing:.01em}
+.g-cf-step{animation:gstep .5s cubic-bezier(.16,1,.3,1)}
+@keyframes gstep{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.g-chips{display:flex;flex-wrap:wrap;gap:8px}
+.g-chips button{height:42px;padding:0 16px;border:1px solid rgba(255,255,255,.12);border-radius:4px;background:#0d0d0e;color:#d6d3cc;font:600 13.5px var(--f);cursor:pointer;transition:border-color .25s,background .25s,color .25s}
+.g-chips button:hover{border-color:rgba(255,212,0,.5)}
+.g-chips button.on{background:var(--accent);border-color:var(--accent);color:#0d0d0e}
+.g-fl{display:grid;gap:7px;margin-bottom:12px}
+.g-fl span{font:800 9.5px/1 var(--f);letter-spacing:.22em;text-transform:uppercase;color:#7d7a75}
+.g-fl input,.g-fl textarea{width:100%;height:46px;padding:0 14px;border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0b0b0c;color:#f2efe8;font:500 14.5px var(--f);color-scheme:dark;outline:0;transition:border-color .25s}
+.g-fl textarea{height:64px;padding:12px 14px;resize:none}
+.g-fl input:focus,.g-fl textarea:focus{border-color:var(--accent)}
+.g-fl2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g-cf-ft{display:flex;justify-content:space-between;align-items:center;margin-top:22px;padding-top:18px;border-top:1px solid var(--g-line)}
+.g-cf-back{border:0;background:none;color:#7d7a75;font:800 10.5px var(--f);letter-spacing:.2em;text-transform:uppercase;cursor:pointer}
+.g-cf-back:hover{color:#f2efe8}
+.g-cf-est{margin-top:14px;font-size:13px;color:#7d7a75}.g-cf-est b{color:var(--accent);font-family:var(--disp);font-weight:400;font-size:20px;letter-spacing:.02em;margin-left:6px}
+.g-ok{text-align:left}
+.g-ok .ck{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#0d0d0e;font-weight:800;margin-bottom:14px}
+.g-ok p{color:var(--g-mut);font-size:14px;line-height:1.65;margin:0 0 18px}
+.g-cat-ph{position:relative;border-radius:6px;overflow:hidden;min-height:520px;background:#141414}
+.g-cat-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.05);transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
+.g-cat-ph:hover img{transform:scale(1.04)}
+.g-cat-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,10,.9),rgba(10,10,10,0) 45%)}
+.g-cat-note{position:absolute;left:0;right:0;bottom:0;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.1)}
+.g-cat-note div{display:grid;gap:6px;padding:20px 22px;border-right:1px solid rgba(255,255,255,.1)}.g-cat-note div:last-child{border-right:0}
+.g-cat-note b{font-family:var(--disp);font-weight:400;font-size:28px;line-height:1;color:var(--accent)}
+.g-cat-note small{font:800 9px/1.4 var(--f);letter-spacing:.18em;text-transform:uppercase;color:#bdb9b1}
+
+/* catering menu modal */
+.g-cmm{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:20px;visibility:hidden;pointer-events:none}
+.g-cmm.open{visibility:visible;pointer-events:auto}
+.g-cmm-scrim{position:absolute;inset:0;background:rgba(5,5,5,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transition:opacity .4s}
+.g-cmm.open .g-cmm-scrim{opacity:1}
+.g-cmm-box{position:relative;width:min(1100px,100%);max-height:calc(100svh - 40px);overflow:auto;padding:clamp(22px,3vw,40px);border:1px solid var(--g-line);border-radius:6px;background:#111112;opacity:0;transform:translateY(30px) scale(.98);transition:opacity .45s var(--ease),transform .6s cubic-bezier(.16,1,.3,1)}
+.g-cmm.open .g-cmm-box{opacity:1;transform:none}
+.g-cmm-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:26px}
+.g-cmm-top .g-h{font-size:clamp(36px,3.6vw,54px)}
+.g-cmm-x{width:44px;height:44px;flex:none;border:1px solid rgba(255,255,255,.14);border-radius:4px;background:none;color:#f2efe8;font-size:24px;cursor:pointer}
+.g-cmm-x:hover{border-color:var(--accent);color:var(--accent)}
+.g-cmm .cm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.g-cmm .cm-c{padding:18px 18px 8px;border:1px solid var(--g-line);border-radius:4px;background:#0d0d0e}
+.g-cmm .cm-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--g-line);margin-bottom:6px}
+.g-cmm .cm-h h4{margin:0;font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:20px;letter-spacing:.02em;color:#f2efe8}
+.g-cmm .cm-h span{font:800 9px var(--f);letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.g-cmm .cm-r{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.06);color:#f2efe8}
+.g-cmm .cm-r:last-child{border-bottom:0}
+.g-cmm .cm-r b{display:block;font-size:13.5px;font-weight:600}
+.g-cmm .cm-r small{display:block;margin-top:2px;font-size:12px;line-height:1.45;color:#7d7a75}
+.g-cmm .cm-r>span{font-family:var(--disp);font-weight:400;font-size:15px;color:var(--accent);white-space:nowrap;letter-spacing:.02em}
+.g-cmm-ft{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+
+/* reviews heading in the new type */
+#reviews{z-index:2}
+#reviews h2.g-h{font-family:var(--disp)!important;font-weight:400!important;font-size:clamp(46px,5vw,80px)!important;letter-spacing:.004em!important;line-height:.94!important;font-stretch:100%!important}
+#reviews .rv4-eb{font:800 11px/1 var(--f);letter-spacing:.26em;color:var(--accent)}
+#reviews .rv4-eb::before{display:none}
+#reviews .rv4-btn{font-family:var(--f);border-radius:4px}
+
+/* visit */
+.g-anchor{position:absolute;top:-80px}
+.g-visit .g-h{font-size:clamp(46px,5vw,80px)}
+.g-visit-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,5vw,80px);align-items:stretch}
+.g-row{display:grid;gap:8px;padding:22px 0;border-bottom:1px solid var(--g-line)}
+.g-row:first-child{padding-top:0}
+.g-row small{display:flex;align-items:center;gap:12px;font:800 10px/1 var(--f);letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+.g-row b{font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(24px,2.2vw,32px);letter-spacing:.01em;line-height:1.05;color:#f2efe8}
+.g-row b a:hover{color:var(--accent)}
+.g-row>span{font-size:13.5px;color:var(--g-mut)}
+.g-two{display:flex;gap:14px;align-items:baseline}.g-two i{font-style:normal;color:#4b4945}
+.g-live{font-style:normal;display:inline-flex;align-items:center;gap:7px;padding:5px 9px;border-radius:2px;background:rgba(255,212,0,.12);color:var(--accent);letter-spacing:.16em}
+.g-live::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 0 3px rgba(255,212,0,.2)}
+.g-live.off{background:rgba(255,255,255,.06);color:#9d9a94}.g-live.off::before{box-shadow:none}
+.g-hrs{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:2px}
+.g-hrs li{display:flex;justify-content:space-between;gap:20px;padding:6px 0;font-size:14px;color:var(--g-mut);border-bottom:1px dashed rgba(255,255,255,.05)}
+.g-hrs li:last-child{border-bottom:0}
+.g-hrs li b{font-family:var(--f);font-size:14px;font-weight:600;text-transform:none;color:#d6d3cc;letter-spacing:0}
+.g-hrs li.today{color:var(--accent)}.g-hrs li.today b{color:var(--accent)}
+.g-map{position:relative;min-height:520px;border:1px solid var(--g-line);border-radius:6px;overflow:hidden;background:#151516}
+.g-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(.92) contrast(.88) brightness(.95)}
+.g-pin{position:absolute;left:18px;top:18px;display:flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border-radius:4px;background:var(--accent);color:#0d0d0e;box-shadow:0 20px 40px -20px rgba(0,0,0,.8);pointer-events:none}
+.g-pin img{width:30px;height:30px;border-radius:50%}
+.g-pin b{font-family:var(--disp);font-weight:400;font-size:17px;text-transform:uppercase;letter-spacing:.03em}
+
+/* footer: taller wordmark */
+.fx-mark{height:clamp(110px,15.2vw,300px);margin-top:clamp(24px,3vw,44px)}
+.fx-mark span{font-family:var(--disp);font-weight:400;font-stretch:100%;font-size:min(19.6vw,380px);line-height:.86;letter-spacing:0}
+.fx-logo{font-family:var(--disp);font-weight:400;letter-spacing:.03em}
+
+/* floating food along the page edges */
+.g-float{position:absolute;inset:0;overflow:hidden;z-index:1;pointer-events:none}
+.g-fl-i{position:absolute;top:0;width:var(--w,64px);opacity:.55;filter:blur(var(--b,0px)) brightness(.8);will-change:transform}
+.g-fl-i img{display:block;width:100%;height:auto;animation:gfspin var(--t,14s) ease-in-out infinite alternate}
+@keyframes gfspin{from{transform:rotate(var(--r0,-12deg)) translateY(0)}to{transform:rotate(var(--r1,14deg)) translateY(-18px)}}
+
+/* loader */
+.ld{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:#0d0d0e;clip-path:inset(0 0 0 0);transition:clip-path 1s cubic-bezier(.76,0,.24,1)}
+.ld.out{clip-path:inset(0 0 100% 0)}
+.ld.gone{display:none}
+.ld::after{content:"";position:absolute;inset:0;background:radial-gradient(40% 40% at 50% 46%,rgba(255,212,0,.09),transparent 70%);pointer-events:none}
+.ld-c{position:relative;z-index:1;display:grid;justify-items:center;gap:26px;width:min(360px,80vw);transition:transform 1s cubic-bezier(.76,0,.24,1),opacity .6s}
+.ld.out .ld-c{transform:translateY(-60px);opacity:0}
+.ld-logo{position:relative;width:clamp(150px,18vw,200px);aspect-ratio:1;display:grid;place-items:center}
+.ld-logo svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.ld-logo circle{fill:none;stroke-width:2}
+.ld-tr{stroke:rgba(255,255,255,.07)}
+.ld-rg{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:352;stroke-dashoffset:352;filter:drop-shadow(0 0 6px rgba(255,212,0,.6))}
+.ld-logo img{position:relative;width:86%;height:86%;border-radius:50%;clip-path:circle(0% at 50% 50%);transform:scale(.8) rotate(-30deg);filter:grayscale(1) brightness(.6);transition:clip-path 1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1),filter .9s}
+.ld-dot{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 20px var(--accent);transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .4s;animation:ldp 1s ease-in-out infinite alternate}
+@keyframes ldp{to{transform:scale(1.6)}}
+.ld.full .ld-dot{opacity:0;transform:scale(0)}
+.ld.full .ld-logo img{clip-path:circle(50% at 50% 50%);transform:none;filter:none}
+.ld.full .ld-rg{stroke:rgba(255,212,0,.35)}
+.ld-name{display:flex;overflow:hidden;font-family:var(--disp);font-size:clamp(38px,4.4vw,56px);line-height:1.02;letter-spacing:.04em;color:#f2efe8}
+.ld-name span{display:inline-block;transform:translateY(110%);animation:ldup .9s cubic-bezier(.16,1,.3,1) forwards}
+.ld-name span.sp{width:.32em}
+.ld-name span:nth-child(n+7){color:var(--accent)}
+@keyframes ldup{to{transform:none}}
+.ld-bar{width:100%;height:2px;background:rgba(255,255,255,.08);overflow:hidden;border-radius:2px}
+.ld-bar i{display:block;height:100%;background:linear-gradient(90deg,#c99a00,var(--accent) 60%,#fff6c2);transform:scaleX(0);transform-origin:left}
+.ld-st{display:flex;justify-content:space-between;width:100%;font:800 10px/1 var(--f);letter-spacing:.26em;text-transform:uppercase;color:#7d7a75}
+.ld-st b{color:var(--accent);font-weight:800}
+
+/* responsive */
+@media (max-width:1100px){
+ .g-ord-in{grid-template-columns:1fr}.g-ord-ph{justify-self:center}
+ .g-board{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .g-cmm .cm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+ .g-born-in,.g-cat-in,.g-visit-in{grid-template-columns:1fr}
+ .g-cat-ph{min-height:420px}
+ .g-map{min-height:360px}
+ .g-vibe .ig3{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .g-vibe .ig3-t.big{aspect-ratio:4/5}
+ .g-float{display:none}
+}
+@media (max-width:700px){
+ .g-h,.g-tg .g-h,.g-born .g-h,.g-ord .g-h,.g-cat .g-h,.g-menu .g-h,.g-vibe .g-h,.g-visit .g-h,#reviews .g-h{font-size:clamp(40px,12.4vw,60px)}
+ .g-menu .g-h,.g-vibe .g-h,.g-visit .g-h{font-size:clamp(34px,10.4vw,52px)}
+ .hero-copy h1{font-size:clamp(34px,10vw,46px)}
+ .g-mq{margin-top:-18px}
+ .g-tg{min-height:0;padding-block:220px 230px}
+ .tg1{left:-12%;top:1%;width:46vw}.tg4{right:-10%;top:0;width:48vw}
+ .tg2{left:-14%;top:33%;width:30vw;opacity:.6}.tg5{right:-14%;top:38%;width:30vw}
+ .tg3{left:-6%;bottom:0;width:44vw}.tg6{right:-8%;bottom:-1%;width:44vw}
+ .tg7{left:40%;top:2%;width:16vw}.tg8{display:none}
+ .g-board{grid-template-columns:1fr}
+ .g-stats{gap:22px}
+ .g-ord-ph{padding:10px 0}.g-badge{padding:10px 12px}.g-badge b{font-size:19px}.g-badge.b1{left:-12px;top:-2%}.g-badge.b2{right:-18px;bottom:10%}
+ .g-cf{padding:20px 16px 16px}
+ .g-fl2{grid-template-columns:1fr}
+ .g-cat-note div{padding:14px 12px}.g-cat-note b{font-size:22px}
+ .g-cmm .cm-grid{grid-template-columns:1fr}
+ .g-head{margin-bottom:28px}
+}
+@media (max-width:520px){.g-vibe .ig3{grid-template-columns:repeat(2,minmax(0,1fr))}.g-vibe .ig3-t.big{grid-column:span 2}}
+@media (prefers-reduced-motion:reduce){.g-mq-t,.tg-f,.g-fl-i img,.g-badge{animation:none}.g-rv{opacity:1;transform:none}}
 </style>
 
 </head><body><header class="hdr" id="hdr">
   <div class="wide hdr-in">
     <a class="brand" href="#top" aria-label="Prime Eatery home"><img src="brand/logo.png" alt="" width="52" height="52">Prime Eatery</a>
-    <nav class="nav" aria-label="Main"><a href="menu.html">Menu</a><a href="#hours">Hours</a><a href="#catering">Catering</a><a href="#events">Events</a><a href="#story">Our story</a></nav>
-    <div class="hdr-r"><a class="ph" href="tel:+13137577200">(313) 757-7200</a><a class="btn btn-p shbtn btn-sm" data-dd="header" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a></div>
+    <nav class="nav" aria-label="Main"><a href="menu.html">Menu</a><a href="story.html">Our story</a><a href="#catering">Catering</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></nav>
+    <div class="hdr-r"><a class="ph" href="tel:+13137577200">(313) 757-7200</a><a class="g-btn sm" data-dd="header" href="#" target="_blank" rel="noopener">Order ahead</a></div>
     <button class="burger-btn" id="mOpen" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span></button>
   </div>
 </header>
 <div class="mnav" id="mnav" aria-hidden="true">
   <button class="x" id="mClose" aria-label="Close menu">×</button>
-  <a href="menu.html">Menu</a><a href="#hours">Hours</a><a href="#catering">Catering</a><a href="#events">Events</a><a href="#story">Our story</a>
-  <a class="btn btn-p shbtn" data-dd="mobile_nav" href="#" target="_blank" rel="noopener">Order on DoorDash <span class="arr">→</span></a>
+  <a href="menu.html">Menu</a><a href="story.html">Our story</a><a href="#catering">Catering</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a>
+  <a class="g-btn" data-dd="mobile_nav" href="#" target="_blank" rel="noopener">Order on DoorDash</a>
 </div>
 
 <main id="top">
@@ -1176,48 +1503,74 @@ h2.t2>em{font-style:normal!important;font-family:inherit!important;font-weight:i
   <div class="callout" id="callout" aria-live="polite"></div>
   <div class="wide hero-copy">
     <p class="hc-kick rv"><span>Dearborn, MI</span><i></i><span>Est. 2022</span><i></i><span>100% halal</span></p>
-    <h1 class="rv">Loaded burgers &amp; rice bowls, made to order <em>till 3&nbsp;am.</em></h1>
+    <h1 class="rv"><span>Loaded burgers &amp;</span><span>rice bowls, made</span><span>to order <em>till 3 AM.</em></span></h1>
     <p class="lead rv">Order ahead and skip the line. Or book Prime for the party, the office lunch or the walima.</p>
-    <div class="hero-cta rv"><a class="btn btn-p shbtn" data-dd="hero" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a><a class="tlink" href="#catering">Book catering <span class="arr">↗</span></a></div>
+    <div class="hero-cta rv"><a class="g-btn" data-dd="hero" href="#" target="_blank" rel="noopener">Order ahead</a><a class="g-btn o" href="#catering">Book catering</a></div>
     <a class="hc-proof rv" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener"><span class="st" aria-hidden="true">★★★★★</span><b>4.8</b><span>from 1,742 Google reviews</span></a>
   </div>
 </section>
 
-<section class="band" id="find">
-  <div class="fx2">
-    <div class="fx2-l">
-      <div class="fx2-tabs" id="hours" aria-label="Opening hours this week"><div class="strip-row" id="strip"></div></div>
-      <p class="fx2-eb">Hours and nightly picks</p>
-      <h2 class="fx2-h t2"><span>Open late,</span><em>every night.</em></h2>
-      <div class="fx2-seg"><span class="a"><i id="nowDot"></i><span id="nowState">Open</span></span><span class="b"><b id="dialV">2h 10m</b> <span id="dialL">left to order tonight</span></span></div>
-      <h3 class="fx2-sub"><span id="fcD">Tonight</span>: <span id="fcN">Mexicana Bowl</span></h3>
-      <p class="fx2-lead">One kitchen on Michigan Ave, open late seven nights a week. Every night has a crew pick you can order ahead.</p>
-      <ol class="fx2-list">
-        <li><i>01</i><div><b>The pick · <span id="fxP">$16</span></b><small id="fxPd">Crispy or grilled chicken, jalapeño</small></div></li>
-        <li><i>02</i><div><b>Hours · <span id="fxH">12:00–02:00</span></b><small id="tmLine">Tomorrow</small></div></li>
-        <li><i>03</i><div><b>Masri Medical Building</b><small>13530 Michigan Ave #120 · entrance in back · <a href="tel:+13137577200">(313) 757-7200</a></small></div></li>
-      </ol>
-      <div class="fx2-acts"><a class="fx2-btn p" data-dd="find" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a><a class="fx2-btn" data-dir href="#" target="_blank" rel="noopener">Directions</a><a class="fx2-btn" href="menu.html">Full menu</a></div>
-      <span hidden><span id="nowClock"></span><i id="rFill"></i><i id="rNow"></i><span id="rTicks"></span><span id="rA"></span><span id="rM"></span><span id="rB"></span></span>
-    </div>
-    <div class="fx2-r" aria-hidden="true"><div class="fx2-tilt" id="findPh"></div></div>
+<div class="g-mq" aria-hidden="true"><div class="g-mq-t"><span class="g-mq-s">100% Halal<i></i>Made to order<i></i>Open till 3 AM<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i></span><span class="g-mq-s">100% Halal<i></i>Made to order<i></i>Open till 3 AM<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i></span></div></div>
+
+<section class="g-sec g-tg" id="eat">
+  <div class="g-tg-food">
+    <span class="tg-i tg1" data-from="l"><span class="tg-f"><img src="photos/cut/tenders.webp" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tg2" data-from="l"><span class="tg-f"><img src="photos/cut/hero-mexicana-burger.webp" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tg3" data-from="l"><span class="tg-f"><img src="photos/cut/fries.webp" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tg4" data-from="r"><span class="tg-f"><img src="photos/cut/hero-prime-burger.webp" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tg5" data-from="r"><span class="tg-f"><img src="photos/cut/wings8.webp" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tg6" data-from="r"><span class="tg-f"><img src="photos/cut/mexicana-bowl.webp" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tg7" data-from="l"><span class="tg-f"><img src="photos/cut/oreo-shake.webp" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tg8" data-from="r"><span class="tg-f"><img src="photos/cut/prime-sauce.webp" alt="" loading="lazy" decoding="async"></span></span>
+  </div>
+  <div class="g-tg-c g-rv">
+    <p class="g-eb c">Halal <b>·</b> Made to order <b>·</b> Loaded</p>
+    <h2 class="g-h">Too good to<br><em>sit still.</em></h2>
+    <p class="g-p">Burgers, rice bowls, wings, wraps and shakes, stacked fresh and out the door while they're still hot. One halal kitchen on Michigan Ave, serious flavor till 3 AM.</p>
+    <div class="g-acts c"><a class="g-btn" href="menu.html">Explore the menu</a><a class="g-btn o" data-dd="too_good" href="#" target="_blank" rel="noopener">Order ahead</a></div>
   </div>
 </section>
 
-<section class="band" id="order">
-  <div class="wide">
-    <header class="ord-hd">
-      <p class="eyebrow">Order ahead</p>
-      <h2 class="rv t2"><span>Order ahead,</span><em>skip the line.</em></h2>
-      <p class="lead">Pick it on the way over, pay in two taps, grab it off the pickup shelf. No app to download, no line to stand in.</p>
-      <div class="ord-tabs" id="ordTabs" role="tablist"><button type="button" class="on" data-s="0"><i>01</i>Menu</button><button type="button" data-s="1"><i>02</i>Your order</button><button type="button" data-s="2"><i>03</i>Checkout</button><button type="button" data-s="3"><i>04</i>Pickup</button></div>
-    </header>
-    <div class="ord-stage">
-      <div class="ord-side l">
-        <div class="fcard fl" id="fcL"><span class="fi">◎</span><small id="fcLk">01 · Menu</small><b id="fcLt">The full menu, live</b><p id="fcLp">Every burger, bowl and shake, with the same add-ons you get in store.</p></div>
-        <div class="ord-mini"><div><b>30</b><span>items on the board</span></div><div><b>100%</b><span>halal kitchen</span></div></div>
+<section class="g-sec g-born" id="about">
+  <div class="g-wrap g-born-in">
+    <div class="g-born-tx g-rv">
+      <p class="g-eb">01 <b>—</b> Our story</p>
+      <h2 class="g-h">Born from a<br><em>hunger</em> for<br>more.</h2>
+      <p class="g-p">We opened on Michigan Ave in 2022 with one grill, one fryer and one rule: nothing gets made until you order it. Smashed patties, rice bowls piled high and sauces we make in house, served halal from the fryer oil up.</p>
+      <p class="g-p sm">Big flavor. Late nights. Always made to order.</p>
+      <div class="g-stats"><div><b>2022</b><span>On Michigan Ave</span></div><div><b>30+</b><span>Items on the menu</span></div><div><b>4.8<i>★</i></b><span>Google rating</span></div></div>
+      <div class="g-acts"><a class="g-btn" href="story.html">Read our story</a></div>
+    </div>
+    <div class="g-born-ph g-rv"><div class="g-studio"><img src="photos/cut/hero-prime-burger.webp" alt="The Prime Burger: double patty, egg, onion ring and beef bacon on a pretzel bun" loading="lazy" decoding="async"><span class="g-born-tag"><small>The signature</small><b>Prime Burger</b></span></div></div>
+  </div>
+</section>
+
+<section class="g-sec g-menu" id="menu">
+  <div class="g-wrap">
+    <div class="g-head g-rv">
+      <div><p class="g-eb">02 <b>—</b> The menu</p><h2 class="g-h">Stacked to <em>perfection.</em></h2></div>
+      <div class="g-head-r"><p class="g-p">Six regulars' favorites. The full board has thirty, all halal, grilled or crispy on every bowl.</p><a class="g-btn o" href="menu.html">Full menu</a></div>
+    </div>
+    <div class="g-board" id="board"></div>
+  </div>
+</section>
+
+<section class="g-sec g-ord" id="order">
+  <div class="g-wrap g-ord-in">
+    <div class="g-ord-tx g-rv">
+      <p class="g-eb">03 <b>—</b> Order ahead</p>
+      <h2 class="g-h">Skip the<br><em>line.</em></h2>
+      <p class="g-p">Order on the way over, pay in two taps and grab it off the pickup shelf. No app, no account, no waiting at the counter.</p>
+      <div class="g-steps" id="ordTabs" role="tablist">
+        <button type="button" class="on" data-s="0"><i>01</i><span><b>Pick from the full menu</b><small>Every burger, bowl and shake, same add-ons as in store.</small></span><u></u></button>
+        <button type="button" data-s="1"><i>02</i><span><b>Build it your way</b><small>Grilled or crispy, make it a combo, extra Prime sauce.</small></span><u></u></button>
+        <button type="button" data-s="2"><i>03</i><span><b>Pay in two taps</b><small>Apple Pay, Google Pay or card. Nothing to download.</small></span><u></u></button>
+        <button type="button" data-s="3"><i>04</i><span><b>Ready in about 15 minutes</b><small>Entrance in back. Say your name at the counter.</small></span><u></u></button>
       </div>
-      <div class="iph rv" aria-hidden="true"><i class="ib ib1"></i><i class="ib ib2"></i><i class="ib ib3"></i><i class="ib ib4"></i>
+      <div class="g-acts"><a class="g-btn" data-dd="order_section" href="#" target="_blank" rel="noopener">Start an order</a><a class="g-btn o" id="ueLink" href="#" target="_blank" rel="noopener">Uber Eats</a></div>
+    </div>
+    <div class="g-ord-ph">
+      <div class="iph" aria-hidden="true"><i class="ib ib1"></i><i class="ib ib2"></i><i class="ib ib3"></i><i class="ib ib4"></i>
         <div class="iph-scr">
           <div class="iph-isl"></div>
           <div class="iph-sb"><span id="phTime">21:40</span><span class="iph-ic"><i></i><i></i><i></i><i></i><b></b></span></div>
@@ -1254,87 +1607,52 @@ h2.t2>em{font-style:normal!important;font-family:inherit!important;font-weight:i
           <div class="iph-home"></div>
         </div>
       </div>
-      <div class="ord-side r">
-        <div class="fcard fr" id="fcR"><span class="fi">✦</span><small id="fcRk">Popular</small><b id="fcRt">Regulars’ picks up top</b><p id="fcRp">The most-ordered items show first, so you can grab and go.</p></div>
-        <a class="ord-rate" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener"><span class="st" aria-hidden="true">★★★★★</span><span><b>4.8</b> · 1,742 Google reviews</span></a>
+      <span class="g-badge b1"><b>4.8 ★</b><small>1,742 Google reviews</small></span>
+      <span class="g-badge b2"><b>~15 min</b><small>Order to pickup</small></span>
+    </div>
+  </div>
+</section>
+
+<section class="g-sec g-vibe" id="reels">
+  <div class="g-wrap wide-x">
+    <div class="g-head g-rv">
+      <div><p class="g-eb">04 <b>—</b> The feed</p><h2 class="g-h">Come for the <em>vibe.</em></h2></div>
+      <div class="g-head-r">
+        <a class="g-prof" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener"><span class="g-av"><img src="brand/logo.png" alt=""></span><span><b>@primeeatery</b><small>Tap any reel to watch with sound</small></span></a>
+        <a class="g-btn o" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener">Follow</a>
       </div>
-    </div>
-    <div class="ord-acts"><a class="btn btn-p shbtn" data-dd="order_section" href="#" target="_blank" rel="noopener">Start an order <span class="arr">→</span></a><a class="tlink" id="ueLink" href="#" target="_blank" rel="noopener">Also on Uber Eats <span class="arr">↗</span></a></div>
-  </div>
-</section>
-
-<section class="band" id="menu">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="stack"><p class="eyebrow">The menu board</p><h2 class="rv t2"><span>Made to order.</span><em>Nothing sits.</em></h2><p class="lead">Six things regulars order most. The full menu has thirty, all halal, with grilled or crispy on every bowl.</p></div>
-      <a class="btn btn-g" href="menu.html">See the full menu</a>
-    </div>
-    <div class="pgrid" id="board"></div>
-  </div>
-</section>
-
-
-<section class="band" id="catering">
-  <div class="wide">
-    <div class="cat-hd"><div><p class="eyebrow">Catering and events</p><h2 class="rv t2"><span>Book Prime.</span><em>We bring the food.</em></h2></div><div class="cat-hd-r"><p class="lead">Trays, boxed lunches or a staffed hot line. Dearborn, Dearborn Heights and all of Metro Detroit, 100% halal.</p><div class="cat-hd-a"><button class="btn btn-p shbtn" type="button" data-plan>Plan an event <span class="arr">→</span></button><a class="tlink" href="#cmenu">See the catering menu <span class="arr">↓</span></a></div></div></div>
-    <div class="cb" id="est">
-      <div class="cb-l">
-        <div class="cb-row"><div class="cb-h"><span>01</span><b>What's the event?</b></div><div class="cb-ev" id="cbEv"></div></div>
-        <div class="cb-row"><div class="cb-h"><span>02</span><b>How many guests?</b><em class="mono" id="gOut">60</em></div><input id="guests" type="range" min="15" max="400" step="5" value="60" aria-label="Guests"><div class="mm"><span>15</span><span>100</span><span>200</span><span>300</span><span>400</span></div></div>
-        <div class="cb-row"><div class="cb-h"><span>03</span><b>How should we serve it?</b></div><div class="cb-seg" id="cbFmt"></div></div>
-        <div class="cb-row"><div class="cb-h"><span>04</span><b>Pick the food</b><small>up to 3</small></div><div class="cb-food" id="cbFood"></div></div>
-        <div class="cb-row"><div class="cb-h"><span>05</span><b>Add-ons</b></div><div class="cb-add" id="cbAdd"></div></div>
-        <div class="cb-row last"><div class="cb-h"><span>06</span><b>Delivery distance</b></div><div class="cb-seg" id="cbMi"></div></div>
-      </div>
-      <aside class="rc" aria-live="polite">
-        <div class="rc-top"><img src="brand/logo.png" alt=""><div><b>Prime Eatery Catering</b><small class="mono" id="rcSub">Party · 60 guests · drop-off</small></div></div>
-        <div class="rc-lines" id="rcLines"></div>
-        <div class="rc-sum"><div><span>Subtotal</span><span id="rcSub2">$0</span></div><div><span>Michigan sales tax 6%</span><span id="rcTax">$0</span></div><div><span id="rcDelL">Delivery</span><span id="rcDel">Free</span></div></div>
-        <div class="rc-tot"><span>Estimated total</span><b id="qTot">$0</b></div>
-        <p class="rc-pp"><span id="rcPP">$0 per guest</span><span id="qDep">25% deposit holds the date</span></p>
-        <button class="btn rc-go" id="reqDate" type="button" data-plan>Request this date <span class="arr">→</span></button>
-        <div class="rc-bar" aria-hidden="true"></div><p class="rc-fine">Estimate from our catering menu. Final quote confirmed by phone within a few hours.</p>
-      </aside>
-    </div>
-    <div class="specs">
-      <div class="spec"><small>Guests</small><b>15 to 400</b><p>One kitchen, one crew, trays sized to your count.</p></div>
-      <div class="spec"><small>Notice</small><b>48 hours</b><p>Three weeks for weddings and walimas.</p></div>
-      <div class="spec"><small>Kitchen</small><b>100% halal</b><p>From the fryer oil up. Ask about allergies.</p></div>
-      <div class="spec"><small>Delivery</small><b>Free within 8 mi</b><p>Dearborn, Dearborn Heights, Detroit. $2/mi after.</p></div>
-    </div>
-    <div class="cmenu" id="cmenu">
-      <div class="cm-hd"><p class="eyebrow">Made to share</p><h3>The catering menu</h3><p>Half trays serve 8–10, full trays serve 18–22. Boxed meals and platters priced as listed. Prices before 6% Michigan sales tax.</p></div>
-      <div class="cm-grid" id="cmGrid"></div>
-    </div>
-  </div>
-</section>
-
-<section class="band" id="events" style="padding-top:clamp(40px,6vw,80px)">
-  <div class="wide">
-    <div class="ev-hd"><div><p class="eyebrow">Events we cater</p><h2 class="rv t2"><span>Walimas, game days,</span><em>and late nights.</em></h2></div><button class="btn btn-p shbtn" type="button" data-plan>Plan an event <span class="arr">→</span></button></div>
-    <div class="evb" id="ev"></div>
-  </div>
-</section>
-
-<section class="band" id="reels">
-  <div class="wrap">
-    <div class="ig3-hd">
-      <a class="ig3-prof" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener">
-        <span class="ig3-av"><img src="brand/logo.png" alt=""></span>
-        <span><b>@primeeatery</b><small>Prime Eatery Burgers &amp; Sandwiches · Dearborn</small></span>
-      </a>
-      <h2 class="rv t2"><span>Straight from</span><em>the camera roll.</em></h2>
-      <a class="btn btn-g" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg> Follow</a>
     </div>
     <div class="ig3" id="mqIg"></div>
-    <div class="ig3-ft"><a class="btn btn-p shbtn" data-dd="reels" href="#" target="_blank" rel="noopener">Order what you just saw <span class="arr">→</span></a><span>Tap any reel to watch it with sound. Tag <b>@primeeatery</b> and we'll repost the best ones.</span></div>
+  </div>
+</section>
+
+<section class="g-sec g-cat" id="catering">
+  <div class="g-wrap">
+    <div class="g-cat-in">
+      <div class="g-cat-l g-rv">
+        <p class="g-eb">05 <b>—</b> Catering</p>
+        <h2 class="g-h">Feed the<br><em>whole crew.</em></h2>
+        <p class="g-p">Walimas, office lunches, game days and grad parties. Trays, boxed meals or a staffed hot line for 15 to 400 guests, 100% halal.</p>
+        <button type="button" class="g-link" data-cmenu>View the catering menu <span>→</span></button>
+        <form class="g-cf" id="cf" novalidate>
+          <div class="g-cf-top"><span id="cfStep">Step 1 / 6</span><span id="cfName">The event</span></div>
+          <div class="g-cf-bar"><i id="cfBar"></i></div>
+          <div class="g-cf-body" id="cfBody"></div>
+          <div class="g-cf-ft"><button type="button" class="g-cf-back" id="cfBack">Back</button><button type="button" class="g-btn" id="cfNext">Next</button></div>
+        </form>
+      </div>
+      <div class="g-cat-ph g-rv">
+        <img src="photos/catering-party.jpg" alt="Prime catering trays set out for a party" loading="lazy" decoding="async">
+        <div class="g-cat-note"><div><b>48 hrs</b><small>Notice for most events</small></div><div><b>Free</b><small>Delivery within 8 miles</small></div><div><b>15–400</b><small>Guests, one kitchen</small></div></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="band rv2" id="reviews">
   <div class="rv4-wrap">
     <div class="rv2-h">
-      <div class="rv2-l"><p class="rv4-eb">Real Google reviews</p><h2 class="rv t2"><span>What regulars</span><em>are saying.</em></h2><p class="lead">Unedited, straight from Google.</p>
+      <div class="rv2-l"><p class="rv4-eb">06 — Reviews</p><h2 class="g-h">What regulars<br><em>are saying.</em></h2><p class="lead">Unedited, straight from Google.</p>
         <a class="rv2-link" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener">Read them on Google <span class="arr">→</span></a></div>
       <a class="lau" id="lau" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener" aria-label="Rated 4.8 out of 5 from 1,742 Google reviews"></a>
     </div>
@@ -1344,54 +1662,19 @@ h2.t2>em{font-style:normal!important;font-family:inherit!important;font-weight:i
   <div class="rv4-wrap rv2-cta"><a class="rv4-btn" data-dd="reviews" href="#" target="_blank" rel="noopener">Join them · Order ahead <span class="arr">→</span></a><span>Rated 4.8 from 1,742 Google reviews</span></div>
 </section>
 
-<section class="band" id="story">
-  <div class="wrap">
-    <div class="sn-hd">
-      <div><p class="eyebrow">Our story · since 2022</p><h2 class="rv t2"><span>Built for</span><em>after hours.</em></h2></div>
-      <div class="sn-intro"><p>Prime Eatery is one halal kitchen tucked behind the Masri Medical Building on Michigan Ave. We opened in 2022 because there was nowhere in Dearborn to get a real meal at 1 AM.</p><p>Here's what a night at Prime looks like, from the first order to last call.</p></div>
-    </div>
-    <div class="sn" id="sn">
-      <div class="sn-track" aria-hidden="true"><i class="sn-fill" id="snFill"></i><i class="sn-now" id="snNow"><b id="snNowT">Now</b></i></div>
-      <div class="sn-row" id="snRow"></div>
-    </div>
-    <div class="sn-facts">
-      <div><small>Since</small><b>2022</b><span>One counter, same address</span></div>
-      <div><small>Kitchen</small><b>100% halal</b><span>From the fryer oil up</span></div>
-      <div><small>Last call</small><b>3 AM</b><span>Friday and Saturday</span></div>
-      <div><small>Find us</small><b>Entrance in back</b><span>13530 Michigan Ave #120</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="band" id="deals">
-  <div class="wrap">
-    <div class="dl">
-      <div class="dl-l">
-        <p class="dl-k">Get the deals first</p>
-        <h2 class="t2"><span>One text when</span><em>a deal drops.</em></h2>
-        <ul class="dl-perks"><li><b>BOGO bowls</b><span>Prime Bowl nights, first to know</span></li><li><b>Game-day trays</b><span>Lions Sundays, order by noon</span></li><li><b>Late-night drops</b><span>After 11 PM, while the grill's hot</span></li></ul>
-        <div id="smsWrap">
-          <form id="smsForm" class="dl-form" novalidate>
-            <label class="sr" for="smsPhone">Mobile number</label>
-            <div class="dl-in"><span class="dl-cc">+1</span><input id="smsPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(313) 555-0142"><button class="btn dl-go" type="submit">Text me deals <span class="arr">→</span></button></div>
-            <div class="dl-fav" id="smsFavs" role="radiogroup" aria-label="Usual order"><span>My usual:</span><button type="button" class="on" data-v="Burgers">Burgers</button><button type="button" data-v="Rice bowls">Bowls</button><button type="button" data-v="Wings and tenders">Wings</button><button type="button" data-v="Catering">Catering</button></div>
-            <input type="hidden" id="smsFav" value="Burgers">
-            <p class="err" id="smsErr" aria-live="polite"></p>
-            <p class="dl-fine">A few texts a month, never more. Reply STOP any time.</p>
-          </form>
-        </div>
+<section class="g-sec g-visit" id="visit">
+  <span id="hours" class="g-anchor"></span>
+  <div class="g-wrap">
+    <div class="g-head g-rv"><div><p class="g-eb">07 <b>—</b> Visit</p><h2 class="g-h">Pull up &amp; <em>grab one.</em></h2></div></div>
+    <div class="g-visit-in">
+      <div class="g-visit-l g-rv">
+        <div class="g-row"><small>Address</small><b>13530 Michigan Ave #120</b><span>Masri Medical Building, Dearborn · entrance in back</span></div>
+        <div class="g-row"><small>Hours <em class="g-live" id="vLive">Open now</em></small><ul class="g-hrs" id="vHrs"></ul></div>
+        <div class="g-row"><small>Phone</small><b><a href="tel:+13137577200">(313) 757-7200</a></b><span>Call ahead for big orders or custom requests</span></div>
+        <div class="g-row"><small>Delivery</small><b class="g-two"><a data-dd="visit" href="#" target="_blank" rel="noopener">DoorDash</a><i>/</i><a id="ueLink2" href="#" target="_blank" rel="noopener">Uber Eats</a></b></div>
+        <div class="g-acts"><a class="g-btn" data-dir href="#" target="_blank" rel="noopener">Get directions</a><a class="g-btn o" data-dd="visit_btn" href="#" target="_blank" rel="noopener">Order ahead</a></div>
       </div>
-      <div class="dl-r" aria-hidden="true">
-        <div class="dl-ph">
-          <div class="dl-top"><img src="brand/logo.png" alt=""><b>Prime Eatery</b><small>Text message</small></div>
-          <div class="dl-th" id="dlThread">
-            <div class="bub"><small>Thu 9:12 PM</small>BOGO Prime Bowls tonight till 2 AM. Show this text at the counter. 🔥</div>
-            <div class="bub"><small>Sun 11:04 AM</small>Lions at 1. Wing trays ready by kickoff if you order by noon.</div>
-            <div class="bub me">Saving one for me 🙌</div>
-            <div class="bub typing"><i></i><i></i><i></i></div>
-          </div>
-        </div>
-      </div>
+      <div class="g-map g-rv"><iframe title="Map to Prime Eatery" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Prime+Eatery,+13530+Michigan+Ave+%23120,+Dearborn,+MI+48126&amp;z=15&amp;output=embed"></iframe><span class="g-pin"><img src="brand/logo.png" alt=""><b>Prime Eatery</b></span></div>
     </div>
   </div>
 </section>
@@ -1402,8 +1685,8 @@ h2.t2>em{font-style:normal!important;font-family:inherit!important;font-weight:i
     <div class="fx-live" id="fxLive"><div class="led led-sm" id="led2wrap" aria-hidden="true"><div class="l1" id="ledB1">Today · Fri 30 Oct</div><div class="l2"><span id="ledB2">Open till 3 AM · Michigan Ave ·</span></div></div><span class="fx-live-t">Our hours, live from Michigan Ave.</span><a class="btn btn-p shbtn btn-sm" data-dd="footer_live" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a></div>
     <div class="fx-top">
       <div class="fx-brand"><a class="fx-logo" href="#top"><img src="brand/logo.png" alt="" width="44" height="44">Prime Eatery</a><p>Loaded burgers, rice bowls and shakes, made to order till 3 AM. A small halal kitchen on Michigan Ave in Dearborn.</p><p class="fx-ad">13530 Michigan Ave #120 · entrance in back<br><a class="fx-a" href="tel:+13137577200"><span>(313) 757-7200</span></a></p></div>
-      <div class="fx-col"><h4>Eat</h4><ul><li><a class="fx-a" href="menu.html"><span>Full menu</span></a></li><li><a class="fx-a" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&utm_medium=website&utm_campaign=footer" target="_blank" rel="noopener"><span>Order ahead</span></a></li><li><a class="fx-a" href="#hours"><span>Hours</span></a></li><li><a class="fx-a" href="#cmenu"><span>Catering menu</span></a></li></ul></div>
-      <div class="fx-col"><h4>Prime</h4><ul><li><a class="fx-a" href="#story"><span>Our story</span></a></li><li><a class="fx-a" href="#events"><span>Events we cater</span></a></li><li><a class="fx-a" href="#reviews"><span>Reviews</span></a></li><li><a class="fx-a" href="https://www.google.com/maps/dir/?api=1&destination=Prime+Eatery+13530+Michigan+Ave+%23120+Dearborn+MI+48126" target="_blank" rel="noopener"><span>Directions</span></a></li></ul></div>
+      <div class="fx-col"><h4>Eat</h4><ul><li><a class="fx-a" href="menu.html"><span>Full menu</span></a></li><li><a class="fx-a" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&utm_medium=website&utm_campaign=footer" target="_blank" rel="noopener"><span>Order ahead</span></a></li><li><a class="fx-a" href="#visit"><span>Hours</span></a></li><li><a class="fx-a" href="#catering" data-cmenu><span>Catering menu</span></a></li></ul></div>
+      <div class="fx-col"><h4>Prime</h4><ul><li><a class="fx-a" href="story.html"><span>Our story</span></a></li><li><a class="fx-a" href="#catering"><span>Events we cater</span></a></li><li><a class="fx-a" href="#reviews"><span>Reviews</span></a></li><li><a class="fx-a" href="https://www.google.com/maps/dir/?api=1&destination=Prime+Eatery+13530+Michigan+Ave+%23120+Dearborn+MI+48126" target="_blank" rel="noopener"><span>Directions</span></a></li></ul></div>
       <div class="fx-col"><h4>Legal</h4><ul><li><a class="fx-a" href="legal.html"><span>Legal notice</span></a></li><li><a class="fx-a" href="privacy.html"><span>Privacy policy</span></a></li><li><a class="fx-a" href="terms.html"><span>Terms of use</span></a></li><li><a class="fx-a" href="social.html"><span>Social media disclaimer</span></a></li></ul></div>
       <div class="fx-col"><h4>Social</h4><ul><li><a class="fx-a" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener"><span>Instagram</span></a></li><li><a class="fx-a" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener"><span>Google reviews</span></a></li><li><a class="fx-a" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&utm_medium=website&utm_campaign=footer" target="_blank" rel="noopener"><span>DoorDash</span></a></li><li><a class="fx-a" href="mailto:PrimeEatery01@gmail.com"><span>Email us</span></a></li></ul></div>
     </div>
@@ -1411,6 +1694,23 @@ h2.t2>em{font-style:normal!important;font-family:inherit!important;font-weight:i
   </div>
   <div class="fx-mark" aria-hidden="true"><span>PRIME EATERY</span></div>
 </footer>
+<div class="g-cmm" id="cmm" role="dialog" aria-modal="true" aria-labelledby="cmmT" aria-hidden="true">
+  <div class="g-cmm-scrim" data-cmclose></div>
+  <div class="g-cmm-box">
+    <div class="g-cmm-top"><div><p class="g-eb">Made to share</p><h3 class="g-h" id="cmmT">The catering <em>menu.</em></h3><p class="g-p sm">Half trays serve 8–10, full trays 18–22. Prices before 6% Michigan sales tax.</p></div><button type="button" class="g-cmm-x" data-cmclose aria-label="Close">×</button></div>
+    <div class="cm-grid" id="cmGrid"></div>
+    <div class="g-cmm-ft"><button type="button" class="g-btn" data-cmclose data-tocf>Start a request</button><a class="g-btn o" href="tel:+13137577200">Call (313) 757-7200</a></div>
+  </div>
+</div>
+<div class="ld" id="ld" aria-hidden="true">
+  <div class="ld-c">
+    <div class="ld-logo"><svg viewBox="0 0 120 120"><circle class="ld-tr" cx="60" cy="60" r="56"/><circle class="ld-rg" id="ldRing" cx="60" cy="60" r="56"/></svg><img src="brand/logo.png" alt=""><i class="ld-dot"></i></div>
+    <div class="ld-name"><span>P</span><span>R</span><span>I</span><span>M</span><span>E</span><span class="sp"></span><span>E</span><span>A</span><span>T</span><span>E</span><span>R</span><span>Y</span></div>
+    <div class="ld-bar"><i id="ldBar"></i></div>
+    <div class="ld-st"><span id="ldMsg">Firing up the grill</span><b id="ldPct">0%</b></div>
+  </div>
+</div>
+
 
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="shTitle">
   <div class="scrim" data-close></div>
@@ -1443,7 +1743,7 @@ var DD='https://www.doordash.com/store/prime-eatery-dearborn-2829646/';
 var UE='https://www.ubereats.com/store/prime-eatery-dearborn/iJTSNcz5UgW3g1HnHxQAsw';
 var DIR='https://www.google.com/maps/dir/?api=1&destination=Prime+Eatery+13530+Michigan+Ave+%23120+Dearborn+MI+48126';
 function dd(src){return DD+'?utm_source=primeeatery.com&utm_medium=website&utm_campaign='+encodeURIComponent(src||'site')}
-function $(s,r){return (r||D).querySelector(s)}
+var NUL=D.createElement('div');function $(s,r){return (r||D).querySelector(s)||NUL}
 function $$(s,r){return Array.prototype.slice.call((r||D).querySelectorAll(s))}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var RM=W.matchMedia&&W.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1608,27 +1908,15 @@ var order=[1,2,3,4,5,6,0];
 var NIGHT={1:{k:'mexicana-bowl',bg:'mexicana-bowl'},2:{k:'classic-burger',bg:'night-classic'},3:{k:'mexicana-burger',bg:'night-mexicana'},4:{k:'tenders',bg:'tenders-fries'},5:{k:'prime-burger',bg:'night-prime'},6:{k:'wings',bg:'wings'},0:{k:'midwest-chicken',bg:'midwest-chicken'}};
 function lateTxt(d){return HOURS[d][1]>=27*60?'Late night till 3 AM':d===0?'Opens at 3 PM':'Pickup and delivery'}
 $('#strip').innerHTML=order.map(function(d){return '<div class="strip-cell" data-day="'+d+'"><span class="d">'+DAYS[d].slice(0,3)+'<span class="tdy"></span></span><span class="n">'+lateTxt(d)+'</span><span class="t">'+range(d)+'</span></div>'}).join('');
-/* ---------- find: day tabs drive the pick, photo wall follows ---------- */
-var fph=$('#findPh'),days=$$('#strip .strip-cell'),fi=0,ftimer=null,fOn=false;
-var FCOL=[[0,3,6],[1,4,'hero-burger'],[2,5,'fries']];
-fph.innerHTML=FCOL.map(function(c){return '<div class="fx2-col">'+c.map(function(x){var src=typeof x==='number'?NIGHT[order[x]].bg:x;return '<figure'+(typeof x==='number'?' data-i="'+x+'"':'')+'><img src="photos/'+src+'.jpg" alt="" loading="lazy" decoding="async">'+(typeof x==='number'?'<figcaption>'+DAYS[order[x]].slice(0,3)+'</figcaption>':'')+'</figure>'}).join('')+'</div>'}).join('');
-var fimgs=$$('figure[data-i]',fph);
-function findGo(i){fi=(i+days.length)%days.length;days.forEach(function(el,j){el.classList.toggle('on',j===fi)});fimgs.forEach(function(f){f.classList.toggle('on',+f.getAttribute('data-i')===fi)});var d=order[fi],it=IDX[NIGHT[d].k];
-  $('#fcD').textContent=d===state().today?'Tonight':DAYS[d];$('#fcN').textContent=it[1];$('#fxP').textContent='$'+it[2];$('#fxPd').textContent=it[3];$('#fxH').textContent=range(d)+(HOURS[d][1]>=27*60?' · late night':'')}
-function findPlay(){clearInterval(ftimer);if(!RM&&fOn)ftimer=setInterval(function(){findGo(fi+1)},3400)}
-days.forEach(function(el,j){el.setAttribute('role','button');el.tabIndex=0;['mouseenter','focus','click'].forEach(function(ev){el.addEventListener(ev,function(){clearInterval(ftimer);findGo(j)})})});
-fimgs.forEach(function(f){f.addEventListener('mouseenter',function(){clearInterval(ftimer);findGo(+f.getAttribute('data-i'))})});
-$('#strip').addEventListener('mouseleave',findPlay);fph.addEventListener('mouseleave',findPlay);
-findGo(Math.max(0,order.indexOf(state().today)));
+var fOn=false,ftimer=null;function findPlay(){}
 
 /* ---------- home menu: six photo cards ---------- */
-var PICKS=[['mexicana-burger','night-mexicana','Bestseller'],['classic-burger','night-classic','Classic'],['prime-burger','night-prime','The big one'],['mexicana-bowl','mexicana-bowl','Spicy'],['prime-rice-bowl','prime-rice-bowl','House bowl'],['tenders','tenders-fries','Share it']];
-$('#board').innerHTML=PICKS.map(function(p,i){var it=IDX[p[0]];
-  return '<button type="button" class="pc rv" data-item="'+i+'" style="transition-delay:'+(i%3*80)+'ms"><div class="pc-ph"><img src="photos/'+p[1]+'.jpg" alt="'+esc(it[1])+'" loading="lazy" decoding="async"><span class="pc-tag">'+esc(p[2])+'</span><span class="pc-go">View item</span></div><div class="pc-row"><h3>'+esc(it[1])+'</h3><span class="mono">$'+it[2]+'</span></div><p>'+esc(it[3])+'</p></button>'}).join('');
+var PICKS=[['mexicana-burger','photos/cut/hero-mexicana-burger.webp','Bestseller'],['prime-rice-bowl','photos/cut/prime-rice-bowl.webp','House bowl'],['wings','photos/cut/wings.webp','Share it'],['nashville-chicken','photos/cut/nashville-chicken.webp','Spicy'],['philly-steak-wrap','photos/cut/philly-steak-wrap.webp','Grilled'],['oreo-shake','photos/cut/oreo-shake.webp','Hand-spun']];
+
 /* item detail: stays on the site, one tap to order */
 D.body.insertAdjacentHTML('beforeend','<div class="itm" id="itm" role="dialog" aria-modal="true" aria-labelledby="itmT" aria-hidden="true"><div class="itm-scrim" data-iclose></div><div class="itm-box"><button type="button" class="itm-x" data-iclose aria-label="Close">×</button><div class="itm-ph"><img id="itmImg" alt=""></div><div class="itm-tx"><span class="itm-tag" id="itmTag"></span><h3 id="itmT"></h3><b class="mono" id="itmP"></b><p id="itmD"></p><ul class="itm-li"><li>100% halal</li><li>Made to order</li><li>Pickup in about 15 min</li></ul><a class="btn itm-go" id="itmGo" href="#" target="_blank" rel="noopener">Order on DoorDash <span class="arr">→</span></a><a class="tlink" id="itmUe" href="#" target="_blank" rel="noopener">or Uber Eats <span class="arr">↗</span></a></div></div></div>');
 var itm=$('#itm'),itmLast=null;
-function itmOpen(i){var p=PICKS[i],it=IDX[p[0]];itmLast=D.activeElement;$('#itmImg').src='photos/'+p[1]+'.jpg';$('#itmImg').alt=it[1];$('#itmTag').textContent=p[2];$('#itmT').textContent=it[1];$('#itmP').textContent='$'+it[2];$('#itmD').textContent=it[3];$('#itmGo').href=dd('item_'+p[0]);$('#itmUe').href=UE;itm.classList.add('open');itm.setAttribute('aria-hidden','false');D.body.classList.add('lock');setTimeout(function(){$('.itm-x',itm).focus()},60)}
+function itmOpen(i){var p=PICKS[i],it=IDX[p[0]];itmLast=D.activeElement;$('#itmImg').src=p[1];$('#itmImg').alt=it[1];$('#itmTag').textContent=p[2];$('#itmT').textContent=it[1];$('#itmP').textContent='$'+it[2];$('#itmD').textContent=it[3];$('#itmGo').href=dd('item_'+p[0]);$('#itmUe').href=UE;itm.classList.add('open');itm.setAttribute('aria-hidden','false');D.body.classList.add('lock');setTimeout(function(){$('.itm-x',itm).focus()},60)}
 function itmClose(){itm.classList.remove('open');itm.setAttribute('aria-hidden','true');D.body.classList.remove('lock');itmLast&&itmLast.focus()}
 $$('[data-item]').forEach(function(b){b.addEventListener('click',function(){itmOpen(+b.getAttribute('data-item'))})});
 $$('[data-iclose]',itm).forEach(function(b){b.addEventListener('click',itmClose)});
@@ -1905,6 +2193,101 @@ snPaint();
 function markToday(){var t=state().today;$$('.strip-cell').forEach(function(c){c.querySelector('.tdy').textContent=+c.getAttribute('data-day')===t?' · Today':''})}
 paint();markToday();onScroll();
 setInterval(function(){paint();markToday();snPaint()},30000);
+
+
+/* =================== v17 build =================== */
+/* reveal */
+(function(){var els=$$('.g-rv,.g-tg');if(!('IntersectionObserver' in W)){els.forEach(function(e){e.classList.add('in')});return}
+  var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}})},{rootMargin:'0px 0px -12% 0px'});
+  els.forEach(function(e){o.observe(e)})})();
+
+/* too good: slight parallax on the flying food */
+(function(){var sec=$('#eat'),items=$$('.tg-i',sec);if(!items.length||RM)return;var raf=0;
+  function f(){raf=0;var r=sec.getBoundingClientRect(),c=(r.top+r.height/2-innerHeight/2)/innerHeight;items.forEach(function(it,i){var k=[.18,-.12,.1,-.16,.14,-.1,.24,-.2][i]||.1;it.style.setProperty('--py',(c*k*160).toFixed(1)+'px')})}
+  W.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(f)},{passive:true});f()})();
+
+/* menu board: cutouts on dark cards */
+$('#board').innerHTML=PICKS.map(function(p,i){var it=IDX[p[0]];
+  return '<button type="button" class="g-card g-rv" data-item="'+i+'" style="transition-delay:'+(i%3*90)+'ms"><span class="g-card-ph"><img src="'+p[1]+'" alt="'+esc(it[1])+'" loading="lazy" decoding="async"><span class="g-card-tag">'+esc(p[2])+'</span></span><span class="g-card-tx"><h3>'+esc(it[1])+'</h3><b>$'+it[2]+'</b><p>'+esc(it[3])+'</p></span></button>'}).join('');
+$$('#board [data-item]').forEach(function(b){b.addEventListener('click',function(){itmOpen(+b.getAttribute('data-item'))})});
+(function(){if(!('IntersectionObserver' in W)){$$('#board .g-rv').forEach(function(e){e.classList.add('in')});return}var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});$$('#board .g-rv').forEach(function(e){o.observe(e)})})();
+$('#ueLink2').href=UE;
+
+/* catering: six quick steps */
+(function(){var cf=$('#cf');if(!cf.querySelector)return;
+  var Q={type:'',guests:'',date:'',time:'',svc:'',food:[],name:'',phone:'',note:''},si=0;
+  var GU={'15–50':30,'50–100':75,'100–200':150,'200–400':300},PP={'Walima / wedding':24,'Graduation':18,'Office lunch':15,'Eid / family':18,'Game day':17,'Birthday':18,'Something else':18};
+  function chips(k,opts,multi){return '<div class="g-chips" data-k="'+k+'">'+opts.map(function(o){var on=multi?Q[k].indexOf(o)>-1:Q[k]===o;return '<button type="button" class="'+(on?'on':'')+'" data-v="'+esc(o)+'">'+esc(o)+'</button>'}).join('')+'</div>'}
+  function est(){if(!Q.type||!Q.guests)return '';var g=GU[Q.guests],p=PP[Q.type],s=Q.svc==='Staffed hot line'?250:0;return money(g*p*.85+s)+' – '+money(g*p*1.15+s)}
+  var S=[
+   ['The event',function(){return '<h4>What are we catering?</h4>'+chips('type',Object.keys(PP))}],
+   ['Guests',function(){return '<h4>How many guests?</h4>'+chips('guests',Object.keys(GU))+'<p class="g-cf-est">Rough estimate<b>'+(est()||'—')+'</b></p>'}],
+   ['Date',function(){var mn=new Date(Date.now()+864e5*2).toISOString().slice(0,10);return '<h4>When is it?</h4><label class="g-fl"><span>Date</span><input type="date" id="cfDate" min="'+mn+'" value="'+esc(Q.date)+'"></label>'+chips('time',['Lunch','Afternoon','Evening','Late night'])}],
+   ['Service',function(){return '<h4>How should we serve it?</h4>'+chips('svc',['Drop-off trays','Boxed per person','Staffed hot line'])}],
+   ['Food',function(){return '<h4>What sounds good?</h4>'+chips('food',['Rice bowls','Burgers & sliders','Wings & tenders','Wraps','Fries & sides','Shakes'],1)+'<p class="g-cf-est">Pick as many as you like</p>'}],
+   ['Contact',function(){return '<h4>Where do we send the quote?</h4><div class="g-fl2"><label class="g-fl"><span>Name</span><input id="cfN" autocomplete="name" placeholder="First and last" value="'+esc(Q.name)+'"></label><label class="g-fl"><span>Phone</span><input id="cfP" type="tel" inputmode="tel" autocomplete="tel" placeholder="(313) 555-0142" value="'+esc(Q.phone)+'"></label></div><label class="g-fl"><span>Anything else</span><textarea id="cfT" placeholder="Venue, allergies, timing">'+esc(Q.note)+'</textarea></label>'}]];
+  function ok(){return [Q.type,Q.guests,Q.date&&Q.time,Q.svc,Q.food.length,Q.name.trim()&&Q.phone.replace(/\D/g,'').length>=10][si]}
+  function render(){$('#cfBody').innerHTML='<div class="g-cf-step">'+S[si][1]()+'</div>';$('#cfStep').textContent='Step '+(si+1)+' / 6';$('#cfName').textContent=S[si][0];$('#cfBar').style.width=((si+1)/6*100)+'%';
+    $('#cfBack').style.visibility=si?'visible':'hidden';$('#cfNext').textContent=si<5?'Next':'Send request';$('#cfNext').disabled=!ok();
+    $$('.g-chips',cf).forEach(function(g){var k=g.getAttribute('data-k');$$('button',g).forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-v');
+      if(Array.isArray(Q[k])){var ix=Q[k].indexOf(v);ix>-1?Q[k].splice(ix,1):Q[k].push(v);b.classList.toggle('on')}else{Q[k]=v;$$('button',g).forEach(function(x){x.classList.toggle('on',x===b)});
+        if(k==='guests'){var e=$('.g-cf-est b',cf);if(e)e.textContent=est()||'—'}
+        if(['type','guests','svc'].indexOf(k)>-1&&si<5){setTimeout(function(){if(ok()){si++;render()}},260)}}
+      $('#cfNext').disabled=!ok()})})});
+    var d=cf.querySelector('#cfDate');if(d)d.addEventListener('change',function(){Q.date=d.value;$('#cfNext').disabled=!ok()});
+    [['cfN','name'],['cfP','phone'],['cfT','note']].forEach(function(x){var el=cf.querySelector('#'+x[0]);if(el)el.addEventListener('input',function(){Q[x[1]]=el.value;$('#cfNext').disabled=!ok()})})}
+  function done(){var msg='Prime catering request: '+Q.type+', '+Q.guests+' guests, '+Q.date+' ('+Q.time+'), '+Q.svc+', '+Q.food.join(', ')+'. '+Q.name+' '+Q.phone+(Q.note?'. Notes: '+Q.note:'');
+    $('#cfBody').innerHTML='<div class="g-cf-step g-ok"><div class="ck">✓</div><h4>Request ready, '+esc(Q.name.split(' ')[0])+'.</h4><p>'+esc(Q.type)+' · '+esc(Q.guests)+' guests · '+esc(Q.svc)+'. Estimated <b style="color:var(--accent)">'+est()+'</b> before tax. Send it to the Prime catering line and we confirm within a few hours.</p><div class="g-acts" style="margin-top:0"><a class="g-btn" href="sms:+13137577200?&body='+encodeURIComponent(msg)+'">Text it to Prime</a><a class="g-btn o" href="tel:+13137577200">Call instead</a></div></div>';
+    $('#cfStep').textContent='Done';$('#cfName').textContent='Sent to you';$('#cfBar').style.width='100%';$('.g-cf-ft',cf).style.display='none'}
+  $('#cfNext').addEventListener('click',function(){if(!ok())return;if(si<5){si++;render()}else done()});
+  $('#cfBack').addEventListener('click',function(){if(si>0){si--;render()}});
+  render()})();
+
+/* catering menu pop-up */
+(function(){var m=$('#cmm'),last=null;if(!m.querySelector)return;
+  function open(){last=D.activeElement;m.classList.add('open');m.setAttribute('aria-hidden','false');D.body.classList.add('lock');setTimeout(function(){var x=m.querySelector('.g-cmm-x');x&&x.focus()},50)}
+  function close(){m.classList.remove('open');m.setAttribute('aria-hidden','true');D.body.classList.remove('lock');last&&last.focus&&last.focus()}
+  D.addEventListener('click',function(e){if(e.target.closest('[data-cmenu]')){e.preventDefault();open()}var c=e.target.closest('[data-cmclose]');if(c){close();if(c.hasAttribute('data-tocf')){var f=$('#cf');f.scrollIntoView&&f.scrollIntoView({behavior:'smooth',block:'center'})}}});
+  D.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))close()})})();
+
+/* visit: hours with today marked, live status */
+(function(){var ul=$('#vHrs');if(!ul.querySelector)return;
+  var rows=[[[1,2,3,4],'Mon – Thu'],[[5,6],'Fri – Sat'],[[0],'Sunday']];
+  function paintV(){var s=state(),t=s.today;ul.innerHTML=rows.map(function(r){var d=r[0][0];return '<li class="'+(r[0].indexOf(t)>-1?'today':'')+'"><span>'+r[1]+'</span><b>'+fmt12(HOURS[d][0])+' – '+fmt12(HOURS[d][1])+'</b></li>'}).join('');
+    var l=$('#vLive');l.textContent=s.open?'Open now · till '+fmt12(s.closeAt):'Closed · opens '+fmt12(s.openAt);l.classList.toggle('off',!s.open)}
+  paintV();setInterval(paintV,60000)})();
+
+/* floating food along the edges (desktop) */
+(function(){if(RM||!W.matchMedia('(min-width:901px)').matches)return;var main=$('#top');if(!main.querySelector)return;
+  var lay=D.createElement('div');lay.className='g-float';lay.setAttribute('aria-hidden','true');main.style.position='relative';main.appendChild(lay);
+  var POOL=['mac-bites','nuggets','prime-dog','fries','prime-sauce','oreo-shake','tenders','wings','chicken-trio','pebbles-shake','canned-drinks','classic-burger'];
+  var secs=$$('#top > section:not(#hero)'),items=[],n=0;
+  secs.forEach(function(sec){[0,1].forEach(function(side){var k=POOL[n++%POOL.length],el=D.createElement('span'),w=46+((n*37)%40);
+      el.className='g-fl-i';el.innerHTML='<img src="photos/cut/'+k+'.webp" alt="" loading="lazy" decoding="async">';
+      el.style.setProperty('--w',w+'px');el.style.setProperty('--t',(10+(n*7)%9)+'s');el.style.setProperty('--r0',(-20+(n*13)%18)+'deg');el.style.setProperty('--r1',(8+(n*11)%22)+'deg');if(n%3===0)el.style.setProperty('--b','1.5px');
+      el.style[side?'right':'left']=(10+((n*29)%46))+'px';lay.appendChild(el);items.push({el:el,sec:sec,f:.15+((n*17)%30)/100,y:.2+((n*23)%60)/100,s:side?-1:1})})});
+  function place(){items.forEach(function(it){it.top=it.sec.offsetTop+it.sec.offsetHeight*it.y})}
+  var raf=0;function tick(){raf=0;var y=W.scrollY;items.forEach(function(it){var off=(y+innerHeight/2-it.top)*it.f*-1;it.el.style.transform='translate3d(0,'+(it.top+off).toFixed(1)+'px,0)'})}
+  place();tick();W.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(tick)},{passive:true});W.addEventListener('resize',function(){place();tick()});W.addEventListener('load',function(){place();tick()})})();
+
+/* loader: ring draws, logo resolves, curtain lifts */
+(function(){var ld=$('#ld');if(!ld.querySelector)return;var H=D.documentElement;
+  var heroRv=$$('#hero .rv');
+  if(RM){ld.classList.add('gone');H.classList.remove('ldg');return}
+  heroRv.forEach(function(e){e.classList.remove('in')});
+  var bar=$('#ldBar'),ring=$('#ldRing'),pct=$('#ldPct'),msg=$('#ldMsg'),t0=performance.now(),loaded=D.readyState==='complete',p=0,MIN=1700;
+  W.addEventListener('load',function(){loaded=true});
+  var MSG=[[0,'Firing up the grill'],[38,'Smashing the patties'],[72,'Saucing it up'],[100,"Let's eat"]];
+  function ease(x){return 1-Math.pow(1-x,3)}
+  (function step(t){var el=t-t0,target=Math.min(el/MIN,loaded?1:.86);p+=(target-p)*.12;if(target>=1&&p>.995)p=1;
+    var v=ease(p);bar.style.transform='scaleX('+v.toFixed(4)+')';ring.style.strokeDashoffset=(352*(1-v)).toFixed(1);var n=Math.round(v*100);pct.textContent=n+'%';
+    for(var i=MSG.length-1;i>=0;i--){if(n>=MSG[i][0]){msg.textContent=MSG[i][1];break}}
+    if(p<1)requestAnimationFrame(step);else finish()})(t0);
+  function finish(){ld.classList.add('full');
+    setTimeout(function(){ld.classList.add('out');H.classList.remove('ldg');
+      heroRv.forEach(function(e,i){setTimeout(function(){e.classList.add('in')},380+i*110)})},950);
+    setTimeout(function(){ld.classList.add('gone')},2100)}
+  setTimeout(function(){if(!ld.classList.contains('full')){p=1;finish()}},6000)})();
 
 /* ---------- shader buttons (one shared WebGL renderer, drawn into each visible button) ---------- */
 (function(){
