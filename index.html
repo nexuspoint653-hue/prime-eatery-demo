@@ -1367,7 +1367,8 @@ html.ldg,html.ldg body{overflow:hidden}
 .g-cmm-ft{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
 
 /* reviews heading in the new type */
-#reviews{z-index:2}
+#reviews{z-index:2;background:none!important}
+#reviews::before,#reviews::after{display:none!important}
 #reviews h2.g-h{font-family:var(--disp)!important;font-weight:400!important;font-size:clamp(46px,5vw,80px)!important;letter-spacing:.004em!important;line-height:.94!important;font-stretch:100%!important}
 #reviews .rv4-eb{font:800 11px/1 var(--f);letter-spacing:.26em;color:var(--accent)}
 #reviews .rv4-eb::before{display:none}
