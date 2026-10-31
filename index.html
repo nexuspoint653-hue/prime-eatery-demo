@@ -1,5 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#101011"><link rel="icon" href="brand/logo.png">
-<title>Prime Eatery Dearborn</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#101011"><link rel="icon" href="brand/logo.png"><title>Prime Eatery Dearborn</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Prime Eatery, Dearborn. Loaded burgers, rice bowls and chicken sandwiches, made to order and open until 3 AM. 100% halal. Order on DoorDash.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,8 +25,8 @@ a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
-.wide{padding-inline:max(28px,var(--gut))}
-.band{padding-block:clamp(88px,11vw,150px);position:relative}
+.wide{padding-inline:max(clamp(28px,5.5vw,104px),var(--gut))}
+.band{padding-block:clamp(64px,8vw,112px);position:relative}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;margin:0}
 .eyebrow::before{content:"";width:14px;height:1px;background:currentColor}
@@ -265,11 +264,12 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .tot small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
 .tot b{display:block;font-size:clamp(36px,4vw,50px);font-weight:700;letter-spacing:-.03em;line-height:1}
 .tot .fine{font-size:12px;color:var(--muted);margin-top:4px}
-.specs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+.specs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+.spec{padding:4px clamp(16px,2vw,28px)}.spec:first-child{padding-left:0}.spec + .spec{border-left:1px solid var(--line-2)}
 .spec small{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
 .spec b{display:block;font-size:19px;margin-top:6px;letter-spacing:-.01em}
 .spec p{font-size:13.5px;color:var(--muted);margin-top:4px}
-@media (max-width:900px){.cat{grid-template-columns:1fr}.specs{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.cat{grid-template-columns:1fr}.specs{grid-template-columns:1fr 1fr;row-gap:22px}.spec:nth-child(3){border-left:0;padding-left:0}}
 @media (max-width:480px){.pkg{grid-template-columns:84px 1fr}}
 
 /* events row */
@@ -381,17 +381,21 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .now .ft{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .now .ft b{color:var(--fg);font-weight:600}
 .find-ph{position:relative;flex:1 1 auto;min-height:240px;border-radius:20px;overflow:hidden;background:#161617}
-.find-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .9s var(--ease),transform 3.6s var(--ease)}
+.find-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.05);transition:opacity 1.4s cubic-bezier(.45,0,.2,1),transform 6s cubic-bezier(.2,.6,.2,1);will-change:opacity,transform}
+.find-ph img.on{z-index:1}
 .find-ph img.on{opacity:1;transform:scale(1)}
-.find-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent 45%)}
-.fcap{position:absolute;left:18px;bottom:16px;z-index:2;display:grid;gap:3px}
+.find-ph::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent 45%)}
+.fcap{position:absolute;left:18px;bottom:16px;z-index:3;transition:opacity .5s var(--ease)}.fcap.sw{opacity:0}.fcap{display:grid;gap:3px}
 .fcap small{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}.fcap b{font-size:18px;letter-spacing:-.02em}
 .day{position:relative}
-.day::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:var(--accent);transition:width .6s var(--ease)}
-.day.on::before{width:100%}
-.day.on{background:linear-gradient(90deg,rgba(255,212,0,.07),transparent 75%)}
+.day{transition:background-color .6s var(--ease)}
+.day::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(255,212,0,0) 0%,rgba(255,212,0,.075) 22%,rgba(255,212,0,.04) 62%,rgba(255,212,0,0) 100%);opacity:0;transition:opacity .8s var(--ease)}
+.day::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1.5px;background:linear-gradient(90deg,rgba(255,212,0,0) 0%,var(--accent) 24%,var(--accent) 58%,rgba(255,212,0,0) 100%);opacity:0;transform:scaleX(.6);transition:opacity .8s var(--ease),transform .9s var(--ease)}
+.day.on::before{opacity:1;transform:none}
+.day.on::after{opacity:1}
+.days{isolation:isolate}
 .day:not(.on) img{filter:saturate(.6) brightness(.8)}.day img{transition:filter .5s}
-.day.today{background:none}.day.today.on{background:linear-gradient(90deg,rgba(255,212,0,.07),transparent 75%)}
+.day.today{background:none}
 @media (max-width:900px){.find-ph{min-height:300px}}
 
 /* ---- home menu: photo cards (Griddlecar) ---- */
@@ -452,7 +456,7 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 
 
 /* ---- shared heading accent ---- */
-#order h2 em,#numbers h2 em,#catering h2 em,#events h2 em,#story h2 em,.ig2-t em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--accent)}
+#order h2 em,#reels h2 em,#numbers h2 em,#catering h2 em,#events h2 em,#story h2 em,.ig2-t em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--accent)}
 
 /* ---- order ahead: yellow iPhone ---- */
 .ord{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.5fr);gap:clamp(24px,4vw,64px);align-items:center}
@@ -505,8 +509,241 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .ps-ok b{font-size:22px;letter-spacing:-.02em}.ps-ok p{margin:0;font-size:12px;color:#6d675c;max-width:24ch;line-height:1.45}
 .ps-prog{display:flex;gap:4px;width:100%;margin-top:8px}.ps-prog span{flex:1;padding-top:8px;border-top:3px solid #e0dbd0;font-size:9.5px;color:#8a8379}.ps-prog span.on{border-color:var(--accent);color:#151413}
 .ps-map{width:100%;height:96px;margin-top:8px;border-radius:14px;background:repeating-linear-gradient(35deg,#efe9dc 0 14px,#f4efe5 14px 28px);display:grid;place-items:end start;padding:10px;font-size:10px;color:#6d675c}
-@media (max-width:1100px){.ord{grid-template-columns:1fr}.ord-stage{min-height:0}}
-@media (max-width:760px){.ord-stage{grid-template-columns:1fr}.fcard{display:none}.iph{justify-self:center}}
+
+
+
+/* ---- order ahead v3: text above, phone centered, cards both sides ---- */
+.ord-hd{display:grid;justify-items:center;text-align:center;gap:16px;max-width:880px;margin:0 auto clamp(18px,2vw,28px)}
+.ord-hd .eyebrow::after{content:"";width:14px;height:1px;background:currentColor}
+.ord-hd h2{font-size:clamp(36px,4.6vw,64px);max-width:22ch}
+.ord-hd .lead{max-width:52ch}
+.ord-tabs{margin-top:8px}
+.ord-tabs button{display:inline-flex;align-items:center;gap:7px}
+.ord-tabs button i{font-style:normal;font-family:var(--mono);font-size:10px;opacity:.55}
+.ord-stage{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:clamp(20px,3.4vw,56px);padding:clamp(16px,2vw,28px) 0 0;min-height:0;max-width:1180px;margin:0 auto}
+.ord-side{display:grid;gap:16px;position:relative;z-index:2}
+.ord-side.l{justify-items:end}.ord-side.r{justify-items:start}
+.fcard.fl,.fcard.fr{transform:none;justify-self:auto;max-width:280px;width:100%}
+.ord-side.l .fcard{margin-top:-90px}.ord-side.r .fcard{margin-top:90px}
+.ord-side::after{content:"";position:absolute;top:38%;width:clamp(14px,2.4vw,40px);height:1px;background:linear-gradient(90deg,rgba(255,212,0,0),var(--accent))}
+.ord-side.l::after{right:calc(-1 * clamp(14px,2.4vw,40px))}
+.ord-side.r::after{left:calc(-1 * clamp(14px,2.4vw,40px));transform:scaleX(-1);top:62%}
+.ord-mini{display:grid;grid-template-columns:1fr 1fr;gap:1px;width:100%;max-width:280px;border-radius:16px;overflow:hidden;background:var(--line);border:1px solid var(--line)}
+.ord-mini div{background:#141415;padding:14px 16px;display:grid;gap:2px}
+.ord-mini b{font-size:24px;letter-spacing:-.03em;line-height:1}
+.ord-mini span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ord-rate{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:#141415;font-size:13px;color:var(--muted);transition:border-color .3s}
+.ord-rate:hover{border-color:var(--line-2)}.ord-rate b{color:var(--fg)}.ord-rate .st{color:var(--accent);letter-spacing:1.5px;font-size:11px}
+.iph{width:min(300px,72vw)}
+.ord-acts{justify-content:center;margin-top:clamp(28px,3vw,40px)}
+.ps.on{pointer-events:auto}
+.ps-chips{flex:0 0 auto}
+.ps-chips span{transition:background .3s,color .3s,border-color .3s}
+.ps-scroll{position:relative;flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;margin:0 -16px;padding:0 16px;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14px,#000 calc(100% - 26px),transparent);mask-image:linear-gradient(180deg,transparent 0,#000 14px,#000 calc(100% - 26px),transparent)}
+.ps-scroll::-webkit-scrollbar{display:none}
+.ps-cat{display:block;padding:12px 0 4px;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#8a8379}
+.ps-row .ps-im img.cover{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.ps-row i{transition:transform .25s var(--ease),background .25s}
+.ps-row.add i{transform:scale(1.18);background:#151413;color:var(--accent)}
+.ps-bag{flex:0 0 auto;margin-top:8px;padding:12px 14px;border-radius:14px;background:#151413;color:#fff;display:flex;justify-content:space-between;font-size:12.5px;font-weight:600}
+.ps-bag span:last-child{font-family:var(--mono);color:var(--accent)}
+.ps-bag.pop{animation:bagPop .45s var(--ease)}
+@keyframes bagPop{40%{transform:scale(1.04)}}
+@media (max-width:1100px){.ord-stage{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}.fcard{padding:16px}.fcard b{font-size:17px}}
+@media (max-width:860px){.ord-stage{grid-template-columns:1fr;justify-items:center}.ord-side{order:2;width:100%;max-width:520px;grid-template-columns:1fr 1fr;justify-items:stretch}.ord-side.r{order:3}.ord-side::after{display:none}.ord-side .fcard{margin-top:0!important;display:grid;max-width:none}.ord-mini,.ord-rate{max-width:none}.iph{order:1}}
+@media (max-width:560px){.ord-side{grid-template-columns:1fr}}
+
+
+/* ---- deals v2: yellow card, sms thread ---- */
+.dl{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,64px);align-items:center;padding:clamp(28px,4vw,56px);border-radius:28px;background:var(--accent);color:var(--accent-ink);position:relative;overflow:hidden;isolation:isolate}
+.dl::before{content:"";position:absolute;right:-12%;top:-30%;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.45),transparent);z-index:-1}
+.dl-l{display:grid;gap:18px;min-width:0}
+.dl-k{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.dl-k::before{content:"";width:14px;height:1px;background:currentColor}
+.dl h2{font-size:clamp(32px,3.8vw,54px);color:var(--accent-ink);max-width:16ch}
+.dl h2 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+.dl-perks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(18,17,8,.2);border-bottom:1px solid rgba(18,17,8,.2)}
+.dl-perks li{padding:14px 14px 14px 0;display:grid;gap:3px}
+.dl-perks li + li{padding-left:14px;border-left:1px solid rgba(18,17,8,.2)}
+.dl-perks b{font-size:15.5px;letter-spacing:-.01em}.dl-perks span{font-size:12.5px;color:rgba(18,17,8,.7);line-height:1.4}
+.dl-form{display:grid;gap:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.dl-in{display:flex;align-items:center;gap:8px;padding:6px 6px 6px 16px;border-radius:999px;background:#121108;max-width:520px}
+.dl-cc{font-family:var(--mono);font-size:13px;color:var(--accent)}
+.dl-in input{flex:1;min-width:0;height:44px;border:0;background:transparent;color:#f2efe8;font:inherit;font-size:16px;outline:none}
+.dl-in input::placeholder{color:#7d796f}
+.dl-in:focus-within{box-shadow:0 0 0 3px rgba(18,17,8,.25)}
+.dl-in input[aria-invalid=true]{color:#ffb39e}
+.dl-go{background:var(--accent);color:var(--accent-ink);height:44px}.dl-go:hover{background:#fff}
+.dl-fav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13px}
+.dl-fav span{color:rgba(18,17,8,.7);margin-right:4px}
+.dl-fav button{padding:7px 12px;border-radius:999px;border:1px solid rgba(18,17,8,.28);font-size:13px;color:var(--accent-ink);transition:background .25s,color .25s}
+.dl-fav button:hover{border-color:var(--accent-ink)}
+.dl-fav button.on{background:var(--accent-ink);color:var(--accent);border-color:var(--accent-ink)}
+.dl .err{color:#7a1d00;font-weight:600;min-height:0}
+.dl-fine{margin:0;font-size:12px;color:rgba(18,17,8,.65)}
+.dl .okmsg h3{font-size:26px}.dl .okmsg .lead{color:rgba(18,17,8,.75)}
+.dl .okmsg .btn-g{background:#121108;color:#f2efe8;border:0}
+.dl-r{display:grid;justify-items:center}
+.dl-ph{width:min(330px,100%);border-radius:28px;background:#f7f4ec;box-shadow:0 40px 80px -30px rgba(60,45,0,.55);overflow:hidden;transform:rotate(2.5deg)}
+.dl-top{display:flex;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid #e6e0d3;color:#151413}
+.dl-top img{width:30px;height:30px}.dl-top b{font-size:14px}.dl-top small{margin-left:auto;font-size:10.5px;color:#8a8379;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.dl-th{display:flex;flex-direction:column;gap:10px;padding:18px 16px 20px;min-height:290px}
+.bub{max-width:82%;padding:10px 13px;border-radius:18px 18px 18px 6px;background:#e9e4d8;color:#151413;font-size:13.5px;line-height:1.4;opacity:0;transform:translateY(10px) scale(.97);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.bub small{display:block;font-family:var(--mono);font-size:9.5px;color:#8a8379;margin-bottom:3px}
+.bub.me{align-self:flex-end;background:#151413;color:#f2efe8;border-radius:18px 18px 6px 18px}
+.bub.typing{display:flex;gap:4px;padding:12px 14px;width:auto}
+.bub.typing i{width:6px;height:6px;border-radius:50%;background:#8a8379;animation:tdot 1.2s infinite}
+.bub.typing i:nth-child(2){animation-delay:.15s}.bub.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.dl.show .bub{opacity:1;transform:none}
+.dl.show .bub:nth-child(2){transition-delay:.5s}.dl.show .bub:nth-child(3){transition-delay:1s}.dl.show .bub:nth-child(4){transition-delay:1.5s}
+@media (max-width:900px){.dl{grid-template-columns:1fr}.dl-ph{transform:none}}
+@media (max-width:560px){.dl-perks{grid-template-columns:1fr}.dl-perks li + li{padding-left:0;border-left:0;border-top:1px solid rgba(18,17,8,.2)}.dl-in{flex-wrap:wrap;border-radius:18px;padding:10px}.dl-go{width:100%}}
+
+
+/* ---- catering builder ---- */
+.cb{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.9fr);gap:16px;align-items:start}
+.cb-l{border:1px solid var(--line);border-radius:20px;background:#141415;padding:6px 22px}
+.cb-row{padding:18px 0;border-bottom:1px solid var(--line);display:grid;gap:12px}
+.cb-row.last{border-bottom:0}
+.cb-h{display:flex;align-items:baseline;gap:10px}
+.cb-h span{font-family:var(--mono);font-size:10.5px;color:var(--accent)}
+.cb-h b{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.cb-h small{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cb-h em{margin-left:auto;font-style:normal;font-size:22px;font-weight:600;color:var(--fg)}
+.cb-ev{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.cb-ev button{position:relative;display:grid;gap:8px;padding:6px 6px 10px;border-radius:12px;border:1px solid var(--line);background:#19191b;text-align:left;font-size:13px;font-weight:600;transition:border-color .3s,background .3s}
+.cb-ev button img{width:100%;aspect-ratio:1.35/1;object-fit:cover;border-radius:8px;filter:saturate(.7) brightness(.75);transition:filter .4s}
+.cb-ev button span{padding:0 4px;line-height:1.2}
+.cb-ev button small{display:block;font-weight:400;font-size:11px;color:var(--muted);margin-top:2px}
+.cb-ev button:hover{border-color:var(--line-2)}
+.cb-ev button.on{border-color:var(--accent);background:#1d1b14}.cb-ev button.on img{filter:none}
+.cb-seg{display:flex;flex-wrap:wrap;gap:6px}
+.cb-seg button{display:grid;gap:2px;text-align:left;padding:10px 14px;border-radius:12px;border:1px solid var(--line-2);font-size:13.5px;font-weight:600;transition:all .25s}
+.cb-seg button small{font-weight:400;font-size:11.5px;color:var(--muted)}
+.cb-seg button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.cb-seg button.on small{color:rgba(18,17,8,.7)}
+.cb-food{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.cb-food button{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:8px;border-radius:12px;border:1px solid var(--line);background:#19191b;text-align:left;transition:all .25s}
+.cb-food button .ti{width:44px;height:44px;border-radius:9px;background:#efe9df;display:grid;place-items:center;overflow:hidden}
+.cb-food button .ti img{width:88%;height:88%;object-fit:contain}
+.cb-food button b{display:block;font-size:13px;font-weight:600;line-height:1.2}
+.cb-food button small{display:block;font-size:11px;color:var(--muted);margin-top:2px}
+.cb-food button.on{border-color:var(--accent);background:#1d1b14}
+.cb-food button:disabled{opacity:.35;cursor:not-allowed}
+.cb-add{display:flex;flex-wrap:wrap;gap:6px}
+.cb-add button{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--line-2);font-size:13px;color:var(--muted);transition:all .25s}
+.cb-add button::before{content:"+";font-family:var(--mono);color:var(--accent)}
+.cb-add button i{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--dim)}
+.cb-add button.on{background:var(--fg);border-color:var(--fg);color:#111}.cb-add button.on::before{content:"✓";color:#111}.cb-add button.on i{color:#555}
+#est input[type=range]{margin-top:2px}
+#est .mm{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--dim)}
+.rc{position:sticky;top:84px;border-radius:20px;background:#f7f4ec;color:#151413;padding:20px 20px 18px;display:grid;gap:14px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.rc-top{display:flex;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px dashed #d8d1c3}
+.rc-top img{width:34px;height:34px}.rc-top b{display:block;font-size:14.5px}.rc-top small{display:block;font-size:11px;color:#7a746a;margin-top:2px}
+.rc-lines{display:grid;gap:0;max-height:300px;overflow-y:auto;scrollbar-width:thin}
+.rc-ln{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:9px 0;border-bottom:1px solid #ebe5d9;font-size:13.5px;animation:rcIn .35s var(--ease)}
+.rc-ln span{grid-column:1;grid-row:1}.rc-ln small{grid-column:1;grid-row:2;font-size:11.5px;color:#8a8379}
+.rc-ln b{font-family:var(--mono);font-size:12.5px;font-weight:600;grid-column:2;grid-row:1}
+@keyframes rcIn{from{opacity:0;transform:translateY(4px)}}
+.rc-sum{display:grid;gap:6px;font-size:12.5px;color:#6d675c}
+.rc-sum div{display:flex;justify-content:space-between}.rc-sum span:last-child{font-family:var(--mono);color:#151413}
+.rc-tot{display:flex;justify-content:space-between;align-items:baseline;padding-top:12px;border-top:2px solid #151413}
+.rc-tot span{font-weight:600;font-size:14px}.rc-tot b{font-size:clamp(30px,3vw,40px);letter-spacing:-.03em;line-height:1}
+.rc-pp{margin:-6px 0 0;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:11.5px;color:#7a746a;font-family:var(--mono)}
+.rc-go{width:100%;height:52px;background:var(--accent);color:#121108;font-weight:700;font-size:15px;border:1.5px solid var(--accent);transition:background-color .45s cubic-bezier(.4,0,.2,1),color .45s cubic-bezier(.4,0,.2,1),border-color .45s cubic-bezier(.4,0,.2,1)}
+.rc-go:hover,.rc-go:focus-visible{background:#121108;color:var(--accent);border-color:#121108}
+.rc-fine{margin:0;font-size:11px;color:#8a8379;line-height:1.45}
+@media (max-width:1100px){.cb{grid-template-columns:1fr}.rc{position:relative;top:0}.cb-ev{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.cb-l{padding:2px 14px}.cb-ev{grid-template-columns:repeat(2,minmax(0,1fr))}.cb-food{grid-template-columns:1fr 1fr}}
+@media (max-width:420px){.cb-food{grid-template-columns:1fr}}
+
+
+/* ---- instagram v3: profile grid ---- */
+.ig3-hd{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:20px 40px;margin-bottom:clamp(24px,3vw,36px)}
+.ig3-prof{display:flex;align-items:center;gap:12px;grid-column:1/-1}
+.ig3-av{width:52px;height:52px;border-radius:50%;padding:2px;background:conic-gradient(from 200deg,#ffd400,#ff7a00,#e1306c,#ffd400)}
+.ig3-av img{width:100%;height:100%;border-radius:50%;border:2px solid var(--bg);background:#000}
+.ig3-prof b{display:block;font-size:16px}.ig3-prof small{display:block;font-size:12.5px;color:var(--muted)}
+.ig3-hd h2{grid-column:1/3;font-size:clamp(34px,4vw,56px)}
+.ig3{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.ig3-t{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#161617;padding:0;color:#fff;text-align:left;isolation:isolate}
+.ig3-t.big{grid-column:span 2;grid-row:span 2}
+.ig3-t img,.ig3-t video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease)}
+.ig3-t:hover img{transform:scale(1.04)}
+.ig3-pv{opacity:0;transition:opacity .45s var(--ease)!important}.ig3-pv.on{opacity:1}
+.ig3-t::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,0) 45%),linear-gradient(180deg,rgba(0,0,0,.35),transparent 22%)}
+.ig3-tg{position:absolute;left:12px;top:12px;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:5px 8px;border-radius:6px;background:rgba(10,10,10,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.ig3-pl{position:absolute;right:12px;top:12px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:rgba(10,10,10,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .3s}
+.ig3-pl i{width:0;height:0;border-left:8px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
+.ig3-t:hover .ig3-pl{background:var(--accent)}.ig3-t:hover .ig3-pl i{border-left-color:#111}
+.ig3-cap{position:absolute;left:12px;right:12px;bottom:12px;display:grid;gap:3px}
+.ig3-cap b{font-size:14px;line-height:1.2}.ig3-cap small{font-size:11.5px;color:#cfcbc3;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ig3-t.big .ig3-cap{left:20px;bottom:20px;right:20px}.ig3-t.big .ig3-cap b{font-size:clamp(22px,2.2vw,30px);letter-spacing:-.02em}.ig3-t.big .ig3-cap small{font-size:14px}
+.ig3-t.big .ig3-tg{left:18px;top:18px;background:var(--accent);color:#111}
+.ig3-ft{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:28px}.ig3-ft span{font-size:14px;color:var(--muted)}.ig3-ft b{color:var(--fg)}
+@media (max-width:900px){.ig3{grid-template-columns:repeat(3,minmax(0,1fr))}.ig3-t.big{grid-column:span 3;grid-row:auto;aspect-ratio:4/5}.ig3-hd{grid-template-columns:1fr}.ig3-hd h2{grid-column:auto}.ig3-hd .btn{justify-self:start}}
+@media (max-width:520px){.ig3{grid-template-columns:repeat(2,minmax(0,1fr))}.ig3-t.big{grid-column:span 2}.ig3-t:last-child{display:none}}
+
+
+/* ---- story v3: a night at Prime ---- */
+.sn-hd{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px 56px;align-items:end;margin-bottom:clamp(36px,4vw,56px)}
+.sn-hd h2{font-size:clamp(34px,4vw,58px)}
+.sn-intro{display:grid;gap:12px;color:var(--muted);font-size:15.5px;line-height:1.6;max-width:48ch}
+.sn-intro p:first-child{color:#d6d3cc}
+.sn{position:relative}
+.sn-track{position:relative;height:2px;background:var(--line-2);margin:0 0 26px}
+.sn-fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,rgba(255,212,0,.15),var(--accent));transition:width 1s var(--ease)}
+.sn-now{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(255,212,0,.18),0 0 18px rgba(255,212,0,.6);transition:left 1s var(--ease)}
+.sn-now b{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);white-space:nowrap;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#111;background:var(--accent);padding:4px 8px;border-radius:6px}
+.sn-now.off{background:var(--dim);box-shadow:none}.sn-now.off b{background:var(--surface-2);color:var(--muted)}
+.sn-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.4vw,20px)}
+.sn-c{position:relative;display:grid;gap:10px;align-content:start;color:var(--fg)}
+.sn-dot{position:absolute;left:50%;top:-33px;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;background:var(--bg);border:1.5px solid var(--line-2);transition:background .4s,border-color .4s}
+.sn-c.past .sn-dot,.sn-c.on .sn-dot{background:var(--accent);border-color:var(--accent)}
+.sn-t{font-family:"Doto",var(--mono);font-weight:900;font-size:clamp(26px,2.6vw,38px);line-height:1;letter-spacing:.02em;color:#ece8de;text-shadow:0 0 10px rgba(236,232,222,.2)}
+.sn-c.on .sn-t{color:var(--accent);text-shadow:0 0 12px rgba(255,212,0,.45)}
+.sn-ph{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#161617;outline:1px solid var(--line);outline-offset:-1px;transition:outline-color .4s}
+.sn-ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.9);transition:transform 1.2s var(--ease),filter .6s}
+.sn-c:hover .sn-ph img,.sn-c.on .sn-ph img{transform:scale(1.04);filter:none}
+.sn-c.on .sn-ph{outline:2px solid var(--accent)}
+.sn-c b{font-size:18px;letter-spacing:-.02em;margin-top:4px}
+.sn-p{font-size:13.5px;line-height:1.5;color:var(--muted)}
+.sn-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(36px,4vw,56px);padding-top:22px;border-top:1px solid var(--line)}
+.sn-facts div{display:grid;gap:4px;padding:0 clamp(14px,2vw,26px)}.sn-facts div:first-child{padding-left:0}
+.sn-facts div + div{border-left:1px solid var(--line-2)}
+.sn-facts small{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.sn-facts b{font-size:19px;letter-spacing:-.01em}.sn-facts span{font-size:13px;color:var(--muted)}
+@media (max-width:900px){.sn-hd{grid-template-columns:1fr}.sn-track{display:none}.sn-row{grid-template-columns:1fr;gap:0;border-left:2px solid var(--line-2);margin-left:6px}
+ .sn-c{grid-template-columns:110px 1fr;grid-template-rows:auto auto 1fr;gap:4px 16px;padding:0 0 24px 22px}
+ .sn-dot{left:-6px;top:8px;margin:0}.sn-t{grid-column:2;font-size:26px}.sn-ph{grid-column:1;grid-row:1/4;aspect-ratio:1}.sn-c b{grid-column:2;margin:0}.sn-p{grid-column:2}
+ .sn-facts{grid-template-columns:1fr 1fr;row-gap:20px}.sn-facts div:nth-child(3){border-left:0;padding-left:0}}
+
+
+/* ---- menu item detail ---- */
+.pc{text-align:left;color:inherit;padding:0;cursor:pointer}
+.pc-go{position:absolute;right:12px;bottom:12px;padding:8px 13px;border-radius:999px;background:var(--accent);color:#111;font-size:12.5px;font-weight:700;opacity:0;transform:translateY(6px);transition:opacity .35s var(--ease),transform .4s var(--ease)}
+.pc:hover .pc-go,.pc:focus-visible .pc-go{opacity:1;transform:none}
+@media (hover:none){.pc-go{opacity:1;transform:none}}
+.itm{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:16px;visibility:hidden}
+.itm.open{visibility:visible}
+.itm-scrim{position:absolute;inset:0;background:rgba(6,6,6,.72);opacity:0;transition:opacity .35s}
+.itm.open .itm-scrim{opacity:1}
+.itm-box{position:relative;width:min(860px,100%);max-height:calc(100svh - 32px);overflow:auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);border-radius:24px;background:#f7f4ec;color:#151413;box-shadow:0 40px 100px -30px rgba(0,0,0,.85);transform:translateY(24px) scale(.98);opacity:0;transition:transform .5s var(--ease),opacity .35s}
+.itm.open .itm-box{transform:none;opacity:1}
+.itm-ph{min-height:320px;background:#1a1918}.itm-ph img{width:100%;height:100%;object-fit:cover}
+.itm-tx{padding:30px 28px 26px;display:grid;gap:12px;align-content:center;justify-items:start}
+.itm-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#a8820a}
+.itm-tx h3{font-size:clamp(26px,3vw,36px);letter-spacing:-.03em}
+.itm-tx>b{font-size:20px;font-weight:600}
+.itm-tx p{font-size:15px;line-height:1.55;color:#5f5a52}
+.itm-li{list-style:none;margin:4px 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.itm-li li{font-size:12px;padding:6px 10px;border-radius:999px;background:#ebe5d8;color:#3d3933}
+.itm-go{width:100%;height:52px;background:var(--accent);color:#121108;font-weight:700;border:1.5px solid var(--accent);transition:background-color .45s cubic-bezier(.4,0,.2,1),color .45s cubic-bezier(.4,0,.2,1),border-color .45s}
+.itm-go:hover{background:#121108;color:var(--accent);border-color:#121108}
+.itm .tlink{color:#151413;font-size:13.5px}
+.itm-x{position:absolute;right:14px;top:14px;z-index:2;width:40px;height:40px;border-radius:50%;background:rgba(247,244,236,.92);color:#151413;font-size:20px}
+@media (max-width:700px){.itm-box{grid-template-columns:1fr}.itm-ph{min-height:0;aspect-ratio:4/3}}
 
 /* ---- numbers: stat cards ---- */
 .num-hd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:40px;align-items:end;margin-bottom:clamp(28px,3vw,44px)}
@@ -625,9 +862,9 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 /* ---- our story: regulars switcher ---- */
 .st-hd{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:end;margin-bottom:clamp(26px,3vw,40px)}
 .st-hd h2{font-size:clamp(36px,4vw,60px)}
-.stc{display:grid;grid-template-columns:minmax(200px,.62fr) minmax(0,1.25fr) minmax(0,1fr);gap:clamp(16px,2vw,28px);padding:clamp(14px,1.4vw,20px);border-radius:24px;background:#f7f4ec;color:#151413;min-height:clamp(440px,38vw,560px)}
+.stc{display:grid;grid-template-columns:minmax(190px,.58fr) minmax(0,1.1fr) minmax(0,1fr);gap:clamp(16px,2vw,28px);padding:clamp(14px,1.4vw,20px);border-radius:24px;background:#f7f4ec;color:#151413;min-height:clamp(420px,34vw,520px)}
 .stc-list{display:grid;align-content:start;gap:2px;padding:8px 0}
-.stc-list::before{content:"Regulars";display:block;margin:0 0 10px 10px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8a8379}
+.stc-list::before{content:"Six things";display:block;margin:0 0 10px 10px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8a8379}
 .stc-list button{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;text-align:left;transition:background .3s}
 .stc-list button:hover{background:#efeadf}.stc-list button.on{background:#e9e2d3}
 .stc-list b{display:block;font-size:13.5px;font-weight:600}.stc-list small{display:block;font-size:11.5px;color:#8a8379}
@@ -639,7 +876,7 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .stc-stat{margin-top:auto}
 .stc-stat b{display:block;font-size:clamp(46px,5vw,76px);font-weight:600;letter-spacing:-.045em;line-height:1;color:#c99a00}
 .stc-stat small{display:block;margin-top:6px;font-size:13px;color:#7a746a}
-.stc-q{margin:22px 0 auto;font-family:"Instrument Serif",Georgia,serif;font-size:clamp(22px,2.1vw,32px);line-height:1.2;letter-spacing:-.005em;max-width:24ch}
+.stc-q{margin:22px 0 auto;font-family:"Instrument Serif",Georgia,serif;font-size:clamp(21px,1.9vw,29px);line-height:1.2;letter-spacing:-.005em;max-width:24ch}
 .stc-q span{display:inline-block;opacity:0;filter:blur(6px);transform:translateY(4px);transition:opacity .5s,filter .6s,transform .6s var(--ease)}
 .stc-q.in span{opacity:1;filter:none;transform:none}
 .stc-ft{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:24px}
@@ -649,13 +886,20 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .stc-ph{position:relative;border-radius:16px;overflow:hidden;background:#d9d2c5}
 .stc-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.05);transition:opacity .8s var(--ease),transform 2.4s var(--ease)}
 .stc-ph img.on{opacity:1;transform:none}
+.stc-prog{height:2px;border-radius:2px;background:#e4ded1;margin-top:20px;overflow:hidden}.stc-prog i{display:block;height:100%;width:100%;background:#151413;transform:scaleX(0);transform-origin:left}
+.stc-prog.run i{animation:fill 6.5s linear forwards}
+.stc-list button .stc-av{font-size:10px}
 .stc-tag{position:absolute;left:12px;bottom:12px;z-index:2;padding:6px 11px;border-radius:999px;background:rgba(250,248,243,.92);font-size:11.5px;font-weight:600}
 @media (max-width:1000px){.stc{grid-template-columns:1fr 1fr}.stc-list{display:none}.st-hd{grid-template-columns:1fr}}
 @media (max-width:640px){.stc{grid-template-columns:1fr}.stc-ph{aspect-ratio:4/3;order:-1}}
 
 
-.fx{position:relative;background:#0c0c0d;color:#f2efe8;overflow:hidden;padding-top:clamp(56px,7vw,96px);font-family:Archivo,system-ui,sans-serif}
+.fx{position:relative;background:#0c0c0d;color:#f2efe8;overflow:hidden;padding-top:clamp(40px,5vw,64px);font-family:Archivo,system-ui,sans-serif}
 .fx-in{width:min(1180px,100% - 2*clamp(18px,4vw,48px));margin-inline:auto}
+.fx-live{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-bottom:clamp(28px,3vw,40px);margin-bottom:clamp(28px,3vw,40px);border-bottom:1px solid rgba(242,239,232,.08)}
+.led.led-sm{width:min(250px,100%);font-size:13px;padding:5px 9px 6px;border-radius:6px}
+.fx-live-t{font-size:13.5px;color:#8e8a83;margin-right:auto}
+@media (max-width:600px){.fx-live-t{order:3;width:100%}}
 .fx-top{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(4,minmax(0,.7fr));gap:clamp(22px,3vw,44px)}
 .fx-logo{display:inline-flex;align-items:center;gap:12px;font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:20px;letter-spacing:.01em;color:#fff;text-decoration:none}
 .fx-logo img{width:44px;height:44px}
@@ -668,7 +912,14 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .fx-a span::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
 .fx-a:hover,.fx-a:focus-visible{color:#fff}
 .fx-a:hover span::after,.fx-a:focus-visible span::after{transform:scaleX(1);transform-origin:left}
-.fx-bot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:clamp(40px,5vw,64px);font-size:12.5px;color:#6f6b65}
+.fx-bot{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;margin-top:clamp(40px,5vw,64px);padding-top:22px;border-top:1px solid rgba(242,239,232,.08);font-size:12.5px;color:#6f6b65}
+.fx-b-l{justify-self:start}.fx-b-r{justify-self:end;text-align:right}
+.fx-credit{justify-self:center;display:inline-flex;align-items:center;gap:10px;color:#8e8a83;text-decoration:none;white-space:nowrap;transition:color .35s}
+.fx-credit b{font-weight:600;color:#d6d3cc;letter-spacing:.01em;transition:color .35s}
+.fx-credit i{width:4px;height:4px;border-radius:50%;background:var(--accent)}
+.fx-credit span{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:14px}
+.fx-credit:hover b{color:var(--accent)}.fx-credit:hover{color:#f2efe8}
+@media (max-width:980px){.fx-bot{grid-template-columns:1fr;justify-items:center;text-align:center;gap:10px}.fx-b-l,.fx-b-r{justify-self:center;text-align:center}.fx-credit{order:-1;white-space:normal;flex-direction:column;gap:4px}.fx-credit i{display:none}}
 .fx-mark{position:relative;margin-top:clamp(18px,2.4vw,34px);height:min(9.6vw,150px);overflow:hidden;display:flex;justify-content:center;pointer-events:none;user-select:none}
 .fx-mark span{display:block;font-weight:900;font-stretch:100%;text-transform:uppercase;white-space:nowrap;font-size:min(12.6vw,196px);line-height:.8;letter-spacing:-.05em;background:linear-gradient(180deg,rgba(255,212,0,.06) 0%,rgba(255,212,0,.28) 32%,#c99a00 68%,#ffd400 100%);-webkit-background-clip:text;background-clip:text;color:transparent;transform:translateY(8%)}
 @media (max-width:980px){.fx-top{grid-template-columns:repeat(2,minmax(0,1fr))}.fx-brand{grid-column:1/-1}}
@@ -735,9 +986,8 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 @media (max-width:760px){.sheet{grid-template-columns:0 1fr}.sh-item{grid-template-columns:64px minmax(0,1fr)}.thumb{width:64px;height:64px}.sh-item .r{grid-column:2;justify-items:start;grid-auto-flow:column;align-items:center;gap:14px}}
 body.lock{overflow:hidden}
 </style>
-</head><body>
 
-<header class="hdr" id="hdr">
+</head><body><header class="hdr" id="hdr">
   <div class="wide hdr-in">
     <a class="brand" href="#top" aria-label="Prime Eatery home"><img src="brand/logo.png" alt="" width="52" height="52">Prime Eatery</a>
     <nav class="nav" aria-label="Main"><a href="menu.html">Menu</a><a href="#hours">Hours</a><a href="#catering">Catering</a><a href="#events">Events</a><a href="#story">Our story</a></nav>
@@ -767,7 +1017,7 @@ body.lock{overflow:hidden}
   <div class="wide hero-copy">
     <p class="hc-kick rv"><span>Dearborn, MI</span><i></i><span>Est. 2022</span><i></i><span>100% halal</span></p>
     <h1 class="rv">Loaded burgers &amp; rice bowls, made to order <em>till 3&nbsp;am.</em></h1>
-    <p class="lead rv">Order ahead and skip the counter. Or book Prime for the party, the office lunch, the walima.</p>
+    <p class="lead rv">Order ahead and skip the line. Or book Prime for the party, the office lunch or the walima.</p>
     <div class="hero-cta rv"><a class="btn btn-p shbtn" data-dd="hero" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a><a class="tlink" href="#catering">Book catering <span class="arr">↗</span></a></div>
     <a class="hc-proof rv" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener"><span class="st" aria-hidden="true">★★★★★</span><b>4.8</b><span>from 1,742 Google reviews</span></a>
   </div>
@@ -789,9 +1039,9 @@ body.lock{overflow:hidden}
     </div>
     <div>
       <div class="stack" style="display:grid;gap:16px">
-        <p class="eyebrow">Where we are right now</p>
-        <h2 class="rv">Tonight's counter, and the rest of the week.</h2>
-        <p class="lead">One kitchen on Michigan Ave, open late every night. Tap a night for the crew's pick and order it ahead.</p>
+        <p class="eyebrow">Hours and nightly picks</p>
+        <h2 class="rv">Open tonight, and every night this week.</h2>
+        <p class="lead">One kitchen on Michigan Ave, open late seven nights a week. Every night has a crew pick you can order ahead.</p>
       </div>
       <div class="days" id="dayList"></div>
       <div class="days-acts"><a class="btn btn-g" href="menu.html">Full menu</a><a class="btn btn-p shbtn" data-dd="find_list" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a></div>
@@ -799,28 +1049,19 @@ body.lock{overflow:hidden}
   </div>
 </section>
 
-<section class="band" id="menu">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="stack"><p class="eyebrow">The menu board</p><h2 class="rv">Made to order. Nothing waits under a heat lamp.</h2><p class="lead">Six things regulars order most. The full menu has thirty, all halal, with grilled or crispy on every bowl.</p></div>
-      <a class="btn btn-g" href="menu.html">See the full menu</a>
-    </div>
-    <div class="pgrid" id="board"></div>
-  </div>
-</section>
-
-
 <section class="band" id="order">
-  <div class="wide ord">
-    <div class="ord-tx">
+  <div class="wide">
+    <header class="ord-hd">
       <p class="eyebrow">Order ahead</p>
-      <h2 class="rv">The whole counter, <em>on your phone.</em></h2>
+      <h2 class="rv">Order ahead. The whole counter, <em>on your phone.</em></h2>
       <p class="lead">Pick it on the way over, pay in two taps, grab it off the pickup shelf. No app to download, no line to stand in.</p>
-      <div class="ord-tabs" id="ordTabs" role="tablist"><button type="button" class="on" data-s="0">Menu</button><button type="button" data-s="1">Your order</button><button type="button" data-s="2">Checkout</button><button type="button" data-s="3">Pickup</button></div>
-      <div class="ord-acts"><a class="btn btn-p shbtn" data-dd="order_section" href="#" target="_blank" rel="noopener">Start an order <span class="arr">→</span></a><a class="tlink" id="ueLink" href="#" target="_blank" rel="noopener">Also on Uber Eats <span class="arr">↗</span></a></div>
-    </div>
+      <div class="ord-tabs" id="ordTabs" role="tablist"><button type="button" class="on" data-s="0"><i>01</i>Menu</button><button type="button" data-s="1"><i>02</i>Your order</button><button type="button" data-s="2"><i>03</i>Checkout</button><button type="button" data-s="3"><i>04</i>Pickup</button></div>
+    </header>
     <div class="ord-stage">
-      <div class="fcard fl" id="fcL"><span class="fi">◎</span><small id="fcLk">01 · Menu</small><b id="fcLt">The full menu, live</b><p id="fcLp">Every burger, bowl and shake with the same add-ons as the counter.</p></div>
+      <div class="ord-side l">
+        <div class="fcard fl" id="fcL"><span class="fi">◎</span><small id="fcLk">01 · Menu</small><b id="fcLt">The full menu, live</b><p id="fcLp">Every burger, bowl and shake, with the same add-ons you get in store.</p></div>
+        <div class="ord-mini"><div><b>30</b><span>items on the board</span></div><div><b>100%</b><span>halal kitchen</span></div></div>
+      </div>
       <div class="iph rv" aria-hidden="true"><i class="ib ib1"></i><i class="ib ib2"></i><i class="ib ib3"></i><i class="ib ib4"></i>
         <div class="iph-scr">
           <div class="iph-isl"></div>
@@ -828,8 +1069,9 @@ body.lock{overflow:hidden}
           <div class="ps on" data-s="0">
             <div class="ps-hd"><img src="brand/logo.png" alt=""><span>Prime Eatery</span><em>Open</em></div>
             <div class="ps-search">Search burgers, bowls, wings</div>
-            <div class="ps-chips"><span class="on">Popular</span><span>Burgers</span><span>Bowls</span><span>Wings</span></div>
-            <div class="ps-list" id="phList"></div>
+            <div class="ps-chips" id="phChips"></div>
+            <div class="ps-scroll" id="phScroll"><div class="ps-list" id="phList"></div></div>
+            <div class="ps-bag" id="phBag"><span>View bag · <b id="phBagN">1</b></span><span id="phBagT">$16.00</span></div>
           </div>
           <div class="ps" data-s="1">
             <div class="ps-hero"><img src="photos/cut/mexicana-burger.webp" alt=""></div>
@@ -857,38 +1099,50 @@ body.lock{overflow:hidden}
           <div class="iph-home"></div>
         </div>
       </div>
-      <div class="fcard fr" id="fcR"><span class="fi">✦</span><small id="fcRk">Pickup</small><b id="fcRt">Ready in ~15 min</b><p id="fcRp">Most orders are on the shelf before you park.</p></div>
+      <div class="ord-side r">
+        <div class="fcard fr" id="fcR"><span class="fi">✦</span><small id="fcRk">Popular</small><b id="fcRt">Regulars’ picks up top</b><p id="fcRp">The most-ordered items show first, so you can grab and go.</p></div>
+        <a class="ord-rate" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener"><span class="st" aria-hidden="true">★★★★★</span><span><b>4.8</b> · 1,742 Google reviews</span></a>
+      </div>
     </div>
+    <div class="ord-acts"><a class="btn btn-p shbtn" data-dd="order_section" href="#" target="_blank" rel="noopener">Start an order <span class="arr">→</span></a><a class="tlink" id="ueLink" href="#" target="_blank" rel="noopener">Also on Uber Eats <span class="arr">↗</span></a></div>
   </div>
 </section>
 
-<section class="band" id="numbers">
-  <div class="wide">
-    <div class="num-hd"><div><p class="eyebrow">Since 2022</p><h2 class="rv">Numbers from <em>the counter.</em></h2></div><p class="lead">One kitchen on Michigan Ave, a crew that knows regulars by their order, and a fryer that doesn't clock out until 3.</p></div>
-    <div class="ncards" id="stats">
-      <article class="nc" style="--c:#ffd400"><div class="nc-h"><span class="nc-i">★</span>Google rating</div><b data-count="4.8" data-dec="1">4.8</b><p><em>▲ 0.3</em> since 2023 · 1,742 reviews</p><svg class="nc-g" viewBox="0 0 300 90" preserveAspectRatio="none" data-pts="62,60,64,61,66,70,69,74,78,80,79,84"></svg></article>
-      <article class="nc" style="--c:#ff9f1c"><div class="nc-h"><span class="nc-i">◐</span>Orders after 10 PM</div><b data-count="41" data-suf="%">41%</b><p><em>▲ 6%</em> vs last year · late nights</p><svg class="nc-g" viewBox="0 0 300 90" preserveAspectRatio="none" data-pts="30,34,33,40,38,46,52,50,58,63,61,70"></svg></article>
-      <article class="nc" style="--c:#f2efe8"><div class="nc-h"><span class="nc-i">◍</span>Prime Bowls a month</div><b data-count="3600" data-suf="+">3,600+</b><p><em>▲ 18%</em> vs last quarter</p><svg class="nc-g" viewBox="0 0 300 90" preserveAspectRatio="none" data-pts="40,42,41,48,52,50,57,61,66,64,72,78"></svg></article>
-      <article class="nc" style="--c:#8fe07a"><div class="nc-h"><span class="nc-i">⏱</span>Average pickup</div><b data-count="15" data-suf=" min">15 min</b><p><em>▼ 3 min</em> faster since ordering ahead</p><svg class="nc-g" viewBox="0 0 300 90" preserveAspectRatio="none" data-pts="70,66,67,60,62,55,52,50,46,47,42,40"></svg></article>
+<section class="band" id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="stack"><p class="eyebrow">The menu board</p><h2 class="rv">Made to order. Nothing waits under a heat lamp.</h2><p class="lead">Six things regulars order most. The full menu has thirty, all halal, with grilled or crispy on every bowl.</p></div>
+      <a class="btn btn-g" href="menu.html">See the full menu</a>
     </div>
+    <div class="pgrid" id="board"></div>
   </div>
 </section>
+
 
 <section class="band" id="catering">
   <div class="wide">
     <div class="cat-hd"><div><p class="eyebrow">Catering and events</p><h2 class="rv">Book Prime. We bring the food, <em>the crew and the sauce.</em></h2></div><div class="cat-hd-r"><p class="lead">Trays, boxed lunches or a staffed hot line. Dearborn, Dearborn Heights and all of Metro Detroit, 100% halal.</p><div class="cat-hd-a"><button class="btn btn-p shbtn" type="button" data-plan>Plan an event <span class="arr">→</span></button><a class="tlink" href="#cmenu">See the catering menu <span class="arr">↓</span></a></div></div></div>
-    <div class="cat2">
-      <div class="pks" id="pks"></div>
-      <div class="est" id="est">
-        <p class="est-k">Instant estimate</p>
-        <div class="rng"><label for="guests">Guests <b class="mono" id="gOut">60</b></label><input id="guests" type="range" min="20" max="400" step="5" value="60"><div class="mm"><span>20</span><span>400</span></div></div>
-        <div class="rng"><label>Service</label><div class="seg" id="svcSeg"><button type="button" class="on" data-v="drop">Drop-off</button><button type="button" data-v="staff">Staffed line</button></div></div>
-        <div class="lines"><div class="ln"><span id="qLine1">Party: 60 × $18</span><span id="qFood">$1,080</span></div><div class="ln"><span id="qMinL">Minimum met</span><span id="qMin">✓</span></div><div class="ln"><span>Service</span><span id="qSvc">$0</span></div></div>
-        <div class="tot"><div><small>Estimated total</small><b class="mono" id="qTot" style="font-family:var(--f)">$1,080</b><p class="fine" id="qDep">25% deposit ($270) holds the date</p></div><button class="btn btn-g" id="reqDate" type="button" data-plan>Request this date →</button></div>
+    <div class="cb" id="est">
+      <div class="cb-l">
+        <div class="cb-row"><div class="cb-h"><span>01</span><b>What's the event?</b></div><div class="cb-ev" id="cbEv"></div></div>
+        <div class="cb-row"><div class="cb-h"><span>02</span><b>How many guests?</b><em class="mono" id="gOut">60</em></div><input id="guests" type="range" min="15" max="400" step="5" value="60" aria-label="Guests"><div class="mm"><span>15</span><span>100</span><span>200</span><span>300</span><span>400</span></div></div>
+        <div class="cb-row"><div class="cb-h"><span>03</span><b>How should we serve it?</b></div><div class="cb-seg" id="cbFmt"></div></div>
+        <div class="cb-row"><div class="cb-h"><span>04</span><b>Pick the food</b><small>up to 3</small></div><div class="cb-food" id="cbFood"></div></div>
+        <div class="cb-row"><div class="cb-h"><span>05</span><b>Add-ons</b></div><div class="cb-add" id="cbAdd"></div></div>
+        <div class="cb-row last"><div class="cb-h"><span>06</span><b>Delivery distance</b></div><div class="cb-seg" id="cbMi"></div></div>
       </div>
+      <aside class="rc" aria-live="polite">
+        <div class="rc-top"><img src="brand/logo.png" alt=""><div><b>Prime Eatery Catering</b><small class="mono" id="rcSub">Party · 60 guests · drop-off</small></div></div>
+        <div class="rc-lines" id="rcLines"></div>
+        <div class="rc-sum"><div><span>Subtotal</span><span id="rcSub2">$0</span></div><div><span>Michigan sales tax 6%</span><span id="rcTax">$0</span></div><div><span id="rcDelL">Delivery</span><span id="rcDel">Free</span></div></div>
+        <div class="rc-tot"><span>Estimated total</span><b id="qTot">$0</b></div>
+        <p class="rc-pp"><span id="rcPP">$0 per guest</span><span id="qDep">25% deposit holds the date</span></p>
+        <button class="btn rc-go" id="reqDate" type="button" data-plan>Request this date <span class="arr">→</span></button>
+        <p class="rc-fine">Estimate from our catering menu. Final quote confirmed by phone within a few hours.</p>
+      </aside>
     </div>
     <div class="specs">
-      <div class="spec"><small>Guests</small><b>20 to 400</b><p>One kitchen, one crew, trays sized to your count.</p></div>
+      <div class="spec"><small>Guests</small><b>15 to 400</b><p>One kitchen, one crew, trays sized to your count.</p></div>
       <div class="spec"><small>Notice</small><b>48 hours</b><p>Three weeks for weddings and walimas.</p></div>
       <div class="spec"><small>Kitchen</small><b>100% halal</b><p>From the fryer oil up. Ask about allergies.</p></div>
       <div class="spec"><small>Delivery</small><b>Free within 8 mi</b><p>Dearborn, Dearborn Heights, Detroit. $2/mi after.</p></div>
@@ -902,23 +1156,29 @@ body.lock{overflow:hidden}
 
 <section class="band" id="events" style="padding-top:clamp(40px,6vw,80px)">
   <div class="wide">
-    <div class="ev-hd"><div><p class="eyebrow">Events we cater</p><h2 class="rv">Walimas, game days, office lunches <em>and one very late grad party.</em></h2></div><button class="btn btn-p shbtn" type="button" data-plan>Plan an event <span class="arr">→</span></button></div>
+    <div class="ev-hd"><div><p class="eyebrow">Events we cater</p><h2 class="rv">Walimas, game days, office lunches <em>and parties that run late.</em></h2></div><button class="btn btn-p shbtn" type="button" data-plan>Plan an event <span class="arr">→</span></button></div>
     <div class="evb" id="ev"></div>
   </div>
 </section>
 
 <section class="band" id="reels">
-  <div class="wide ig2-hd">
-    <div><p class="eyebrow">On Instagram · @primeeatery</p><h2 class="ig2-t">Fresh off the grill,<br><em>straight from the feed.</em></h2></div>
-    <div class="ig2-r"><a class="btn btn-g" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg> Follow @primeeatery</a><div class="ig2-nav"><button type="button" id="igPrev" aria-label="Previous">←</button><button type="button" id="igNext" aria-label="Next">→</button></div></div>
+  <div class="wrap">
+    <div class="ig3-hd">
+      <a class="ig3-prof" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener">
+        <span class="ig3-av"><img src="brand/logo.png" alt=""></span>
+        <span><b>@primeeatery</b><small>Prime Eatery Burgers &amp; Sandwiches · Dearborn</small></span>
+      </a>
+      <h2 class="rv">Straight from <em>the kitchen's camera roll.</em></h2>
+      <a class="btn btn-g" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg> Follow</a>
+    </div>
+    <div class="ig3" id="mqIg"></div>
+    <div class="ig3-ft"><a class="btn btn-p shbtn" data-dd="reels" href="#" target="_blank" rel="noopener">Order what you just saw <span class="arr">→</span></a><span>Tap any reel to watch it with sound. Tag <b>@primeeatery</b> and we'll repost the best ones.</span></div>
   </div>
-  <div class="ig-vp" id="mqIg"><div class="ig-track" id="reelRow"></div></div>
-  <div class="wide ig2-cta"><a class="btn btn-p shbtn" data-dd="reels" href="#" target="_blank" rel="noopener">Order what you just saw <span class="arr">→</span></a><span>Tag <b>@primeeatery</b> and we'll repost the best ones.</span></div>
 </section>
 
 <section class="band rv2" id="reviews">
   <div class="wide rv2-h">
-    <div class="rv2-l"><p class="eyebrow">Real Google reviews</p><h2 class="rv">Said at the counter.</h2><p class="lead">Unedited, from regulars. Late-night runs, family orders and first bites.</p>
+    <div class="rv2-l"><p class="eyebrow">Real Google reviews</p><h2 class="rv">What regulars say.</h2><p class="lead">Straight from Google, unedited. Late-night runs, family orders and first visits.</p>
       <a class="rv2-link" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener">Read them on Google <span class="arr">→</span></a></div>
     <a class="lau" id="lau" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener" aria-label="Rated 4.8 out of 5 from 1,742 Google reviews"></a>
   </div>
@@ -927,40 +1187,53 @@ body.lock{overflow:hidden}
 </section>
 
 <section class="band" id="story">
-  <div class="wide">
-    <div class="st-hd"><div><p class="eyebrow">Our story · since 2022</p><h2 class="rv">It started with one counter <em>on Michigan Ave.</em></h2></div><p class="lead">A small halal kitchen behind the Masri Medical Building, built because we wanted a real meal at 1 AM. These are the people who keep it going.</p></div>
-    <div class="stc rv" id="stc">
-      <div class="stc-list" id="stList" role="tablist" aria-label="Regulars"></div>
-      <div class="stc-mid">
-        <div class="stc-top"><span class="stc-brand"><img src="brand/logo.png" alt="">Prime Eatery</span><span class="mono" id="stCnt">01 / 08</span></div>
-        <div class="stc-stat"><b id="stBig">100%</b><small id="stSmall">halal kitchen</small></div>
-        <blockquote class="stc-q" id="stQ"></blockquote>
-        <div class="stc-ft"><div class="stc-who"><span class="stc-av" id="stAv">SS</span><span><b id="stName">Sam S.</b><small id="stRole">Local Guide</small></span></div><div class="stc-nav"><a class="tlink" id="stOrder" href="#" target="_blank" rel="noopener">Order it <span class="arr">↗</span></a><button type="button" id="stPrev" aria-label="Previous">←</button><button type="button" id="stNext" aria-label="Next">→</button></div></div>
-      </div>
-      <div class="stc-ph" id="stPh"><span class="stc-tag" id="stTag">Regular</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="band smsband" id="deals">
-  <div class="wrap sms">
-    <div style="display:grid;gap:16px"><p class="eyebrow">Get the deals first</p><h2>One text when a deal drops. Nothing else.</h2><p class="lead">BOGO bowls, $4.99 sandwich months, game-day trays. Reply STOP any time.</p></div>
-    <div class="sms-box" id="smsWrap">
-      <form id="smsForm" novalidate>
-        <div class="fld"><label for="smsPhone">Mobile number</label><input id="smsPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(313) 555-0142"></div>
-        <div class="fld"><label for="smsFav">Usual order</label><select id="smsFav" name="fav"><option>Burgers</option><option>Rice bowls</option><option>Chicken sandwiches</option><option>Wings and tenders</option><option>Catering</option></select></div>
-        <button class="btn btn-p" type="submit">Send it</button>
-        <p class="err" id="smsErr" aria-live="polite"></p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<section class="band" style="padding-bottom:0">
   <div class="wrap">
-    <div class="closing">
-      <div class="l"><p class="eyebrow">Hungry? Here's what the counter says right now</p><div class="led" id="led2wrap" aria-hidden="true"><div class="l1" id="ledB1">Today · Fri 30 Oct</div><div class="l2"><span id="ledB2">Open till 3 AM · Michigan Ave ·</span></div></div></div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-p shbtn" data-dd="closing" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a><a class="btn btn-g" href="#catering">Book catering</a></div>
+    <div class="sn-hd">
+      <div><p class="eyebrow">Our story · since 2022</p><h2 class="rv">Built for the hours <em>everyone else is closed.</em></h2></div>
+      <div class="sn-intro"><p>Prime Eatery is one halal kitchen tucked behind the Masri Medical Building on Michigan Ave. We opened in 2022 because there was nowhere in Dearborn to get a real meal at 1 AM.</p><p>Here's what a night at Prime looks like, from the first order to last call.</p></div>
+    </div>
+    <div class="sn" id="sn">
+      <div class="sn-track" aria-hidden="true"><i class="sn-fill" id="snFill"></i><i class="sn-now" id="snNow"><b id="snNowT">Now</b></i></div>
+      <div class="sn-row" id="snRow"></div>
+    </div>
+    <div class="sn-facts">
+      <div><small>Since</small><b>2022</b><span>One counter, same address</span></div>
+      <div><small>Kitchen</small><b>100% halal</b><span>From the fryer oil up</span></div>
+      <div><small>Last call</small><b>3 AM</b><span>Friday and Saturday</span></div>
+      <div><small>Find us</small><b>Entrance in back</b><span>13530 Michigan Ave #120</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="deals">
+  <div class="wrap">
+    <div class="dl">
+      <div class="dl-l">
+        <p class="dl-k">Get the deals first</p>
+        <h2>One text when a deal drops. <em>Nothing else.</em></h2>
+        <ul class="dl-perks"><li><b>BOGO bowls</b><span>Prime Bowl nights, first to know</span></li><li><b>Game-day trays</b><span>Lions Sundays, order by noon</span></li><li><b>Late-night drops</b><span>After 11 PM, while the grill's hot</span></li></ul>
+        <div id="smsWrap">
+          <form id="smsForm" class="dl-form" novalidate>
+            <label class="sr" for="smsPhone">Mobile number</label>
+            <div class="dl-in"><span class="dl-cc">+1</span><input id="smsPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(313) 555-0142"><button class="btn dl-go" type="submit">Text me deals <span class="arr">→</span></button></div>
+            <div class="dl-fav" id="smsFavs" role="radiogroup" aria-label="Usual order"><span>My usual:</span><button type="button" class="on" data-v="Burgers">Burgers</button><button type="button" data-v="Rice bowls">Bowls</button><button type="button" data-v="Wings and tenders">Wings</button><button type="button" data-v="Catering">Catering</button></div>
+            <input type="hidden" id="smsFav" value="Burgers">
+            <p class="err" id="smsErr" aria-live="polite"></p>
+            <p class="dl-fine">A few texts a month, never more. Reply STOP any time.</p>
+          </form>
+        </div>
+      </div>
+      <div class="dl-r" aria-hidden="true">
+        <div class="dl-ph">
+          <div class="dl-top"><img src="brand/logo.png" alt=""><b>Prime Eatery</b><small>Text message</small></div>
+          <div class="dl-th" id="dlThread">
+            <div class="bub"><small>Thu 9:12 PM</small>BOGO Prime Bowls tonight till 2 AM. Show this text at the counter. 🔥</div>
+            <div class="bub"><small>Sun 11:04 AM</small>Lions at 1. Wing trays ready by kickoff if you order by noon.</div>
+            <div class="bub me">Saving one for me 🙌</div>
+            <div class="bub typing"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -968,6 +1241,7 @@ body.lock{overflow:hidden}
 
 <footer class="fx">
   <div class="fx-in">
+    <div class="fx-live" id="fxLive"><div class="led led-sm" id="led2wrap" aria-hidden="true"><div class="l1" id="ledB1">Today · Fri 30 Oct</div><div class="l2"><span id="ledB2">Open till 3 AM · Michigan Ave ·</span></div></div><span class="fx-live-t">Our hours, live from Michigan Ave.</span><a class="btn btn-p shbtn btn-sm" data-dd="footer_live" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a></div>
     <div class="fx-top">
       <div class="fx-brand"><a class="fx-logo" href="#top"><img src="brand/logo.png" alt="" width="44" height="44">Prime Eatery</a><p>Loaded burgers, rice bowls and shakes, made to order till 3 AM. A small halal kitchen on Michigan Ave in Dearborn.</p><p class="fx-ad">13530 Michigan Ave #120 · entrance in back<br><a class="fx-a" href="tel:+13137577200"><span>(313) 757-7200</span></a></p></div>
       <div class="fx-col"><h4>Eat</h4><ul><li><a class="fx-a" href="menu.html"><span>Full menu</span></a></li><li><a class="fx-a" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&utm_medium=website&utm_campaign=footer" target="_blank" rel="noopener"><span>Order ahead</span></a></li><li><a class="fx-a" href="#hours"><span>Hours</span></a></li><li><a class="fx-a" href="#cmenu"><span>Catering menu</span></a></li></ul></div>
@@ -975,7 +1249,7 @@ body.lock{overflow:hidden}
       <div class="fx-col"><h4>Legal</h4><ul><li><a class="fx-a" href="legal.html"><span>Legal notice</span></a></li><li><a class="fx-a" href="privacy.html"><span>Privacy policy</span></a></li><li><a class="fx-a" href="terms.html"><span>Terms of use</span></a></li><li><a class="fx-a" href="social.html"><span>Social media disclaimer</span></a></li></ul></div>
       <div class="fx-col"><h4>Social</h4><ul><li><a class="fx-a" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener"><span>Instagram</span></a></li><li><a class="fx-a" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener"><span>Google reviews</span></a></li><li><a class="fx-a" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&utm_medium=website&utm_campaign=footer" target="_blank" rel="noopener"><span>DoorDash</span></a></li><li><a class="fx-a" href="mailto:PrimeEatery01@gmail.com"><span>Email us</span></a></li></ul></div>
     </div>
-    <div class="fx-bot"><span>© 2026 Prime Eatery Burgers &amp; Sandwiches. All rights reserved.</span><span>100% halal · Made to order · Dearborn, Michigan</span></div>
+    <div class="fx-bot"><span class="fx-b-l">© 2026 Prime Eatery · All rights reserved</span><a class="fx-credit" href="https://frameworksstudio.net/" target="_blank" rel="noopener"><b>FrameWorks Studio</b><i></i><span>Your entire brand forged into one powerful force.</span></a><span class="fx-b-r">100% halal · Made to order · Dearborn</span></div>
   </div>
   <div class="fx-mark" aria-hidden="true"><span>PRIME EATERY</span></div>
 </footer>
@@ -1182,9 +1456,9 @@ $('#dayList').innerHTML=order.map(function(d){var it=IDX[NIGHT[d].k];
 
 /* ---------- find: list cycles on its own, photo follows ---------- */
 var fph=$('#findPh'),days=$$('#dayList .day'),fi=0,ftimer=null,fOn=false;
-fph.innerHTML=order.map(function(d,i){return '<img src="photos/'+NIGHT[d].bg+'.jpg" alt="" loading="lazy" decoding="async"'+(i?'':' class="on"')+'>'}).join('')+'<span class="fcap"><small class="mono" id="fcD">Monday</small><b id="fcN">Mexicana Bowl</b></span>';
+fph.innerHTML=order.map(function(d,i){return '<img src="photos/'+NIGHT[d].bg+'.jpg" alt="" decoding="async"'+(i?'':' class="on"')+'>'}).join('')+'<span class="fcap"><small class="mono" id="fcD">Monday</small><b id="fcN">Mexicana Bowl</b></span>';
 var fimgs=$$('img',fph);
-function findGo(i){fi=(i+days.length)%days.length;days.forEach(function(el,j){el.classList.toggle('on',j===fi)});fimgs.forEach(function(im,j){im.classList.toggle('on',j===fi)});var d=order[fi];$('#fcD').textContent=DAYS[d]+(d===state().today?' · tonight':'');$('#fcN').textContent=IDX[NIGHT[d].k][1]}
+function findGo(i){fi=(i+days.length)%days.length;days.forEach(function(el,j){el.classList.toggle('on',j===fi)});fimgs.forEach(function(im,j){im.classList.toggle('on',j===fi)});var d=order[fi],cp=$('.fcap',fph);cp.classList.add('sw');setTimeout(function(){$('#fcD').textContent=DAYS[d]+(d===state().today?' · tonight':'');$('#fcN').textContent=IDX[NIGHT[d].k][1];cp.classList.remove('sw')},380)}
 function findPlay(){clearInterval(ftimer);if(!RM&&fOn)ftimer=setInterval(function(){findGo(fi+1)},3400)}
 days.forEach(function(el,j){el.addEventListener('mouseenter',function(){clearInterval(ftimer);findGo(j)});el.addEventListener('focus',function(){clearInterval(ftimer);findGo(j)})});
 $('#dayList').addEventListener('mouseleave',findPlay);
@@ -1193,75 +1467,144 @@ findGo(Math.max(0,order.indexOf(state().today)));
 /* ---------- home menu: six photo cards ---------- */
 var PICKS=[['mexicana-burger','night-mexicana','Bestseller'],['classic-burger','night-classic','Classic'],['prime-burger','night-prime','The big one'],['mexicana-bowl','mexicana-bowl','Spicy'],['prime-rice-bowl','prime-rice-bowl','House bowl'],['tenders','tenders-fries','Share it']];
 $('#board').innerHTML=PICKS.map(function(p,i){var it=IDX[p[0]];
-  return '<a class="pc rv" href="'+dd('board_'+p[0])+'" target="_blank" rel="noopener" style="transition-delay:'+(i%3*80)+'ms"><div class="pc-ph"><img src="photos/'+p[1]+'.jpg" alt="'+esc(it[1])+'" loading="lazy" decoding="async"><span class="pc-tag">'+esc(p[2])+'</span></div><div class="pc-row"><h3>'+esc(it[1])+'</h3><span class="mono">$'+it[2]+'</span></div><p>'+esc(it[3])+'</p></a>'}).join('');
+  return '<button type="button" class="pc rv" data-item="'+i+'" style="transition-delay:'+(i%3*80)+'ms"><div class="pc-ph"><img src="photos/'+p[1]+'.jpg" alt="'+esc(it[1])+'" loading="lazy" decoding="async"><span class="pc-tag">'+esc(p[2])+'</span><span class="pc-go">View item</span></div><div class="pc-row"><h3>'+esc(it[1])+'</h3><span class="mono">$'+it[2]+'</span></div><p>'+esc(it[3])+'</p></button>'}).join('');
+/* item detail: stays on the site, one tap to order */
+D.body.insertAdjacentHTML('beforeend','<div class="itm" id="itm" role="dialog" aria-modal="true" aria-labelledby="itmT" aria-hidden="true"><div class="itm-scrim" data-iclose></div><div class="itm-box"><button type="button" class="itm-x" data-iclose aria-label="Close">×</button><div class="itm-ph"><img id="itmImg" alt=""></div><div class="itm-tx"><span class="itm-tag" id="itmTag"></span><h3 id="itmT"></h3><b class="mono" id="itmP"></b><p id="itmD"></p><ul class="itm-li"><li>100% halal</li><li>Made to order</li><li>Pickup in about 15 min</li></ul><a class="btn itm-go" id="itmGo" href="#" target="_blank" rel="noopener">Order on DoorDash <span class="arr">→</span></a><a class="tlink" id="itmUe" href="#" target="_blank" rel="noopener">or Uber Eats <span class="arr">↗</span></a></div></div></div>');
+var itm=$('#itm'),itmLast=null;
+function itmOpen(i){var p=PICKS[i],it=IDX[p[0]];itmLast=D.activeElement;$('#itmImg').src='photos/'+p[1]+'.jpg';$('#itmImg').alt=it[1];$('#itmTag').textContent=p[2];$('#itmT').textContent=it[1];$('#itmP').textContent='$'+it[2];$('#itmD').textContent=it[3];$('#itmGo').href=dd('item_'+p[0]);$('#itmUe').href=UE;itm.classList.add('open');itm.setAttribute('aria-hidden','false');D.body.classList.add('lock');setTimeout(function(){$('.itm-x',itm).focus()},60)}
+function itmClose(){itm.classList.remove('open');itm.setAttribute('aria-hidden','true');D.body.classList.remove('lock');itmLast&&itmLast.focus()}
+$$('[data-item]').forEach(function(b){b.addEventListener('click',function(){itmOpen(+b.getAttribute('data-item'))})});
+$$('[data-iclose]',itm).forEach(function(b){b.addEventListener('click',itmClose)});
+D.addEventListener('keydown',function(e){if(e.key==='Escape'&&itm.classList.contains('open'))itmClose()});
 
 
 /* ---------- order ahead steps + phone ---------- */
 /* ---------- order ahead: yellow iPhone walkthrough ---------- */
-var phItems=['mexicana-burger','prime-rice-bowl','nacho-burger','tenders'];
-$('#phList').innerHTML=phItems.map(function(k){var it=IDX[k];return '<div class="ps-row"><div class="ps-im"><img src="photos/cut/'+k+'.webp" alt="" loading="lazy"></div><div><b>'+esc(it[1])+'</b><small>'+esc(it[3].split(',').slice(0,2).join(','))+'</small><span>$'+it[2]+'</span></div><i>+</i></div>'}).join('');
-var OF=[['01 · Menu','The full menu, live','Every burger, bowl and shake, same add-ons as the counter.','Popular','Regulars’ picks up top','The Mexicana Burger has been #1 since 2022.'],
+var PHC=[['Popular',['mexicana-burger','prime-rice-bowl','nacho-burger','prime-burger']],['Burgers',['steak-bbq-burger','classic-burger','smash-burger']],['Bowls',['mexicana-bowl','steak-bowl','asian-zing-bowl','nacho-bowl','midwestern-bowl']],['Wings',['wings','tenders','nuggets']],['Sandwiches',['asian-zing-chicken','nashville-chicken','midwest-chicken']],['Wraps',['mexicana-wrap','philly-steak-wrap','cheesy-chicken-wrap','buffalo-ranch-wrap']],['Sides',['fries','prime-dog','oreo-shake']]];
+var PCUT='mexicana-burger nacho-burger prime-burger steak-bbq-burger classic-burger smash-burger prime-rice-bowl steak-bowl asian-zing-bowl mexicana-bowl nacho-bowl midwestern-bowl asian-zing-chicken nashville-chicken midwest-chicken mexicana-wrap philly-steak-wrap cheesy-chicken-wrap buffalo-ranch-wrap wings tenders nuggets fries prime-dog oreo-shake'.split(' ');
+function phImg(k){if(PCUT.indexOf(k)>-1)return '<img src="photos/cut/'+k+'.webp" alt="" loading="lazy" decoding="async">';var p=pic(k);if(!p)return '<img src="brand/logo.png" alt="" style="width:60%;height:60%;opacity:.5">';return '<img'+(p.cut?'':' class="cover"')+' src="'+p.src+'" alt="" loading="lazy" decoding="async">'}
+$('#phChips').innerHTML=PHC.slice(0,5).map(function(c,i){return '<span data-c="'+i+'"'+(i?'':' class="on"')+'>'+c[0]+'</span>'}).join('');
+$('#phList').innerHTML=PHC.map(function(c,i){return '<span class="ps-cat" data-c="'+i+'">'+c[0]+'</span>'+c[1].map(function(k){var it=IDX[k];return '<div class="ps-row" data-k="'+k+'"><div class="ps-im">'+phImg(k)+'</div><div><b>'+esc(it[1])+'</b><small>'+esc(it[3].split(',').slice(0,2).join(','))+'</small><span>$'+it[2]+'</span></div><i>+</i></div>'}).join('')}).join('');
+var OF=[['01 · Menu','The full menu, live','Every burger, bowl and shake, with the same add-ons you get in store.','Popular','Regulars’ picks up top','The most-ordered items show first, so you can grab and go.'],
  ['02 · Your order','Built your way','Grilled or crispy, combo or not, extra Prime sauce on the side.','Combos','Fries or mac bites','Make any burger a combo for four bucks.'],
  ['03 · Checkout','Pay in two taps','Apple Pay, Google Pay or card. Tip the crew if you like.','No app','Order in the browser','Nothing to download, nothing to sign up for.'],
  ['04 · Pickup','Ready in ~15 min','We text you the second it hits the pickup shelf.','Pickup','Entrance in back','Say your name at the counter, that’s it.']];
 var ordI=0,ordT=null,ordOn=false,ordTabs=$$('#ordTabs button'),ordScr=$$('.ps');
+var phS=$('#phScroll'),phCats=$$('.ps-cat',phS),phChips=$$('#phChips span'),phRaf=0,phLast=0,phAcc=0,phHold=0,phBag={n:1,t:16},phRows=$$('.ps-row',phS),phNext=0;
+function phSync(){var y=phS.scrollTop+20,on=0;phCats.forEach(function(c,i){if(c.offsetTop<=y)on=i});phChips.forEach(function(c){c.classList.toggle('on',+c.getAttribute('data-c')===Math.min(on,4))})}
+phS.addEventListener('scroll',phSync,{passive:true});
+['wheel','touchstart','pointerdown'].forEach(function(ev){phS.addEventListener(ev,function(){phHold=performance.now()+3500;clearTimeout(ordT);ordT=null},{passive:true})});
+phS.addEventListener('pointerleave',function(){if(ordOn&&ordI===0&&!ordT)ordT=setTimeout(function(){ordGo(1);ordPlay()},6000)});
+function phAdd(){var max=phS.scrollTop+phS.clientHeight*.55,row=null;phRows.forEach(function(r){if(!row&&r.offsetTop>max-60&&r.offsetTop<max)row=r});if(!row)return;var it=IDX[row.getAttribute('data-k')];row.classList.add('add');setTimeout(function(){row.classList.remove('add')},500);phBag.n++;phBag.t+=it[2];$('#phBagN').textContent=phBag.n;$('#phBagT').textContent='$'+phBag.t.toFixed(2);var b=$('#phBag');b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop')}
+function phTick(t){if(!(ordOn&&ordI===0)||RM){phRaf=0;phLast=0;return}var dt=Math.min(50,t-(phLast||t));phLast=t;
+  if(t>phHold){var max=phS.scrollHeight-phS.clientHeight;if(phS.scrollTop>=max-1){ordGo(1);ordPlay();phRaf=0;return}phAcc+=dt*.045;if(phAcc>=1){var n=Math.floor(phAcc);phAcc-=n;phS.scrollTop+=n}
+    if(t>phNext){phNext=t+2600;phAdd()}}
+  phRaf=requestAnimationFrame(phTick)}
+function phStart(){if(!phRaf&&!RM){phHold=performance.now()+900;phNext=phHold+1600;phRaf=requestAnimationFrame(phTick)}}
 function ordGo(i){ordI=i;ordTabs.forEach(function(b,j){b.classList.toggle('on',j===i)});ordScr.forEach(function(s,j){s.classList.toggle('on',j===i)});var f=OF[i];
+  if(i===0){phS.scrollTop=0;phBag={n:1,t:16};$('#phBagN').textContent='1';$('#phBagT').textContent='$16.00';phSync();if(ordOn)phStart()}
   ['fcL','fcR'].forEach(function(id){$('#'+id).classList.add('sw')});
   setTimeout(function(){$('#fcLk').textContent=f[0];$('#fcLt').textContent=f[1];$('#fcLp').textContent=f[2];$('#fcRk').textContent=f[3];$('#fcRt').textContent=f[4];$('#fcRp').textContent=f[5];['fcL','fcR'].forEach(function(id){$('#'+id).classList.remove('sw')})},260)}
-function ordPlay(){clearInterval(ordT);if(!RM&&ordOn)ordT=setInterval(function(){ordGo((ordI+1)%4)},4200)}
+/* menu screen scrolls the whole board, then the walkthrough steps on every 4.2s */
+function ordPlay(){clearTimeout(ordT);ordT=null;if(RM||!ordOn)return;if(ordI===0){phStart();return}ordT=setTimeout(function(){ordGo((ordI+1)%4);ordPlay()},4200)}
 ordTabs.forEach(function(b,j){b.addEventListener('click',function(){ordGo(j);ordPlay()})});
 
 /* ---------- stats count-up ---------- */
 function countUp(el){var to=+el.getAttribute('data-count'),dec=+(el.getAttribute('data-dec')||0),suf=el.getAttribute('data-suf')||'',t0=null;
   if(RM){return}function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),v=to*(1-Math.pow(1-k,3));el.textContent=(dec?v.toFixed(dec):Math.round(v).toLocaleString('en-US'))+suf;if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
 
-/* ---------- catering ---------- */
-var PK=[
- {id:'office',name:'Office lunch',pp:15,min:20,img:'catering-office',d:'Rice bowls or wraps boxed per person, fries and house sauces. Labeled and set up in ten minutes.',m:'Weekdays · from 20 guests'},
- {id:'party',name:'Party',pp:18,min:30,img:'catering-party',d:'Burgers, bowls and wings on trays, waffle fries and mac and cheese bites, plates and serving gear.',m:'Most booked · from 30 guests'},
- {id:'wedding',name:'Walima & wedding',pp:24,min:75,img:'catering-wedding',d:'A staffed hot line cooked on site, the full menu, and a late-night drop when the dancing runs long.',m:'Evenings · from 75 guests'}
-];
-var q={pk:'party',svc:'drop',g:60};
-$('#pks').innerHTML=PK.map(function(p){return '<button type="button" class="pkg" data-pk="'+p.id+'"><div class="im"><img src="photos/'+p.img+'.jpg" alt="" loading="lazy" decoding="async"></div><div><div class="t"><h3>'+p.name+'</h3><span class="pp">$'+p.pp+' <small>/ guest</small></span></div><p>'+p.d+'</p><div class="m">'+p.m+'</div></div></button>'}).join('');
+/* ---------- catering builder (prices from the catering menu) ---------- */
 var money=function(n){return '$'+Math.round(n).toLocaleString('en-US')};
-function quote(){var p=PK.filter(function(x){return x.id===q.pk})[0],g=q.g,food=Math.max(g,p.min)*p.pp,svc=q.svc==='staff'?Math.max(250,g*4):0,tot=food+svc;
-  $('#gOut').textContent=g;var r=$('#guests');r.value=g;r.style.setProperty('--p',((g-20)/380*100)+'%');
-  $('#qLine1').textContent=p.name+': '+g+' × $'+p.pp;$('#qFood').textContent=money(g*p.pp);
-  $('#qMinL').textContent=g>=p.min?'Minimum met':'Minimum '+p.min+' guests';$('#qMin').textContent=g>=p.min?'✓':'+'+money((p.min-g)*p.pp);
-  $('#qSvc').textContent=svc?money(svc):'Included';$('#qTot').textContent=money(tot);$('#qDep').textContent='25% deposit ('+money(tot*.25)+') holds the date';
-  $$('.pkg').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-pk')===q.pk)});
-  $$('#svcSeg button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-v')===q.svc)});}
-$$('.pkg').forEach(function(b){b.addEventListener('click',function(){q.pk=b.getAttribute('data-pk');quote()})});
-$$('#svcSeg button').forEach(function(b){b.addEventListener('click',function(){q.svc=b.getAttribute('data-v');quote()})});
+var money2=function(n){return '$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})};
+var CEV=[['office','Office lunch','Weekdays','catering-office',{fmt:'box',food:['bowls','wraps'],add:['drinks']}],
+ ['party','Party','Grad, birthday','event-grad',{fmt:'tray',food:['bowls','sliders','wings'],add:['fries','chafing']}],
+ ['wedding','Walima','Weddings','event-wedding',{fmt:'staff',food:['bowls','sliders'],add:['fries','shakes','late']}],
+ ['game','Game day','Lions Sundays','event-gameday',{fmt:'tray',food:['wings','sliders'],add:['loaded','drinks']}],
+ ['family','Eid & family','Holidays','event-eid',{fmt:'tray',food:['bowls','wings'],add:['mac','chafing']}]];
+var CFMT=[['tray','Drop-off trays','Self-serve, we set up'],['box','Boxed per person','Labeled by name'],['staff','Staffed hot line','2-person crew, 4 hrs']];
+/* food: [id, name, note, thumb, tray pricing] */
+var CFOOD=[['bowls','Rice bowls','Prime, steak, Asian Zing','prime-rice-bowl',{half:89,full:165,hs:9,fs:20,box:15}],
+ ['sliders','Sliders','Classic, Mexicana, Nashville','classic-burger',{doz:56,per:2,box:13}],
+ ['wings','Wings & tenders','4 sauces, ranch','wings',{p50:75,p100:139,per:5,box:15}],
+ ['wraps','Wraps','Philly, Mexicana, buffalo','mexicana-wrap',{plat:72,halves:12,per:2,box:14}],
+ ['mexbowl','Mexicana bowls','Over waffle fries','mexicana-bowl',{half:95,full:175,hs:9,fs:20,box:15}],
+ ['tenders','Tenders','Hand-breaded, 3 dips','tenders',{p40:85,p80:159,per:3,box:14}]];
+var CADD=[['fries','Waffle fries','$35/$65'],['loaded','Loaded Mexicana fries','$49/$89'],['mac','Mac & cheese bites','$45/$85'],['shakes','Milkshake bar','$150/25'],['drinks','Canned drinks','$1.75'],['chafing','Chafing setup','$15/tray'],['late','Late-night drop','from $180']];
+var CMI=[['0','Within 8 mi','Free'],['12','8–15 mi','$2/mi'],['22','15–25 mi','$2/mi']];
+var q={ev:'party',g:60,fmt:'tray',food:['bowls','sliders','wings'],add:['fries','chafing'],mi:'0'};
+$('#cbEv').innerHTML=CEV.map(function(e){return '<button type="button" data-ev="'+e[0]+'"><img src="photos/'+e[3]+'.jpg" alt="" loading="lazy" decoding="async"><span>'+e[1]+'<small>'+e[2]+'</small></span></button>'}).join('');
+$('#cbFmt').innerHTML=CFMT.map(function(f){return '<button type="button" data-fmt="'+f[0]+'">'+f[1]+'<small>'+f[2]+'</small></button>'}).join('');
+$('#cbFood').innerHTML=CFOOD.map(function(f){return '<button type="button" data-food="'+f[0]+'"><span class="ti"><img src="photos/cut/'+f[3]+'.webp" alt="" loading="lazy" decoding="async"></span><span><b>'+f[1]+'</b><small>'+f[2]+'</small></span></button>'}).join('');
+$('#cbAdd').innerHTML=CADD.map(function(a){return '<button type="button" data-add="'+a[0]+'">'+a[1]+' <i>'+a[2]+'</i></button>'}).join('');
+$('#cbMi').innerHTML=CMI.map(function(m){return '<button type="button" data-mi="'+m[0]+'">'+m[1]+'<small>'+m[2]+'</small></button>'}).join('');
+function trays(serv,half,full,hs,fs){var f=Math.floor(serv/fs),rem=serv-f*fs,h=0;if(rem>0){if(rem<=hs)h=1;else f++}return {f:f,h:h,cost:f*full+h*half,txt:(f?f+' full':'')+(f&&h?' + ':'')+(h?h+' half':'')+' tray'+((f+h)>1?'s':'')}}
+function quote(){
+  var g=q.g,lines=[],trayCount=0,n=q.food.length||1,share=g*1.1/n;
+  q.food.forEach(function(id){var f=CFOOD.filter(function(x){return x[0]===id})[0],p=f[4],t;
+    if(q.fmt==='box'){lines.push([f[1]+' boxes',Math.ceil(g/n)+' × '+money2(p.box),Math.ceil(g/n)*p.box]);return}
+    if(p.full){t=trays(Math.ceil(share),p.half,p.full,p.hs,p.fs);trayCount+=t.f+t.h;lines.push([f[1],t.txt+' · serves '+Math.ceil(share),t.cost])}
+    else if(p.doz){var dz=Math.ceil(share*p.per/12);trayCount+=Math.ceil(dz/2);lines.push([f[1],dz+' dozen · '+(dz*12)+' sliders',dz*p.doz])}
+    else if(p.p50){var pc=Math.ceil(share*p.per/50)*50,c100=Math.floor(pc/100),c50=(pc%100)?1:0;trayCount+=c100+c50;lines.push([f[1],pc+' pieces · '+(c100?c100+'×100':'')+(c100&&c50?' + ':'')+(c50?'50':''),c100*p.p100+c50*p.p50])}
+    else if(p.p40){var tp=Math.ceil(share*p.per/40)*40,c80=Math.floor(tp/80),c40=(tp%80)?1:0;trayCount+=c80+c40;lines.push([f[1],tp+' tenders',c80*p.p80+c40*p.p40])}
+    else if(p.plat){var pl=Math.ceil(share*p.per/p.halves);trayCount+=pl;lines.push([f[1],pl+' platter'+(pl>1?'s':'')+' · '+(pl*12)+' halves',pl*p.plat])}
+  });
+  var sideServ=Math.ceil(g*.7);
+  function side(name,half,full){var t=trays(sideServ,half,full,10,20);trayCount+=t.f+t.h;lines.push([name,t.txt,t.cost])}
+  if(q.add.indexOf('fries')>-1)side('Waffle fries',35,65);
+  if(q.add.indexOf('loaded')>-1)side('Loaded Mexicana fries',49,89);
+  if(q.add.indexOf('mac')>-1)side('Mac & cheese bites',45,85);
+  if(q.add.indexOf('shakes')>-1){var sb=Math.ceil(g*.6/25);lines.push(['Milkshake bar',(sb*25)+' cups · Oreo, Pebbles, vanilla',sb*150])}
+  if(q.add.indexOf('drinks')>-1)lines.push(['Canned drinks',g+' × $1.75',g*1.75]);
+  if(q.add.indexOf('chafing')>-1&&q.fmt!=='box')lines.push(['Chafing setup',trayCount+' trays × $15',trayCount*15]);
+  if(q.fmt==='staff'){var crews=Math.ceil(g/150);lines.push(['Staffed hot line',crews+' crew'+(crews>1?'s':'')+' · 4 hours, setup and cleanup',crews*250])}
+  if(q.add.indexOf('late')>-1)lines.push(['Late-night drop','Sliders and fries after 11 PM',Math.max(180,Math.round(g*2.5))]);
+  var sub=lines.reduce(function(a,l){return a+l[2]},0),tax=sub*.06,mi=+q.mi,del=mi?Math.max(0,mi-8)*2:0,tot=sub+tax+del;
+  $('#rcLines').innerHTML=lines.length?lines.map(function(l){return '<div class="rc-ln"><span>'+esc(l[0])+'</span><b>'+money(l[2])+'</b><small>'+esc(l[1])+'</small></div>'}).join(''):'<div class="rc-ln"><span>Pick at least one food</span><b>—</b></div>';
+  var ev=CEV.filter(function(e){return e[0]===q.ev})[0],fm=CFMT.filter(function(f){return f[0]===q.fmt})[0];
+  $('#rcSub').textContent=ev[1]+' · '+g+' guests · '+fm[1].toLowerCase();
+  $('#rcSub2').textContent=money(sub);$('#rcTax').textContent=money(tax);$('#rcDelL').textContent='Delivery ('+(mi?mi+' mi':'within 8 mi')+')';$('#rcDel').textContent=del?money(del):'Free';
+  $('#qTot').textContent=money(tot);$('#rcPP').textContent=money2(tot/g)+' per guest';$('#qDep').textContent='25% deposit ('+money(tot*.25)+')';
+  $('#gOut').textContent=g;var r=$('#guests');r.value=g;r.style.setProperty('--p',((g-15)/385*100)+'%');
+  $$('[data-ev]').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-ev')===q.ev)});
+  $$('[data-fmt]').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-fmt')===q.fmt)});
+  $$('[data-food]').forEach(function(b){var on=q.food.indexOf(b.getAttribute('data-food'))>-1;b.classList.toggle('on',on);b.disabled=!on&&q.food.length>=3});
+  $$('[data-add]').forEach(function(b){b.classList.toggle('on',q.add.indexOf(b.getAttribute('data-add'))>-1)});
+  $$('[data-mi]').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-mi')===q.mi)});
+  $('#reqDate').setAttribute('data-type',{office:'Office',party:'Party',wedding:'Walima',game:'Game day',family:'Family'}[q.ev]);
+}
+$$('[data-ev]').forEach(function(b){b.addEventListener('click',function(){var e=CEV.filter(function(x){return x[0]===b.getAttribute('data-ev')})[0];q.ev=e[0];q.fmt=e[4].fmt;q.food=e[4].food.slice();q.add=e[4].add.slice();if(e[0]==='wedding'&&q.g<100)q.g=150;quote()})});
+$$('[data-fmt]').forEach(function(b){b.addEventListener('click',function(){q.fmt=b.getAttribute('data-fmt');quote()})});
+$$('[data-food]').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-food'),i=q.food.indexOf(v);if(i>-1)q.food.splice(i,1);else if(q.food.length<3)q.food.push(v);quote()})});
+$$('[data-add]').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-add'),i=q.add.indexOf(v);if(i>-1)q.add.splice(i,1);else q.add.push(v);quote()})});
+$$('[data-mi]').forEach(function(b){b.addEventListener('click',function(){q.mi=b.getAttribute('data-mi');quote()})});
 $('#guests').addEventListener('input',function(e){q.g=+e.target.value;quote()});quote();
 
 /* ---------- events ---------- */
 var EV=[
- ['event-wedding','Walima','Up to 400 guests','Walimas and weddings','A staffed line of Prime Bowls and sliders, then a late-night tray when the dancing runs long.'],
+ ['catering-wedding','Walima','Up to 400 guests','Walimas and weddings','A staffed line of Prime Bowls and sliders, then a late-night tray when the dancing runs long.'],
  ['event-gameday','Game day','Lions Sundays','Game-day trays','Wings by the hundred, Nashville sliders and fries that hold up through four quarters.'],
  ['event-office','Office','Metro Detroit','Office lunches','Boxed bowls and wraps, labeled by name, dropped off in Dearborn, Detroit and downriver.'],
  ['event-eid','Family','Eid and holidays','Eid and family parties','Trays sized for the cousins you forgot were coming. Halal from the fryer oil up.'],
- ['event-grad','Party','Open houses','Graduation open houses','Burgers on trays, shakes on ice, and a crew that cleans up after.'],
- ['event-late','Late night','Till 3 AM','After-hours events','We stay open till 3 on weekends, so a 1 AM drop at your venue is normal for us.'],
+ ['catering-party','Party','Open houses','Graduation open houses','Burgers on trays, shakes on ice, and a crew that cleans up after.'],
+ ['../video/reel-6','Late night','Till 3 AM','After-hours events','We stay open till 3 on weekends, so a 1 AM drop at your venue is normal for us.'],
  ['merch','Crew','Branded','Prime crew and gear','Black tees, caps and branded bags on every job, so your guests know who brought dinner.']
 ];
 $('#ev').innerHTML=EV.map(function(e,i){return '<article class="evb-c'+(i===0?' big':'')+' rv"><img src="photos/'+e[0]+'.jpg" alt="'+esc(e[3])+'" loading="lazy" decoding="async"><div class="evb-tx"><span class="tg"><b>'+e[1]+'</b> · '+e[2]+'</span><h3>'+e[3]+'</h3><p>'+esc(e[4])+'</p></div><button type="button" class="evb-go" data-plan data-type="'+esc(e[1])+'" aria-label="Plan a '+esc(e[3])+'">Plan this →</button></article>'}).join('');
 
-/* ---------- Instagram reels ---------- */
-var REELS=[['reel-1','Hot Cheetos, held up','The Mexicana Burger, the way regulars eat it.','mexicana-burger'],['reel-2','The cheese pull','Nacho cheese, crushed chips, one more press.','nacho-burger'],['reel-3','Sauce on everything','Prime sauce goes on both halves. Always.','prime-burger'],['reel-4','Shakes, loaded','Fruity Pebbles, whipped cream, strawberry drizzle.','oreo-shake'],['reel-5','The nacho dog','A hot dog, loaded the Prime way.','prime-dog'],['reel-6','Wrapped and ready','Foil on, out the door in fifteen.','mexicana-burger'],['reel-8','$5 sandwich month','Chicken sandwich deals, all month long.','asian-zing-chicken']];
-(function(){var TG=['Fan favorite','Cheese pull','House sauce','Shakes','Hot dogs','Late night','Deals'];var h=REELS.map(function(r,i){return '<button class="igc" type="button" data-r="'+i+'"><img src="video/'+r[0]+'.jpg" alt="'+esc(r[1])+'" loading="lazy" decoding="async"><span class="igc-tg">'+TG[i%TG.length]+'</span><i class="igc-p" aria-hidden="true">▶</i><span class="igc-l"><b>'+esc(r[2])+'</b><small>@primeeatery</small></span></button>'}).join('');
-  $('#reelRow').innerHTML=h+h.replace(/<button class="igc"/g,'<button class="igc" tabindex="-1" aria-hidden="true"');
-  var tr=$('#reelRow'),x=0,vx=0,last=0,hov=false,on=false,raf=0;
-  function step(t){var dt=last?Math.min(50,t-last):16;last=t;var half=tr.scrollWidth/2;x-=(hov?0:.035*dt)+vx*dt;vx*=.9;if(Math.abs(vx)<.002)vx=0;if(x<=-half)x+=half;if(x>0)x-=half;tr.style.transform='translate3d('+x.toFixed(1)+'px,0,0)';raf=on?requestAnimationFrame(step):0;if(!on)last=0}
-  function nudge(d){var c=$('.igc',tr),w=c?c.offsetWidth+18:300;vx+=d*w*0.0105}
-  $('#igPrev').addEventListener('click',function(){nudge(-1)});$('#igNext').addEventListener('click',function(){nudge(1)});
-  tr.addEventListener('mouseenter',function(){hov=true});tr.addEventListener('mouseleave',function(){hov=false});
-  W.igRun=function(v){on=v&&!RM;if(on&&!raf)raf=requestAnimationFrame(step)};})();
+/* ---------- Instagram: profile grid, one reel always playing, hover to preview ---------- */
+var REELS=[['reel-1','Hot Cheetos, held up','The Mexicana Burger, the way regulars eat it.','mexicana-burger','Fan favorite'],['reel-2','The cheese pull','Nacho cheese, crushed chips, one more press.','nacho-burger','Cheese pull'],['reel-3','Sauce on everything','Prime sauce goes on both halves. Always.','prime-burger','House sauce'],['reel-4','Shakes, loaded','Fruity Pebbles, whipped cream, strawberry drizzle.','oreo-shake','Shakes'],['reel-5','The Prime Dog','An all-beef dog, loaded the Prime way.','prime-dog','Hot dogs'],['reel-6','Wrapped and ready','Foil on and out the door in about fifteen minutes.','mexicana-burger','Late night'],['reel-8','$5 sandwich month','Chicken sandwich deals, all month long.','asian-zing-chicken','Deals']];
+$('#mqIg').innerHTML=REELS.map(function(r,i){return '<button class="ig3-t'+(i?'':' big')+'" type="button" data-r="'+i+'" aria-label="Watch: '+esc(r[1])+'"><img src="video/'+r[0]+'.jpg" alt="" loading="lazy" decoding="async">'+(i?'':'<video muted loop playsinline preload="none" poster="video/'+r[0]+'.jpg"></video>')+'<span class="ig3-tg">'+esc(r[4])+'</span><span class="ig3-pl" aria-hidden="true"><i></i></span><span class="ig3-cap"><b>'+esc(r[1])+'</b><small>'+esc(r[2])+'</small></span></button>'}).join('');
+(function(){var big=$('.ig3-t.big video');
+  W.igRun=function(v){if(RM||!big)return;if(v){if(!big.src)big.src='video/'+REELS[0][0]+'.mp4';var p=big.play();if(p&&p.catch)p.catch(function(){})}else big.pause()};
+  if(W.matchMedia&&W.matchMedia('(hover:hover)').matches&&!RM){$$('.ig3-t:not(.big)').forEach(function(t){var v=null;
+    t.addEventListener('mouseenter',function(){var r=REELS[+t.getAttribute('data-r')];v=D.createElement('video');v.muted=true;v.loop=true;v.playsInline=true;v.src='video/'+r[0]+'.mp4';v.className='ig3-pv';t.appendChild(v);var p=v.play();if(p&&p.catch)p.catch(function(){});requestAnimationFrame(function(){v&&v.classList.add('on')})});
+    t.addEventListener('mouseleave',function(){if(v){v.pause();v.remove();v=null}})})}
+})();
 var lb=$('#lb'),lbV=$('#lbV'),lbLast=null;
 function lbOpen(i){var r=REELS[i];lbLast=D.activeElement;$('#lbT').textContent=r[1];$('#lbD').textContent=r[2];$('[data-dd="reel"]',lb).href=dd('reel_'+r[3]);
   lbV.poster='video/'+r[0]+'.jpg';lbV.src='video/'+r[0]+'.mp4';lb.classList.add('open');D.body.classList.add('lock');$('main').style.visibility='hidden';heroStop();var pr=lbV.play();if(pr&&pr.catch)pr.catch(function(){});$('#lbX').focus()}
 function lbClose(){lbV.pause();lbV.removeAttribute('src');lbV.load();lb.classList.remove('open');D.body.classList.remove('lock');$('main').style.visibility='';lbLast&&lbLast.focus()}
-$$('.igc').forEach(function(b){b.addEventListener('click',function(){lbOpen(+b.getAttribute('data-r'))})});$('#lbX').addEventListener('click',lbClose);
+$$('.ig3-t').forEach(function(b){b.addEventListener('click',function(){W.igRun(false);lbOpen(+b.getAttribute('data-r'))})});$('#lbX').addEventListener('click',lbClose);
 
 /* ---------- reviews (Google, verbatim excerpts) ---------- */
 var RV=[
@@ -1305,10 +1648,11 @@ shBody.addEventListener('scroll',function(){var y=shBody.scrollTop+40,on=null;$$
 /* ---------- sms ---------- */
 $('#smsForm').addEventListener('submit',function(e){e.preventDefault();var ph=$('#smsPhone'),d=ph.value.replace(/\D/g,'');if(d.length===11&&d[0]==='1')d=d.slice(1);
   if(d.length!==10){ph.setAttribute('aria-invalid','true');$('#smsErr').textContent='Enter a 10-digit US mobile number, like (313) 555-0142.';ph.focus();return}
-  var w=$('#smsWrap'),keep=w.innerHTML,fav=$('#smsFav').value.toLowerCase();
+  var w=$('#smsWrap'),fav=$('#smsFav').value.toLowerCase();
   w.innerHTML='<div class="okmsg"><h3>You’re on the list.</h3><p class="lead" style="font-size:15px">We’ll text ('+d.slice(0,3)+') '+d.slice(3,6)+'-'+d.slice(6)+' when there’s a '+esc(fav)+' deal. Reply STOP any time.</p><div><button class="btn btn-g btn-sm" type="button" id="smsBack">Use a different number</button></div></div>';
   $('#smsBack').addEventListener('click',function(){location.hash='';location.reload()});});
 $('#smsPhone').addEventListener('input',function(){this.removeAttribute('aria-invalid');$('#smsErr').textContent=''});
+$$('#smsFavs button').forEach(function(b){b.addEventListener('click',function(){$$('#smsFavs button').forEach(function(x){x.classList.toggle('on',x===b)});$('#smsFav').value=b.getAttribute('data-v')})});
 
 /* ---------- mobile nav, keys ---------- */
 var mnav=$('#mnav');
@@ -1330,13 +1674,12 @@ if('IntersectionObserver' in W){
   $$('.rv').forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)el.classList.add('in');else io.observe(el)});
   function watch(el,fn,m){new IntersectionObserver(function(es){fn(es[0].isIntersecting)},{rootMargin:m||'0px'}).observe(el)}
   var hero=$('#hero');watch(hero,function(v){hero.classList.toggle('paused',!v);if(v&&!D.hidden)heroPlay();else heroStop()});
-  watch($('#stc'),function(v){stOn=v;if(v)stPlay();else clearInterval(stT)});
   watch($('#find'),function(v){fOn=v;if(v)findPlay();else clearInterval(ftimer)});
   watch($('#mqIg'),function(v){W.igRun(v)});
-  watch($('#order'),function(v){ordOn=v;if(v)ordPlay();else clearInterval(ordT)});
+  watch($('#order'),function(v){ordOn=v;if(v)ordPlay();else{clearTimeout(ordT);ordT=null}});
   watch($('#mq'),function(v){$('#reviews').classList.toggle('paused',!v)});
-  watch($('.closing'),function(v){$('#led2wrap').classList.toggle('paused',!v)});
-  var st=$('#stats'),counted=false;watch(st,function(v){if(v&&!counted){counted=true;st.classList.add('drawn');$$('[data-count]',st).forEach(countUp)}});
+  watch($('#fxLive'),function(v){$('#led2wrap').classList.toggle('paused',!v)});
+  watch($('.dl'),function(v){if(v)$('.dl').classList.add('show')});
   }else{$$('.rv').forEach(function(el){el.classList.add('in')});heroPlay()}
 D.addEventListener('visibilitychange',function(){if(D.hidden)heroStop();else if(!$('#hero').classList.contains('paused'))heroPlay()});
 
@@ -1351,7 +1694,7 @@ $$('.nc-g').forEach(function(sv){var p=sv.getAttribute('data-pts').split(',').ma
 var CM=[
  ['Rice bowl trays','Half / full',[['Prime Rice Bowl tray','Grilled or crispy chicken, rice, lettuce, tomato, Prime sauce, house ranch','$89 / $165'],['Steak Rice Bowl tray','Grilled steak, mushrooms, rice, Prime sauce','$109 / $199'],['Asian Zing tray','Crispy chicken, rice, fried egg, Asian Zing glaze','$95 / $175'],['Mexicana Bowl tray','Chicken over waffle fries, jalapeño, corn, Hot Cheetos, nacho cheese','$95 / $175'],['Midwestern Bowl tray','Crispy chicken, coleslaw, corn, waffle fries','$89 / $165']]],
  ['Sliders & sandwiches','By the dozen',[['Classic sliders','Smashed beef, American, pickles, house sauce','$54 / doz'],['Mexicana sliders','Hot Cheetos crust, jalapeño, nacho cheese','$60 / doz'],['Nashville chicken sliders','Hot crispy chicken, pickles, slaw','$58 / doz'],['Asian Zing chicken sliders','Crispy chicken, slaw, Asian Zing','$58 / doz'],['Slider sampler','Two dozen, three styles, sauces on the side','$112']]],
- ['Wings & tenders','Platters',[['Bone-in wings · 50 pc','Two sauces: BBQ, buffalo, Asian Zing or lemon pepper','$75'],['Bone-in wings · 100 pc','Up to four sauces, ranch and celery','$139'],['Tenders · 40 pc','Hand-breaded, three dips','$85'],['Tenders · 80 pc','Hand-breaded, five dips','$159'],['Nugget tray · 100 pc','Breaded nuggets, two dips','$65']]],
+ ['Wings & tenders','Platters',[['Bone-in wings · 50 pc','Pick two sauces: BBQ, buffalo, Asian Zing or lemon pepper','$75'],['Bone-in wings · 100 pc','Up to four sauces, ranch and celery','$139'],['Tenders · 40 pc','Hand-breaded, three dips','$85'],['Tenders · 80 pc','Hand-breaded, five dips','$159'],['Nugget tray · 100 pc','Breaded nuggets, two dips','$65']]],
  ['Wraps & boxed meals','Per person',[['Boxed rice bowl','Any bowl, labeled by name, fork and napkin','$15'],['Boxed wrap + fries','Mexicana, Philly steak, buffalo ranch or cheesy chicken','$14'],['Boxed slider combo','Two sliders, waffle fries, sauce','$13'],['Wrap platter · 12 halves','Mixed wraps, cut and pinned','$72'],['Kids box','Four tenders, fries, juice box','$9']]],
  ['Sides & sauces','Half / full',[['Waffle fries','Seasoned, kept crisp in vented trays','$35 / $65'],['Mac & cheese bites','Golden fried, Prime dip','$45 / $85'],['Loaded Mexicana fries','Hot Cheetos, jalapeño, nacho cheese','$49 / $89'],['Coleslaw','House recipe','$25 / $45'],['Prime sauce · quart','The orange one, plus ranch and Asian Zing','$12']]],
  ['Shakes, drinks & service','Add-ons',[['Milkshake bar · 25 cups','Oreo, Fruity Pebbles and vanilla, topped to order','$150'],['Canned drinks','Pepsi, Diet Pepsi, Faygo, water','$1.75 ea'],['Chafing setup','Racks, burners, serving utensils','$15 / tray'],['Staffed hot line','Two-person crew, four hours, set up and clean up','$250'],['Late-night drop','A second round of sliders and fries after 11 PM','from $180']]]
@@ -1360,7 +1703,7 @@ $('#cmGrid').innerHTML=CM.map(function(c){return '<div class="cm-c"><div class="
 
 /* ---------- plan an event: quick-click form ---------- */
 var PL={type:'',guests:'',date:'',time:'',svc:'',food:[],name:'',phone:''},pi=0,plan=$('#plan');
-var PG={'20–50':35,'50–100':75,'100–200':150,'200–400':300},PPP={'Walima / wedding':24,'Graduation':18,'Office lunch':15,'Eid / family':18,'Game day':17,'Birthday':18,'Something else':18};
+var PG={'15–50':30,'50–100':75,'100–200':150,'200–400':300},PPP={'Walima / wedding':24,'Graduation':18,'Office lunch':15,'Eid / family':18,'Game day':17,'Birthday':18,'Something else':18};
 function chips(name,opts,multi){return '<div class="pc-chips" data-k="'+name+'">'+opts.map(function(o){var on=multi?PL[name].indexOf(o)>-1:PL[name]===o;return '<button type="button" class="'+(on?'on':'')+'" data-v="'+esc(o)+'">'+esc(o)+'</button>'}).join('')+'</div>'}
 var STEPS=[
  function(){return '<h4>What are we catering?</h4>'+chips('type',Object.keys(PPP))},
@@ -1384,25 +1727,27 @@ D.addEventListener('click',function(e){var t=e.target.closest('[data-plan]');if(
 $('#planNext').addEventListener('click',function(){if(!plOk())return;if(pi<4){pi++;plRender()}else plDone()});$('#planBack').addEventListener('click',function(){if(pi>0){pi--;plRender()}});
 D.addEventListener('keydown',function(e){if(e.key==='Escape'&&plan.classList.contains('open'))plClose()});
 
-/* ---------- our story: regulars switcher ---------- */
-var ST=[[0,'100%','halal kitchen, fryer oil up','story','Regular','prime-rice-bowl'],[1,'#1','burger on the board','video/reel-2','Nacho burger','nacho-burger'],[2,'2 hands','to hold a Prime Bowl','mexicana-bowl','Bowls','prime-rice-bowl'],[3,'15 min','average pickup','night-classic','Dine in','classic-burger'],[4,'3 AM','last call Fri & Sat','night-prime','Late night','prime-burger'],[5,'4.8/5','from 1,742 Google reviews','tenders-fries','Service','tenders'],[6,'3,600+','Prime Bowls a month','prime-rice-bowl','Lunch','prime-rice-bowl'],[7,'Since 2022','one counter, Michigan Ave','video/reel-4','Shakes','oreo-shake']];
-function ini(n){return n.split(/[\s.]+/).filter(Boolean).map(function(x){return x[0]}).join('').slice(0,2).toUpperCase()}
-$('#stList').innerHTML=ST.map(function(s,i){var r=RV[s[0]];return '<button type="button" role="tab" data-i="'+i+'"><span class="stc-av">'+ini(r[1])+'</span><span><b>'+esc(r[1])+'</b><small>'+esc(r[2])+'</small></span></button>'}).join('');
-$('#stPh').insertAdjacentHTML('afterbegin',ST.map(function(s){var src=s[3].indexOf('/')>-1?s[3]+'.jpg':'photos/'+s[3]+'.jpg';return '<img src="'+src+'" alt="" loading="lazy" decoding="async">'}).join(''));
-var stI=-1,stT=null,stOn=false,stB=$$('#stList button'),stImg=$$('#stPh img');
-function stGo(i){i=(i+ST.length)%ST.length;if(i===stI)return;stI=i;var s=ST[i],r=RV[s[0]];stB.forEach(function(b,j){b.classList.toggle('on',j===i);b.setAttribute('aria-selected',j===i)});stImg.forEach(function(im,j){im.classList.toggle('on',j===i)});
-  $('#stCnt').textContent=('0'+(i+1)).slice(-2)+' / '+('0'+ST.length).slice(-2);$('#stBig').textContent=s[1];$('#stSmall').textContent=s[2];$('#stTag').textContent=s[4];
-  $('#stQ').innerHTML='“'+esc(r[0]).split(' ').map(function(w,k){return '<span style="transition-delay:'+(k*22)+'ms">'+w+'</span>'}).join(' ')+'”';
-  var q=$('#stQ');q.classList.remove('in');void q.offsetWidth;q.classList.add('in');
-  $('#stAv').textContent=ini(r[1]);$('#stName').textContent=r[1];$('#stRole').textContent=r[2];$('#stOrder').href=dd('story_'+s[5])}
-function stPlay(){clearInterval(stT);if(!RM&&stOn)stT=setInterval(function(){stGo(stI+1)},6500)}
-stB.forEach(function(b,j){b.addEventListener('click',function(){stGo(j);stPlay()})});$('#stPrev').addEventListener('click',function(){stGo(stI-1);stPlay()});$('#stNext').addEventListener('click',function(){stGo(stI+1);stPlay()});
-stGo(0);
+/* ---------- our story: a night at Prime, with a live "now" marker ---------- */
+var SN=[[12*60,'12 PM','Doors open','Lunch for the medical building upstairs and everyone working on Michigan Ave.','prime-rice-bowl.jpg','prime-rice-bowl'],
+ [17*60,'5 PM','Families come in','Kids’ menu, bowls big enough to share, and a table under the Michigan memorabilia.','night-classic.jpg','classic-burger'],
+ [21*60,'9 PM','The grill gets loud','Hot Cheetos on the Mexicana, cheese pulls, and tickets lining the rail.','night-mexicana.jpg','mexicana-burger'],
+ [25*60,'1 AM','The late crowd','Everything else on the block is dark. The counter is still busy.','../video/reel-6.jpg','mexicana-burger'],
+ [27*60,'3 AM','Last call','The grill shuts off at 3 on weekends and 2 the rest of the week.','night-prime.jpg','prime-burger']];
+$('#snRow').innerHTML=SN.map(function(x,i){return '<a class="sn-c" href="'+dd('story_'+x[5])+'" target="_blank" rel="noopener" ><span class="sn-dot"></span><span class="sn-t">'+x[1]+'</span><span class="sn-ph"><img src="photos/'+x[4]+'" alt="" loading="lazy" decoding="async"></span><b>'+x[2]+'</b><span class="sn-p">'+x[3]+'</span></a>'}).join('');
+function snPaint(){var s=state(),n=s.n,m=n.min<6*60?n.min+1440:n.min,cards=$$('.sn-c'),idx=-1;
+  for(var i=0;i<SN.length;i++){if(m>=SN[i][0])idx=i}
+  var open=s.open,pct=0;
+  if(m<SN[0][0]){pct=0}else if(idx>=SN.length-1){pct=100}else{var a=SN[idx][0],b=SN[idx+1][0];pct=(idx+(m-a)/(b-a))/(SN.length-1)*100}
+  var track=$('.sn-track'),pad=100/(SN.length*2);
+  $('#snFill').style.width=(pad+pct*(100-2*pad)/100).toFixed(2)+'%';$('#snNow').style.left=(pad+pct*(100-2*pad)/100).toFixed(2)+'%';
+  $('#snNowT').textContent=open?'Now · '+fmt12(n.min):'Closed · opens '+fmt12(s.openAt);$('#snNow').classList.toggle('off',!open);
+  cards.forEach(function(c,i){c.classList.toggle('on',open&&i===idx);c.classList.toggle('past',open&&i<idx)})}
+snPaint();
 
 /* ---------- live clock ---------- */
 function markToday(){var t=state().today;$$('.strip-cell').forEach(function(c){c.querySelector('.tdy').textContent=+c.getAttribute('data-day')===t?' · Today':''})}
 paint();markToday();onScroll();
-setInterval(function(){paint();markToday()},30000);
+setInterval(function(){paint();markToday();snPaint()},30000);
 
 /* ---------- shader buttons (one shared WebGL renderer, drawn into each visible button) ---------- */
 (function(){
@@ -1461,4 +1806,6 @@ setInterval(function(){paint();markToday()},30000);
   D.addEventListener('visibilitychange',function(){if(!D.hidden)kick()});
 })();
 })();
-</script></body></html>
+</script>
+
+</body></html>
