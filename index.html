@@ -1212,6 +1212,11 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 .g-mq-t{display:flex;width:max-content;animation:gmq 32s linear infinite}
 .g-mq-s{display:flex;align-items:center;flex:none;font-family:var(--disp);font-size:clamp(24px,2.3vw,36px);line-height:1;text-transform:uppercase;letter-spacing:.02em;color:#0d0d0e;white-space:nowrap}
 .g-mq-s i{display:inline-block;width:.62em;height:.62em;margin:0 .8em;background:#0d0d0e;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);animation:gspin 6s linear infinite}
+.g-mq.alt{margin:0 -2vw;transform:rotate(2deg);background:#050505;border-top:1px solid rgba(255,212,0,.35);border-bottom:1px solid rgba(255,212,0,.35)}
+.g-mq.alt::before,.g-mq.alt::after{background:rgba(255,212,0,.18)}
+.g-mq.alt .g-mq-s{color:var(--accent)}
+.g-mq.alt .g-mq-s i{background:var(--accent)}
+.g-mq.alt .g-mq-t{animation-direction:reverse}
 @keyframes gmq{to{transform:translateX(-50%)}}
 @keyframes gspin{to{transform:rotate(360deg)}}
 
@@ -1471,7 +1476,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
  .tgM,.tgN{display:none}.tgE2{right:12%;top:0;width:22vw}.tgE{right:-8%;top:3%;width:34vw}
  .tgF{left:-10%;top:42%;width:26vw;--o:.6}.tgG{display:none}.tgL{right:-6%;top:44%;width:16vw;--o:.6}
  .tgH{left:-4%;bottom:3%;width:38vw}.tgI{left:30%;bottom:4%;width:11vw}.tgJ{display:none}.tgK{right:-6%;bottom:3%;width:40vw}
- .g-mq{margin-top:-16px;padding:18px 0 16px}
+ .g-mq{margin-top:-16px;padding:18px 0 16px}.g-mq.alt{margin-top:0}
  .g-board{grid-template-columns:1fr}
  .g-stats{gap:22px}
  .g-ord-ph{padding:10px 0}.g-badge{padding:10px 12px}.g-badge b{font-size:19px}.g-badge.b1{left:-12px;top:-2%}.g-badge.b2{right:-18px;bottom:10%}
@@ -1571,6 +1576,8 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
     <div class="g-board" id="board"></div>
   </div>
 </section>
+
+<div class="g-mq alt" aria-hidden="true"><div class="g-mq-t"><span class="g-mq-s">Order ahead<i></i>Skip the line<i></i>Ready in 15 min<i></i>No app needed<i></i>Pay in two taps<i></i>Pick up out back<i></i></span><span class="g-mq-s">Order ahead<i></i>Skip the line<i></i>Ready in 15 min<i></i>No app needed<i></i>Pay in two taps<i></i>Pick up out back<i></i></span></div></div>
 
 <section class="g-sec g-ord" id="order">
   <div class="g-wrap g-ord-in">
