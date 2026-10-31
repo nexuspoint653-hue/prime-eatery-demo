@@ -1153,6 +1153,7 @@ body{background:var(--ink);font-family:var(--f)}
 #hero{--f:"Archivo","Helvetica Neue",Arial,sans-serif;font-family:var(--f)}
 #hero .hero-copy{--f:"Inter","Helvetica Neue",Arial,sans-serif;font-family:var(--f)}
 html.ldg,html.ldg body{overflow:hidden}
+html,body{overflow-x:clip;max-width:100%}main{overflow-x:clip}
 html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
 .ps-scroll,.g-cmm-box{scrollbar-width:none}.ps-scroll::-webkit-scrollbar,.g-cmm-box::-webkit-scrollbar{display:none}
 
@@ -1193,6 +1194,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 .nav a:hover{color:#fff}
 .hdr-r .ph{font:700 11px var(--f);letter-spacing:.14em}
 .mnav a{font-family:var(--disp);font-weight:400;text-transform:uppercase;letter-spacing:.01em}
+.mnav a.g-btn{font:800 12px/1 var(--f)!important;letter-spacing:.2em!important;height:54px!important;margin-top:22px;border-bottom:0!important;padding:0 24px!important;justify-content:center}
 
 /* hero copy (fonts only) */
 #hero .hero-top .sub{display:none}
@@ -1312,6 +1314,8 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 .g-ord .iph-sb{padding-top:14px}
 .iph-frame{position:absolute;inset:0;width:100%;height:100%;z-index:10;pointer-events:none}
 
+.g-ord .ps-row{grid-template-columns:56px minmax(0,1fr) 26px}.g-ord .ps-row>div{min-width:0}.g-ord .ps-row b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
 /* vibe (instagram) */
 .g-vibe .g-h{font-size:clamp(46px,5vw,80px)}
 .g-prof{display:flex;align-items:center;gap:12px}
@@ -1371,8 +1375,9 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 .g-cmm.open .g-cmm-scrim{opacity:1}
 .g-cmm-box{position:relative;width:min(1100px,100%);max-height:calc(100svh - 40px);overflow:auto;padding:clamp(22px,3vw,40px);border:1px solid var(--g-line);border-radius:6px;background:#111112;opacity:0;transform:translateY(30px) scale(.98);transition:opacity .45s var(--ease),transform .6s cubic-bezier(.16,1,.3,1)}
 .g-cmm.open .g-cmm-box{opacity:1;transform:none}
-.g-cmm-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:26px}
-.g-cmm-top .g-h{font-size:clamp(36px,3.6vw,54px)}
+.g-cmm-top{position:relative;display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:26px;padding-right:56px}
+.g-cmm-top .g-cmm-x{position:absolute;right:0;top:0}
+.g-cmm-top .g-h{font-size:clamp(32px,3.6vw,54px);text-wrap:wrap}
 .g-cmm-x{width:44px;height:44px;flex:none;border:1px solid rgba(255,255,255,.14);border-radius:4px;background:none;color:#f2efe8;font-size:24px;cursor:pointer}
 .g-cmm-x:hover{border-color:var(--accent);color:var(--accent)}
 .g-cmm .cm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
@@ -1470,24 +1475,25 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 }
 @media (max-width:700px){
  .g-h,.g-tg .g-h,.g-born .g-h,.g-ord .g-h,.g-cat .g-h,.g-menu .g-h,.g-vibe .g-h,.g-visit .g-h,#reviews .g-h{font-size:clamp(40px,12.4vw,60px)}
- .g-menu .g-h,.g-vibe .g-h,.g-visit .g-h{font-size:clamp(34px,10.4vw,52px)}
+ .g-menu .g-h,.g-vibe .g-h,.g-visit .g-h{font-size:clamp(30px,9.2vw,52px)}
  .hero-copy h1{font-size:clamp(34px,10vw,46px)}
- .g-tg{min-height:0;padding-block:220px 230px}
+ .hero-copy .hc-kick{flex-wrap:wrap;row-gap:8px;letter-spacing:.18em}
+ .g-tg{min-height:0;padding-block:210px 200px}
  .tgA{left:-8%;top:1%;width:40vw}.tgB{left:24%;top:7%;width:16vw}.tgC{display:none}.tgD{left:47%;top:2%;width:13vw}
  .tgM,.tgN{display:none}.tgE2{right:12%;top:0;width:22vw}.tgE{right:-8%;top:3%;width:34vw}
- .tgF{left:-10%;top:42%;width:26vw;--o:.6}.tgG{display:none}.tgL{right:-6%;top:44%;width:16vw;--o:.6}
+ .tgF,.tgG,.tgL{display:none}
  .tgH{left:-4%;bottom:3%;width:38vw}.tgI{left:30%;bottom:4%;width:11vw}.tgJ{display:none}.tgK{right:-6%;bottom:3%;width:40vw}
  .g-mq{margin-top:-16px;padding:18px 0 16px}.g-mq.alt{margin-top:0}
- .g-board{grid-template-columns:1fr}
+ .g-board{grid-template-columns:1fr}.g-card-ph{aspect-ratio:16/10}.g-card-tx{padding:16px 18px 20px}
  .g-stats{gap:22px}
- .g-ord-ph{padding:10px 0}.g-badge{padding:10px 12px}.g-badge b{font-size:19px}.g-badge.b1{left:-12px;top:-2%}.g-badge.b2{right:-18px;bottom:10%}
+ .g-ord-ph{padding:10px 0}.g-badge{display:none!important}.g-badge{padding:10px 12px}.g-badge b{font-size:19px}.g-badge.b1{left:-12px;top:-2%}.g-badge.b2{right:-18px;bottom:10%}
  .g-cf{padding:20px 16px 16px}
  .g-fl2{grid-template-columns:1fr}
  .g-cat-note div{padding:14px 12px}.g-cat-note b{font-size:22px}
  .g-cmm .cm-grid{grid-template-columns:1fr}
  .g-head{margin-bottom:28px}
 }
-@media (max-width:520px){.g-vibe .ig3{grid-template-columns:repeat(2,minmax(0,1fr))}.g-vibe .ig3-t.big{grid-column:span 2}}
+@media (max-width:520px){.g-vibe .ig3{grid-template-columns:repeat(2,minmax(0,1fr))}.g-vibe .ig3-t.big{grid-column:span 2}.g-vibe .ig3-t:nth-child(n+6){display:none}}
 @media (prefers-reduced-motion:reduce){.g-mq-s,.g-mq-t,.tg-f,.g-fl-i img,.g-badge{animation:none}.g-rv{opacity:1;transform:none}}
 
 /* ---- story page ---- */
@@ -1536,7 +1542,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 .st-cta .g-p{text-align:center;max-width:none}
 @media (max-width:1000px){.st-tl,.st-vgrid,.st-sgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.st-tl{row-gap:20px}}
 @media (max-width:900px){.st-hero-in,.st-two,.st-two.r{grid-template-columns:1fr}.st-stamp{left:auto;right:16px;bottom:-30px;width:110px}.st-crew-ph img:last-child{margin-bottom:0}}
-@media (max-width:560px){.st-tl,.st-vgrid,.st-sgrid{grid-template-columns:1fr}.st-h1{font-size:clamp(46px,14vw,64px)}.st-page .g-h{text-wrap:wrap}}
+@media (max-width:560px){.st-tl,.st-vgrid{grid-template-columns:1fr}.st-sgrid{grid-template-columns:1fr 1fr;gap:10px}.st-s h3{font-size:20px;margin:14px 14px 6px}.st-s p{margin:0 14px;font-size:12.5px}.st-v h3{margin-top:22px}.st-h1{font-size:clamp(46px,14vw,64px)}.st-page .g-h{text-wrap:wrap}}
 </style>
 
 </head><body><header class="hdr" id="hdr">
