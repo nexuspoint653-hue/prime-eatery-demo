@@ -1205,10 +1205,10 @@ html.ldg,html.ldg body{overflow:hidden}
 .hero-copy .hc-proof b{font-family:var(--disp);font-weight:400;font-size:17px;color:#f2efe8;letter-spacing:.02em}
 
 /* marquee */
-.g-mq{position:relative;z-index:8;margin:0;background:var(--accent);overflow:hidden;padding:15px 0 13px;box-shadow:0 24px 60px -24px rgba(255,212,0,.5),0 0 0 1px rgba(0,0,0,.2)}
-.g-mq::before,.g-mq::after{content:"";position:absolute;left:0;right:0;height:1px;background:rgba(13,13,14,.25)}.g-mq::before{top:6px}.g-mq::after{bottom:6px}
+.g-mq{position:relative;z-index:8;margin:-30px -2vw 0;background:var(--accent);transform:rotate(-2deg);overflow:hidden;padding:24px 0 22px;box-shadow:0 24px 50px -20px rgba(0,0,0,.8)}
+.g-mq::before,.g-mq::after{content:"";position:absolute;left:0;right:0;height:1px;background:rgba(13,13,14,.25)}.g-mq::before{top:9px}.g-mq::after{bottom:9px}
 .g-mq-t{display:flex;width:max-content;animation:gmq 32s linear infinite}
-.g-mq-s{display:flex;align-items:center;flex:none;font-family:var(--disp);font-size:clamp(22px,2.1vw,32px);line-height:1;text-transform:uppercase;letter-spacing:.02em;color:#0d0d0e;white-space:nowrap}
+.g-mq-s{display:flex;align-items:center;flex:none;font-family:var(--disp);font-size:clamp(24px,2.3vw,36px);line-height:1;text-transform:uppercase;letter-spacing:.02em;color:#0d0d0e;white-space:nowrap}
 .g-mq-s i{display:inline-block;width:.62em;height:.62em;margin:0 .8em;background:#0d0d0e;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);animation:gspin 6s linear infinite}
 @keyframes gmq{to{transform:translateX(-50%)}}
 @keyframes gspin{to{transform:rotate(360deg)}}
@@ -1460,6 +1460,7 @@ html.ldg,html.ldg body{overflow:hidden}
  .tgM,.tgN{display:none}.tgE2{right:12%;top:0;width:22vw}.tgE{right:-8%;top:3%;width:34vw}
  .tgF{left:-10%;top:42%;width:26vw;--o:.6}.tgG{display:none}.tgL{right:-6%;top:44%;width:16vw;--o:.6}
  .tgH{left:-4%;bottom:3%;width:38vw}.tgI{left:30%;bottom:4%;width:11vw}.tgJ{display:none}.tgK{right:-6%;bottom:3%;width:40vw}
+ .g-mq{margin-top:-16px;padding:18px 0 16px}
  .g-board{grid-template-columns:1fr}
  .g-stats{gap:22px}
  .g-ord-ph{padding:10px 0}.g-badge{padding:10px 12px}.g-badge b{font-size:19px}.g-badge.b1{left:-12px;top:-2%}.g-badge.b2{right:-18px;bottom:10%}
