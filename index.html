@@ -1237,7 +1237,7 @@ html.ldg,html.ldg body{overflow:hidden}
 .tgG{left:-.5%;top:40%;width:clamp(50px,4.8vw,80px);--r:72deg;--d:.34s;--t:5.2s;--b:.8px;--o:.8}
 .tgH{left:11%;bottom:1%;width:clamp(160px,16vw,260px);--r:6deg;--d:.36s;--t:8s;--fd:-1s}
 .tgI{left:6.5%;bottom:5%;width:clamp(46px,4.2vw,70px);--r:-14deg;--d:.44s;--t:5.6s;--o:.9}
-.tgJ{left:53%;bottom:3%;width:clamp(46px,4.4vw,72px);--r:16deg;--d:.56s;--t:6s;--fd:-2.4s;--o:.9}
+.tgJ{left:60%;bottom:1%;width:clamp(90px,8vw,130px);--r:16deg;--d:.56s;--t:6s;--fd:-2.4s;--o:.9}
 .tgK{right:1.5%;bottom:3%;width:clamp(170px,17vw,280px);--r:12deg;--d:.4s;--t:7.8s;--fd:-4s}
 .tgL{right:.5%;top:56%;width:clamp(70px,7vw,115px);--r:-20deg;--d:.3s;--t:6.8s;--b:.6px;--o:.85}
 
@@ -1417,32 +1417,24 @@ html.ldg,html.ldg body{overflow:hidden}
 @keyframes gfbob{0%,100%{transform:rotate(var(--r,0deg)) translateY(0)}50%{transform:rotate(calc(var(--r,0deg) * -1)) translateY(-8px)}}
 
 /* loader */
-.ld{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:#0d0d0e;clip-path:inset(0 0 0 0);transition:clip-path 1s cubic-bezier(.76,0,.24,1)}
+.ld{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:#0b0b0c;clip-path:inset(0 0 0 0);transition:clip-path 1.05s cubic-bezier(.76,0,.24,1)}
 .ld.out{clip-path:inset(0 0 100% 0)}
 .ld.gone{display:none}
-.ld::after{content:"";position:absolute;inset:0;background:radial-gradient(40% 40% at 50% 46%,rgba(255,212,0,.09),transparent 70%);pointer-events:none}
-.ld-c{position:relative;z-index:1;display:grid;justify-items:center;gap:26px;width:min(360px,80vw);transition:transform 1s cubic-bezier(.76,0,.24,1),opacity .6s}
-.ld.out .ld-c{transform:translateY(-60px);opacity:0}
-.ld-logo{position:relative;width:clamp(150px,18vw,200px);aspect-ratio:1;display:grid;place-items:center}
-.ld-logo svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
-.ld-logo circle{fill:none;stroke-width:2}
-.ld-tr{stroke:rgba(255,255,255,.07)}
-.ld-rg{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:352;stroke-dashoffset:352;filter:drop-shadow(0 0 6px rgba(255,212,0,.6))}
-.ld-logo img{position:relative;width:86%;height:86%;border-radius:50%;clip-path:circle(0% at 50% 50%);transform:scale(.8) rotate(-30deg);filter:grayscale(1) brightness(.6);transition:clip-path 1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1),filter .9s}
-.ld-dot{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 20px var(--accent);transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .4s;animation:ldp 1s ease-in-out infinite alternate}
-@keyframes ldp{to{transform:scale(1.6)}}
-.ld.full .ld-dot{opacity:0;transform:scale(0)}
-.ld.full .ld-logo img{clip-path:circle(50% at 50% 50%);transform:none;filter:none}
-.ld.full .ld-rg{stroke:rgba(255,212,0,.35)}
-.ld-name{display:flex;overflow:hidden;font-family:var(--disp);font-size:clamp(38px,4.4vw,56px);line-height:1.02;letter-spacing:.04em;color:#f2efe8}
+.ld-c{display:grid;justify-items:center;gap:28px;width:min(380px,82vw);transition:transform 1.05s cubic-bezier(.76,0,.24,1),opacity .5s}
+.ld.out .ld-c{transform:translateY(-80px);opacity:0}
+.ld-logo{position:relative;width:clamp(150px,16vw,196px);aspect-ratio:1}
+.ld-logo img{position:absolute;inset:0;width:100%;height:100%;border-radius:50%}
+.ld-ghost{opacity:.08;filter:grayscale(1)}
+.ld-fill{clip-path:inset(calc(100% - var(--p,0%)) 0 0 0);transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.ld.full .ld-fill{transform:scale(1.06)}
+.ld-name{display:flex;overflow:hidden;font-family:var(--disp);font-size:clamp(40px,4.4vw,58px);line-height:1.02;letter-spacing:.04em;color:#f2efe8}
 .ld-name span{display:inline-block;transform:translateY(110%);animation:ldup .9s cubic-bezier(.16,1,.3,1) forwards}
 .ld-name span.sp{width:.32em}
-.ld-name span:nth-child(n+7){color:var(--accent)}
 @keyframes ldup{to{transform:none}}
-.ld-bar{width:100%;height:2px;background:rgba(255,255,255,.08);overflow:hidden;border-radius:2px}
-.ld-bar i{display:block;height:100%;background:linear-gradient(90deg,#c99a00,var(--accent) 60%,#fff6c2);transform:scaleX(0);transform-origin:left}
+.ld-bar{width:100%;height:2px;background:rgba(255,255,255,.1);overflow:hidden}
+.ld-bar i{display:block;height:100%;background:#f2efe8;transform:scaleX(0);transform-origin:left}
 .ld-st{display:flex;justify-content:space-between;width:100%;font:800 10px/1 var(--f);letter-spacing:.26em;text-transform:uppercase;color:#7d7a75}
-.ld-st b{color:var(--accent);font-weight:800}
+.ld-st b{color:#f2efe8;font-weight:800}
 
 /* responsive */
 @media (max-width:1100px){
@@ -1713,7 +1705,7 @@ html.ldg,html.ldg body{overflow:hidden}
 </div>
 <div class="ld" id="ld" aria-hidden="true">
   <div class="ld-c">
-    <div class="ld-logo"><svg viewBox="0 0 120 120"><circle class="ld-tr" cx="60" cy="60" r="56"/><circle class="ld-rg" id="ldRing" cx="60" cy="60" r="56"/></svg><img src="brand/logo.png" alt=""><i class="ld-dot"></i></div>
+    <div class="ld-logo"><img class="ld-ghost" src="brand/logo.png" alt=""><img class="ld-fill" id="ldFill" src="brand/logo.png" alt=""></div>
     <div class="ld-name"><span>P</span><span>R</span><span>I</span><span>M</span><span>E</span><span class="sp"></span><span>E</span><span>A</span><span>T</span><span>E</span><span>R</span><span>Y</span></div>
     <div class="ld-bar"><i id="ldBar"></i></div>
     <div class="ld-st"><span id="ldMsg">Firing up the grill</span><b id="ldPct">0%</b></div>
@@ -2271,12 +2263,12 @@ $('#ueLink2').href=UE;
   var heroRv=$$('#hero .rv');
   if(RM){ld.classList.add('gone');H.classList.remove('ldg');return}
   heroRv.forEach(function(e){e.classList.remove('in')});
-  var bar=$('#ldBar'),ring=$('#ldRing'),pct=$('#ldPct'),msg=$('#ldMsg'),t0=performance.now(),loaded=D.readyState==='complete',p=0,MIN=1700;
+  var bar=$('#ldBar'),fill=$('#ldFill'),pct=$('#ldPct'),msg=$('#ldMsg'),t0=performance.now(),loaded=D.readyState==='complete',p=0,MIN=1700;
   W.addEventListener('load',function(){loaded=true});
   var MSG=[[0,'Firing up the grill'],[38,'Smashing the patties'],[72,'Saucing it up'],[100,"Let's eat"]];
   function ease(x){return 1-Math.pow(1-x,3)}
   (function step(t){var el=t-t0,target=Math.min(el/MIN,loaded?1:.86);p+=(target-p)*.12;if(target>=1&&p>.995)p=1;
-    var v=ease(p);bar.style.transform='scaleX('+v.toFixed(4)+')';ring.style.strokeDashoffset=(352*(1-v)).toFixed(1);var n=Math.round(v*100);pct.textContent=n+'%';
+    var v=ease(p);bar.style.transform='scaleX('+v.toFixed(4)+')';fill.style.setProperty('--p',(v*100).toFixed(2)+'%');var n=Math.round(v*100);pct.textContent=n+'%';
     for(var i=MSG.length-1;i>=0;i--){if(n>=MSG[i][0]){msg.textContent=MSG[i][1];break}}
     if(p<1)requestAnimationFrame(step);else finish()})(t0);
   function finish(){ld.classList.add('full');
