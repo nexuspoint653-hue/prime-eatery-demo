@@ -1209,15 +1209,16 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 /* marquee */
 .g-mq{position:relative;z-index:8;margin:-30px -2vw 0;background:var(--accent);transform:rotate(-2deg);overflow:hidden;padding:24px 0 22px;box-shadow:0 24px 50px -20px rgba(0,0,0,.8)}
 .g-mq::before,.g-mq::after{content:"";position:absolute;left:0;right:0;height:1px;background:rgba(13,13,14,.25)}.g-mq::before{top:9px}.g-mq::after{bottom:9px}
-.g-mq-t{display:flex;width:max-content;animation:gmq 32s linear infinite}
-.g-mq-s{display:flex;align-items:center;flex:none;font-family:var(--disp);font-size:clamp(24px,2.3vw,36px);line-height:1;text-transform:uppercase;letter-spacing:.02em;color:#0d0d0e;white-space:nowrap}
+.g-mq-t{display:flex;width:max-content}
+.g-mq-s{animation:gmq 64s linear infinite;will-change:transform}
+.g-mq-s{display:flex;align-items:center;flex:none;margin:0;padding:0;font-family:var(--disp);font-size:clamp(24px,2.3vw,36px);line-height:1;text-transform:uppercase;letter-spacing:.02em;color:#0d0d0e;white-space:nowrap}
 .g-mq-s i{display:inline-block;width:.62em;height:.62em;margin:0 .8em;background:#0d0d0e;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);animation:gspin 6s linear infinite}
 .g-mq.alt{margin:0 -2vw;transform:rotate(2deg);background:#050505;border-top:1px solid rgba(255,212,0,.35);border-bottom:1px solid rgba(255,212,0,.35)}
 .g-mq.alt::before,.g-mq.alt::after{background:rgba(255,212,0,.18)}
 .g-mq.alt .g-mq-s{color:var(--accent)}
 .g-mq.alt .g-mq-s i{background:var(--accent)}
-.g-mq.alt .g-mq-t{animation-direction:reverse}
-@keyframes gmq{to{transform:translateX(-50%)}}
+.g-mq.alt .g-mq-s{animation-direction:reverse}
+@keyframes gmq{from{transform:translate3d(0,0,0)}to{transform:translate3d(-100%,0,0)}}
 @keyframes gspin{to{transform:rotate(360deg)}}
 
 /* too good to sit still */
@@ -1487,7 +1488,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
  .g-head{margin-bottom:28px}
 }
 @media (max-width:520px){.g-vibe .ig3{grid-template-columns:repeat(2,minmax(0,1fr))}.g-vibe .ig3-t.big{grid-column:span 2}}
-@media (prefers-reduced-motion:reduce){.g-mq-t,.tg-f,.g-fl-i img,.g-badge{animation:none}.g-rv{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.g-mq-s,.g-mq-t,.tg-f,.g-fl-i img,.g-badge{animation:none}.g-rv{opacity:1;transform:none}}
 </style>
 
 </head><body><header class="hdr" id="hdr">
@@ -1526,7 +1527,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
   </div>
 </section>
 
-<div class="g-mq" aria-hidden="true"><div class="g-mq-t"><span class="g-mq-s">100% Halal<i></i>Made to order<i></i>Open till 3 AM<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i></span><span class="g-mq-s">100% Halal<i></i>Made to order<i></i>Open till 3 AM<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i></span></div></div>
+<div class="g-mq" aria-hidden="true"><div class="g-mq-t"><span class="g-mq-s">100% Halal<i></i>Made to order<i></i>Open till 3 AM<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i>100% Halal<i></i>Made to order<i></i>Open till 3 AM<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i></span><span class="g-mq-s">100% Halal<i></i>Made to order<i></i>Open till 3 AM<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i>100% Halal<i></i>Made to order<i></i>Open till 3 AM<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i></span></div></div>
 
 <section class="g-sec g-tg" id="eat">
   <div class="g-tg-food">
@@ -1577,7 +1578,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
   </div>
 </section>
 
-<div class="g-mq alt" aria-hidden="true"><div class="g-mq-t"><span class="g-mq-s">Order ahead<i></i>Skip the line<i></i>Ready in 15 min<i></i>No app needed<i></i>Pay in two taps<i></i>Pick up out back<i></i></span><span class="g-mq-s">Order ahead<i></i>Skip the line<i></i>Ready in 15 min<i></i>No app needed<i></i>Pay in two taps<i></i>Pick up out back<i></i></span></div></div>
+<div class="g-mq alt" aria-hidden="true"><div class="g-mq-t"><span class="g-mq-s">Order ahead<i></i>Skip the line<i></i>Ready in 15 min<i></i>No app needed<i></i>Pay in two taps<i></i>Pick up out back<i></i>Order ahead<i></i>Skip the line<i></i>Ready in 15 min<i></i>No app needed<i></i>Pay in two taps<i></i>Pick up out back<i></i></span><span class="g-mq-s">Order ahead<i></i>Skip the line<i></i>Ready in 15 min<i></i>No app needed<i></i>Pay in two taps<i></i>Pick up out back<i></i>Order ahead<i></i>Skip the line<i></i>Ready in 15 min<i></i>No app needed<i></i>Pay in two taps<i></i>Pick up out back<i></i></span></div></div>
 
 <section class="g-sec g-ord" id="order">
   <div class="g-wrap g-ord-in">
