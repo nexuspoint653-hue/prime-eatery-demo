@@ -1007,6 +1007,144 @@ body.lock{overflow:hidden}
 .rv4-btn{display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 26px;background:var(--accent);color:#121108;font-weight:800;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;transition:background-color .35s var(--ease),color .35s var(--ease)}
 .rv4-btn .arr{color:inherit;transition:transform .3s var(--ease)}.rv4-btn:hover{background:#121108;color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--accent)}.rv4-btn:hover .arr{transform:translateX(3px)}
 @media (max-width:860px){#reviews .rv2-h{gap:26px}#reviews .lau{justify-self:start}#reviews .rv2c{width:82vw}}
+/* ---- catering builder v2: stepper rail, photo tiles, paper receipt ---- */
+.cb{gap:clamp(18px,2vw,28px)}
+.cb-l{position:relative;border:0;background:none;padding:0}
+.cb-row{position:relative;padding:4px 0 34px 62px;border:0;gap:16px}
+.cb-row::before{content:"";position:absolute;left:19px;top:44px;bottom:0;width:1px;background:linear-gradient(180deg,rgba(255,212,0,.55),rgba(242,239,232,.08))}
+.cb-row.last::before{display:none}
+.cb-h{align-items:center;gap:12px;min-height:40px}
+.cb-h span{position:absolute;left:0;top:4px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#121108;font-family:var(--mono);font-size:12px;font-weight:600;box-shadow:0 0 0 6px rgba(255,212,0,.1)}
+.cb-h b{font-size:clamp(19px,1.6vw,23px);font-weight:700;letter-spacing:-.02em}
+.cb-h small{padding:4px 8px;border:1px solid var(--line-2);border-radius:999px}
+.cb-h em{font-size:clamp(34px,3vw,46px);font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--accent);font-family:var(--f)}
+.cb-h em::after{content:" guests";font-size:14px;font-weight:500;letter-spacing:0;color:var(--muted)}
+.cb-ev{gap:10px}
+.cb-ev button{position:relative;padding:0;border:0;border-radius:14px;overflow:hidden;aspect-ratio:.86;background:#161617;isolation:isolate;transition:transform .45s var(--ease)}
+.cb-ev button img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;border-radius:0;z-index:-2;filter:saturate(.75) brightness(.7);transition:filter .5s,transform 1s var(--ease)}
+.cb-ev button::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(8,8,8,.85),rgba(8,8,8,0) 58%)}
+.cb-ev button span{position:absolute;left:12px;right:12px;bottom:11px;padding:0;font-size:15px;font-weight:700;letter-spacing:-.01em;color:#fff}
+.cb-ev button span small{color:#cfcbc3;font-weight:400}
+.cb-ev button::after{content:"✓";position:absolute;right:10px;top:10px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#121108;font-size:13px;font-weight:800;opacity:0;transform:scale(.6);transition:opacity .3s,transform .35s var(--ease)}
+.cb-ev button:hover{transform:translateY(-3px)}.cb-ev button:hover img{filter:saturate(.9) brightness(.85);transform:scale(1.05)}
+.cb-ev button.on{box-shadow:0 0 0 2px var(--accent),0 18px 40px -18px rgba(255,212,0,.45);background:#161617}
+.cb-ev button.on img{filter:none}.cb-ev button.on::after{opacity:1;transform:none}
+#est input[type=range]{height:6px;border-radius:6px;margin-top:6px}
+#est input[type=range]::-webkit-slider-thumb{width:28px;height:28px;border-width:7px;box-shadow:0 0 0 6px rgba(255,212,0,.15)}
+#est .mm{margin-top:6px}
+.cb-seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.cb-seg button{padding:14px 16px;border-radius:14px;border:1px solid var(--line-2);background:#151516;font-size:15px;gap:4px;position:relative}
+.cb-seg button small{font-size:12px}
+.cb-seg button:hover{border-color:rgba(255,212,0,.45)}
+.cb-seg button.on{background:#1d1a0e;border-color:var(--accent);color:var(--fg);box-shadow:inset 0 0 0 1px var(--accent)}
+.cb-seg button.on small{color:var(--muted)}
+.cb-seg button.on::after{content:"";position:absolute;right:14px;top:14px;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(255,212,0,.18)}
+.cb-food{gap:10px}
+.cb-food button{grid-template-columns:64px 1fr;gap:12px;padding:10px;border-radius:14px;border:1px solid var(--line);background:#151516}
+.cb-food button .ti{width:64px;height:64px;border-radius:11px;background:#efe9df}
+.cb-food button b{font-size:15px}
+.cb-food button.on{background:var(--accent);border-color:var(--accent);color:#121108}
+.cb-food button.on small{color:rgba(18,17,8,.7)}
+.cb-food button.on .ti{background:#fff7d1}
+.cb-food button:disabled{opacity:.42}
+.cb-add{gap:8px}
+.cb-add button{padding:10px 14px;font-size:13.5px;background:#151516;color:#d6d3cc}
+.cb-add button.on{background:var(--accent);border-color:var(--accent);color:#121108}.cb-add button.on::before{color:#121108}.cb-add button.on i{color:rgba(18,17,8,.6)}
+/* receipt: thermal paper */
+.rc{top:92px;border-radius:6px 6px 0 0;background:#fbf8ef;padding:26px 24px 28px;gap:12px;font-family:var(--mono);box-shadow:0 40px 70px -30px rgba(0,0,0,.75);transform:rotate(.6deg);overflow:visible}
+.rc::after{content:"";position:absolute;left:0;right:0;bottom:-11px;height:12px;background:linear-gradient(-45deg,transparent 33%,#fbf8ef 33%) 0 0/16px 12px,linear-gradient(45deg,transparent 33%,#fbf8ef 33%) 0 0/16px 12px;background-repeat:repeat-x}
+.rc-top{flex-direction:column;text-align:center;gap:6px;padding-bottom:16px;border-bottom:1.5px dashed #c9c1b0}
+.rc-top img{width:46px;height:46px}
+.rc-top b{font-family:var(--f);font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.rc-top small{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+.rc-ln{font-family:var(--mono);font-size:12.5px;border-bottom:1px dotted #d8d0bf;padding:8px 0}
+.rc-ln span{font-weight:600;text-transform:uppercase;letter-spacing:.02em;font-size:12px}
+.rc-ln small{font-size:10.5px}
+.rc-sum{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em}
+.rc-tot{border-top:1.5px dashed #151413;padding-top:14px}
+.rc-tot span{font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-size:12px}
+.rc-tot b{font-family:var(--f);font-weight:800}
+.rc-go{border-radius:999px;height:54px;font-family:var(--f);font-size:15px}
+.rc-bar{height:38px;margin-top:4px;background:repeating-linear-gradient(90deg,#151413 0 2px,transparent 2px 4px,#151413 4px 5px,transparent 5px 8px,#151413 8px 11px,transparent 11px 12px,#151413 12px 13px,transparent 13px 17px);opacity:.85}
+.rc-fine{text-align:center;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em}
+@media (max-width:1100px){.rc{transform:none}}
+
+/* ---- order ahead: text left of phone ---- */
+@media (min-width:1101px){
+#order .wide{display:grid;grid-template-columns:minmax(0,500px) auto minmax(0,270px);grid-template-areas:"hd ph r1" "l ph r" "acts ph r";column-gap:clamp(40px,4vw,64px);row-gap:24px;align-items:center;justify-content:center;max-width:1240px;margin:0 auto;background:radial-gradient(circle at 60% 50%,rgba(255,212,0,.17),rgba(255,212,0,.04) 22%,transparent 34%)}
+#order .ord-stage,#order .ord-side.l{display:contents}#order .ord-stage::before{display:none}
+#order .ord-hd{grid-area:hd;justify-items:start;text-align:left;margin:0;max-width:none;align-self:end}
+#order .ord-hd .eyebrow::before{display:none}
+#order .ord-hd h2{font-size:clamp(38px,3.6vw,54px);max-width:14ch}
+#order .ord-hd .lead{max-width:40ch}
+#order .ord-tabs{flex-wrap:nowrap;gap:2px}#order .ord-tabs button{padding:9px 13px;white-space:nowrap}
+#order .iph{grid-area:ph}
+#order .fcard.fl{grid-area:r1;margin:0;align-self:end;max-width:none}
+#order .ord-mini{grid-area:l;max-width:none;align-self:start}
+#order .ord-side::after{display:none}
+#order .ord-side.r{grid-area:r;align-self:start;justify-items:stretch}
+#order .ord-side.r .fcard{margin-top:0;max-width:none}
+#order .ord-acts{grid-area:acts;justify-content:flex-start;margin:0;align-self:start}
+}
+
+/* ---- find v3: O Auto Brokers layout (day tabs + photo wall) ---- */
+#find{position:relative;overflow:hidden;background:radial-gradient(60% 70% at 85% 50%,rgba(255,212,0,.07),transparent 70%)}
+.fx2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:clamp(32px,5vw,90px);align-items:center;max-width:1320px;margin:0 auto;padding:0 var(--gut)}
+.fx2-l{display:grid;justify-items:start;max-width:600px}
+.fx2-tabs{width:100%;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none;margin-bottom:34px}
+.fx2-tabs::-webkit-scrollbar{display:none}
+.fx2-tabs .strip-row{display:grid;grid-template-columns:repeat(7,minmax(70px,1fr));min-width:520px}
+.fx2-tabs .strip-cell{padding:14px 6px 13px;border:0;border-right:1px solid var(--line);text-align:center;justify-items:center;cursor:pointer;gap:3px;outline:0}
+.fx2-tabs .strip-cell:last-child{border-right:0}
+.fx2-tabs .strip-cell .n,.fx2-tabs .strip-cell .tdy{display:none}
+.fx2-tabs .strip-cell .d{font-size:11px;letter-spacing:.16em;color:var(--muted);font-weight:600}
+.fx2-tabs .strip-cell .t{white-space:nowrap;font-size:9.5px;letter-spacing:.02em;opacity:.7}
+.fx2-tabs .strip-cell::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .45s var(--ease)}
+.fx2-tabs .strip-cell.today .d{color:var(--accent)}
+.fx2-tabs .strip-cell.on{background:rgba(255,255,255,.035)}.fx2-tabs .strip-cell.on .d{color:var(--fg)}.fx2-tabs .strip-cell.on::before{transform:none}
+.fx2-tabs .strip-cell.today.on .d{color:var(--accent)}
+.fx2-eb{margin:0 0 14px;display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.fx2-eb::before{content:"";width:2px;height:12px;background:var(--accent)}
+.fx2-h{margin:0;font-size:clamp(38px,4.2vw,64px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
+.fx2-seg{display:inline-flex;margin-top:26px;border:1px solid var(--line-2)}
+.fx2-seg>span{display:inline-flex;align-items:center;gap:9px;padding:13px 18px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.fx2-seg .a{background:var(--accent);color:#121108}
+.fx2-seg .a i{width:7px;height:7px;border-radius:50%;background:rgba(18,17,8,.35)}.fx2-seg .a i.on{background:#121108;animation:pulse 2s infinite}
+.fx2-seg .b{color:var(--fg)}.fx2-seg .b b{font-weight:700}.fx2-seg .b span{color:var(--muted)}
+.fx2-sub{margin:30px 0 0;font-size:clamp(19px,1.6vw,23px);font-weight:700;letter-spacing:-.01em}
+.fx2-sub #fcD{color:var(--accent)}
+.fx2-lead{margin:10px 0 0;color:var(--muted);font-size:16px;line-height:1.55;max-width:46ch}
+.fx2-list{list-style:none;margin:28px 0 0;padding:0;width:100%;border-top:1px solid var(--line)}
+.fx2-list li{display:grid;grid-template-columns:40px 1fr;align-items:baseline;padding:17px 0;border-bottom:1px solid var(--line)}
+.fx2-list i{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--accent)}
+.fx2-list b{display:block;font-size:15.5px;font-weight:600}.fx2-list b span{color:var(--accent);font-family:var(--mono);font-size:13.5px}
+.fx2-list small b{display:inline;font-size:inherit;font-weight:600}.fx2-list small{display:block;margin-top:4px;font-size:13px;color:var(--muted)}.fx2-list small a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.fx2-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+.fx2-btn{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 20px;border:1px solid var(--line-2);font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--fg);transition:background .3s,color .3s,border-color .3s}
+.fx2-btn:hover{border-color:var(--fg)}
+.fx2-btn.p{background:var(--accent);border-color:var(--accent);color:#121108}.fx2-btn.p:hover{background:var(--fg);border-color:var(--fg)}.fx2-btn .arr{color:inherit}
+.fx2-r{position:relative;height:clamp(560px,52vw,720px);-webkit-mask:linear-gradient(180deg,transparent,#000 12%,#000 86%,transparent);mask:linear-gradient(180deg,transparent,#000 12%,#000 86%,transparent)}
+.fx2-tilt{position:absolute;inset:-4% 9%;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;transform:perspective(1600px) rotateY(-10deg) rotateZ(7deg);transform-origin:50% 50%}
+.fx2-col{display:grid;gap:14px;align-content:start}
+.fx2-col:nth-child(1){margin-top:60px}.fx2-col:nth-child(3){margin-top:30px}
+.fx2-col figure{position:relative;margin:0;aspect-ratio:.78;border-radius:14px;overflow:hidden;background:#161617;cursor:pointer;transition:transform .6s var(--ease),box-shadow .5s}
+.fx2-col figure img{width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.8);transition:filter .6s,transform 1.2s var(--ease)}
+.fx2-col figure:not([data-i]) img{filter:brightness(.45) saturate(.7)}
+.fx2-col figcaption{position:absolute;left:10px;top:10px;padding:4px 8px;background:rgba(10,10,10,.7);font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#d6d3cc;transition:background .4s,color .4s}
+.fx2-col figure.on{box-shadow:0 0 0 2px var(--accent),0 30px 60px -20px rgba(255,212,0,.35);transform:scale(1.04);z-index:2}
+.fx2-col figure.on img{filter:none;transform:scale(1.04)}
+.fx2-col figure.on figcaption{background:var(--accent);color:#121108}
+@media (min-width:901px){#hero .hero-copy{bottom:calc(56px + env(safe-area-inset-bottom,0px))}}
+@media (max-width:900px){.fx2{grid-template-columns:1fr}.fx2-l{max-width:none}.fx2-r{height:440px;order:-1;margin:0 calc(-1 * var(--gut))}.fx2-tilt{inset:-10% 0}}
+@media (max-width:560px){.fx2-seg{display:grid;width:100%}.fx2-r{height:360px}}
+
+/* ---- section titles: two-line, O Auto Brokers style ---- */
+h2.t2{font-family:var(--f)!important;font-size:clamp(34px,4.1vw,62px)!important;font-weight:900!important;text-transform:uppercase;letter-spacing:-.015em!important;line-height:.98!important;max-width:none!important;font-stretch:100%;text-wrap:nowrap;margin:0}
+h2.t2>span,h2.t2>em{display:block;white-space:nowrap}
+@media (min-width:1101px){#order h2.t2{font-size:clamp(34px,3.2vw,50px)!important}}
+h2.t2>em{font-style:normal!important;font-family:inherit!important;font-weight:inherit!important;color:var(--accent)!important;letter-spacing:inherit!important}
+@media (max-width:700px){h2.t2{font-size:clamp(22px,7.1vw,40px)!important}}
+@media (max-width:640px){.cb-row{padding-left:0}.cb-row::before{display:none}.cb-h span{position:static;width:30px;height:30px;box-shadow:none}.cb-seg{grid-template-columns:1fr}.cb-ev button{aspect-ratio:1}}
 </style>
 
 </head><body><header class="hdr" id="hdr">
@@ -1043,31 +1181,26 @@ body.lock{overflow:hidden}
     <div class="hero-cta rv"><a class="btn btn-p shbtn" data-dd="hero" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a><a class="tlink" href="#catering">Book catering <span class="arr">↗</span></a></div>
     <a class="hc-proof rv" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener"><span class="st" aria-hidden="true">★★★★★</span><b>4.8</b><span>from 1,742 Google reviews</span></a>
   </div>
-  <div class="strip" id="hours" aria-label="Opening hours this week"><div class="strip-row" id="strip"></div></div>
 </section>
 
 <section class="band" id="find">
-  <div class="wrap find">
-    <div class="find-l">
-    <aside class="now rv" aria-label="Open right now">
-      <div class="now-top"><span class="now-st"><i id="nowDot"></i><span id="nowState">Open</span></span><span class="mono" id="nowClock">FRI · 21:40</span></div>
-      <div class="now-big"><b id="dialV">2h 10m</b><span id="dialL">left to order tonight</span></div>
-      <div class="ruler" aria-hidden="true"><div class="ruler-tr"><i class="ruler-fill" id="rFill"></i><i class="ruler-now" id="rNow"></i></div><div class="ruler-tk" id="rTicks"></div><div class="ruler-lb"><span id="rA">12 PM</span><span id="rM">7 PM</span><span id="rB">3 AM</span></div></div>
-      <div class="now-loc"><h3>Masri Medical Building</h3><p class="addr">13530 Michigan Ave #120 · entrance in back</p></div>
-      <div class="acts"><a class="btn btn-p shbtn btn-sm" data-dd="find" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a><a class="btn btn-g btn-sm" data-dir href="#" target="_blank" rel="noopener">Directions ↗</a></div>
-      <div class="ft"><span id="tmLine">Tomorrow: <b>Saturday</b> · 12:00</span><a class="mono" href="tel:+13137577200">(313) 757-7200</a></div>
-    </aside>
-    <div class="find-ph" id="findPh" aria-hidden="true"></div>
+  <div class="fx2">
+    <div class="fx2-l">
+      <div class="fx2-tabs" id="hours" aria-label="Opening hours this week"><div class="strip-row" id="strip"></div></div>
+      <p class="fx2-eb">Hours and nightly picks</p>
+      <h2 class="fx2-h t2"><span>Open late,</span><em>every night.</em></h2>
+      <div class="fx2-seg"><span class="a"><i id="nowDot"></i><span id="nowState">Open</span></span><span class="b"><b id="dialV">2h 10m</b> <span id="dialL">left to order tonight</span></span></div>
+      <h3 class="fx2-sub"><span id="fcD">Tonight</span>: <span id="fcN">Mexicana Bowl</span></h3>
+      <p class="fx2-lead">One kitchen on Michigan Ave, open late seven nights a week. Every night has a crew pick you can order ahead.</p>
+      <ol class="fx2-list">
+        <li><i>01</i><div><b>The pick · <span id="fxP">$16</span></b><small id="fxPd">Crispy or grilled chicken, jalapeño</small></div></li>
+        <li><i>02</i><div><b>Hours · <span id="fxH">12:00–02:00</span></b><small id="tmLine">Tomorrow</small></div></li>
+        <li><i>03</i><div><b>Masri Medical Building</b><small>13530 Michigan Ave #120 · entrance in back · <a href="tel:+13137577200">(313) 757-7200</a></small></div></li>
+      </ol>
+      <div class="fx2-acts"><a class="fx2-btn p" data-dd="find" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a><a class="fx2-btn" data-dir href="#" target="_blank" rel="noopener">Directions</a><a class="fx2-btn" href="menu.html">Full menu</a></div>
+      <span hidden><span id="nowClock"></span><i id="rFill"></i><i id="rNow"></i><span id="rTicks"></span><span id="rA"></span><span id="rM"></span><span id="rB"></span></span>
     </div>
-    <div>
-      <div class="stack" style="display:grid;gap:16px">
-        <p class="eyebrow">Hours and nightly picks</p>
-        <h2 class="rv">Open tonight, and every night this week.</h2>
-        <p class="lead">One kitchen on Michigan Ave, open late seven nights a week. Every night has a crew pick you can order ahead.</p>
-      </div>
-      <div class="days" id="dayList"></div>
-      <div class="days-acts"><a class="btn btn-g" href="menu.html">Full menu</a><a class="btn btn-p shbtn" data-dd="find_list" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a></div>
-    </div>
+    <div class="fx2-r" aria-hidden="true"><div class="fx2-tilt" id="findPh"></div></div>
   </div>
 </section>
 
@@ -1075,7 +1208,7 @@ body.lock{overflow:hidden}
   <div class="wide">
     <header class="ord-hd">
       <p class="eyebrow">Order ahead</p>
-      <h2 class="rv">Order ahead. The whole counter, <em>on your phone.</em></h2>
+      <h2 class="rv t2"><span>Order ahead,</span><em>skip the line.</em></h2>
       <p class="lead">Pick it on the way over, pay in two taps, grab it off the pickup shelf. No app to download, no line to stand in.</p>
       <div class="ord-tabs" id="ordTabs" role="tablist"><button type="button" class="on" data-s="0"><i>01</i>Menu</button><button type="button" data-s="1"><i>02</i>Your order</button><button type="button" data-s="2"><i>03</i>Checkout</button><button type="button" data-s="3"><i>04</i>Pickup</button></div>
     </header>
@@ -1133,7 +1266,7 @@ body.lock{overflow:hidden}
 <section class="band" id="menu">
   <div class="wrap">
     <div class="sec-head">
-      <div class="stack"><p class="eyebrow">The menu board</p><h2 class="rv">Made to order. Nothing waits under a heat lamp.</h2><p class="lead">Six things regulars order most. The full menu has thirty, all halal, with grilled or crispy on every bowl.</p></div>
+      <div class="stack"><p class="eyebrow">The menu board</p><h2 class="rv t2"><span>Made to order.</span><em>Nothing sits.</em></h2><p class="lead">Six things regulars order most. The full menu has thirty, all halal, with grilled or crispy on every bowl.</p></div>
       <a class="btn btn-g" href="menu.html">See the full menu</a>
     </div>
     <div class="pgrid" id="board"></div>
@@ -1143,7 +1276,7 @@ body.lock{overflow:hidden}
 
 <section class="band" id="catering">
   <div class="wide">
-    <div class="cat-hd"><div><p class="eyebrow">Catering and events</p><h2 class="rv">Book Prime. We bring the food, <em>the crew and the sauce.</em></h2></div><div class="cat-hd-r"><p class="lead">Trays, boxed lunches or a staffed hot line. Dearborn, Dearborn Heights and all of Metro Detroit, 100% halal.</p><div class="cat-hd-a"><button class="btn btn-p shbtn" type="button" data-plan>Plan an event <span class="arr">→</span></button><a class="tlink" href="#cmenu">See the catering menu <span class="arr">↓</span></a></div></div></div>
+    <div class="cat-hd"><div><p class="eyebrow">Catering and events</p><h2 class="rv t2"><span>Book Prime.</span><em>We bring the food.</em></h2></div><div class="cat-hd-r"><p class="lead">Trays, boxed lunches or a staffed hot line. Dearborn, Dearborn Heights and all of Metro Detroit, 100% halal.</p><div class="cat-hd-a"><button class="btn btn-p shbtn" type="button" data-plan>Plan an event <span class="arr">→</span></button><a class="tlink" href="#cmenu">See the catering menu <span class="arr">↓</span></a></div></div></div>
     <div class="cb" id="est">
       <div class="cb-l">
         <div class="cb-row"><div class="cb-h"><span>01</span><b>What's the event?</b></div><div class="cb-ev" id="cbEv"></div></div>
@@ -1160,7 +1293,7 @@ body.lock{overflow:hidden}
         <div class="rc-tot"><span>Estimated total</span><b id="qTot">$0</b></div>
         <p class="rc-pp"><span id="rcPP">$0 per guest</span><span id="qDep">25% deposit holds the date</span></p>
         <button class="btn rc-go" id="reqDate" type="button" data-plan>Request this date <span class="arr">→</span></button>
-        <p class="rc-fine">Estimate from our catering menu. Final quote confirmed by phone within a few hours.</p>
+        <div class="rc-bar" aria-hidden="true"></div><p class="rc-fine">Estimate from our catering menu. Final quote confirmed by phone within a few hours.</p>
       </aside>
     </div>
     <div class="specs">
@@ -1178,7 +1311,7 @@ body.lock{overflow:hidden}
 
 <section class="band" id="events" style="padding-top:clamp(40px,6vw,80px)">
   <div class="wide">
-    <div class="ev-hd"><div><p class="eyebrow">Events we cater</p><h2 class="rv">Walimas, game days, office lunches <em>and parties that run late.</em></h2></div><button class="btn btn-p shbtn" type="button" data-plan>Plan an event <span class="arr">→</span></button></div>
+    <div class="ev-hd"><div><p class="eyebrow">Events we cater</p><h2 class="rv t2"><span>Walimas, game days,</span><em>and late nights.</em></h2></div><button class="btn btn-p shbtn" type="button" data-plan>Plan an event <span class="arr">→</span></button></div>
     <div class="evb" id="ev"></div>
   </div>
 </section>
@@ -1190,7 +1323,7 @@ body.lock{overflow:hidden}
         <span class="ig3-av"><img src="brand/logo.png" alt=""></span>
         <span><b>@primeeatery</b><small>Prime Eatery Burgers &amp; Sandwiches · Dearborn</small></span>
       </a>
-      <h2 class="rv">Straight from <em>the kitchen's camera roll.</em></h2>
+      <h2 class="rv t2"><span>Straight from</span><em>the camera roll.</em></h2>
       <a class="btn btn-g" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg> Follow</a>
     </div>
     <div class="ig3" id="mqIg"></div>
@@ -1201,7 +1334,7 @@ body.lock{overflow:hidden}
 <section class="band rv2" id="reviews">
   <div class="rv4-wrap">
     <div class="rv2-h">
-      <div class="rv2-l"><p class="rv4-eb">Real Google reviews</p><h2 class="rv">What regulars say</h2><p class="lead">Unedited, straight from Google.</p>
+      <div class="rv2-l"><p class="rv4-eb">Real Google reviews</p><h2 class="rv t2"><span>What regulars</span><em>are saying.</em></h2><p class="lead">Unedited, straight from Google.</p>
         <a class="rv2-link" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener">Read them on Google <span class="arr">→</span></a></div>
       <a class="lau" id="lau" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener" aria-label="Rated 4.8 out of 5 from 1,742 Google reviews"></a>
     </div>
@@ -1214,7 +1347,7 @@ body.lock{overflow:hidden}
 <section class="band" id="story">
   <div class="wrap">
     <div class="sn-hd">
-      <div><p class="eyebrow">Our story · since 2022</p><h2 class="rv">Built for the hours <em>everyone else is closed.</em></h2></div>
+      <div><p class="eyebrow">Our story · since 2022</p><h2 class="rv t2"><span>Built for</span><em>after hours.</em></h2></div>
       <div class="sn-intro"><p>Prime Eatery is one halal kitchen tucked behind the Masri Medical Building on Michigan Ave. We opened in 2022 because there was nowhere in Dearborn to get a real meal at 1 AM.</p><p>Here's what a night at Prime looks like, from the first order to last call.</p></div>
     </div>
     <div class="sn" id="sn">
@@ -1235,7 +1368,7 @@ body.lock{overflow:hidden}
     <div class="dl">
       <div class="dl-l">
         <p class="dl-k">Get the deals first</p>
-        <h2>One text when a deal drops. <em>Nothing else.</em></h2>
+        <h2 class="t2"><span>One text when</span><em>a deal drops.</em></h2>
         <ul class="dl-perks"><li><b>BOGO bowls</b><span>Prime Bowl nights, first to know</span></li><li><b>Game-day trays</b><span>Lions Sundays, order by noon</span></li><li><b>Late-night drops</b><span>After 11 PM, while the grill's hot</span></li></ul>
         <div id="smsWrap">
           <form id="smsForm" class="dl-form" novalidate>
@@ -1475,18 +1608,17 @@ var order=[1,2,3,4,5,6,0];
 var NIGHT={1:{k:'mexicana-bowl',bg:'mexicana-bowl'},2:{k:'classic-burger',bg:'night-classic'},3:{k:'mexicana-burger',bg:'night-mexicana'},4:{k:'tenders',bg:'tenders-fries'},5:{k:'prime-burger',bg:'night-prime'},6:{k:'wings',bg:'wings'},0:{k:'midwest-chicken',bg:'midwest-chicken'}};
 function lateTxt(d){return HOURS[d][1]>=27*60?'Late night till 3 AM':d===0?'Opens at 3 PM':'Pickup and delivery'}
 $('#strip').innerHTML=order.map(function(d){return '<div class="strip-cell" data-day="'+d+'"><span class="d">'+DAYS[d].slice(0,3)+'<span class="tdy"></span></span><span class="n">'+lateTxt(d)+'</span><span class="t">'+range(d)+'</span></div>'}).join('');
-$('#dayList').innerHTML=order.map(function(d){var it=IDX[NIGHT[d].k];
-  return '<a class="day rv" data-day="'+d+'" href="'+dd('night_'+DAYS[d].toLowerCase())+'" target="_blank" rel="noopener"><img src="photos/'+NIGHT[d].bg+'.jpg" alt="" loading="lazy" decoding="async"><span class="dd">'+DAYS[d]+'</span><span class="nm"><b>'+esc(it[1])+'</b><small>'+lateTxt(d)+'</small></span><span class="sp">'+esc(it[3].split(',').slice(0,2).join(','))+'<i>$'+it[2]+'</i></span><span class="hh">'+range(d)+'</span><span class="ar">→</span></a>';
-}).join('');
-
-/* ---------- find: list cycles on its own, photo follows ---------- */
-var fph=$('#findPh'),days=$$('#dayList .day'),fi=0,ftimer=null,fOn=false;
-fph.innerHTML=order.map(function(d,i){return '<img src="photos/'+NIGHT[d].bg+'.jpg" alt="" decoding="async"'+(i?'':' class="on"')+'>'}).join('')+'<span class="fcap"><small class="mono" id="fcD">Monday</small><b id="fcN">Mexicana Bowl</b></span>';
-var fimgs=$$('img',fph);
-function findGo(i){fi=(i+days.length)%days.length;days.forEach(function(el,j){el.classList.toggle('on',j===fi)});fimgs.forEach(function(im,j){im.classList.toggle('on',j===fi)});var d=order[fi],cp=$('.fcap',fph);cp.classList.add('sw');setTimeout(function(){$('#fcD').textContent=DAYS[d]+(d===state().today?' · tonight':'');$('#fcN').textContent=IDX[NIGHT[d].k][1];cp.classList.remove('sw')},380)}
+/* ---------- find: day tabs drive the pick, photo wall follows ---------- */
+var fph=$('#findPh'),days=$$('#strip .strip-cell'),fi=0,ftimer=null,fOn=false;
+var FCOL=[[0,3,6],[1,4,'hero-burger'],[2,5,'fries']];
+fph.innerHTML=FCOL.map(function(c){return '<div class="fx2-col">'+c.map(function(x){var src=typeof x==='number'?NIGHT[order[x]].bg:x;return '<figure'+(typeof x==='number'?' data-i="'+x+'"':'')+'><img src="photos/'+src+'.jpg" alt="" loading="lazy" decoding="async">'+(typeof x==='number'?'<figcaption>'+DAYS[order[x]].slice(0,3)+'</figcaption>':'')+'</figure>'}).join('')+'</div>'}).join('');
+var fimgs=$$('figure[data-i]',fph);
+function findGo(i){fi=(i+days.length)%days.length;days.forEach(function(el,j){el.classList.toggle('on',j===fi)});fimgs.forEach(function(f){f.classList.toggle('on',+f.getAttribute('data-i')===fi)});var d=order[fi],it=IDX[NIGHT[d].k];
+  $('#fcD').textContent=d===state().today?'Tonight':DAYS[d];$('#fcN').textContent=it[1];$('#fxP').textContent='$'+it[2];$('#fxPd').textContent=it[3];$('#fxH').textContent=range(d)+(HOURS[d][1]>=27*60?' · late night':'')}
 function findPlay(){clearInterval(ftimer);if(!RM&&fOn)ftimer=setInterval(function(){findGo(fi+1)},3400)}
-days.forEach(function(el,j){el.addEventListener('mouseenter',function(){clearInterval(ftimer);findGo(j)});el.addEventListener('focus',function(){clearInterval(ftimer);findGo(j)})});
-$('#dayList').addEventListener('mouseleave',findPlay);
+days.forEach(function(el,j){el.setAttribute('role','button');el.tabIndex=0;['mouseenter','focus','click'].forEach(function(ev){el.addEventListener(ev,function(){clearInterval(ftimer);findGo(j)})})});
+fimgs.forEach(function(f){f.addEventListener('mouseenter',function(){clearInterval(ftimer);findGo(+f.getAttribute('data-i'))})});
+$('#strip').addEventListener('mouseleave',findPlay);fph.addEventListener('mouseleave',findPlay);
 findGo(Math.max(0,order.indexOf(state().today)));
 
 /* ---------- home menu: six photo cards ---------- */
