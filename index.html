@@ -796,20 +796,6 @@ body.lock{overflow:hidden}
 </section>
 
 
-<section class="band paperband" id="week" aria-label="This week at Prime">
-  <div class="wrap wk">
-    <div class="wk-ph rv"><div class="wk-imgs" id="wkImgs"></div><span class="wk-cap mono" id="wkCap">Monday · Mexicana Bowl</span></div>
-    <div class="wk-tx">
-      <p class="eyebrow">This week at Prime</p>
-      <h2 class="rv">A neighborhood counter with a late-night streak.</h2>
-      <p class="wk-lead">Every night the crew puts one plate up front. Pick a night to see it, then order it ahead and grab it off the pickup shelf.</p>
-      <div class="wk-days" id="wkDays" role="tablist" aria-label="Nights"></div>
-      <div class="wk-pick"><div><small class="mono" id="wkMeta">Pickup and delivery · 12:00–02:00</small><b id="wkName">Mexicana Bowl</b><span id="wkDesc"></span></div><i id="wkPrice">$17</i></div>
-      <div class="wk-acts"><a class="btn btn-p shbtn" data-dd="week" id="wkGo" href="#" target="_blank" rel="noopener">Order tonight's pick <span class="arr">→</span></a><a class="tlink tlink-d" href="#deals">Text me the deals <span class="arr">↗</span></a></div>
-    </div>
-  </div>
-</section>
-
 <section class="band" id="order">
   <div class="wide ord">
     <div class="ord-tx">
@@ -1194,15 +1180,6 @@ var PICKS=[['mexicana-burger','night-mexicana','Bestseller'],['classic-burger','
 $('#board').innerHTML=PICKS.map(function(p,i){var it=IDX[p[0]];
   return '<a class="pc rv" href="'+dd('board_'+p[0])+'" target="_blank" rel="noopener" style="transition-delay:'+(i%3*80)+'ms"><div class="pc-ph"><img src="photos/'+p[1]+'.jpg" alt="'+esc(it[1])+'" loading="lazy" decoding="async"><span class="pc-tag">'+esc(p[2])+'</span></div><div class="pc-row"><h3>'+esc(it[1])+'</h3><span class="mono">$'+it[2]+'</span></div><p>'+esc(it[3])+'</p></a>'}).join('');
 
-/* ---------- this week: photo + night chips ---------- */
-$('#wkImgs').innerHTML=order.map(function(d){return '<img src="photos/'+NIGHT[d].bg+'.jpg" alt="'+esc(IDX[NIGHT[d].k][1])+'" loading="lazy" decoding="async">'}).join('');
-$('#wkDays').innerHTML=order.map(function(d,i){return '<button type="button" role="tab" data-w="'+i+'" data-day="'+d+'"><span>'+DAYS[d].slice(0,3)+'</span></button>'}).join('');
-var wkI=$$('#wkImgs img'),wkB=$$('#wkDays button');
-function weekShow(i){var d=order[i],it=IDX[NIGHT[d].k];wkI.forEach(function(im,j){im.classList.toggle('on',j===i)});wkB.forEach(function(b,j){b.classList.toggle('on',j===i);b.setAttribute('aria-selected',j===i)});
-  $('#wkName').textContent=it[1];$('#wkDesc').textContent=it[3];$('#wkPrice').textContent='$'+it[2];$('#wkMeta').textContent=DAYS[d]+' · '+lateTxt(d)+' · '+range(d);
-  $('#wkCap').textContent=DAYS[d]+(d===state().today?' · tonight':'')+' · '+it[1];$('#wkGo').href=dd('week_'+NIGHT[d].k)}
-wkB.forEach(function(b){b.addEventListener('click',function(){weekShow(+b.getAttribute('data-w'))})});
-weekShow(Math.max(0,order.indexOf(state().today)));
 
 /* ---------- order ahead steps + phone ---------- */
 /* ---------- order ahead: yellow iPhone walkthrough ---------- */
