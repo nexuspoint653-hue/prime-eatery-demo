@@ -396,6 +396,16 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 @media (max-width:860px){.rv2-h{grid-template-columns:1fr;gap:26px}.lau{width:280px;justify-self:center}.rrow.rev{display:none}.rv2c{width:84vw}.rrow{animation-duration:60s}}
 @media (prefers-reduced-motion:reduce){.rrow{animation:none}.lau-sh{display:none}.lau-st svg{opacity:1;transform:none}}
 
+/* shader order button (yellow, animated grain) */
+.btn.shbtn{position:relative;isolation:isolate;overflow:hidden;background:#0d0b02;color:#fff;border:1px solid rgba(255,226,110,.42);box-shadow:inset 0 0 14px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.4);text-shadow:0 1px 8px rgba(40,30,0,.55)}
+.btn.shbtn::before{content:"";position:absolute;z-index:-2;inset:-70% -30%;background:radial-gradient(28% 55% at 28% 50%,#fff3a0 0%,#ffd400 32%,rgba(255,212,0,.55) 52%,transparent 72%),radial-gradient(24% 50% at 72% 52%,rgba(255,200,0,.85) 0%,rgba(255,180,0,.35) 45%,transparent 70%);filter:blur(5px);animation:shMove 5.5s ease-in-out infinite alternate}
+.btn.shbtn::after{content:"";position:absolute;z-index:-1;inset:0;border-radius:inherit;opacity:.5;mix-blend-mode:overlay;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");box-shadow:inset 0 0 10px rgba(0,0,0,.6)}
+.btn.shbtn:hover{background:#0d0b02}
+.btn.shbtn:hover::before{animation-duration:2.6s}
+@keyframes shMove{0%{transform:translateX(-18%) rotate(-6deg)}50%{transform:translateX(6%) translateY(4%) rotate(4deg)}100%{transform:translateX(20%) rotate(-3deg)}}
+@media (prefers-reduced-motion:reduce){.btn.shbtn::before{animation:none}}
+.dot:not(.y){display:none}
+
 /* story */
 .story{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:clamp(30px,5vw,72px);align-items:center}
 .story .ph{border-radius:14px;overflow:hidden;aspect-ratio:1/0.92;background:#1a1918}
@@ -470,14 +480,14 @@ body.lock{overflow:hidden}
   <div class="wide hdr-in">
     <a class="brand" href="#top" aria-label="Prime Eatery home"><img src="brand/logo.png" alt="" width="34" height="34">Prime Eatery</a>
     <nav class="nav" aria-label="Main"><a href="#menu">Menu</a><a href="#hours">Hours</a><a href="#catering">Catering</a><a href="#events">Events</a><a href="#story">Our story</a></nav>
-    <div class="hdr-r"><a class="ph" href="tel:+13137577200">(313) 757-7200</a><a class="btn btn-p btn-sm" data-dd="header" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a></div>
+    <div class="hdr-r"><a class="ph" href="tel:+13137577200">(313) 757-7200</a><a class="btn btn-p shbtn btn-sm" data-dd="header" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a></div>
     <button class="burger-btn" id="mOpen" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span></button>
   </div>
 </header>
 <div class="mnav" id="mnav" aria-hidden="true">
   <button class="x" id="mClose" aria-label="Close menu">×</button>
   <a href="#menu">Menu</a><a href="#hours">Hours</a><a href="#catering">Catering</a><a href="#events">Events</a><a href="#story">Our story</a>
-  <a class="btn btn-p" data-dd="mobile_nav" href="#" target="_blank" rel="noopener">Order on DoorDash <span class="arr">→</span></a>
+  <a class="btn btn-p shbtn" data-dd="mobile_nav" href="#" target="_blank" rel="noopener">Order on DoorDash <span class="arr">→</span></a>
 </div>
 
 <main id="top">
@@ -496,7 +506,7 @@ body.lock{overflow:hidden}
   <div class="wide hero-copy">
     <h1 class="rv">Loaded burgers and rice bowls, made to order <em>till 3&nbsp;AM.</em></h1>
     <p class="lead rv">Order ahead on DoorDash and skip the wait at the counter. Or book Prime for your party, office lunch or walima.</p>
-    <div class="hero-cta rv"><a class="btn btn-p" data-dd="hero" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a><a class="btn btn-g" href="#catering">Book catering</a></div>
+    <div class="hero-cta rv"><a class="btn btn-p shbtn" data-dd="hero" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a><a class="btn btn-g" href="#catering">Book catering</a></div>
     <p class="hero-facts rv">100% halal · Pickup in ~15 min</p>
   </div>
   <div class="strip" id="hours" aria-label="Opening hours this week"><div class="strip-row" id="strip"></div></div>
@@ -508,7 +518,7 @@ body.lock{overflow:hidden}
       <div class="top"><span><span class="dot" id="nowDot"></span><span id="nowState">Open</span></span><span id="nowClock">Friday · 21:40</span></div>
       <div class="dial"><svg viewBox="0 0 200 200" aria-hidden="true"><g id="ticks"></g><circle cx="100" cy="100" r="74" fill="none" stroke="#2a2a2d" stroke-width="7"/><circle id="arc" cx="100" cy="100" r="74" fill="none" stroke="#ffd400" stroke-width="7" stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465" transform="rotate(-90 100 100)"/></svg><div class="v"><b id="dialV">2h 10m</b><small id="dialL">until we close</small></div></div>
       <div><h3>Masri Medical Building</h3><p class="addr">13530 Michigan Ave #120 · entrance in back</p></div>
-      <div class="acts"><a class="btn btn-p btn-sm" data-dd="find" href="#" target="_blank" rel="noopener">Order ahead →</a><a class="btn btn-g btn-sm" data-dir href="#" target="_blank" rel="noopener">Directions ↗</a></div>
+      <div class="acts"><a class="btn btn-p shbtn btn-sm" data-dd="find" href="#" target="_blank" rel="noopener">Order ahead →</a><a class="btn btn-g btn-sm" data-dir href="#" target="_blank" rel="noopener">Directions ↗</a></div>
       <div class="ft"><span id="tmLine">Tomorrow: <b>Saturday</b> · 12:00</span><a class="mono" href="tel:+13137577200">(313) 757-7200</a></div>
     </aside>
     <div>
@@ -518,7 +528,7 @@ body.lock{overflow:hidden}
         <p class="lead">One kitchen on Michigan Ave, open late every night. Tap a night for the crew's pick and order it ahead.</p>
       </div>
       <div class="days" id="dayList"></div>
-      <div class="days-acts"><button class="btn btn-g" type="button" data-open-menu>Full menu</button><a class="btn btn-p" data-dd="find_list" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a></div>
+      <div class="days-acts"><button class="btn btn-g" type="button" data-open-menu>Full menu</button><a class="btn btn-p shbtn" data-dd="find_list" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a></div>
     </div>
   </div>
 </section>
@@ -546,7 +556,7 @@ body.lock{overflow:hidden}
       <div class="meta" id="wMeta">Michigan Ave · 12:00–02:00</div>
       <a class="pick" id="wPick" data-dd-dyn href="#" target="_blank" rel="noopener"><img id="wImg" src="photos/mexicana-bowl.jpg" alt=""><span><small>Tonight's pick</small><b id="wPickName">Mexicana Bowl</b><i id="wPrice">$17</i></span></a>
     </div>
-    <div class="week-list" id="weekList"><div id="wl"></div><div class="acts"><a class="btn btn-g" href="#deals">Text me the deals</a><a class="btn btn-p" data-dd="week" href="#" target="_blank" rel="noopener">Order tonight's pick</a></div></div>
+    <div class="week-list" id="weekList"><div id="wl"></div><div class="acts"><a class="btn btn-g" href="#deals">Text me the deals</a><a class="btn btn-p shbtn" data-dd="week" href="#" target="_blank" rel="noopener">Order tonight's pick</a></div></div>
   </div>
 </section>
 
@@ -560,7 +570,7 @@ body.lock{overflow:hidden}
           <button class="ostep" type="button" data-i="1"><span class="k">02</span><h3>Pay on your phone</h3><p>Card, Apple Pay or Google Pay through DoorDash.</p><div class="bar"><i></i></div></button>
           <button class="ostep" type="button" data-i="2"><span class="k">03</span><h3>Skip the line</h3><p>Grab it from the pickup shelf when you get the text. Say your name, that's it.</p><div class="bar"><i></i></div></button>
         </div>
-        <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-p" data-dd="order_section" href="#" target="_blank" rel="noopener">Start an order <span class="arr">→</span></a><a class="btn btn-g" id="ueLink" href="#" target="_blank" rel="noopener">Also on Uber Eats ↗</a></div>
+        <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-p shbtn" data-dd="order_section" href="#" target="_blank" rel="noopener">Start an order <span class="arr">→</span></a><a class="btn btn-g" id="ueLink" href="#" target="_blank" rel="noopener">Also on Uber Eats ↗</a></div>
       </div>
       <div class="phone rv" aria-hidden="true"><div class="screen" id="screen"><div class="island"></div><div class="sbar"><span id="phTime">21:40</span><span>●●●</span></div>
         <div class="scr on" data-s="0"><p class="lab">Prime Eatery · menu live</p><div id="phList"></div><div class="cartbar"><span>View order · 2 items</span><span>$33</span></div></div>
@@ -659,7 +669,7 @@ body.lock{overflow:hidden}
   <div class="wrap">
     <div class="closing">
       <div class="l"><p class="eyebrow">Hungry? Here's what the counter says right now</p><div class="led" id="led2wrap" aria-hidden="true"><div class="l1" id="ledB1">Today · Fri 30 Oct</div><div class="l2"><span id="ledB2">Open till 3 AM · Michigan Ave ·</span></div></div></div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-p" data-dd="closing" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a><a class="btn btn-g" href="#catering">Book catering</a></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-p shbtn" data-dd="closing" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a><a class="btn btn-g" href="#catering">Book catering</a></div>
     </div>
   </div>
 </section>
@@ -684,14 +694,14 @@ body.lock{overflow:hidden}
     <div class="sh-top"><h3 id="shTitle">The full menu</h3><button class="sh-x" data-close aria-label="Close menu">×</button></div>
     <div class="sh-cats" id="shCats"></div>
     <div class="sh-body" id="shBody"></div>
-    <div class="sh-foot"><p class="fine">Delivery-app prices. Add-ons and sauces are chosen at checkout.</p><a class="btn btn-p" data-dd="menu_sheet" href="#" target="_blank" rel="noopener">Order on DoorDash <span class="arr">→</span></a></div>
+    <div class="sh-foot"><p class="fine">Delivery-app prices. Add-ons and sauces are chosen at checkout.</p><a class="btn btn-p shbtn" data-dd="menu_sheet" href="#" target="_blank" rel="noopener">Order on DoorDash <span class="arr">→</span></a></div>
   </div>
 </div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Instagram reel">
   <button class="x" id="lbX" aria-label="Close video">×</button>
   <div class="vw"><video id="lbV" playsinline controls preload="none"></video></div>
-  <div class="side"><p class="eyebrow">@primeeatery</p><h3 id="lbT">Straight from the grill</h3><p class="lead" style="font-size:14px" id="lbD"></p><a class="btn btn-p" data-dd="reel" href="#" target="_blank" rel="noopener">Order this on DoorDash →</a><a class="btn btn-g" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener">More on Instagram ↗</a></div>
+  <div class="side"><p class="eyebrow">@primeeatery</p><h3 id="lbT">Straight from the grill</h3><p class="lead" style="font-size:14px" id="lbD"></p><a class="btn btn-p shbtn" data-dd="reel" href="#" target="_blank" rel="noopener">Order this on DoorDash →</a><a class="btn btn-g" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener">More on Instagram ↗</a></div>
 </div>
 <script>
 (function(){
