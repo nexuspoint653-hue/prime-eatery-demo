@@ -1658,7 +1658,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 .hstat b{gap:0}
 
 /* map: no pin overlay, no Google footer bar */
-.g-pin{left:auto!important;top:auto!important;right:18px;bottom:18px;z-index:3}
+.g-map{overflow:visible!important}.g-map iframe{border-radius:6px;clip-path:inset(0 0 34px 0 round 6px)}.g-pin{left:auto!important;top:-22px!important;right:76px;bottom:auto;z-index:3}
 .g-map iframe{height:calc(100% + 34px);bottom:auto}
 
 /* footer wordmark: show the whole word */
@@ -1806,53 +1806,168 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
  .hc-btn{min-width:110px}
 }
 
-/* ---- story page ---- */
-.st-hero{padding-top:clamp(130px,13vw,190px)}
-.st-hero-in{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(40px,6vw,96px);align-items:center}
-.st-h1{font-size:clamp(58px,6.6vw,110px)}
-.st-hero-ph{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:visible}
-.st-hero-ph img{width:100%;height:100%;object-fit:cover;border-radius:6px;box-shadow:0 60px 100px -50px rgba(0,0,0,.9)}
-.st-stamp{position:absolute;left:-34px;bottom:40px;width:132px;aspect-ratio:1;border-radius:50%;display:grid;place-content:center;justify-items:center;gap:2px;background:var(--accent);color:#0d0d0e;transform:rotate(-10deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.8);animation:gfloat 7s ease-in-out infinite}
-.st-stamp b{font:800 10px var(--f);letter-spacing:.3em}
-.st-stamp i{font-family:var(--disp);font-style:normal;font-size:42px;line-height:.9}
-.st-stamp small{font:800 8.5px var(--f);letter-spacing:.2em;text-transform:uppercase}
-.st-page .g-mq{margin-top:0}
-.st-two{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:clamp(40px,6vw,100px);align-items:start}
-.st-two.r{align-items:center;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-.st-copy p{margin:0 0 20px;color:var(--g-mut);font-size:16.5px;line-height:1.8}
-.st-copy .st-pull{margin-top:30px;padding-left:22px;border-left:3px solid var(--accent);font-family:var(--disp);font-size:clamp(24px,2.2vw,32px);line-height:1.15;text-transform:uppercase;color:#f2efe8}
-.st-tl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--g-line)}
-.st-tl-i{position:relative;padding:34px 28px 10px 0}
-.st-tl-i::before{content:"";position:absolute;left:0;top:-6px;width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(255,212,0,.15)}
-.st-tl-i b{display:block;font-family:var(--disp);font-weight:400;font-size:clamp(46px,4.4vw,68px);line-height:1;color:var(--accent);text-transform:uppercase}
-.st-tl-i h3{margin:16px 0 10px;font-family:var(--disp);font-weight:400;font-size:24px;text-transform:uppercase;letter-spacing:.01em}
-.st-tl-i p{margin:0;color:var(--g-mut);font-size:14.5px;line-height:1.7}
-.st-vgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.st-v{padding:30px 26px 32px;border:1px solid var(--g-line);border-radius:4px;background:#121213;transition:border-color .4s,transform .6s cubic-bezier(.16,1,.3,1)}
-.st-v:hover{border-color:rgba(255,212,0,.4);transform:translateY(-6px)}
-.st-v i{font:800 11px var(--f);font-style:normal;letter-spacing:.2em;color:var(--accent)}
-.st-v h3{margin:40px 0 12px;font-family:var(--disp);font-weight:400;font-size:30px;text-transform:uppercase;line-height:1}
-.st-v p{margin:0;color:var(--g-mut);font-size:14.5px;line-height:1.7}
-.st-sgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.st-s{padding:0 0 24px;border:1px solid var(--g-line);border-radius:4px;background:#121213;overflow:hidden}
-.st-s-ph{aspect-ratio:1;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 55%,#2a2419,#121213 75%)}
-.st-s-ph img{width:auto;height:74%;max-width:84%;object-fit:contain;filter:drop-shadow(0 24px 26px rgba(0,0,0,.6));transition:transform .9s cubic-bezier(.16,1,.3,1)}
-.st-s:hover .st-s-ph img{transform:scale(1.08) rotate(-3deg)}
-.st-s h3{margin:18px 22px 8px;font-family:var(--disp);font-weight:400;font-size:26px;text-transform:uppercase;line-height:1}
-.st-s p{margin:0 22px;color:var(--g-mut);font-size:13.5px;line-height:1.6}
-.st-crew-ph{position:relative;display:grid;grid-template-columns:1fr .8fr;gap:14px;align-items:end}
-.st-crew-ph img{width:100%;border-radius:4px;object-fit:cover}
-.st-crew-ph img:first-child{aspect-ratio:3/4}
-.st-crew-ph img:last-child{aspect-ratio:1;margin-bottom:-40px}
-.st-quotes{display:grid;gap:14px;margin-top:30px}
-.st-quotes blockquote{margin:0;padding:18px 20px;border:1px solid var(--g-line);border-left:3px solid var(--accent);border-radius:4px;background:#121213;font-size:15px;line-height:1.6;color:#e3dfd7}
-.st-quotes cite{display:block;margin-top:8px;font:800 9.5px var(--f);font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:#7d7a75}
-.st-cta-in{text-align:center;display:grid;justify-items:center}
-.st-cta .g-h{font-size:clamp(52px,6.4vw,104px)}
-.st-cta .g-p{text-align:center;max-width:none}
-@media (max-width:1000px){.st-tl,.st-vgrid,.st-sgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.st-tl{row-gap:20px}}
-@media (max-width:900px){.st-hero-in,.st-two,.st-two.r{grid-template-columns:1fr}.st-stamp{left:auto;right:16px;bottom:-30px;width:110px}.st-crew-ph img:last-child{margin-bottom:0}}
-@media (max-width:560px){.st-tl,.st-vgrid{grid-template-columns:1fr}.st-sgrid{grid-template-columns:1fr 1fr;gap:10px}.st-s h3{font-size:20px;margin:14px 14px 6px}.st-s p{margin:0 14px;font-size:12.5px}.st-v h3{margin-top:22px}.st-h1{font-size:clamp(46px,14vw,64px)}.st-page .g-h{text-wrap:wrap}}
+/* ================= story page v2 ================= */
+.sp{overflow-x:clip}
+.sp-serif{margin:0;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(46px,5.4vw,90px);line-height:1;letter-spacing:-.01em;color:#f2efe8}
+.sp-serif em{font-style:italic;color:var(--accent)}
+
+/* hero */
+.sp-hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.sp-hero-bg{position:absolute;inset:0;z-index:-2}
+.sp-hero-bg img{width:100%;height:118%;object-fit:cover;object-position:50% 40%;transform:translateY(var(--py,0));will-change:transform}
+.sp-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,10,11,.92) 0%,rgba(10,10,11,.6) 45%,rgba(10,10,11,.15) 100%),linear-gradient(0deg,#0d0d0e 0%,rgba(13,13,14,0) 40%)}
+.sp-hero-in{position:relative;width:100%;max-width:1560px;margin:0 auto;padding:140px max(clamp(24px,5vw,80px),var(--gut)) clamp(60px,7vw,110px)}
+.sp-h1{margin:0;font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(64px,9vw,160px);line-height:.9;color:#f2efe8}
+.sp-h1 .spl{display:block;overflow:hidden}
+.sp-h1 .spl>span{font:inherit!important;color:inherit;letter-spacing:inherit;display:block;transform:translateY(105%);animation:spup 1.1s cubic-bezier(.16,1,.3,1) forwards}
+.sp-h1 .spl:nth-child(2)>span{animation-delay:.12s}.sp-h1 .spl:nth-child(3)>span{animation-delay:.24s}
+.sp-h1 .y{color:var(--accent)}
+@keyframes spup{to{transform:none}}
+.sp-lead{margin:28px 0 0;max-width:52ch;color:#d6d3cc;font-size:clamp(15.5px,1.2vw,18px);line-height:1.7;opacity:0;animation:spfade 1s .5s forwards}
+.sp-hero-ft{display:flex;align-items:center;gap:28px;margin-top:34px;opacity:0;animation:spfade 1s .7s forwards}
+@keyframes spfade{to{opacity:1}}
+.sp-scroll{display:flex;align-items:center;gap:12px;font:800 10.5px/1 var(--f);letter-spacing:.24em;text-transform:uppercase;color:#a9a59d}
+.sp-scroll i{width:1px;height:40px;background:linear-gradient(var(--accent),transparent);animation:spsc 1.8s ease-in-out infinite}
+@keyframes spsc{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.sp-est{position:absolute;right:max(clamp(24px,5vw,80px),var(--gut));bottom:clamp(60px,7vw,110px);font-family:var(--disp);font-size:clamp(90px,12vw,220px);line-height:.85;text-align:right;color:transparent;-webkit-text-stroke:1.5px rgba(255,212,0,.55)}
+.sp .g-mq{margin-top:0}
+
+/* manifesto */
+.sp-man{padding-block:clamp(100px,12vw,190px)}
+.sp-man-in{max-width:1180px;margin:0 auto;padding-inline:max(clamp(24px,5vw,80px),var(--gut))}
+.sp-man-t{margin:0;font-family:"Instrument Serif",Georgia,serif;font-size:clamp(32px,3.9vw,64px);line-height:1.18;letter-spacing:-.01em;color:#f2efe8}
+.sp-man-t .w{opacity:.16;transition:opacity .35s,color .35s}
+.sp-man-t .w.on{opacity:1}
+.sp-man-t .w.k{font-style:italic;color:var(--accent)}
+
+/* night: horizontal */
+.sp-night{position:relative;height:340vh}
+.sp-night-pin{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(24px,3vw,44px);overflow:hidden}
+.sp-night-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;width:100%;max-width:1560px;margin:0 auto;padding-inline:max(clamp(24px,5vw,80px),var(--gut))}
+.sp-night-hd .g-eb{margin-bottom:14px}
+.sp-clock{display:flex;align-items:baseline;gap:8px;font-family:var(--disp);color:var(--accent)}
+.sp-clock b{font-weight:400;font-size:clamp(56px,6vw,100px);line-height:1;font-variant-numeric:tabular-nums}
+.sp-clock small{font-size:24px;color:#f2efe8}
+.sp-track{display:flex;gap:clamp(16px,1.6vw,26px);padding-left:max(clamp(24px,5vw,80px),var(--gut));padding-right:20vw;width:max-content;will-change:transform}
+.sp-card{flex:none;width:clamp(280px,30vw,460px)}
+.sp-ph{aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#151515}
+.sp-ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+.sp-card:hover .sp-ph img{transform:scale(1)}
+.sp-t{display:inline-block;margin-top:18px;padding:6px 10px;border-radius:6px;background:var(--accent);color:#0d0d0e;font:800 11px/1 var(--f);letter-spacing:.16em}
+.sp-card h3{margin:12px 0 8px;font-family:var(--disp);font-weight:400;font-size:clamp(26px,2.2vw,36px);text-transform:uppercase;line-height:1}
+.sp-card p{margin:0;max-width:40ch;color:#a9a59d;font-size:14.5px;line-height:1.65}
+.sp-bar{width:calc(100% - 2*max(clamp(24px,5vw,80px),var(--gut)));max-width:1400px;margin:0 auto;height:2px;background:rgba(255,255,255,.08)}
+.sp-bar i{display:block;height:100%;width:0;background:var(--accent)}
+
+/* numbers */
+.sp-num{padding-block:clamp(60px,7vw,110px);border-top:1px solid var(--g-line);border-bottom:1px solid var(--g-line)}
+.sp-num-in{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.sp-num-in div{display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:6px;padding-left:24px;border-left:1px solid var(--g-line)}
+.sp-num-in b{font-family:var(--disp);font-weight:400;font-size:clamp(54px,6vw,104px);line-height:1;color:#f2efe8;font-variant-numeric:tabular-nums}
+.sp-num-in em{font-style:normal;font-family:var(--disp);font-size:clamp(26px,2.6vw,44px);color:var(--accent)}
+.sp-num-in span{grid-column:1/-1;margin-top:10px;font:800 10.5px/1.4 var(--f);letter-spacing:.2em;text-transform:uppercase;color:#7d7a75}
+
+/* signatures */
+.sp-sig{padding-block:clamp(100px,11vw,170px)}
+.sp-sig-hd{display:grid;justify-items:center;text-align:center;width:100%;margin-bottom:clamp(40px,5vw,80px)}
+.sp-sig-hd .g-eb{justify-content:center}
+.sp-row{display:grid;grid-template-columns:1.25fr 1fr;align-items:center;gap:clamp(30px,5vw,90px);margin-bottom:clamp(60px,7vw,110px)}
+.sp-row.r .sp-row-ph{order:2}
+.sp-row-ph{position:relative;display:grid;place-items:center;min-height:clamp(320px,32vw,520px)}
+.sp-row-ph img{position:relative;z-index:1;width:100%;max-height:clamp(320px,30vw,500px);object-fit:contain;filter:drop-shadow(0 40px 40px rgba(0,0,0,.7));transform:translateY(var(--ry,40px)) scale(var(--rs,.94));transition:transform .2s linear}
+.sp-num-bg{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--disp);font-size:clamp(220px,26vw,440px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,212,0,.12)}
+.sp-row-tx small{display:block;font:800 11px/1 var(--f);letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+.sp-row-tx h3{margin:14px 0 16px;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(44px,4.6vw,76px);line-height:1;color:#f2efe8}
+.sp-row-tx p{margin:0 0 28px;max-width:44ch;color:#a9a59d;font-size:16px;line-height:1.7}
+
+/* bento */
+.sp-vals{padding-block:clamp(60px,7vw,110px)}
+.sp-bento{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:repeat(2,minmax(240px,auto));gap:16px}
+.sp-b{position:relative;overflow:hidden;border-radius:20px;background:#141415;border:1px solid var(--g-line);padding:clamp(22px,2.2vw,34px);display:flex;flex-direction:column;justify-content:flex-end;min-height:240px;transition:transform .6s cubic-bezier(.16,1,.3,1),border-color .4s}
+.sp-b:hover{transform:translateY(-6px);border-color:rgba(255,212,0,.35)}
+.sp-b.big{grid-row:span 2}
+.sp-b img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
+.sp-b:hover img{transform:scale(1.05)}
+.sp-b.big::after,.sp-b.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,8,8,.92),rgba(8,8,8,.1) 65%)}
+.sp-b>div{position:relative;z-index:1}
+.sp-b i{font:800 11px var(--f);font-style:normal;letter-spacing:.2em;color:var(--accent)}
+.sp-b h3{margin:10px 0 8px;font-family:var(--disp);font-weight:400;font-size:clamp(28px,2.4vw,40px);text-transform:uppercase;line-height:1}
+.sp-b p{margin:0;max-width:40ch;color:#a9a59d;font-size:14.5px;line-height:1.6}
+.sp-b.y{background:var(--accent);border-color:var(--accent);color:#0d0d0e}.sp-b.y i{color:#0d0d0e}.sp-b.y p{color:#3d3410}
+.sp-b.y h3{font-size:clamp(40px,3.6vw,60px)}
+
+/* crew */
+.sp-crew{padding-block:clamp(90px,10vw,160px)}
+.sp-crew-in{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,110px);align-items:center}
+.sp-crew-ph{position:relative;height:clamp(460px,44vw,700px)}
+.sp-crew-ph img{position:absolute;object-fit:cover;border-radius:20px;box-shadow:0 40px 70px -30px rgba(0,0,0,.9)}
+.sp-crew-ph .a{left:0;top:0;width:66%;height:84%}
+.sp-crew-ph .b{right:0;bottom:0;width:48%;height:46%;border:6px solid #0d0d0e}
+.sp-sticker{position:absolute;right:6%;top:8%;width:150px;height:150px;border-radius:50%;display:grid;place-items:center;text-align:center;background:var(--accent);color:#0d0d0e;font-family:var(--disp);font-size:20px;line-height:1;text-transform:uppercase;transform:rotate(12deg);animation:spspin 18s linear infinite}
+@keyframes spspin{to{transform:rotate(372deg)}}
+.sp-crew-tx .g-p{margin-top:24px;font-size:16px}
+.sp-q{position:relative;margin-top:34px;min-height:150px}
+.sp-q blockquote{position:absolute;inset:0;margin:0;padding:24px 26px;border-radius:16px;background:#141415;border:1px solid var(--g-line);font-family:"Instrument Serif",Georgia,serif;font-size:clamp(22px,1.9vw,30px);line-height:1.25;color:#f2efe8;opacity:0;transform:translateY(14px);transition:opacity .6s,transform .8s cubic-bezier(.16,1,.3,1)}
+.sp-q blockquote.on{opacity:1;transform:none}
+.sp-q cite{display:block;margin-top:14px;font:800 10px/1 var(--f);font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+
+/* cta */
+.sp-cta{position:relative;overflow:hidden;padding-block:clamp(120px,14vw,220px);text-align:center;isolation:isolate}
+.sp-cta-run{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:-2;pointer-events:none}
+.sp-cta-run>div{display:flex;width:max-content}
+.sp-cta-run span{flex:none;font-family:var(--disp);font-size:clamp(140px,18vw,320px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,212,0,.12);white-space:nowrap;animation:gmq 50s linear infinite}
+.sp-cta-food{position:absolute;right:-4%;bottom:-6%;width:clamp(260px,30vw,520px);z-index:-1;transform:rotate(-12deg);filter:drop-shadow(0 40px 40px rgba(0,0,0,.7));opacity:.95}
+.sp-cta-in{max-width:900px;margin:0 auto;padding-inline:24px}
+.sp-cta .g-h{font-size:clamp(60px,8vw,140px)}
+.sp-cta p{margin:22px 0 0;color:#a9a59d}
+.sp-cta p a{color:#f2efe8}
+
+/* reveal */
+.sp-rv{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease),transform 1.1s cubic-bezier(.16,1,.3,1)}
+.sp-rv.in{opacity:1;transform:none}
+
+@media (max-width:1100px){
+ .sp-num-in{grid-template-columns:repeat(2,1fr);row-gap:40px}
+ .sp-bento{grid-template-columns:1fr 1fr}.sp-b.big{grid-column:span 2;grid-row:auto;min-height:380px}
+ .sp-crew-in{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+ .sp-hero{min-height:88svh}
+ .sp-hero::after{background:linear-gradient(0deg,#0d0d0e 8%,rgba(13,13,14,.7) 55%,rgba(13,13,14,.3) 100%)}
+ .sp-h1{font-size:clamp(52px,15vw,72px)}
+ .sp-est{display:none}
+ .sp-lead{font-size:15px}
+ .sp-scroll{display:none}
+ .sp-man{padding-block:80px}
+ .sp-man-t{font-size:clamp(26px,7.4vw,34px)}
+ .sp-night{height:auto}
+ .sp-night-pin{position:relative;height:auto;padding-block:70px}
+ .sp-night-hd .g-eb{position:static;margin:0 0 12px}
+ .sp-night-hd{flex-direction:column;align-items:flex-start;gap:6px}
+ .sp-clock{display:none}
+ .sp-track{transform:none!important;width:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px;scrollbar-width:none}
+ .sp-track::-webkit-scrollbar{display:none}
+ .sp-card{width:76vw;scroll-snap-align:start}
+ .sp-bar{display:none}
+ .sp-num{padding-block:50px}
+ .sp-num-in{column-gap:12px;row-gap:30px}.sp-num-in div{padding-left:14px}.sp-num-in b{font-size:48px}
+ .sp-sig{padding-block:70px}
+ .sp-serif{font-size:clamp(38px,11vw,52px)}
+ .sp-row,.sp-row.r{grid-template-columns:1fr;gap:10px;margin-bottom:56px}
+ .sp-row.r .sp-row-ph{order:0}
+ .sp-row-ph{min-height:220px}
+ .sp-row-tx h3{font-size:40px}
+ .sp-row-tx p{font-size:14.5px;margin-bottom:20px}
+ .sp-bento{grid-template-columns:1fr}.sp-b.big{grid-column:auto;min-height:320px}.sp-b{min-height:180px}
+ .sp-crew{padding-block:70px}
+ .sp-crew-ph{height:360px}
+ .sp-sticker{width:104px;height:104px;font-size:14px}
+ .sp-q{min-height:170px}
+ .sp-cta{padding-block:110px 140px}
+ .sp-cta .g-h{font-size:clamp(44px,13vw,62px)}
+ .sp-cta-food{width:200px;right:-14%;bottom:-4%}
+}
+@media (prefers-reduced-motion:reduce){.sp-h1 .spl>span,.sp-lead,.sp-hero-ft{animation:none;transform:none;opacity:1}.sp-sticker{animation:none}}
 </style>
 
 </head><body><header class="hdr" id="hdr">
@@ -1869,92 +1984,117 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
   <a class="g-btn" data-dd="mobile_nav" href="#" target="_blank" rel="noopener">Order on DoorDash</a>
 </div>
 
-<main id="top" class="st-page">
-<section class="g-sec st-hero">
-  <div class="g-wrap st-hero-in">
-    <div class="st-hero-tx g-rv">
-      <p class="g-eb">Our story <b>—</b> Dearborn, MI</p>
-      <h1 class="g-h st-h1">One kitchen.<br>Big flavor.<br><em>Open late.</em></h1>
-      <p class="g-p">Prime Eatery is a small halal kitchen tucked behind the Masri Medical Building on Michigan Ave. Since 2022 we've been smashing burgers, piling rice bowls and spinning shakes to order, for the lunch rush, the family dinner and the 1 AM crowd.</p>
-      <div class="g-acts"><a class="g-btn" href="menu.html">See the menu</a><a class="g-btn o" href="index.html#visit">Visit us</a></div>
-    </div>
-    <div class="st-hero-ph g-rv"><img src="photos/story.jpg" alt="A Mexicana Burger with Hot Cheetos crust held over waffle fries" decoding="async"><span class="st-stamp"><b>EST.</b><i>2022</i><small>Michigan Ave</small></span></div>
+<main id="top" class="sp">
+
+<!-- 1. hero -->
+<section class="sp-hero">
+  <div class="sp-hero-bg"><img src="photos/story.jpg" alt="" decoding="async"></div>
+  <div class="sp-hero-in">
+    <p class="g-eb">Our story <b>—</b> Dearborn, Michigan</p>
+    <h1 class="sp-h1"><span class="spl"><span>One grill.</span></span><span class="spl"><span>One block.</span></span><span class="spl y"><span>Open late.</span></span></h1>
+    <p class="sp-lead">Prime Eatery is a small halal kitchen behind the Masri Medical Building on Michigan Ave. Since 2022 we've cooked every order from scratch, for the lunch rush, the family dinner and the 1 AM crowd.</p>
+    <div class="sp-hero-ft"><a class="g-btn" href="menu.html">See the menu</a><span class="sp-scroll">Scroll the story <i></i></span></div>
   </div>
+  <span class="sp-est" aria-hidden="true">EST<br>2022</span>
 </section>
 
 <div class="g-mq" aria-hidden="true"><div class="g-mq-t"><span class="g-mq-s">Since 2022<i></i>100% Halal<i></i>Made to order<i></i>Open till 3 AM<i></i>Michigan Ave, Dearborn<i></i>4.8 on Google<i></i>Since 2022<i></i>100% Halal<i></i>Made to order<i></i>Open till 3 AM<i></i>Michigan Ave, Dearborn<i></i>4.8 on Google<i></i></span><span class="g-mq-s">Since 2022<i></i>100% Halal<i></i>Made to order<i></i>Open till 3 AM<i></i>Michigan Ave, Dearborn<i></i>4.8 on Google<i></i>Since 2022<i></i>100% Halal<i></i>Made to order<i></i>Open till 3 AM<i></i>Michigan Ave, Dearborn<i></i>4.8 on Google<i></i></span></div></div>
 
-<section class="g-sec st-start">
-  <div class="g-wrap st-two">
-    <div class="g-rv">
-      <p class="g-eb">01 <b>—</b> How it started</p>
-      <h2 class="g-h">Nowhere to eat<br><em>after midnight.</em></h2>
+<!-- 2. manifesto: words light up as you scroll -->
+<section class="sp-man" id="spMan">
+  <div class="sp-man-in">
+    <p class="g-eb">01 <b>—</b> Why we started</p>
+    <p class="sp-man-t" id="spManT">Dearborn has incredible food until the clock passes midnight. We wanted a real meal for the people still out late: students after a study night, nurses off a double, families after a wedding. So we fired up one grill, made every sauce ourselves and kept it halal from the fryer oil up.</p>
+  </div>
+</section>
+
+<!-- 3. a night at prime: horizontal scroll -->
+<section class="sp-night" id="spNight">
+  <div class="sp-night-pin">
+    <div class="sp-night-hd">
+      <div><p class="g-eb">02 <b>—</b> A night at Prime</p>
+      <h2 class="g-h">Noon to <em>3 AM.</em></h2></div>
+      <div class="sp-clock"><b id="spClock">12:00</b><small>PM</small></div>
     </div>
-    <div class="st-copy g-rv">
-      <p>Dearborn has no shortage of great food, until the clock passes midnight. Prime started with a simple idea: a real, made-to-order meal for the people still out late. Students after a study night, nurses off a shift, families after a wedding, friends who just aren't ready to go home.</p>
-      <p>So we built a menu around the food people actually crave at that hour. Burgers stacked loud, crispy and grilled chicken, rice bowls big enough to share and shakes with the toppings piled on top. Then we kept the grill on until 2 AM during the week and 3 AM on weekends.</p>
-      <p class="st-pull">"Fresh patties, made fresh to order. That was the rule on day one and it still is."</p>
+    <div class="sp-track" id="spTrack">
+      <article class="sp-card"><div class="sp-ph"><img src="photos/prime-rice-bowl.jpg" alt="" loading="lazy"></div><span class="sp-t">12 PM</span><h3>Doors open</h3><p>Lunch for the medical building upstairs and everyone working on Michigan Ave.</p></article>
+      <article class="sp-card"><div class="sp-ph"><img src="photos/night-classic.jpg" alt="" loading="lazy"></div><span class="sp-t">5 PM</span><h3>Families roll in</h3><p>Bowls big enough to share and a burger for every kid in the booth.</p></article>
+      <article class="sp-card"><div class="sp-ph"><img src="photos/night-mexicana.jpg" alt="" loading="lazy"></div><span class="sp-t">9 PM</span><h3>The grill gets loud</h3><p>Hot Cheetos on the Mexicana, cheese pulls, tickets lining the rail.</p></article>
+      <article class="sp-card"><div class="sp-ph"><img src="video/reel-6.jpg" alt="" loading="lazy"></div><span class="sp-t">1 AM</span><h3>The late crowd</h3><p>Everything else on the block is dark. Our counter is still busy.</p></article>
+      <article class="sp-card"><div class="sp-ph"><img src="photos/night-prime.jpg" alt="" loading="lazy"></div><span class="sp-t">3 AM</span><h3>Last call</h3><p>The grill shuts off at 3 on weekends and 2 the rest of the week.</p></article>
+    </div>
+    <div class="sp-bar"><i id="spBar"></i></div>
+  </div>
+</section>
+
+<!-- 4. numbers -->
+<section class="sp-num">
+  <div class="g-wrap wide-x sp-num-in">
+    <div><b data-to="2022" data-plain>2022</b><span>The year we lit the grill</span></div>
+    <div><b data-to="30">30</b><em>+</em><span>Items on the menu</span></div>
+    <div><b data-to="1742">1,742</b><span>Google reviews, 4.8 stars</span></div>
+    <div><b data-to="3">3</b><em>AM</em><span>Last orders on weekends</span></div>
+  </div>
+</section>
+
+<!-- 5. the signatures: big alternating -->
+<section class="sp-sig">
+  <div class="g-wrap wide-x">
+    <div class="sp-sig-hd"><p class="g-eb">03 <b>—</b> The signatures</p><h2 class="sp-serif">What made us <em>famous</em></h2></div>
+    <div class="sp-row">
+      <div class="sp-row-ph"><span class="sp-num-bg">01</span><img src="photos/cut/combo-mexicana.webp" alt="Mexicana Burger combo" loading="lazy"></div>
+      <div class="sp-row-tx"><small>The bestseller</small><h3>Mexicana Burger</h3><p>A crust of crushed Hot Cheetos over melted American, grilled jalapeño, corn and nacho cheese. The one people film before they eat.</p><a class="hc-btn" data-dd="story_mexicana" href="#" target="_blank" rel="noopener"><span class="hc-a">Order · $16</span><span class="hc-b">I want this one →</span></a></div>
+    </div>
+    <div class="sp-row r">
+      <div class="sp-row-ph"><span class="sp-num-bg">02</span><img src="photos/cut/combo-prime.webp" alt="Prime Burger combo" loading="lazy"></div>
+      <div class="sp-row-tx"><small>The big one</small><h3>The Prime Burger</h3><p>Pretzel bun, fried egg, onion ring, mozzarella sticks, turkey bacon and Prime sauce. It's named after the place for a reason.</p><a class="hc-btn" data-dd="story_prime" href="#" target="_blank" rel="noopener"><span class="hc-a">Order · $17</span><span class="hc-b">I want this one →</span></a></div>
+    </div>
+    <div class="sp-row">
+      <div class="sp-row-ph"><span class="sp-num-bg">03</span><img src="photos/cut/prime-rice-bowl.webp" alt="Prime Rice Bowl" loading="lazy"></div>
+      <div class="sp-row-tx"><small>Feeds two</small><h3>Prime Rice Bowl</h3><p>Grilled or crispy chicken over rice with lettuce, tomato, Prime sauce and house ranch. Regulars say one bowl is two meals.</p><a class="hc-btn" data-dd="story_bowl" href="#" target="_blank" rel="noopener"><span class="hc-a">Order · $17</span><span class="hc-b">I want this one →</span></a></div>
     </div>
   </div>
 </section>
 
-<section class="g-sec st-road">
-  <div class="g-wrap">
-    <div class="g-head g-rv"><div><p class="g-eb">02 <b>—</b> The road so far</p><h2 class="g-h">How we got <em>here.</em></h2></div></div>
-    <div class="st-tl">
-      <div class="st-tl-i g-rv"><b>2022</b><h3>The counter opens</h3><p>Suite 120 at 13530 Michigan Ave, entrance in back. One grill, one fryer, a short menu and late hours from the first night.</p></div>
-      <div class="st-tl-i g-rv"><b>Late</b><h3>The 3 AM crowd finds us</h3><p>Weekends run till 3. The Mexicana Burger with its Hot Cheetos crust and the nacho-topped burger become the orders everyone films.</p></div>
-      <div class="st-tl-i g-rv"><b>2023</b><h3>A second counter</h3><p>Prime opens on Plymouth Road in Ann Arbor, bringing the same late-night menu to a new crowd of regulars.</p></div>
-      <div class="st-tl-i g-rv"><b>Today</b><h3>4.8 from 1,742 reviews</h3><p>Thirty items on the board, catering for walimas, offices and game days, and a Google rating we work hard to keep.</p></div>
+<!-- 6. what we stand for: bento -->
+<section class="sp-vals">
+  <div class="g-wrap wide-x">
+    <div class="sp-sig-hd"><p class="g-eb">04 <b>—</b> What we stand for</p><h2 class="g-h">No shortcuts. <em>Ever.</em></h2></div>
+    <div class="sp-bento">
+      <div class="sp-b big"><img src="photos/hero-burger.jpg" alt="" loading="lazy"><div><i>01</i><h3>Made to order</h3><p>Nothing sits under a heat lamp. Patties hit the grill when you order and the fries drop when your ticket prints.</p></div></div>
+      <div class="sp-b y"><i>02</i><h3>100% halal</h3><p>Every protein, every sauce, from the fryer oil up.</p></div>
+      <div class="sp-b"><i>03</i><h3>Sauces in house</h3><p>Prime sauce, ranch and Asian Zing made in our kitchen.</p></div>
+      <div class="sp-b ph"><img src="photos/tenders-fries.jpg" alt="" loading="lazy"><div><i>04</i><h3>Portions that share</h3></div></div>
+      <div class="sp-b"><i>05</i><h3>Open when you're hungry</h3><p>Noon to 2 AM weeknights, 3 AM Friday and Saturday, 3 PM to 1 AM Sunday.</p></div>
     </div>
   </div>
 </section>
 
-<section class="g-sec st-vals">
-  <div class="g-wrap">
-    <div class="g-head g-rv"><div><p class="g-eb">03 <b>—</b> What we stand for</p><h2 class="g-h">No shortcuts. <em>Ever.</em></h2></div></div>
-    <div class="st-vgrid">
-      <div class="st-v g-rv"><i>01</i><h3>100% halal</h3><p>Every protein, every sauce, from the fryer oil up. Order anything on the menu without asking twice.</p></div>
-      <div class="st-v g-rv"><i>02</i><h3>Made to order</h3><p>Nothing sits under a heat lamp. Patties hit the grill when you order and the fries drop when your ticket prints.</p></div>
-      <div class="st-v g-rv"><i>03</i><h3>Portions that share</h3><p>The Prime Bowl regularly feeds two. Rice, grilled or crispy chicken, lettuce, tomato and our house Prime sauce.</p></div>
-      <div class="st-v g-rv"><i>04</i><h3>Open when you're hungry</h3><p>Noon to 2 AM on weeknights, till 3 AM Friday and Saturday, and 3 PM to 1 AM on Sunday.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="g-sec st-sig">
-  <div class="g-wrap">
-    <div class="g-head g-rv"><div><p class="g-eb">04 <b>—</b> The signatures</p><h2 class="g-h">What made <em>us famous.</em></h2></div><div class="g-head-r"><a class="g-btn o" href="menu.html">Full menu</a></div></div>
-    <div class="st-sgrid">
-      <div class="st-s g-rv"><div class="st-s-ph"><img src="photos/cut/hero-mexicana-burger.webp" alt="" loading="lazy"></div><h3>Mexicana Burger</h3><p>Hot Cheetos crust, grilled jalapeño, corn and nacho cheese.</p></div>
-      <div class="st-s g-rv"><div class="st-s-ph"><img src="photos/cut/hero-nacho-burger.webp" alt="" loading="lazy"></div><h3>Nacho Burger</h3><p>Nacho cheese poured over the top bun and crushed chips on top.</p></div>
-      <div class="st-s g-rv"><div class="st-s-ph"><img src="photos/cut/prime-rice-bowl.webp" alt="" loading="lazy"></div><h3>Prime Rice Bowl</h3><p>The bowl that feeds two, finished with Prime sauce and house ranch.</p></div>
-      <div class="st-s g-rv"><div class="st-s-ph"><img src="photos/cut/pebbles-shake.webp" alt="" loading="lazy"></div><h3>Fruity Pebbles Shake</h3><p>Whipped cream, strawberry drizzle and cereal piled high.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="g-sec st-crew">
-  <div class="g-wrap st-two r">
-    <div class="st-crew-ph g-rv"><img src="video/reel-8.jpg" alt="A Prime Eatery crew member serving at the counter under the neon sign" loading="lazy"><img src="photos/merch.jpg" alt="Prime Eatery tee, cap and bag" loading="lazy"></div>
-    <div class="g-rv">
+<!-- 7. crew + voices -->
+<section class="sp-crew">
+  <div class="g-wrap wide-x sp-crew-in">
+    <div class="sp-crew-ph"><img class="a" src="video/reel-8.jpg" alt="A Prime crew member at the counter under the neon sign" loading="lazy"><img class="b" src="photos/merch.jpg" alt="Prime Eatery tee, cap and bag" loading="lazy"><span class="sp-sticker">Neighbors<br>feeding<br>neighbors</span></div>
+    <div class="sp-crew-tx">
       <p class="g-eb">05 <b>—</b> The crew</p>
-      <h2 class="g-h">Neighbors<br><em>feeding neighbors.</em></h2>
-      <p class="g-p">The people behind the counter are from right here. They know the regulars by name, they'll tell you what's good tonight and they'll make it the way you like it. Call ahead for anything special and we'll take care of it.</p>
-      <div class="st-quotes">
-        <blockquote>"The Prime Burger is huge, juicy and cooked perfectly."<cite>Google review</cite></blockquote>
-        <blockquote>"The food here is ALWAYS AMAZING. They know their menu."<cite>Local Guide, Google</cite></blockquote>
+      <h2 class="sp-serif">From right here, <em>for right here</em></h2>
+      <p class="g-p">The people behind the counter are from Dearborn. They know the regulars by name, they'll tell you what's good tonight and they'll make it exactly how you like it. Call ahead for anything special.</p>
+      <div class="sp-q" id="spQ">
+        <blockquote class="on">"The Prime Burger is huge, juicy and cooked perfectly."<cite>Google review</cite></blockquote>
+        <blockquote>"The food here is ALWAYS AMAZING. 1 of the best Halal spots in greater Detroit."<cite>Local Guide, Google</cite></blockquote>
+        <blockquote>"Definitely recommend for a late feast. The portions are HUGE!"<cite>Google review</cite></blockquote>
       </div>
     </div>
   </div>
 </section>
 
-<section class="g-sec st-cta">
-  <div class="g-wrap st-cta-in g-rv">
-    <p class="g-eb c">Come hungry</p>
+<!-- 8. cta -->
+<section class="sp-cta">
+  <div class="sp-cta-run" aria-hidden="true"><div><span>COME HUNGRY · COME HUNGRY · </span><span>COME HUNGRY · COME HUNGRY · </span></div></div>
+  <img class="sp-cta-food" src="photos/cut/hero-mexicana-burger.webp" alt="" loading="lazy">
+  <div class="sp-cta-in">
     <h2 class="g-h">Pull up &amp; <em>grab one.</em></h2>
-    <p class="g-p">13530 Michigan Ave #120, Dearborn · entrance in back · (313) 757-7200</p>
-    <div class="g-acts c"><a class="g-btn" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=story" target="_blank" rel="noopener">Order ahead</a><a class="g-btn o" href="https://www.google.com/maps/dir/?api=1&amp;destination=Prime+Eatery+13530+Michigan+Ave+%23120+Dearborn+MI+48126" target="_blank" rel="noopener">Get directions</a></div>
+    <p>13530 Michigan Ave #120, Dearborn · entrance in back · <a href="tel:+13137577200">(313) 757-7200</a></p>
+    <div class="g-acts c"><a class="g-btn" data-dd="story_cta" href="#" target="_blank" rel="noopener">Order ahead</a><a class="g-btn o" data-dir href="#" target="_blank" rel="noopener">Get directions</a></div>
   </div>
 </section>
 </main>
@@ -1986,6 +2126,32 @@ var mn=$('#mnav');function mo2(o){mn.classList.toggle('open',o);mn.setAttribute(
 $('#mOpen').addEventListener('click',function(){mo2(true)});$('#mClose').addEventListener('click',function(){mo2(false)});$$('#mnav a').forEach(function(a){a.addEventListener('click',function(){mo2(false)})});
 var els=$$('.g-rv');if('IntersectionObserver' in W){var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});els.forEach(function(e){o.observe(e)})}else els.forEach(function(e){e.classList.add('in')});
 var RM=W.matchMedia&&W.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* story page motion */
+var RM2=W.matchMedia&&W.matchMedia('(prefers-reduced-motion: reduce)').matches,MOB=W.matchMedia('(max-width:760px)');
+/* manifesto words */
+(function(){var t=$('#spManT');if(!t)return;var keys=['midnight.','late:','halal','ourselves'];
+ t.innerHTML=t.textContent.split(' ').map(function(w){return '<span class="w'+(keys.indexOf(w.toLowerCase())>-1||keys.indexOf(w)>-1?' k':'')+'">'+w+'</span>'}).join(' ');
+ var ws=$$('.w',t);W.__man=function(){var r=t.getBoundingClientRect(),p=(innerHeight*.85-r.top)/(r.height+innerHeight*.35);p=Math.max(0,Math.min(1,p));var n=Math.round(p*ws.length);ws.forEach(function(w,i){w.classList.toggle('on',i<n)})}})();
+/* horizontal night */
+var SPT=['12:00','12:00','5:00','9:00','1:00','3:00'],SPM=['PM','PM','PM','PM','AM','AM'];
+function spNight(){var s=$('#spNight'),tr=$('#spTrack');if(!s||!tr||MOB.matches)return;var r=s.getBoundingClientRect(),span=s.offsetHeight-innerHeight,p=Math.max(0,Math.min(1,-r.top/span));
+ var max=tr.scrollWidth-innerWidth+60;tr.style.transform='translate3d('+(-p*max).toFixed(1)+'px,0,0)';$('#spBar').style.width=(p*100)+'%';
+ var i=Math.min(4,Math.round(p*4));$('#spClock').textContent=SPT[i+1];$('#spClock').nextElementSibling.textContent=SPM[i+1]}
+/* hero parallax + signature rows */
+function spPar(){var bg=$('.sp-hero-bg img');if(bg)bg.style.setProperty('--py',(scrollY*.25)+'px');
+ $$('.sp-row-ph img').forEach(function(im){var r=im.parentNode.getBoundingClientRect(),c=(r.top+r.height/2-innerHeight/2)/innerHeight;im.style.setProperty('--ry',(c*60).toFixed(1)+'px');im.style.setProperty('--rs',(1-Math.min(.08,Math.abs(c)*.08)).toFixed(3))})}
+var spRaf=0;function spTick(){spRaf=0;if(W.__man)W.__man();spNight();if(!RM2)spPar()}
+W.addEventListener('scroll',function(){if(!spRaf)spRaf=requestAnimationFrame(spTick)},{passive:true});W.addEventListener('resize',spTick);spTick();
+/* reveals */
+$$('.sp-card,.sp-row,.sp-b,.sp-num-in>div,.sp-crew-ph,.sp-crew-tx,.sp-sig-hd,.sp-cta-in').forEach(function(e,i){e.classList.add('sp-rv')});
+if('IntersectionObserver' in W){var spo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');spo.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});$$('.sp-rv').forEach(function(e){if(e.closest('.sp-night-pin')&&!MOB.matches)e.classList.add('in');else spo.observe(e)})}else $$('.sp-rv').forEach(function(e){e.classList.add('in')});
+/* count up */
+if('IntersectionObserver' in W){var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cio.unobserve(e.target);var b=e.target,to=+b.getAttribute('data-to'),plain=b.hasAttribute('data-plain'),t0=performance.now(),from=plain?1990:0;
+ (function f(t){var k=Math.min(1,(t-t0)/1400),v=Math.round(from+(to-from)*(1-Math.pow(1-k,3)));b.textContent=plain?v:v.toLocaleString('en-US');if(k<1)requestAnimationFrame(f)})(t0)})},{threshold:.6});$$('.sp-num-in b').forEach(function(b){cio.observe(b)})}
+/* quotes rotate */
+(function(){var q=$$('#spQ blockquote'),i=0;if(q.length<2)return;setInterval(function(){q[i].classList.remove('on');i=(i+1)%q.length;q[i].classList.add('on')},4500)})();
+/* duplicate cta marquee is in markup */
+
 })();
 </script>
 </body></html>
