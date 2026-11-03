@@ -1495,6 +1495,270 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 }
 @media (max-width:520px){.g-vibe .ig3{grid-template-columns:repeat(2,minmax(0,1fr))}.g-vibe .ig3-t.big{grid-column:span 2}.g-vibe .ig3-t:nth-child(n+6){display:none}}
 @media (prefers-reduced-motion:reduce){.g-mq-s,.g-mq-t,.tg-f,.g-fl-i img,.g-badge{animation:none}.g-rv{opacity:1;transform:none}}
+
+/* ================= order ahead v2: real phone + customer flow ================= */
+.g-ord{overflow:hidden}
+.g-ord-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:clamp(30px,4vw,70px);max-width:1560px;margin:0 auto;padding-inline:max(clamp(24px,5vw,80px),var(--gut))}
+.g-ord .g-h{font-size:clamp(56px,6vw,96px)}
+.g-ord-tx{max-width:560px;justify-self:end;width:100%}
+.g-ord-stage{position:relative;min-height:clamp(600px,48vw,760px);display:grid;place-items:center;isolation:isolate}
+.g-ord-stage::before{content:"";position:absolute;inset:3% 0 3% 2%;z-index:-2;border-radius:28px;background:linear-gradient(135deg,#17150f 0%,#0f0f10 55%,#16140c 100%);box-shadow:inset 0 0 0 1px rgba(255,212,0,.08)}
+.g-ord-stage::after{content:"";position:absolute;left:50%;top:52%;width:70%;aspect-ratio:1;transform:translate(-50%,-50%);z-index:-1;background:radial-gradient(closest-side,rgba(255,212,0,.16),transparent 70%);pointer-events:none}
+.g-ord-word{position:absolute;right:4%;top:9%;z-index:-1;font-family:var(--disp);font-size:clamp(70px,9vw,150px);line-height:.86;text-align:right;color:transparent;-webkit-text-stroke:1.5px rgba(255,212,0,.16);letter-spacing:.01em;pointer-events:none;animation:ordw 9s ease-in-out infinite alternate}
+@keyframes ordw{to{transform:translateY(24px)}}
+
+/* phone hardware */
+.pf{--w:clamp(262px,22vw,340px);position:relative;width:var(--w);aspect-ratio:71.6/147.6;border-radius:calc(var(--w)*.17);padding:calc(var(--w)*.016);
+ background:linear-gradient(150deg,#e9d98f 0%,#c7b05a 18%,#b39c45 40%,#d7c374 58%,#a8913d 80%,#d9c77c 100%);
+ box-shadow:inset 0 0 0 1px rgba(255,255,255,.35),inset 0 0 0 2.5px rgba(90,74,20,.55),0 2px 0 rgba(255,255,255,.15),0 60px 90px -40px rgba(0,0,0,.95),0 30px 40px -24px rgba(0,0,0,.7);
+ transform:rotate(-4deg);animation:pfloat 7s ease-in-out infinite}
+@keyframes pfloat{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-12px)}}
+.pf-btn{position:absolute;width:3px;border-radius:2px;background:linear-gradient(90deg,#9c8636,#d9c77c)}
+.pf-btn.a{left:-3px;top:17%;height:5%}.pf-btn.b{left:-3px;top:25%;height:9%}.pf-btn.c{left:-3px;top:36%;height:9%}.pf-btn.d{right:-3px;top:28%;height:14%;background:linear-gradient(270deg,#9c8636,#d9c77c)}
+.pf-bz{position:relative;height:100%;border-radius:calc(var(--w)*.155);background:#050505;padding:calc(var(--w)*.032)}
+.pf-scr{position:relative;height:100%;border-radius:calc(var(--w)*.125);overflow:hidden;background:#f7f4ee;color:#151413;font-family:var(--f);isolation:isolate}
+.pf-scr::after{content:"";position:absolute;inset:0;z-index:30;pointer-events:none;background:linear-gradient(118deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,0) 32%,rgba(255,255,255,0) 70%,rgba(255,255,255,.06) 100%)}
+.pf-isl{position:absolute;left:50%;top:calc(var(--w)*.03);width:31%;height:calc(var(--w)*.092);border-radius:20px;background:#000;transform:translateX(-50%);z-index:20}
+.pf-sb{position:relative;z-index:15;display:flex;justify-content:space-between;align-items:center;height:calc(var(--w)*.15);padding:0 calc(var(--w)*.085) 0 calc(var(--w)*.1);font-size:calc(var(--w)*.047);font-weight:700;letter-spacing:-.01em}
+.pf-ic{display:flex;gap:5px;align-items:center}.pf-ic svg{fill:currentColor}
+.pf-homebar{position:absolute;left:50%;bottom:7px;width:35%;height:4px;border-radius:3px;background:#151413;transform:translateX(-50%);z-index:20}
+.pf-tap{display:none}
+.pf-view{position:absolute;inset:calc(var(--w)*.15) 0 0 0}
+.pf-s{position:absolute;inset:0;padding:0 calc(var(--w)*.05) calc(var(--w)*.08);display:flex;flex-direction:column;gap:calc(var(--w)*.035);background:#f7f4ee;transform:translateX(100%);transition:transform .55s cubic-bezier(.32,.72,0,1),opacity .4s;opacity:1;font-size:calc(var(--w)*.04)}
+.pf-s.past{transform:translateX(-30%);opacity:0}
+.pf-s.on{transform:none;opacity:1;z-index:2}
+.pf-s b{font-weight:700}
+.pf-s small{color:#857e73;font-size:.82em;line-height:1.35}
+.tap{animation:ptap .42s ease}
+@keyframes ptap{0%{transform:scale(1)}35%{transform:scale(.94);filter:brightness(.92)}100%{transform:scale(1)}}
+
+/* app ui */
+.pa-top{display:flex;align-items:center;gap:8px;padding-top:2px}.pa-top img{width:2.4em;height:2.4em;border-radius:50%}
+.pa-top div{flex:1;min-width:0}.pa-top b{display:block;font-size:1.05em}.pa-top small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pa-top em{font-style:normal;font-size:.78em;font-weight:700;color:#2f7d32;background:#e3f2df;padding:.35em .7em;border-radius:6px}
+.pa-hero{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:1.25;background:#111}
+.pa-hero img{width:100%;height:100%;object-fit:cover}
+.pa-hero span{position:absolute;left:0;right:0;bottom:0;padding:1.6em .9em .8em;background:linear-gradient(0deg,rgba(0,0,0,.8),transparent);color:#fff;display:grid}
+.pa-hero span small{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.68em}.pa-hero span b{font-family:var(--disp);font-weight:400;font-size:1.6em;text-transform:uppercase;letter-spacing:.02em}
+.pa-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.pa-meta div{background:#eee8dd;border-radius:10px;padding:.6em .5em;text-align:center;display:grid}.pa-meta b{font-size:.95em}
+.pa-cta{margin-top:auto;height:3.1em;border:0;border-radius:12px;background:#151413;color:#fff;font:700 1em var(--f);display:flex;align-items:center;justify-content:center;gap:.3em}
+.pa-cta.tap,.pa-pay.tap{background:var(--accent);color:#151413}
+.pa-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding-top:2px}.pa-head b{font-family:var(--disp);font-weight:400;font-size:1.7em;text-transform:uppercase;letter-spacing:.02em}
+.pa-bagic{font-weight:700;font-size:.85em}.pa-bagic i{font-style:normal;background:var(--accent);padding:.15em .5em;border-radius:5px;margin-left:3px}
+.pa-sub{font-size:.8em;color:#857e73}
+.pa-chips{display:flex;gap:5px;overflow:hidden}.pa-chips span{flex:none;font-size:.82em;font-weight:600;padding:.45em .85em;border-radius:8px;border:1px solid #e1dbcf}.pa-chips span.on{background:#151413;color:#fff;border-color:#151413}
+.pa-list{display:grid;gap:0;overflow:hidden}
+.pa-row{display:grid;grid-template-columns:3.6em minmax(0,1fr) 1.9em;gap:.7em;align-items:center;padding:.55em .4em;border-bottom:1px solid #ece6da;border-radius:10px;transition:background .3s}
+.pa-row.tap{background:#fff3b0}
+.pa-im{width:3.6em;height:3.6em;border-radius:10px;background:#eee7da;display:grid;place-items:center;overflow:hidden}.pa-im img{width:88%;height:88%;object-fit:contain}
+.pa-row b{display:block;font-size:.98em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pa-row small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pa-row span{font-weight:700;font-size:.88em}
+.pa-row i{width:1.9em;height:1.9em;border-radius:7px;background:var(--accent);display:grid;place-items:center;font-style:normal;font-weight:800}
+.pa-itemph{margin:0 calc(var(--w)*-.05);height:30%;flex:none;overflow:hidden;background:radial-gradient(60% 70% at 50% 60%,#fff,#efe7d8);display:grid;place-items:center}
+.pa-itemph img{height:80%;max-width:80%;object-fit:contain;width:auto;filter:drop-shadow(0 10px 12px rgba(0,0,0,.25))}
+.pa-item{display:grid;gap:.5em}
+.pa-itemh{display:flex;justify-content:space-between;align-items:baseline}.pa-itemh b{font-family:var(--disp);font-weight:400;font-size:1.45em;text-transform:uppercase}.pa-itemh span{font-weight:800}
+.pa-opt{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:.6em;padding:.65em .7em;border:1.5px solid #e1dbcf;border-radius:12px;transition:border-color .3s,background .3s}
+.pa-opt b{display:block;font-size:.95em}.pa-opt em{font-style:normal;font-weight:700;font-size:.85em}
+.pa-tog{width:2.5em;height:1.45em;border-radius:7px;background:#d9d2c5;position:relative;transition:background .3s}.pa-tog i{position:absolute;left:3px;top:3px;width:calc(1.45em - 6px);height:calc(1.45em - 6px);border-radius:5px;background:#fff;transition:transform .3s}
+.pa-opt.sel{border-color:#151413;background:#fff8d6}.pa-opt.sel .pa-tog{background:#151413}.pa-opt.sel .pa-tog i{transform:translateX(1.05em)}
+.pa-drinks{opacity:.35;transition:opacity .4s}.pa-opt.sel+.pa-drinks{opacity:1}
+.pa-drinks p{margin:0 0 .4em;font-weight:700;font-size:.85em}
+.pa-drinks>div{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.pa-drinks span{display:grid;justify-items:center;gap:2px;padding:.45em 0 .35em;border:1.5px solid #e1dbcf;border-radius:10px;transition:border-color .3s,background .3s}
+.pa-drinks img{height:2.6em;width:auto}.pa-drinks span b{font-size:.75em}
+.pa-drinks span.sel{border-color:#151413;background:#fff8d6}
+.pa-bag{display:grid;gap:.4em}
+.pa-bl{display:grid;grid-template-columns:3.2em minmax(0,1fr) auto;gap:.65em;align-items:center;padding:.5em;border-radius:12px;background:#fff;box-shadow:0 1px 0 #ece6da}
+.pa-bl .pa-im{width:3.2em;height:3.2em}.pa-bl b{display:block;font-size:.92em}.pa-bl span{font-weight:700;font-size:.88em}
+.pa-sum{display:grid;gap:.35em;padding:.7em .2em;border-top:1px dashed #d9d2c5;margin-top:auto}.pa-sum div{display:flex;justify-content:space-between;font-size:.88em;color:#5f594f}.pa-sum .t{color:#151413;font-weight:800;font-size:1em}
+.pa-pay{height:3.1em;border:0;border-radius:12px;background:#151413;color:#fff;font:700 1em var(--f)}
+.pa-fine{margin:-.4em 0 0;text-align:center;font-size:.72em;color:#857e73}
+.pa-done{margin:auto 0;display:grid;justify-items:center;text-align:center;gap:.6em}
+.pa-ck{width:5em;height:5em;border-radius:22px;background:var(--accent);color:#151413;display:grid;place-items:center;transform:scale(.4) rotate(-12deg);opacity:0;transition:transform .6s cubic-bezier(.34,1.56,.64,1),opacity .3s}
+.pa-ck svg{width:62%;stroke-dasharray:50;stroke-dashoffset:50;transition:stroke-dashoffset .6s .3s}
+.pf-s.on .pa-ck{transform:none;opacity:1}.pf-s.on .pa-ck svg{stroke-dashoffset:0}
+.pa-done b{font-family:var(--disp);font-weight:400;font-size:2em;text-transform:uppercase}
+.pa-done p{margin:0;color:#857e73;font-size:.88em}
+.pa-pill{font-weight:700;font-size:.85em;padding:.5em .9em;border-radius:8px;background:#151413;color:#fff}
+.pa-eta{display:flex;align-items:baseline;gap:.5em}.pa-eta b{font-family:var(--disp);font-weight:400;font-size:2.4em;line-height:1}
+.pa-prog{height:6px;border-radius:4px;background:#e8e2d6;overflow:hidden}.pa-prog i{display:block;height:100%;width:18%;background:var(--accent);transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+.pa-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.pa-steps li{font-size:.68em;font-weight:700;color:#b4ad9f;border-top:2px solid #e8e2d6;padding-top:.4em;transition:color .4s,border-color .4s}.pa-steps li.ok{color:#151413;border-color:#151413}
+.pa-map{position:relative;flex:1;min-height:5em;border-radius:12px;overflow:hidden;background:#f1ece2}
+.pa-map svg{position:absolute;inset:0;width:100%;height:100%}
+.pa-pin{position:absolute;left:10%;top:85%;width:2em;height:2em;margin:-1em 0 0 -1em;border-radius:8px;background:#151413;display:grid;place-items:center;box-shadow:0 6px 12px rgba(0,0,0,.25)}
+.pa-pin img{width:80%;height:80%;border-radius:50%}
+.pf-s.on .pa-pin{animation:pinmv 5s cubic-bezier(.45,0,.2,1) .4s forwards}
+@keyframes pinmv{0%{left:10%;top:85%}25%{left:25%;top:65%}55%{left:62.5%;top:65%}75%{left:62.5%;top:25%}100%{left:85%;top:25%}}
+.pa-home{position:absolute;left:85%;top:25%;transform:translate(-50%,-160%);font-size:.7em;font-weight:800;background:var(--accent);padding:.2em .5em;border-radius:5px}
+.pa-note{padding:.6em .7em;border-radius:12px;background:#151413;color:#fff;display:grid}.pa-note small{color:#bdb9b1}
+
+/* floating toasts */
+.g-toast{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;background:rgba(246,242,234,.97);color:#151413;box-shadow:0 30px 60px -25px rgba(0,0,0,.9);opacity:0;transition:opacity .6s var(--ease),transform .8s cubic-bezier(.16,1,.3,1)}
+.g-toast img{width:34px;height:34px;border-radius:9px;background:#000}
+.g-toast b{display:block;font-size:14px;font-weight:800}.g-toast small{display:block;font-size:12px;color:#5f594f}
+.g-toast.t1{right:2%;top:14%;transform:translateX(40px)}
+.g-toast.t2{left:9%;bottom:16%;flex-direction:column;align-items:flex-start;gap:2px;background:var(--accent);transform:translateX(-40px)}
+.g-toast.t2 b{font-family:var(--disp);font-weight:400;font-size:26px;line-height:1}.g-toast.t2 small{color:#3d3410;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:10px}
+.g-toast.in{opacity:1;transform:none}
+
+@media (max-width:1100px){.g-ord-in{grid-template-columns:1fr}.g-ord-tx{justify-self:start;max-width:640px}.g-ord-stage{min-height:640px}}
+@media (max-width:700px){.g-ord-stage{min-height:560px;margin:0 -8px}.g-ord-stage::before{inset:4% 0}.g-toast{display:none}.pf{--w:258px}.g-ord-word{font-size:64px;top:4%}}
+@media (prefers-reduced-motion:reduce){.pf,.g-ord-word{animation:none}}
+
+/* ================= v39: born full-bleed, menu cards, fixes, responsive, mobile ================= */
+/* born: text left, burger stage bleeds to the right edge */
+.g-born{padding-block:clamp(70px,8vw,120px)}
+.g-born-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(30px,4vw,64px);align-items:center;padding-left:max(clamp(24px,5vw,80px),var(--gut));max-width:none}
+.g-born-tx{max-width:620px;justify-self:end;width:100%}
+.g-born-ph{position:relative;height:clamp(520px,44vw,740px);border-radius:28px 0 0 28px;overflow:hidden;background:radial-gradient(60% 65% at 48% 52%,#2c2519 0%,#16130f 50%,#0b0b0c 100%);box-shadow:inset 0 0 0 1px rgba(255,212,0,.07)}
+.g-born-run{position:absolute;left:0;top:50%;display:flex;width:max-content;transform:translateY(-50%);pointer-events:none}
+.g-born-run span{flex:none;padding-right:.4em;font-family:var(--disp);font-size:clamp(110px,13vw,230px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,212,0,.13);white-space:nowrap;animation:gmq 40s linear infinite}
+.g-born-burger{position:absolute;left:50%;top:50%;width:min(64%,560px);transform:translate(-50%,-50%);animation:bfl 8s ease-in-out infinite}
+.g-born-burger img{display:block;width:100%;height:auto;filter:drop-shadow(0 50px 50px rgba(0,0,0,.75));transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+.g-born-ph:hover .g-born-burger img{transform:scale(1.05) rotate(-2deg)}
+@keyframes bfl{0%,100%{transform:translate(-50%,-50%) rotate(-3deg)}50%{transform:translate(-50%,-53%) rotate(2deg)}}
+.g-call{position:absolute;z-index:2;display:grid;gap:3px;padding:10px 14px;border-radius:12px;background:rgba(15,15,16,.78);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .9s cubic-bezier(.16,1,.3,1)}
+.g-call b{font-family:var(--disp);font-weight:400;font-size:18px;text-transform:uppercase;letter-spacing:.02em;color:#f2efe8}
+.g-call small{font:600 11px/1.2 var(--f);color:#a9a59d}
+.g-call::after{content:"";position:absolute;top:50%;width:46px;height:1px;background:linear-gradient(90deg,rgba(255,212,0,.8),rgba(255,212,0,0))}
+.g-call.c1{left:8%;top:18%}.g-call.c1::after{left:100%}
+.g-call.c2{right:7%;top:38%}.g-call.c2::after{right:100%;transform:scaleX(-1)}
+.g-call.c3{left:10%;bottom:20%}.g-call.c3::after{left:100%}
+.g-born-ph.in .g-call{opacity:1;transform:none}.g-born-ph.in .c2{transition-delay:.2s}.g-born-ph.in .c3{transition-delay:.4s}
+.g-born-ph .g-born-tag{left:auto;right:28px;bottom:24px;text-align:right}
+.g-born .g-stats{margin-top:26px}
+
+/* menu: crowd-favorite cards, four across */
+.g-menu .g-head{align-items:flex-end}
+.g-menu .g-head-r .g-p{max-width:44ch}
+.g-board{grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.4vw,22px)}
+.g-card{display:flex;flex-direction:column;padding:8px;border:2px solid #050505;border-radius:22px;background:#f4efe4;color:#151413;box-shadow:0 7px 0 #050505,0 30px 50px -30px rgba(0,0,0,.8);transition:transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .45s}
+.g-card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:#050505;box-shadow:0 13px 0 #050505,0 40px 60px -30px rgba(0,0,0,.9)}
+.g-card-ph{position:relative;aspect-ratio:1.18;border-radius:16px;background:radial-gradient(65% 70% at 50% 58%,#2a241a 0%,#141312 70%,#0d0d0e 100%);overflow:visible}
+.g-card-ph img{width:80%;max-height:82%;transition:transform .7s cubic-bezier(.34,1.56,.64,1)}
+.g-card:hover .g-card-ph img{transform:scale(1.1) rotate(-4deg) translateY(-4px)}
+.g-card-tag{left:12px;top:12px;padding:6px 10px;border:2px solid #050505;border-radius:999px;font-size:10px;letter-spacing:.16em;transform:rotate(-5deg);box-shadow:0 3px 0 #050505;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.g-card:hover .g-card-tag{transform:rotate(3deg) scale(1.05)}
+.g-card-pr{position:absolute;right:10px;bottom:-14px;z-index:2;padding:6px 14px;border:2px solid #050505;border-radius:999px;background:var(--accent);color:#050505;font-family:var(--disp);font-size:22px;line-height:1.1;box-shadow:0 3px 0 #050505}
+.g-card-tx{display:block;padding:22px 12px 14px}
+.g-card-tx h3{font-size:clamp(22px,1.7vw,27px);color:#151413;line-height:1}
+.g-card-tx p{margin-top:8px;color:#6b645a;font-size:13.5px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.g-board-ft{display:flex;justify-content:center;margin-top:44px}
+.g-pillbtn{display:inline-flex;align-items:center;height:52px;padding:0 30px;border:2px solid #050505;border-radius:999px;background:#f4efe4;color:#151413;font:800 12px/1 var(--f);letter-spacing:.16em;text-transform:uppercase;box-shadow:0 6px 0 var(--accent);transition:transform .3s,box-shadow .3s}
+.g-pillbtn:hover{transform:translateY(-3px);box-shadow:0 9px 0 var(--accent)}
+
+/* follow us ring */
+.g-btn.ring{position:relative;border-color:rgba(255,255,255,.18)}
+.g-btn.ring::before{content:"";position:absolute;inset:-7px;border:2px solid var(--accent);border-radius:10px;pointer-events:none;transition:inset .3s}
+.g-btn.ring:hover::before{inset:-4px}
+
+/* no little dots anywhere */
+.dot,.callout::after,.fx-credit i,.ld-dot,.g-live::before,.now-st i,.sn-dot,.sn-now,.cb-seg button.on::after,.fx2-seg .a i{display:none!important}
+.hstat b{gap:0}
+
+/* map: no pin overlay, no Google footer bar */
+.g-pin{display:none!important}
+.g-map iframe{height:calc(100% + 34px);bottom:auto}
+
+/* footer wordmark: show the whole word */
+.fx-mark{height:auto!important;overflow:visible;padding-bottom:clamp(10px,1.4vw,24px)}
+.fx-mark span{line-height:.9!important;display:block;font-size:min(17.8vw,400px)!important;letter-spacing:0!important;padding-bottom:.02em}
+.fx-mark{padding-inline:1vw;padding-bottom:clamp(20px,2.4vw,40px)!important}
+
+/* header: small laptops */
+.brand{white-space:nowrap}
+@media (max-width:1240px) and (min-width:901px){.hdr-r .ph{display:none}.nav{gap:20px;letter-spacing:.14em}}
+@media (max-width:1040px) and (min-width:901px){.nav{gap:14px;font-size:10.5px;letter-spacing:.1em}.hdr .brand{font-size:20px}.hdr .brand img{width:40px;height:40px}}
+
+/* hero: tall enough on short screens, burger clear of the copy on narrow laptops */
+@media (min-width:901px){.hero{min-height:calc(690px + 9.4vw)}}
+@media (max-width:1100px) and (min-width:901px){.hphoto{left:45%;width:28%}.callout{width:170px}.hero-copy h1{font-size:clamp(32px,3.4vw,40px)}}
+
+/* responsive: tablets and laptops */
+@media (max-width:1280px){.g-board{grid-template-columns:repeat(3,minmax(0,1fr))}.g-board .g-card:nth-child(n+7){display:none}}
+@media (max-width:1100px){
+ .g-born-in{grid-template-columns:1fr;padding-right:max(clamp(24px,5vw,80px),var(--gut))}
+ .g-born-tx{justify-self:start}
+ .g-born-ph{border-radius:24px}
+}
+@media (max-width:900px){.g-board{grid-template-columns:repeat(2,minmax(0,1fr))}.g-board .g-card:nth-child(n+7){display:flex}}
+
+/* mobile bar */
+.g-mbar{display:none}
+
+/* ================= phones: short, zoomed out, menu + order first ================= */
+@media (max-width:700px){
+ body{font-size:15px}
+ .g-sec{padding-block:56px}
+ .g-wrap,.g-ord-in{padding-inline:20px}
+ .g-h,.g-tg .g-h,.g-born .g-h,.g-ord .g-h,.g-cat .g-h,.g-vibe .g-h,.g-visit .g-h,#reviews h2.g-h{font-size:clamp(34px,10vw,44px)!important}
+ .g-menu .g-h{font-size:clamp(30px,8.8vw,40px)!important}
+ .g-eb{font-size:10px;margin-bottom:12px}
+ .g-p{font-size:14.5px;line-height:1.65;margin-top:14px}
+ .g-acts{margin-top:22px}
+ .g-btn{height:46px;padding:0 20px;font-size:10.5px}
+ .g-head{margin-bottom:22px;gap:14px}
+ /* too good: tighter */
+ .g-tg{padding-block:170px 160px}
+ .g-tg .g-p{font-size:14px}
+ /* born: short */
+ .g-born-in{padding-inline:20px;gap:26px}
+ .g-born .g-p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+ .g-born-ph{height:300px;border-radius:20px}
+ .g-call{display:none}
+ .g-born-run span{font-size:120px}
+ .g-stats{gap:18px;margin-top:20px;padding-top:18px}.g-stats b{font-size:30px}.g-stats span{font-size:8.5px}
+ /* menu: swipe row */
+ .g-menu .g-head-r .g-p{display:none}
+ .g-board{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -20px;padding:4px 20px 18px;scrollbar-width:none}
+ .g-board::-webkit-scrollbar{display:none}
+ .g-board .g-card{flex:0 0 68vw;scroll-snap-align:start;display:flex!important}
+ .g-card-ph{aspect-ratio:1.25}
+ .g-card-tx{padding:18px 8px 8px}.g-card-tx h3{font-size:22px}.g-card-tx p{font-size:12.5px;-webkit-line-clamp:2}
+ .g-board-ft{margin-top:18px}
+ /* order: phone first, steps compact */
+ .g-ord .g-p{display:none}
+ .g-steps{margin-top:18px}.g-steps button{padding:12px 0}.g-steps b{font-size:17px}.g-steps small{font-size:12.5px}
+ .g-ord-in{gap:10px}
+ /* reels: swipe strip */
+ .g-vibe .g-head-r .g-prof small{display:none}
+ .g-vibe .ig3{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:0 -20px;padding:0 20px 6px;scrollbar-width:none}
+ .g-vibe .ig3::-webkit-scrollbar{display:none}
+ .g-vibe .ig3-t,.g-vibe .ig3-t.big{flex:0 0 44vw;aspect-ratio:9/16!important;scroll-snap-align:start;display:block!important}
+ .g-vibe .ig3-t.big .ig3-cap b{font-size:18px}
+ .g-vibe .ig3-cap small{display:none}
+ /* catering: form only */
+ .g-cat-ph{display:none}
+ .g-cf-body{min-height:0}.g-cf-body h4{font-size:22px}
+ .g-chips button{height:38px;padding:0 12px;font-size:12.5px}
+ /* reviews: one row */
+ #reviews .rrow.rev{display:none}
+ #reviews .lau{transform:scale(.85);transform-origin:left center}
+ /* visit */
+ .g-row{padding:16px 0}.g-row b{font-size:22px}
+ .g-map{min-height:240px}
+ /* footer */
+ .fx-mark span{font-size:16.5vw!important;letter-spacing:0!important}
+ .g-born-ph .g-born-tag{display:none}
+ .g-ord-word{display:none}
+ .fx-live{display:none}
+ /* sticky order bar */
+ .g-mbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:60;display:grid;grid-template-columns:1fr 1.4fr;gap:8px;padding:8px;border-radius:14px;background:rgba(13,13,14,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 20px 40px -10px rgba(0,0,0,.8),inset 0 0 0 1px rgba(255,255,255,.08);transform:translateY(140%);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+ .g-mbar.on{transform:none}
+ .g-mbar a{height:46px;display:flex;align-items:center;justify-content:center;border-radius:9px;font:800 11px/1 var(--f);letter-spacing:.16em;text-transform:uppercase}
+ .g-mbar a:first-child{background:#1c1c1e;color:#f2efe8}
+ .g-mbar a:last-child{background:var(--accent);color:#0d0d0e}
+ .fx{padding-bottom:80px}
+}
+@media (max-width:380px){.g-board .g-card{flex-basis:74vw}.pf{--w:240px}}
+
+/* reviews: seamless, smooth loop (no half-gap jump, no hover jitter) */
+#reviews .rrow{gap:0!important;transform:translate3d(0,0,0);backface-visibility:hidden;animation-name:rvloop!important;animation-timing-function:linear!important}
+#reviews .rrow>.rv2c{margin-right:18px;transition:border-color .4s}
+#reviews .rv2c:hover{transform:none}
+#reviews .rrow:hover{animation-play-state:paused}
+@keyframes rvloop{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 </style>
 
 </head><body><header class="hdr" id="hdr">
@@ -1561,85 +1825,133 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 </section>
 
 <section class="g-sec g-born" id="about">
-  <div class="g-wrap g-born-in">
+  <div class="g-born-in">
     <div class="g-born-tx g-rv">
       <p class="g-eb">01 <b>—</b> Our story</p>
       <h2 class="g-h">Born from a<br><em>hunger</em> for<br>more.</h2>
       <p class="g-p">We opened on Michigan Ave in 2022 with one grill, one fryer and one rule: nothing gets made until you order it. Smashed patties, rice bowls piled high and sauces we make in house, served halal from the fryer oil up.</p>
-      <p class="g-p sm">Big flavor. Late nights. Always made to order.</p>
       <div class="g-stats"><div><b>2022</b><span>On Michigan Ave</span></div><div><b>30+</b><span>Items on the menu</span></div><div><b>4.8<i>★</i></b><span>Google rating</span></div></div>
       <div class="g-acts"><a class="g-btn" href="story.html">Read our story</a></div>
     </div>
-    <div class="g-born-ph g-rv"><div class="g-studio"><img src="photos/cut/hero-prime-burger.webp" alt="The Prime Burger: double patty, egg, onion ring and beef bacon on a pretzel bun" loading="lazy" decoding="async"><span class="g-born-tag"><small>The signature</small><b>Prime Burger</b></span></div></div>
+    <div class="g-born-ph g-rv">
+      <div class="g-born-run" aria-hidden="true"><span>SINCE 2022 · MICHIGAN AVE · SINCE 2022 · MICHIGAN AVE · </span><span>SINCE 2022 · MICHIGAN AVE · SINCE 2022 · MICHIGAN AVE · </span></div>
+      <div class="g-born-burger"><img src="photos/cut/hero-prime-burger.webp" alt="The Prime Burger: patty, fried egg, onion ring and turkey bacon on a pretzel bun" loading="lazy" decoding="async"></div>
+      <span class="g-call c1"><b>Pretzel bun</b><small>Toasted on the flat top</small></span>
+      <span class="g-call c2"><b>Onion ring</b><small>Battered in house</small></span>
+      <span class="g-call c3"><b>Mozzarella sticks</b><small>Under the fried egg</small></span>
+      <span class="g-born-tag"><small>The signature</small><b>Prime Burger · $17</b></span>
+    </div>
   </div>
 </section>
 
 <section class="g-sec g-menu" id="menu">
-  <div class="g-wrap">
+  <div class="g-wrap wide-x">
     <div class="g-head g-rv">
       <div><p class="g-eb">02 <b>—</b> The menu</p><h2 class="g-h">Stacked to <em>perfection.</em></h2></div>
-      <div class="g-head-r"><p class="g-p">Six regulars' favorites. The full board has thirty, all halal, grilled or crispy on every bowl.</p><a class="g-btn o" href="menu.html">Full menu</a></div>
+      <div class="g-head-r"><p class="g-p">The ones regulars come back for. Thirty on the full board, all halal, grilled or crispy on every bowl.</p></div>
     </div>
     <div class="g-board" id="board"></div>
+    <div class="g-board-ft g-rv"><a class="g-pillbtn" href="menu.html">See the full menu</a></div>
   </div>
 </section>
 
 <div class="g-mq alt" aria-hidden="true"><div class="g-mq-t"><span class="g-mq-s">Order ahead<i></i>Skip the line<i></i>Ready in 15 min<i></i>No app needed<i></i>Pay in two taps<i></i>Pick up out back<i></i>Order ahead<i></i>Skip the line<i></i>Ready in 15 min<i></i>No app needed<i></i>Pay in two taps<i></i>Pick up out back<i></i></span><span class="g-mq-s">Order ahead<i></i>Skip the line<i></i>Ready in 15 min<i></i>No app needed<i></i>Pay in two taps<i></i>Pick up out back<i></i>Order ahead<i></i>Skip the line<i></i>Ready in 15 min<i></i>No app needed<i></i>Pay in two taps<i></i>Pick up out back<i></i></span></div></div>
 
 <section class="g-sec g-ord" id="order">
-  <div class="g-wrap g-ord-in">
+  <div class="g-ord-in">
     <div class="g-ord-tx g-rv">
       <p class="g-eb">03 <b>—</b> Order ahead</p>
       <h2 class="g-h">Skip the<br><em>line.</em></h2>
-      <p class="g-p">Order on the way over, pay in two taps and grab it off the pickup shelf. No app, no account, no waiting at the counter.</p>
+      <p class="g-p">Watch a real order go through: pick a burger, make it a combo, grab a drink and pay. It's on the grill before you're out the door.</p>
       <div class="g-steps" id="ordTabs" role="tablist">
-        <button type="button" class="on" data-s="0"><i>01</i><span><b>Pick from the full menu</b><small>Every burger, bowl and shake, same add-ons as in store.</small></span><u></u></button>
-        <button type="button" data-s="1"><i>02</i><span><b>Build it your way</b><small>Grilled or crispy, make it a combo, extra Prime sauce.</small></span><u></u></button>
-        <button type="button" data-s="2"><i>03</i><span><b>Pay in two taps</b><small>Apple Pay, Google Pay or card. Nothing to download.</small></span><u></u></button>
-        <button type="button" data-s="3"><i>04</i><span><b>Ready in about 15 minutes</b><small>Entrance in back. Say your name at the counter.</small></span><u></u></button>
+        <button type="button" class="on" data-s="0"><i>01</i><span><b>Open the menu</b><small>Thirty items, the same add-ons you get at the counter.</small></span><u></u></button>
+        <button type="button" data-s="1"><i>02</i><span><b>Pick your burger</b><small>Tap the Mexicana, the Prime or whatever you're craving.</small></span><u></u></button>
+        <button type="button" data-s="2"><i>03</i><span><b>Make it a combo</b><small>Waffle fries and a cold drink for four bucks more.</small></span><u></u></button>
+        <button type="button" data-s="3"><i>04</i><span><b>Pay in two taps</b><small>Apple Pay, Google Pay or card. No app, no account.</small></span><u></u></button>
+        <button type="button" data-s="4"><i>05</i><span><b>It's on its way</b><small>Live updates from the grill to the pickup shelf.</small></span><u></u></button>
       </div>
       <div class="g-acts"><a class="g-btn" data-dd="order_section" href="#" target="_blank" rel="noopener">Start an order</a><a class="g-btn o" id="ueLink" href="#" target="_blank" rel="noopener">Uber Eats</a></div>
     </div>
-    <div class="g-ord-ph">
-      <div class="iph" aria-hidden="true"><i class="ib ib1"></i><i class="ib ib2"></i><i class="ib ib3"></i><i class="ib ib4"></i>
-        <div class="iph-scr">
-          <div class="iph-isl"></div>
-          <div class="iph-sb"><span id="phTime">21:40</span><span class="iph-ic"><i></i><i></i><i></i><i></i><b></b></span></div>
-          <div class="ps on" data-s="0">
-            <div class="ps-hd"><img src="brand/logo.png" alt=""><span>Prime Eatery</span><em>Open</em></div>
-            <div class="ps-search">Search burgers, bowls, wings</div>
-            <div class="ps-chips" id="phChips"></div>
-            <div class="ps-scroll" id="phScroll"><div class="ps-list" id="phList"></div></div>
-            <div class="ps-bag" id="phBag"><span>View bag · <b id="phBagN">1</b></span><span id="phBagT">$16.00</span></div>
+
+    <div class="g-ord-stage" aria-hidden="true">
+      <span class="g-ord-word">ORDER<br>AHEAD</span>
+      <div class="pf" id="pf">
+        <i class="pf-btn a"></i><i class="pf-btn b"></i><i class="pf-btn c"></i><i class="pf-btn d"></i>
+        <div class="pf-bz">
+          <div class="pf-scr">
+            <div class="pf-isl"></div>
+            <div class="pf-sb"><span id="phTime">9:41</span><span class="pf-ic"><svg viewBox="0 0 18 12" width="17" height="11"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 26 12" width="24" height="11"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor" opacity=".5"/><rect x="2" y="2" width="16" height="8" rx="1.6"/><rect x="23.5" y="4" width="1.6" height="4" rx=".8" opacity=".5"/></svg></span></div>
+
+            <div class="pf-view">
+              <!-- 0 home -->
+              <div class="pf-s on" data-k="home">
+                <div class="pa-top"><img src="brand/logo.png" alt=""><div><b>Prime Eatery</b><small>13530 Michigan Ave · Dearborn</small></div><em>Open</em></div>
+                <div class="pa-hero"><img src="photos/night-mexicana.jpg" alt=""><span><small>Tonight's pick</small><b>Mexicana Burger</b></span></div>
+                <div class="pa-meta"><div><b>15 min</b><small>Pickup</small></div><div><b>4.8 ★</b><small>1,742 reviews</small></div><div><b>Halal</b><small>100%</small></div></div>
+                <button class="pa-cta" data-tap="start">Start your order</button>
+              </div>
+              <!-- 1 menu -->
+              <div class="pf-s" data-k="menu">
+                <div class="pa-head"><b>Menu</b><span class="pa-bagic">Bag <i id="pfBagN">0</i></span></div>
+                <div class="pa-chips"><span class="on">Burgers</span><span>Bowls</span><span>Chicken</span><span>Wraps</span></div>
+                <div class="pa-list">
+                  <div class="pa-row" data-tap="pick"><div class="pa-im"><img src="photos/cut/mexicana-burger.webp" alt=""></div><div><b>Mexicana Burger</b><small>Hot Cheetos, jalapeño, nacho cheese</small><span>$16</span></div><i>+</i></div>
+                  <div class="pa-row"><div class="pa-im"><img src="photos/cut/prime-burger.webp" alt=""></div><div><b>Prime Burger</b><small>Egg, onion ring, pretzel bun</small><span>$17</span></div><i>+</i></div>
+                  <div class="pa-row"><div class="pa-im"><img src="photos/cut/nacho-burger.webp" alt=""></div><div><b>Nacho Burger</b><small>Nacho cheese, crushed chips</small><span>$16</span></div><i>+</i></div>
+                  <div class="pa-row"><div class="pa-im"><img src="photos/cut/classic-burger.webp" alt=""></div><div><b>Classic Burger</b><small>Pickles, American, ketchup</small><span>$11</span></div><i>+</i></div>
+                  <div class="pa-row"><div class="pa-im"><img src="photos/cut/smash-burger.webp" alt=""></div><div><b>Smash Burger</b><small>Double smashed, Prime sauce</small><span>$13</span></div><i>+</i></div>
+                </div>
+              </div>
+              <!-- 2 item -->
+              <div class="pf-s" data-k="item">
+                <div class="pa-itemph"><img src="photos/cut/hero-mexicana-burger.webp" alt=""></div>
+                <div class="pa-item">
+                  <div class="pa-itemh"><b>Mexicana Burger</b><span id="pfItemP">$16.00</span></div>
+                  <small>Grilled jalapeño, corn, American cheese, Prime sauce, crushed Hot Cheetos and nacho cheese.</small>
+                  <div class="pa-opt" data-tap="combo"><div><b>Make it a combo</b><small>Waffle fries + a drink</small></div><span class="pa-tog"><i></i></span><em>+$4</em></div>
+                  <div class="pa-drinks"><p>Choose your drink</p>
+                    <div><span data-tap="drink"><img src="photos/cut/can-coke.webp" alt=""><b>Coke</b></span><span><img src="photos/cut/can-pepsi.webp" alt=""><b>Pepsi</b></span><span><img src="photos/cut/can-fanta.webp" alt=""><b>Fanta</b></span></div>
+                  </div>
+                </div>
+                <button class="pa-cta" data-tap="add">Add to bag · <span id="pfAddP">$16.00</span></button>
+              </div>
+              <!-- 3 bag -->
+              <div class="pf-s" data-k="bag">
+                <div class="pa-head"><b>Your bag</b><span class="pa-sub">Pickup · ready in 15 min</span></div>
+                <div class="pa-bag">
+                  <div class="pa-bl"><div class="pa-im"><img src="photos/cut/mexicana-burger.webp" alt=""></div><div><b>Mexicana Burger combo</b><small>Waffle fries · Coca-Cola</small></div><span>$20.00</span></div>
+                  <div class="pa-bl"><div class="pa-im"><img src="photos/cut/prime-sauce.webp" alt=""></div><div><b>Extra Prime sauce</b><small>2 oz</small></div><span>$1.00</span></div>
+                </div>
+                <div class="pa-sum"><div><span>Subtotal</span><span>$21.00</span></div><div><span>Tax 6%</span><span>$1.26</span></div><div class="t"><span>Total</span><span>$22.26</span></div></div>
+                <button class="pa-pay" data-tap="pay">Pay · $22.26</button>
+                <p class="pa-fine">Apple Pay · Google Pay · Card</p>
+              </div>
+              <!-- 4 placed -->
+              <div class="pf-s" data-k="done">
+                <div class="pa-done">
+                  <div class="pa-ck"><svg viewBox="0 0 52 52"><path d="M14 27l8 8 16-18" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                  <b>Order placed</b>
+                  <p>#1042 · Mexicana combo + sauce</p>
+                  <span class="pa-pill">Ready in about 15 min</span>
+                </div>
+              </div>
+              <!-- 5 tracking -->
+              <div class="pf-s" data-k="track">
+                <div class="pa-head"><b>On its way</b><span class="pa-sub">Order #1042</span></div>
+                <div class="pa-eta"><small>Ready at</small><b id="pfEta">9:56</b></div>
+                <div class="pa-prog"><i id="pfProg"></i></div>
+                <ul class="pa-steps"><li class="ok">Placed</li><li class="ok" data-p="1">On the grill</li><li data-p="2">Bagged</li><li data-p="3">Pickup shelf</li></ul>
+                <div class="pa-map"><svg viewBox="0 0 240 120" preserveAspectRatio="none"><path d="M0 30h240M0 78h240M60 0v120M150 0v120M205 0v120" stroke="#e8e2d6" stroke-width="7"/><path id="pfRoute" d="M24 102 L60 78 L150 78 L150 30 L205 30" fill="none" stroke="#151413" stroke-width="3.5" stroke-dasharray="6 5"/></svg><span class="pa-pin" id="pfPin"><img src="brand/logo.png" alt=""></span><span class="pa-home">You</span></div>
+                <div class="pa-note"><b>Prime Eatery</b><small>Your combo is on the grill. We'll text you at the shelf.</small></div>
+              </div>
+            </div>
+            <div class="pf-homebar"></div>
+            <span class="pf-tap" id="pfTap"></span>
           </div>
-          <div class="ps" data-s="1">
-            <div class="ps-hero"><img src="photos/cut/mexicana-burger.webp" alt=""></div>
-            <div class="ps-it"><b>Mexicana Burger</b><span>$16.00</span></div>
-            <p class="ps-d">Grilled jalapeño, corn, American cheese, Prime sauce, crushed Hot Cheetos and nacho cheese.</p>
-            <small class="ps-lab">Make it a combo</small>
-            <div class="ps-opt"><span class="on">Waffle fries <i>+$4</i></span><span>Mac bites <i>+$5</i></span></div>
-            <small class="ps-lab">Extra sauce</small>
-            <div class="ps-opt"><span class="on">Prime sauce</span><span>Ranch</span><span>Asian Zing</span></div>
-            <div class="ps-add">Add to order · $20.00</div>
-          </div>
-          <div class="ps" data-s="2">
-            <small class="ps-lab">Checkout · pickup</small>
-            <div class="ps-ln"><img src="photos/cut/mexicana-burger.webp" alt=""><span>Mexicana Burger<small>+ waffle fries</small></span><b>$20.00</b></div>
-            <div class="ps-ln"><img src="photos/cut/prime-rice-bowl.webp" alt=""><span>Prime Rice Bowl<small>crispy</small></span><b>$17.00</b></div>
-            <div class="ps-sum"><span>Subtotal</span><span>$37.00</span></div><div class="ps-sum"><span>Tax</span><span>$2.22</span></div>
-            <div class="ps-tot"><span>Total</span><b>$39.22</b></div>
-            <div class="ps-pay"> Pay</div>
-          </div>
-          <div class="ps" data-s="3">
-            <div class="ps-ok"><div class="ps-ck">✓</div><b id="readyAt">Ready at 21:55</b><p>Order #0412 is on the grill. We'll text you when it hits the pickup shelf.</p>
-              <div class="ps-prog"><span class="on">Placed</span><span class="on">On the grill</span><span>On the shelf</span></div>
-              <div class="ps-map"><span>13530 Michigan Ave · entrance in back</span></div></div>
-          </div>
-          <div class="iph-home"></div>
         </div>
-      <img class="iph-frame" src="brand/iphone-frame.png" alt=""></div>
-      <span class="g-badge b1"><b>4.8 ★</b><small>1,742 Google reviews</small></span>
-      <span class="g-badge b2"><b>~15 min</b><small>Order to pickup</small></span>
+      </div>
+      <div class="g-toast t1" id="tstA"><img src="brand/logo.png" alt=""><div><b>Prime Eatery</b><small>Order #1042 placed · ready in 15 min</small></div></div>
+      <div class="g-toast t2" id="tstB"><b>4.8 ★</b><small>1,742 Google reviews</small></div>
     </div>
   </div>
 </section>
@@ -1650,7 +1962,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
       <div><p class="g-eb">04 <b>—</b> The feed</p><h2 class="g-h">Come for the <em>vibe.</em></h2></div>
       <div class="g-head-r">
         <a class="g-prof" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener"><span class="g-av"><img src="brand/logo.png" alt=""></span><span><b>@primeeatery</b><small>Tap any reel to watch with sound</small></span></a>
-        <a class="g-btn o" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener">Follow</a>
+        <a class="g-btn o ring" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener">Follow us</a>
       </div>
     </div>
     <div class="ig3" id="mqIg"></div>
@@ -1711,6 +2023,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 </section>
 </main>
 
+<div class="g-mbar" id="mbar"><a href="menu.html">Menu</a><a data-dd="mobile_bar" href="#" target="_blank" rel="noopener">Order ahead</a></div>
 <footer class="fx">
   <div class="fx-in">
     <div class="fx-live" id="fxLive"><div class="led led-sm" id="led2wrap" aria-hidden="true"><div class="l1" id="ledB1">Today · Fri 30 Oct</div><div class="l2"><span id="ledB2">Open till 3 AM · Michigan Ave ·</span></div></div><span class="fx-live-t">Our hours, live from Michigan Ave.</span><a class="btn btn-p shbtn btn-sm" data-dd="footer_live" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a></div>
@@ -1942,7 +2255,7 @@ $('#strip').innerHTML=order.map(function(d){return '<div class="strip-cell" data
 var fOn=false,ftimer=null;function findPlay(){}
 
 /* ---------- home menu: six photo cards ---------- */
-var PICKS=[['mexicana-burger','photos/cut/hero-mexicana-burger.webp','Bestseller'],['prime-rice-bowl','photos/cut/prime-rice-bowl.webp','House bowl'],['wings','photos/cut/wings.webp','Share it'],['nashville-chicken','photos/cut/nashville-chicken.webp','Spicy'],['philly-steak-wrap','photos/cut/philly-steak-wrap.webp','Grilled'],['oreo-shake','photos/cut/oreo-shake.webp','Hand-spun']];
+var PICKS=[['mexicana-burger','photos/cut/hero-mexicana-burger.webp','Bestseller'],['prime-burger','photos/cut/hero-prime-burger.webp','The big one'],['prime-rice-bowl','photos/cut/prime-rice-bowl.webp','House bowl'],['nashville-chicken','photos/cut/nashville-chicken.webp','Spicy'],['wings','photos/cut/wings.webp','Share it'],['philly-steak-wrap','photos/cut/philly-steak-wrap.webp','Grilled'],['tenders','photos/cut/tenders.webp','Crispy'],['oreo-shake','photos/cut/oreo-shake.webp','Hand-spun']];
 
 /* item detail: stays on the site, one tap to order */
 D.body.insertAdjacentHTML('beforeend','<div class="itm" id="itm" role="dialog" aria-modal="true" aria-labelledby="itmT" aria-hidden="true"><div class="itm-scrim" data-iclose></div><div class="itm-box"><button type="button" class="itm-x" data-iclose aria-label="Close">×</button><div class="itm-ph"><img id="itmImg" alt=""></div><div class="itm-tx"><span class="itm-tag" id="itmTag"></span><h3 id="itmT"></h3><b class="mono" id="itmP"></b><p id="itmD"></p><ul class="itm-li"><li>100% halal</li><li>Made to order</li><li>Pickup in about 15 min</li></ul><a class="btn itm-go" id="itmGo" href="#" target="_blank" rel="noopener">Order on DoorDash <span class="arr">→</span></a><a class="tlink" id="itmUe" href="#" target="_blank" rel="noopener">or Uber Eats <span class="arr">↗</span></a></div></div></div>');
@@ -1954,37 +2267,7 @@ $$('[data-iclose]',itm).forEach(function(b){b.addEventListener('click',itmClose)
 D.addEventListener('keydown',function(e){if(e.key==='Escape'&&itm.classList.contains('open'))itmClose()});
 
 
-/* ---------- order ahead steps + phone ---------- */
-/* ---------- order ahead: yellow iPhone walkthrough ---------- */
-var PHC=[['Popular',['mexicana-burger','prime-rice-bowl','nacho-burger','prime-burger']],['Burgers',['steak-bbq-burger','classic-burger','smash-burger']],['Bowls',['mexicana-bowl','steak-bowl','asian-zing-bowl','nacho-bowl','midwestern-bowl']],['Wings',['wings','tenders','nuggets']],['Sandwiches',['asian-zing-chicken','nashville-chicken','midwest-chicken']],['Wraps',['mexicana-wrap','philly-steak-wrap','cheesy-chicken-wrap','buffalo-ranch-wrap']],['Sides',['fries','prime-dog','oreo-shake']]];
-var PCUT='mexicana-burger nacho-burger prime-burger steak-bbq-burger classic-burger smash-burger prime-rice-bowl steak-bowl asian-zing-bowl mexicana-bowl nacho-bowl midwestern-bowl asian-zing-chicken nashville-chicken midwest-chicken mexicana-wrap philly-steak-wrap cheesy-chicken-wrap buffalo-ranch-wrap wings tenders nuggets fries prime-dog oreo-shake'.split(' ');
-function phImg(k){if(PCUT.indexOf(k)>-1)return '<img src="photos/cut/'+k+'.webp" alt="" loading="lazy" decoding="async">';var p=pic(k);if(!p)return '<img src="brand/logo.png" alt="" style="width:60%;height:60%;opacity:.5">';return '<img'+(p.cut?'':' class="cover"')+' src="'+p.src+'" alt="" loading="lazy" decoding="async">'}
-$('#phChips').innerHTML=PHC.slice(0,5).map(function(c,i){return '<span data-c="'+i+'"'+(i?'':' class="on"')+'>'+c[0]+'</span>'}).join('');
-$('#phList').innerHTML=PHC.map(function(c,i){return '<span class="ps-cat" data-c="'+i+'">'+c[0]+'</span>'+c[1].map(function(k){var it=IDX[k];return '<div class="ps-row" data-k="'+k+'"><div class="ps-im">'+phImg(k)+'</div><div><b>'+esc(it[1])+'</b><small>'+esc(it[3].split(',').slice(0,2).join(','))+'</small><span>$'+it[2]+'</span></div><i>+</i></div>'}).join('')}).join('');
-var OF=[['01 · Menu','The full menu, live','Every burger, bowl and shake, with the same add-ons you get in store.','Popular','Regulars’ picks up top','The most-ordered items show first, so you can grab and go.'],
- ['02 · Your order','Built your way','Grilled or crispy, combo or not, extra Prime sauce on the side.','Combos','Fries or mac bites','Make any burger a combo for four bucks.'],
- ['03 · Checkout','Pay in two taps','Apple Pay, Google Pay or card. Tip the crew if you like.','No app','Order in the browser','Nothing to download, nothing to sign up for.'],
- ['04 · Pickup','Ready in ~15 min','We text you the second it hits the pickup shelf.','Pickup','Entrance in back','Say your name at the counter, that’s it.']];
-var ordI=0,ordT=null,ordOn=false,ordTabs=$$('#ordTabs button'),ordScr=$$('.ps');
-var phS=$('#phScroll'),phCats=$$('.ps-cat',phS),phChips=$$('#phChips span'),phRaf=0,phLast=0,phAcc=0,phHold=0,phBag={n:1,t:16},phRows=$$('.ps-row',phS),phNext=0;
-function phSync(){var y=phS.scrollTop+20,on=0;phCats.forEach(function(c,i){if(c.offsetTop<=y)on=i});phChips.forEach(function(c){c.classList.toggle('on',+c.getAttribute('data-c')===Math.min(on,4))})}
-phS.addEventListener('scroll',phSync,{passive:true});
-['wheel','touchstart','pointerdown'].forEach(function(ev){phS.addEventListener(ev,function(){phHold=performance.now()+3500;clearTimeout(ordT);ordT=null},{passive:true})});
-phS.addEventListener('pointerleave',function(){if(ordOn&&ordI===0&&!ordT)ordT=setTimeout(function(){ordGo(1);ordPlay()},6000)});
-function phAdd(){var max=phS.scrollTop+phS.clientHeight*.55,row=null;phRows.forEach(function(r){if(!row&&r.offsetTop>max-60&&r.offsetTop<max)row=r});if(!row)return;var it=IDX[row.getAttribute('data-k')];row.classList.add('add');setTimeout(function(){row.classList.remove('add')},500);phBag.n++;phBag.t+=it[2];$('#phBagN').textContent=phBag.n;$('#phBagT').textContent='$'+phBag.t.toFixed(2);var b=$('#phBag');b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop')}
-function phTick(t){if(!(ordOn&&ordI===0)||RM){phRaf=0;phLast=0;return}var dt=Math.min(50,t-(phLast||t));phLast=t;
-  if(t>phHold){var max=phS.scrollHeight-phS.clientHeight;if(phS.scrollTop>=max-1){ordGo(1);ordPlay();phRaf=0;return}phAcc+=dt*.045;if(phAcc>=1){var n=Math.floor(phAcc);phAcc-=n;phS.scrollTop+=n}
-    if(t>phNext){phNext=t+2600;phAdd()}}
-  phRaf=requestAnimationFrame(phTick)}
-function phStart(){if(!phRaf&&!RM){phHold=performance.now()+900;phNext=phHold+1600;phRaf=requestAnimationFrame(phTick)}}
-function ordGo(i){ordI=i;ordTabs.forEach(function(b,j){b.classList.toggle('on',j===i)});ordScr.forEach(function(s,j){s.classList.toggle('on',j===i)});var f=OF[i];
-  if(i===0){phS.scrollTop=0;phBag={n:1,t:16};$('#phBagN').textContent='1';$('#phBagT').textContent='$16.00';phSync();if(ordOn)phStart()}
-  ['fcL','fcR'].forEach(function(id){$('#'+id).classList.add('sw')});
-  setTimeout(function(){$('#fcLk').textContent=f[0];$('#fcLt').textContent=f[1];$('#fcLp').textContent=f[2];$('#fcRk').textContent=f[3];$('#fcRt').textContent=f[4];$('#fcRp').textContent=f[5];['fcL','fcR'].forEach(function(id){$('#'+id).classList.remove('sw')})},260)}
-/* menu screen scrolls the whole board, then the walkthrough steps on every 4.2s */
-function ordPlay(){clearTimeout(ordT);ordT=null;if(RM||!ordOn)return;if(ordI===0){phStart();return}ordT=setTimeout(function(){ordGo((ordI+1)%4);ordPlay()},4200)}
-ordTabs.forEach(function(b,j){b.addEventListener('click',function(){ordGo(j);ordPlay()})});
-
+var ordOn=false,ordT=null;function ordPlay(){}
 /* ---------- stats count-up ---------- */
 function countUp(el){var to=+el.getAttribute('data-count'),dec=+(el.getAttribute('data-dec')||0),suf=el.getAttribute('data-suf')||'',t0=null;
   if(RM){return}function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),v=to*(1-Math.pow(1-k,3));el.textContent=(dec?v.toFixed(dec):Math.round(v).toLocaleString('en-US'))+suf;if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
@@ -2234,7 +2517,7 @@ setInterval(function(){paint();markToday();snPaint()},30000);
 
 /* menu board: cutouts on dark cards */
 $('#board').innerHTML=PICKS.map(function(p,i){var it=IDX[p[0]];
-  return '<button type="button" class="g-card g-rv" data-item="'+i+'" style="transition-delay:'+(i%3*90)+'ms"><span class="g-card-ph"><img src="'+p[1]+'" alt="'+esc(it[1])+'" loading="lazy" decoding="async"><span class="g-card-tag">'+esc(p[2])+'</span></span><span class="g-card-tx"><h3>'+esc(it[1])+'</h3><b>$'+it[2]+'</b><p>'+esc(it[3])+'</p></span></button>'}).join('');
+  return '<button type="button" class="g-card g-rv" data-item="'+i+'" style="transition-delay:'+(i%4*90)+'ms"><span class="g-card-ph"><img src="'+p[1]+'" alt="'+esc(it[1])+'" loading="lazy" decoding="async"><span class="g-card-tag">'+esc(p[2])+'</span><span class="g-card-pr">$'+it[2]+'</span></span><span class="g-card-tx"><h3>'+esc(it[1])+'</h3><p>'+esc(it[3])+'</p></span></button>'}).join('');
 $$('#board [data-item]').forEach(function(b){b.addEventListener('click',function(){itmOpen(+b.getAttribute('data-item'))})});
 (function(){if(!('IntersectionObserver' in W)){$$('#board .g-rv').forEach(function(e){e.classList.add('in')});return}var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});$$('#board .g-rv').forEach(function(e){o.observe(e)})})();
 $('#ueLink2').href=UE;
@@ -2258,14 +2541,14 @@ $('#ueLink2').href=UE;
     $$('.g-chips',cf).forEach(function(g){var k=g.getAttribute('data-k');$$('button',g).forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-v');
       if(Array.isArray(Q[k])){var ix=Q[k].indexOf(v);ix>-1?Q[k].splice(ix,1):Q[k].push(v);b.classList.toggle('on')}else{Q[k]=v;$$('button',g).forEach(function(x){x.classList.toggle('on',x===b)});
         if(k==='guests'){var e=$('.g-cf-est b',cf);if(e)e.textContent=est()||'—'}
-        if(['type','guests','svc'].indexOf(k)>-1&&si<5){setTimeout(function(){if(ok()){si++;render()}},260)}}
+        if(['type','guests','svc'].indexOf(k)>-1&&si<5){clearTimeout(W.__cfT);var nm=S[si][0];W.__cfT=setTimeout(function(){if(ok()&&S[si][0]===nm){si++;render()}},15000)}}
       $('#cfNext').disabled=!ok()})})});
     var d=cf.querySelector('#cfDate');if(d)d.addEventListener('change',function(){Q.date=d.value;$('#cfNext').disabled=!ok()});
     [['cfN','name'],['cfP','phone'],['cfT','note']].forEach(function(x){var el=cf.querySelector('#'+x[0]);if(el)el.addEventListener('input',function(){Q[x[1]]=el.value;$('#cfNext').disabled=!ok()})})}
   function done(){var msg='Prime catering request: '+Q.type+', '+Q.guests+' guests, '+Q.date+' ('+Q.time+'), '+Q.svc+', '+Q.food.join(', ')+'. '+Q.name+' '+Q.phone+(Q.note?'. Notes: '+Q.note:'');
     $('#cfBody').innerHTML='<div class="g-cf-step g-ok"><div class="ck">✓</div><h4>Request ready, '+esc(Q.name.split(' ')[0])+'.</h4><p>'+esc(Q.type)+' · '+esc(Q.guests)+' guests · '+esc(Q.svc)+'. Estimated <b style="color:var(--accent)">'+est()+'</b> before tax. Send it to the Prime catering line and we confirm within a few hours.</p><div class="g-acts" style="margin-top:0"><a class="g-btn" href="sms:+13137577200?&body='+encodeURIComponent(msg)+'">Text it to Prime</a><a class="g-btn o" href="tel:+13137577200">Call instead</a></div></div>';
     $('#cfStep').textContent='Done';$('#cfName').textContent='Sent to you';$('#cfBar').style.width='100%';$('.g-cf-ft',cf).style.display='none'}
-  $('#cfNext').addEventListener('click',function(){if(!ok())return;if(si<5){si++;render()}else done()});
+  $('#cfNext').addEventListener('click',function(){clearTimeout(W.__cfT);if(!ok())return;if(si<5){si++;render()}else done()});
   $('#cfBack').addEventListener('click',function(){if(si>0){si--;render()}});
   render()})();
 
@@ -2302,6 +2585,46 @@ $('#ueLink2').href=UE;
     setTimeout(function(){ld.classList.add('gone')},2100)}
   setTimeout(function(){if(!ld.classList.contains('full')){p=1;finish()}},6000)})();
 
+/* order ahead: a customer walking through an order on the phone */
+(function(){var pf=$('#pf');if(!pf.querySelector)return;
+  var scenes=$$('.pf-s',pf),tabs=$$('#ordTabs button'),T=[],on=false,cur=0,started=0;
+  var K={home:0,menu:1,item:2,bag:3,done:4,track:5};
+  function sc(k){var i=K[k];scenes.forEach(function(s,j){s.classList.toggle('on',j===i);s.classList.toggle('past',j<i)});cur=i}
+  function step(i){tabs.forEach(function(b,j){b.classList.toggle('on',j===i);var u=b.querySelector('u');if(u){u.style.animation='none';void u.offsetWidth;u.style.animation=''}})}
+  function tap(k){var el=pf.querySelector('[data-tap="'+k+'"]');if(!el)return;el.classList.add('tap');setTimeout(function(){el.classList.remove('tap')},420)}
+  function q(id){return pf.querySelector('#'+id)||NUL}
+  function reset(){sc('home');pf.querySelector('.pa-opt').classList.remove('sel');$$('.pa-drinks span',pf).forEach(function(s){s.classList.remove('sel')});q('pfItemP').textContent='$16.00';q('pfAddP').textContent='$16.00';q('pfBagN').textContent='0';q('pfProg').style.width='18%';
+    $$('.pa-steps li[data-p]',pf).forEach(function(l){l.classList.toggle('ok',l.getAttribute('data-p')==='1')});pf.querySelector('.pa-list').scrollTop=0;q('pfPin').style.offsetDistance='0%';$$('.g-toast').forEach(function(t){t.classList.remove('in')})}
+  var now=new Date(),mm=now.getHours()*60+now.getMinutes();function hm(m){m=m%1440;var h=Math.floor(m/60)%12||12,x=m%60;return h+':'+(x<10?'0':'')+x}
+  var EV=[
+   [0,function(){reset();step(0)}],
+   [1500,function(){$('#tstB').classList.add('in')}],
+   [2300,function(){tap('start')}],
+   [2700,function(){sc('menu')}],
+   [3600,function(){var l=pf.querySelector('.pa-list');l.scrollTo({top:0,behavior:'smooth'})}],
+   [4300,function(){tap('pick');step(1)}],
+   [4700,function(){sc('item')}],
+   [6200,function(){tap('combo');pf.querySelector('.pa-opt').classList.add('sel');q('pfItemP').textContent='$20.00';q('pfAddP').textContent='$20.00';step(2)}],
+   [7400,function(){tap('drink');pf.querySelector('.pa-drinks span').classList.add('sel')}],
+   [8700,function(){tap('add');q('pfBagN').textContent='1'}],
+   [9100,function(){sc('bag');step(3)}],
+   [10900,function(){tap('pay')}],
+   [11300,function(){sc('done');$('#tstA').classList.add('in')}],
+   [13300,function(){sc('track');step(4);q('pfEta').textContent=hm(mm+15);setTimeout(function(){q('pfProg').style.width='52%'},300)}],
+   [14800,function(){var l=pf.querySelector('.pa-steps li[data-p="2"]');l&&l.classList.add('ok');q('pfProg').style.width='78%'}],
+   [16600,function(){var l=pf.querySelector('.pa-steps li[data-p="3"]');l&&l.classList.add('ok');q('pfProg').style.width='100%'}],
+   [18800,function(){run(0)}]];
+  var JUMP=[0,4300,6200,9100,13300];
+  function clear(){T.forEach(clearTimeout);T=[]}
+  function run(from){clear();if(!on)return;
+    EV.forEach(function(e){if(e[0]>=from)T.push(setTimeout(e[1],e[0]-from))});
+    if(from>0){reset();EV.forEach(function(e){if(e[0]<from&&e[0]>0)e[1]()});}}
+  tabs.forEach(function(b,j){b.addEventListener('click',function(){on=true;run(JUMP[j])})});
+  if(RM){reset();return}
+  if('IntersectionObserver' in W)new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!on){on=true;run(0)}else if(!v&&on){on=false;clear()}},{threshold:.25}).observe(pf);
+})();
+
+(function(){var b=document.getElementById('mbar');if(!b)return;function f(){b.classList.toggle('on',scrollY>innerHeight*.8)}addEventListener('scroll',f,{passive:true});f()})();
 /* ---------- shader buttons (one shared WebGL renderer, drawn into each visible button) ---------- */
 (function(){
   var btns=[].slice.call(document.querySelectorAll('.shbtn'));if(!btns.length)return;
