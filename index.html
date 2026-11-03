@@ -1660,6 +1660,15 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 .tp-l{transform-origin:100% 50%!important;transform:rotate(-7deg) skewY(38deg)!important;background:linear-gradient(270deg,#5e4f00,#2e2700)!important;clip-path:polygon(0 22%,100% 0,100% 100%,0 78%)}
 .tp-clip::before,.tp-clip::after{width:22px}
 
+/* folds v2: flaps attached to the band at the panel edges, tucking behind */
+.tp-l,.tp-r{display:none!important}
+.tp-fx{position:absolute;left:-10%;right:-10%;height:var(--h);top:calc(var(--ty) - var(--h)/2);transform:rotate(var(--a));pointer-events:none;z-index:-1}
+.tp-fx i{position:absolute;top:0;height:100%;width:24px}
+.tp-fx .fl{left:calc(100%/12 - 24px);background:linear-gradient(90deg,#1c1800,#6b5a00);clip-path:polygon(0 14%,100% 0,100% 100%,0 86%)}
+.tp-fx .fr{left:calc(100%*11/12);background:linear-gradient(270deg,#1c1800,#6b5a00);clip-path:polygon(0 0,100% 14%,100% 86%,0 100%)}
+.tp-clip{border-radius:28px}
+@media (max-width:700px){.tp-fx .fl{display:none}}
+
 /* ================= v39: born full-bleed, menu cards, fixes, responsive, mobile ================= */
 /* born: text left, burger stage bleeds to the right edge */
 .g-born{padding-block:clamp(70px,8vw,120px)}
@@ -2134,7 +2143,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
     </div>
 
     <div class="g-ord-stage" aria-hidden="true">
-      <div class="g-tape" aria-hidden="true"><div class="tp tp-l"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div><div class="tp tp-r"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div><div class="tp-clip"><div class="tp tp-f"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div></div></div>
+      <div class="g-tape" aria-hidden="true"><div class="tp tp-l"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div><div class="tp tp-r"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div><div class="tp-fx"><i class="fl"></i><i class="fr"></i></div><div class="tp-clip"><div class="tp tp-f"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div></div></div>
       <span class="g-ord-word">ORDER<br>AHEAD</span>
       <div class="g-ord-band" aria-hidden="true"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div>
       <div class="pf" id="pf">
