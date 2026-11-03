@@ -1619,6 +1619,13 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 .g-toast.t1{z-index:8}
 
 .g-toast{white-space:nowrap;width:max-content}
+/* ribbon bleeds off the page edges: no hard ends */
+.g-ord-stage .g-ord-band{left:-70vw!important;right:-70vw!important}
+.g-ord-stage{overflow:visible}
+.g-ord-in{overflow:visible}
+@media (min-width:1101px){
+ .g-ord-stage .g-ord-band{left:-8%!important;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%);mask-image:linear-gradient(90deg,transparent 0,#000 14%)}
+}
 
 /* ================= v39: born full-bleed, menu cards, fixes, responsive, mobile ================= */
 /* born: text left, burger stage bleeds to the right edge */
