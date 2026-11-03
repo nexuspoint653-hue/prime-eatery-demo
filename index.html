@@ -1627,6 +1627,39 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
  .g-ord-stage .g-ord-band{left:-8%!important;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%);mask-image:linear-gradient(90deg,transparent 0,#000 14%)}
 }
 
+/* ===== tape v3: wraps around the photo panel, always behind the phone ===== */
+.g-ord-band{display:none!important}
+.g-tape{position:absolute;inset:3% 0 3% 2%;z-index:-1;pointer-events:none;--h:96px;--a:-7deg}
+.tp{position:absolute;height:var(--h);display:flex;align-items:center;overflow:hidden;background:var(--accent)}
+.tp span{flex:none;font-family:var(--disp);font-size:calc(var(--h)*.56);line-height:1;text-transform:uppercase;color:#0d0d0e;white-space:nowrap;padding-right:.4em;animation:gmq 40s linear infinite}
+.tp-clip{position:absolute;inset:0;overflow:hidden;border-radius:28px}
+.tp-f{left:-10%;right:-10%;top:calc(var(--ty) - var(--h)/2);transform:rotate(var(--a));box-shadow:0 18px 40px -16px rgba(0,0,0,.7)}
+/* back pieces: fold around the panel edges and run behind it */
+.tp-r,.tp-l{z-index:-1;width:70vw;filter:brightness(.55) saturate(.9)}
+.tp-r{left:100%;top:calc(var(--yr) - var(--h)/2);transform-origin:0 50%;transform:rotate(16deg) translateX(-2px)}
+.tp-l{right:100%;top:calc(var(--yl) - var(--h)/2);transform-origin:100% 50%;transform:rotate(16deg) translateX(2px);-webkit-mask-image:linear-gradient(90deg,transparent 55%,#000 92%);mask-image:linear-gradient(90deg,transparent 55%,#000 92%)}
+.tp-r span{animation-direction:reverse}.tp-l span{animation-direction:reverse}
+/* fold shading at the edges */
+.tp-clip::before,.tp-clip::after{content:"";position:absolute;top:0;bottom:0;width:26px;z-index:2;pointer-events:none}
+.tp-clip::before{left:0;background:linear-gradient(90deg,rgba(0,0,0,.45),transparent)}
+.tp-clip::after{right:0;background:linear-gradient(270deg,rgba(0,0,0,.45),transparent)}
+@media (max-width:700px){.g-tape{--h:66px}.tp-l{display:none}}
+/* back folds: short, dark, tucking behind the photo panel */
+.tp-r,.tp-l{width:150px!important;filter:brightness(.38) saturate(.8)!important}
+.tp-r{transform:rotate(28deg) translateX(-3px)!important;-webkit-mask-image:linear-gradient(90deg,#000 30%,transparent);mask-image:linear-gradient(90deg,#000 30%,transparent)}
+.tp-l{transform:rotate(28deg) translateX(3px)!important;-webkit-mask-image:linear-gradient(270deg,#000 30%,transparent)!important;mask-image:linear-gradient(270deg,#000 30%,transparent)!important}
+.tp-clip::before,.tp-clip::after{width:34px}
+.tp-clip::before{background:linear-gradient(90deg,rgba(0,0,0,.6),transparent)}.tp-clip::after{background:linear-gradient(270deg,rgba(0,0,0,.6),transparent)}
+.tp-r,.tp-l{width:110px!important;filter:none!important;background:linear-gradient(90deg,#6b5900,#3a3000)!important}
+.tp-l{background:linear-gradient(270deg,#6b5900,#3a3000)!important}
+.tp-r span,.tp-l span{color:rgba(0,0,0,.55)!important}
+/* final fold: short dark flaps that tuck behind the panel edge */
+.tp-r,.tp-l{width:28px!important;overflow:hidden;-webkit-mask-image:none!important;mask-image:none!important;background:linear-gradient(90deg,#5e4f00,#2e2700)!important;filter:none!important}
+.tp-r span,.tp-l span{display:none}
+.tp-r{transform-origin:0 50%!important;transform:rotate(-7deg) skewY(-38deg)!important;clip-path:polygon(0 0,100% 22%,100% 78%,0 100%)}
+.tp-l{transform-origin:100% 50%!important;transform:rotate(-7deg) skewY(38deg)!important;background:linear-gradient(270deg,#5e4f00,#2e2700)!important;clip-path:polygon(0 22%,100% 0,100% 100%,0 78%)}
+.tp-clip::before,.tp-clip::after{width:22px}
+
 /* ================= v39: born full-bleed, menu cards, fixes, responsive, mobile ================= */
 /* born: text left, burger stage bleeds to the right edge */
 .g-born{padding-block:clamp(70px,8vw,120px)}
@@ -1983,9 +2016,9 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
     </div>
 
     <div class="g-ord-stage" aria-hidden="true">
+      <div class="g-tape" aria-hidden="true"><div class="tp tp-l"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div><div class="tp tp-r"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div><div class="tp-clip"><div class="tp tp-f"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div></div></div>
       <span class="g-ord-word">ORDER<br>AHEAD</span>
       <div class="g-ord-band" aria-hidden="true"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div>
-      <div class="g-ord-band f" aria-hidden="true"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div>
       <div class="pf" id="pf">
         <i class="pf-btn a"></i><i class="pf-btn b"></i><i class="pf-btn c"></i><i class="pf-btn d"></i>
         <div class="pf-bz">
@@ -2768,6 +2801,12 @@ $('#ueLink2').href=UE;
     if(t2.style){var w2=t2.offsetWidth;if(P.left-16-w2>8||leftSpace>w2*.55){t2.style.display='';t2.style.left=Math.max(-w2*.45,leftSpace-w2-16)+'px';t2.style.top='10%'}else t2.style.display='none'}
     if(t1.style){var w1=t1.offsetWidth;if(P.right+16+w1<innerWidth-16){t1.style.display='';t1.style.left=(P.right-S.left+16)+'px';t1.style.right='auto';t1.style.top='18%'}else t1.style.display='none'}}
   lay();W.addEventListener('resize',lay);W.addEventListener('load',lay);setTimeout(lay,600)})();
+
+/* tape geometry: front band centre line meets the folded back pieces exactly at the panel edges */
+(function(){var g=$('.g-tape');if(!g.querySelector)return;
+  function geo(){var w=g.clientWidth,h=g.clientHeight,ty=h*.64,a=-7*Math.PI/180,dy=Math.tan(a)*w/2;
+    g.style.setProperty('--ty',ty+'px');g.style.setProperty('--yr',(ty+dy)+'px');g.style.setProperty('--yl',(ty-dy)+'px')}
+  geo();W.addEventListener('resize',geo);W.addEventListener('load',geo)})();
 
 (function(){var b=document.getElementById('mbar');if(!b)return;function f(){b.classList.toggle('on',scrollY>innerHeight*.8)}addEventListener('scroll',f,{passive:true});f()})();
 /* ---------- shader buttons (one shared WebGL renderer, drawn into each visible button) ---------- */
