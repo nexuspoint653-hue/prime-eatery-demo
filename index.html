@@ -1610,6 +1610,16 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 
 @media (max-width:700px){.g-ord-stage .g-ord-band{height:80px;bottom:18%}.g-ord-band span{font-size:42px}}
 
+/* ribbon wraps around the phone: back half behind, front half over the phone */
+.pf{z-index:5}
+.g-ord-stage .g-ord-band.f{z-index:7;clip-path:inset(-20% -10% -20% 69.5%);box-shadow:none}
+.g-ord-stage .g-ord-band.f::before{content:"";position:absolute;top:0;bottom:0;left:var(--fx,69.5%);width:46px;background:linear-gradient(90deg,rgba(0,0,0,.45),transparent);z-index:2;pointer-events:none}
+.g-ord-stage .g-ord-band:not(.f){filter:brightness(.82)}
+.g-toast.t2{bottom:auto!important;z-index:8}
+.g-toast.t1{z-index:8}
+
+.g-toast{white-space:nowrap;width:max-content}
+
 /* ================= v39: born full-bleed, menu cards, fixes, responsive, mobile ================= */
 /* born: text left, burger stage bleeds to the right edge */
 .g-born{padding-block:clamp(70px,8vw,120px)}
@@ -1968,6 +1978,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
     <div class="g-ord-stage" aria-hidden="true">
       <span class="g-ord-word">ORDER<br>AHEAD</span>
       <div class="g-ord-band" aria-hidden="true"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div>
+      <div class="g-ord-band f" aria-hidden="true"><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span><span>ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · ORDER AHEAD · SKIP THE LINE · READY IN 15 · </span></div>
       <div class="pf" id="pf">
         <i class="pf-btn a"></i><i class="pf-btn b"></i><i class="pf-btn c"></i><i class="pf-btn d"></i>
         <div class="pf-bz">
@@ -2741,6 +2752,15 @@ $('#ueLink2').href=UE;
   if(RM){reset();return}
   if('IntersectionObserver' in W)new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!on){on=true;run(0)}else if(!v&&on){on=false;clear()}},{threshold:.25}).observe(pf);
 })();
+
+/* keep the ribbon wrap and toasts aligned to the phone at every width */
+(function(){var st=$('.g-ord-stage'),pf=$('#pf'),fb=$('.g-ord-band.f'),t1=$('#tstA'),t2=$('#tstB');if(!st.querySelector||!pf.querySelector)return;
+  function lay(){var S=st.getBoundingClientRect(),P=pf.getBoundingClientRect();
+    if(fb.style){var bl=fb.offsetLeft,bw=fb.offsetWidth,pr=P.right-S.left;var f=Math.max(.5,Math.min(.95,(pr-bl)/bw-.012));fb.style.clipPath='inset(-30% -10% -30% '+(f*100).toFixed(2)+'%)';fb.style.setProperty('--fx',(f*100).toFixed(2)+'%')}
+    var leftSpace=P.left-S.left,rightSpace=S.right-P.right;
+    if(t2.style){var w2=t2.offsetWidth;if(P.left-16-w2>8||leftSpace>w2*.55){t2.style.display='';t2.style.left=Math.max(-w2*.45,leftSpace-w2-16)+'px';t2.style.top='10%'}else t2.style.display='none'}
+    if(t1.style){var w1=t1.offsetWidth;if(P.right+16+w1<innerWidth-16){t1.style.display='';t1.style.left=(P.right-S.left+16)+'px';t1.style.right='auto';t1.style.top='18%'}else t1.style.display='none'}}
+  lay();W.addEventListener('resize',lay);W.addEventListener('load',lay);setTimeout(lay,600)})();
 
 (function(){var b=document.getElementById('mbar');if(!b)return;function f(){b.classList.toggle('on',scrollY>innerHeight*.8)}addEventListener('scroll',f,{passive:true});f()})();
 /* ---------- shader buttons (one shared WebGL renderer, drawn into each visible button) ---------- */
