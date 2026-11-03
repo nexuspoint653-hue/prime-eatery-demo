@@ -2763,7 +2763,7 @@ $('#ueLink2').href=UE;
 /* keep the ribbon wrap and toasts aligned to the phone at every width */
 (function(){var st=$('.g-ord-stage'),pf=$('#pf'),fb=$('.g-ord-band.f'),t1=$('#tstA'),t2=$('#tstB');if(!st.querySelector||!pf.querySelector)return;
   function lay(){var S=st.getBoundingClientRect(),P=pf.getBoundingClientRect();
-    if(fb.style){var bl=fb.offsetLeft,bw=fb.offsetWidth,pr=P.right-S.left;var f=Math.max(.5,Math.min(.95,(pr-bl)/bw-.012));fb.style.clipPath='inset(-30% -10% -30% '+(f*100).toFixed(2)+'%)';fb.style.setProperty('--fx',(f*100).toFixed(2)+'%')}
+    if(fb.style){var bl=fb.offsetLeft,bw=fb.offsetWidth,pr=P.right-S.left;var f=Math.max(0,Math.min(1,(pr-bl)/bw-.006));fb.style.clipPath='inset(-30% -10% -30% '+(f*100).toFixed(2)+'%)';fb.style.setProperty('--fx',(f*100).toFixed(2)+'%')}
     var leftSpace=P.left-S.left,rightSpace=S.right-P.right;
     if(t2.style){var w2=t2.offsetWidth;if(P.left-16-w2>8||leftSpace>w2*.55){t2.style.display='';t2.style.left=Math.max(-w2*.45,leftSpace-w2-16)+'px';t2.style.top='10%'}else t2.style.display='none'}
     if(t1.style){var w1=t1.offsetWidth;if(P.right+16+w1<innerWidth-16){t1.style.display='';t1.style.left=(P.right-S.left+16)+'px';t1.style.right='auto';t1.style.top='18%'}else t1.style.display='none'}}
