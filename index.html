@@ -1880,6 +1880,124 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 /* reviews: colored G always, JS-driven loop (eases slightly slower on hover) */
 #reviews .rv2c-g{opacity:1!important;filter:none!important}
 #reviews .rrow{animation:none!important}
+
+/* ================= mobile + tablet v3: centered, simple, Zo's-style ================= */
+.g-mbar{display:none!important}
+@media (max-width:1100px){
+ /* centered section heads everywhere */
+ .g-head,.sp-n2-hd{flex-direction:column;align-items:center!important;text-align:center;gap:14px}
+ .g-head-r{justify-content:center}
+ .g-eb{justify-content:center}
+ .g-h{text-align:center}
+ .g-p{margin-left:auto;margin-right:auto;text-align:center}
+ .g-acts{justify-content:center}
+ /* story combos */
+ .hc-hd{text-align:center}
+ /* order: centered copy, phone under it */
+ .g-ord-tx{justify-self:center!important;text-align:center;max-width:640px}
+ .g-ord-tx .g-steps{text-align:left}
+ /* catering */
+ .g-cat-l{text-align:center}.g-cat-l .g-cf{text-align:left}
+ /* visit */
+ .g-visit .g-head{align-items:center}
+ .g-visit-l{text-align:center}.g-row small{justify-content:center}.g-two{justify-content:center}
+ .g-hrs{max-width:360px;margin-left:auto;margin-right:auto}
+ /* reviews head */
+ #reviews .rv2-h{justify-items:center;text-align:center}
+ #reviews .rv2-l{display:grid;justify-items:center}
+ #reviews .rv4-eb{justify-content:center}
+ #reviews .lau{justify-self:center!important;margin:0 auto}
+ #reviews .rv2-cta{flex-direction:column;align-items:center;text-align:center;gap:14px}
+}
+
+/* tablets: two-up grids, roomier type */
+@media (min-width:701px) and (max-width:1100px){
+ .g-sec{padding-block:80px}
+ .g-wrap{padding-inline:40px}
+ .g-board{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .g-board .g-card:nth-child(n+7){display:flex!important}
+ .hc-row{grid-template-columns:repeat(3,minmax(0,1fr))!important;max-width:none!important}
+ .hc-i{grid-template-columns:1fr!important;text-align:center}
+ .hc-buy{justify-content:center}
+ .g-cat-in{grid-template-columns:1fr}
+ .g-cat-ph{min-height:360px}
+ .g-visit-in{grid-template-columns:1fr 1fr!important;align-items:start}
+ .g-visit-l{text-align:left}.g-row small{justify-content:flex-start}.g-two{justify-content:flex-start}.g-hrs{margin:0}
+ .g-vibe .ig3{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .g-ord-stage{min-height:620px}
+}
+
+/* phones */
+@media (max-width:700px){
+ body{font-size:15px}
+ .g-sec{padding-block:52px}
+ .g-wrap,.g-ord-in{padding-inline:20px}
+ .g-h,.g-tg .g-h,.g-born .g-h,.g-ord .g-h,.g-cat .g-h,.g-vibe .g-h,.g-visit .g-h,.g-menu .g-h,#reviews h2.g-h{font-size:clamp(34px,10.5vw,44px)!important;text-wrap:balance}
+ .g-p{font-size:14.5px;max-width:34ch}
+ /* hero: same look, centered, no clutter */
+ .hero-top .led{display:none}
+ .hero .callout{display:none!important}
+ .hero-copy{text-align:center;padding-inline:20px!important}
+ .hero-copy .hc-kick{justify-content:center}
+ .hero-copy h1{text-align:center;font-size:clamp(32px,9.6vw,42px)}
+ .hero-copy h1 span{white-space:normal}
+ .hero-copy .lead{margin-left:auto;margin-right:auto;text-align:center}
+ .hero-copy .hero-cta{justify-content:center}
+ .hero-copy .hc-proof{justify-content:center;width:100%}
+ /* too good: centered, cleaner */
+ .g-tg{padding-block:150px 140px}
+ /* story combos: swipe, centered card text */
+ .hc-i{text-align:center}.hc-buy{justify-content:center}
+ /* menu */
+ .g-menu .g-head-r{display:none}
+ /* order: hide the long steps, keep phone + buttons */
+ .g-ord .g-steps{display:none}
+ .g-ord .g-p{display:block!important}
+ .g-ord-in{gap:24px}
+ /* reels */
+ .g-vibe .g-head-r{flex-direction:column;gap:12px}
+ /* catering */
+ .g-cat .g-p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+ /* visit */
+ .g-row{padding:14px 0}
+ /* footer */
+ .fx-top{text-align:center}
+ .fx-brand{display:grid;justify-items:center}
+ .fx-col h4{text-align:center}
+ .fx-col ul{align-items:center}
+ .fx-bot{text-align:center;justify-content:center}
+ .fx{padding-bottom:0!important}
+}
+
+/* tablets (portrait up to 1100): stacked, centered hero like phones */
+@media (max-width:1100px) and (min-width:901px) and (orientation:portrait){
+ .hero{height:auto;min-height:0;max-height:none;padding-top:calc(76px + env(safe-area-inset-top,0px));padding-bottom:0;display:flex;flex-direction:column}
+ .hero-top{position:relative;top:0;flex-direction:column;gap:14px}.hstat{display:none}
+ .wordmark{position:relative;top:0;margin-top:26px;font-size:10.4vw}
+ .hphoto{position:relative;left:auto;top:auto;width:min(60vw,520px);height:auto;aspect-ratio:2/3;margin:-12vw auto -10vw}
+ .smoke-gl{height:70%}
+ #hero .hero-copy{position:relative;bottom:auto!important;padding-top:30px;padding-bottom:44px;width:auto}
+ .hero{min-height:0!important}
+}
+@media (max-width:1100px) and (orientation:portrait),(max-width:900px){
+ .hero-top .led{display:none}
+ .hero .callout{display:none!important}
+ .hero-copy{text-align:center;padding-inline:32px!important;max-width:720px;margin:0 auto}
+ .hero-copy .hc-kick{justify-content:center}
+ .hero-copy h1{text-align:center}
+ .hero-copy .lead{margin-left:auto;margin-right:auto;text-align:center}
+ .hero-copy .hero-cta{justify-content:center}
+ .hero-copy .hc-proof{justify-content:center;width:100%}
+}
+/* 1024 landscape tablets/small laptops: keep hero, hide crowding callout */
+@media (max-width:1100px) and (min-width:901px) and (orientation:landscape){.hero .callout{display:none!important}}
+/* tablet visit: center, single column feels cleaner */
+@media (min-width:701px) and (max-width:1100px){
+ .g-visit-in{grid-template-columns:1fr!important;max-width:640px;margin:0 auto}
+ .g-visit-l{text-align:center}.g-row small,.g-two{justify-content:center}.g-hrs{margin:0 auto}
+ .g-vibe .ig3-t.big{grid-row:span 2}
+ .g-tg .tgF,.g-tg .tgL,.g-tg .tgG{display:none}
+}
 </style>
 
 </head><body><header class="hdr" id="hdr">

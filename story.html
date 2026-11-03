@@ -1610,6 +1610,56 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 
 @media (max-width:700px){.g-ord-stage .g-ord-band{height:80px;bottom:18%}.g-ord-band span{font-size:42px}}
 
+/* ribbon wraps around the phone: back half behind, front half over the phone */
+.pf{z-index:5}
+.g-ord-stage .g-ord-band.f{z-index:7;clip-path:inset(-20% -10% -20% 69.5%);box-shadow:none}
+.g-ord-stage .g-ord-band.f::before{content:"";position:absolute;top:0;bottom:0;left:var(--fx,69.5%);width:46px;background:linear-gradient(90deg,rgba(0,0,0,.45),transparent);z-index:2;pointer-events:none}
+.g-ord-stage .g-ord-band:not(.f){filter:brightness(.82)}
+.g-toast.t2{bottom:auto!important;z-index:8}
+.g-toast.t1{z-index:8}
+
+.g-toast{white-space:nowrap;width:max-content}
+/* ribbon bleeds off the page edges: no hard ends */
+.g-ord-stage .g-ord-band{left:-70vw!important;right:-70vw!important}
+.g-ord-stage{overflow:visible}
+.g-ord-in{overflow:visible}
+@media (min-width:1101px){
+ .g-ord-stage .g-ord-band{left:-8%!important;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%);mask-image:linear-gradient(90deg,transparent 0,#000 14%)}
+}
+
+/* ===== tape v3: wraps around the photo panel, always behind the phone ===== */
+.g-ord-band{display:none!important}
+.g-tape{position:absolute;inset:3% 0 3% 2%;z-index:-1;pointer-events:none;--h:96px;--a:-7deg}
+.tp{position:absolute;height:var(--h);display:flex;align-items:center;overflow:hidden;background:var(--accent)}
+.tp span{flex:none;font-family:var(--disp);font-size:calc(var(--h)*.56);line-height:1;text-transform:uppercase;color:#0d0d0e;white-space:nowrap;padding-right:.4em;animation:gmq 40s linear infinite}
+.tp-clip{position:absolute;inset:0;overflow:hidden;border-radius:28px}
+.tp-f{left:-10%;right:-10%;top:calc(var(--ty) - var(--h)/2);transform:rotate(var(--a));box-shadow:0 18px 40px -16px rgba(0,0,0,.7)}
+/* back pieces: fold around the panel edges and run behind it */
+.tp-r,.tp-l{z-index:-1;width:70vw;filter:brightness(.55) saturate(.9)}
+.tp-r{left:100%;top:calc(var(--yr) - var(--h)/2);transform-origin:0 50%;transform:rotate(16deg) translateX(-2px)}
+.tp-l{right:100%;top:calc(var(--yl) - var(--h)/2);transform-origin:100% 50%;transform:rotate(16deg) translateX(2px);-webkit-mask-image:linear-gradient(90deg,transparent 55%,#000 92%);mask-image:linear-gradient(90deg,transparent 55%,#000 92%)}
+.tp-r span{animation-direction:reverse}.tp-l span{animation-direction:reverse}
+/* fold shading at the edges */
+.tp-clip::before,.tp-clip::after{content:"";position:absolute;top:0;bottom:0;width:26px;z-index:2;pointer-events:none}
+.tp-clip::before{left:0;background:linear-gradient(90deg,rgba(0,0,0,.45),transparent)}
+.tp-clip::after{right:0;background:linear-gradient(270deg,rgba(0,0,0,.45),transparent)}
+@media (max-width:700px){.g-tape{--h:66px}.tp-l{display:none}}
+/* back folds: short, dark, tucking behind the photo panel */
+.tp-r,.tp-l{width:150px!important;filter:brightness(.38) saturate(.8)!important}
+.tp-r{transform:rotate(28deg) translateX(-3px)!important;-webkit-mask-image:linear-gradient(90deg,#000 30%,transparent);mask-image:linear-gradient(90deg,#000 30%,transparent)}
+.tp-l{transform:rotate(28deg) translateX(3px)!important;-webkit-mask-image:linear-gradient(270deg,#000 30%,transparent)!important;mask-image:linear-gradient(270deg,#000 30%,transparent)!important}
+.tp-clip::before,.tp-clip::after{width:34px}
+.tp-clip::before{background:linear-gradient(90deg,rgba(0,0,0,.6),transparent)}.tp-clip::after{background:linear-gradient(270deg,rgba(0,0,0,.6),transparent)}
+.tp-r,.tp-l{width:110px!important;filter:none!important;background:linear-gradient(90deg,#6b5900,#3a3000)!important}
+.tp-l{background:linear-gradient(270deg,#6b5900,#3a3000)!important}
+.tp-r span,.tp-l span{color:rgba(0,0,0,.55)!important}
+/* final fold: short dark flaps that tuck behind the panel edge */
+.tp-r,.tp-l{width:28px!important;overflow:hidden;-webkit-mask-image:none!important;mask-image:none!important;background:linear-gradient(90deg,#5e4f00,#2e2700)!important;filter:none!important}
+.tp-r span,.tp-l span{display:none}
+.tp-r{transform-origin:0 50%!important;transform:rotate(-7deg) skewY(-38deg)!important;clip-path:polygon(0 0,100% 22%,100% 78%,0 100%)}
+.tp-l{transform-origin:100% 50%!important;transform:rotate(-7deg) skewY(38deg)!important;background:linear-gradient(270deg,#5e4f00,#2e2700)!important;clip-path:polygon(0 22%,100% 0,100% 100%,0 78%)}
+.tp-clip::before,.tp-clip::after{width:22px}
+
 /* ================= v39: born full-bleed, menu cards, fixes, responsive, mobile ================= */
 /* born: text left, burger stage bleeds to the right edge */
 .g-born{padding-block:clamp(70px,8vw,120px)}
@@ -1830,6 +1880,124 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 /* reviews: colored G always, JS-driven loop (eases slightly slower on hover) */
 #reviews .rv2c-g{opacity:1!important;filter:none!important}
 #reviews .rrow{animation:none!important}
+
+/* ================= mobile + tablet v3: centered, simple, Zo's-style ================= */
+.g-mbar{display:none!important}
+@media (max-width:1100px){
+ /* centered section heads everywhere */
+ .g-head,.sp-n2-hd{flex-direction:column;align-items:center!important;text-align:center;gap:14px}
+ .g-head-r{justify-content:center}
+ .g-eb{justify-content:center}
+ .g-h{text-align:center}
+ .g-p{margin-left:auto;margin-right:auto;text-align:center}
+ .g-acts{justify-content:center}
+ /* story combos */
+ .hc-hd{text-align:center}
+ /* order: centered copy, phone under it */
+ .g-ord-tx{justify-self:center!important;text-align:center;max-width:640px}
+ .g-ord-tx .g-steps{text-align:left}
+ /* catering */
+ .g-cat-l{text-align:center}.g-cat-l .g-cf{text-align:left}
+ /* visit */
+ .g-visit .g-head{align-items:center}
+ .g-visit-l{text-align:center}.g-row small{justify-content:center}.g-two{justify-content:center}
+ .g-hrs{max-width:360px;margin-left:auto;margin-right:auto}
+ /* reviews head */
+ #reviews .rv2-h{justify-items:center;text-align:center}
+ #reviews .rv2-l{display:grid;justify-items:center}
+ #reviews .rv4-eb{justify-content:center}
+ #reviews .lau{justify-self:center!important;margin:0 auto}
+ #reviews .rv2-cta{flex-direction:column;align-items:center;text-align:center;gap:14px}
+}
+
+/* tablets: two-up grids, roomier type */
+@media (min-width:701px) and (max-width:1100px){
+ .g-sec{padding-block:80px}
+ .g-wrap{padding-inline:40px}
+ .g-board{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .g-board .g-card:nth-child(n+7){display:flex!important}
+ .hc-row{grid-template-columns:repeat(3,minmax(0,1fr))!important;max-width:none!important}
+ .hc-i{grid-template-columns:1fr!important;text-align:center}
+ .hc-buy{justify-content:center}
+ .g-cat-in{grid-template-columns:1fr}
+ .g-cat-ph{min-height:360px}
+ .g-visit-in{grid-template-columns:1fr 1fr!important;align-items:start}
+ .g-visit-l{text-align:left}.g-row small{justify-content:flex-start}.g-two{justify-content:flex-start}.g-hrs{margin:0}
+ .g-vibe .ig3{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .g-ord-stage{min-height:620px}
+}
+
+/* phones */
+@media (max-width:700px){
+ body{font-size:15px}
+ .g-sec{padding-block:52px}
+ .g-wrap,.g-ord-in{padding-inline:20px}
+ .g-h,.g-tg .g-h,.g-born .g-h,.g-ord .g-h,.g-cat .g-h,.g-vibe .g-h,.g-visit .g-h,.g-menu .g-h,#reviews h2.g-h{font-size:clamp(34px,10.5vw,44px)!important;text-wrap:balance}
+ .g-p{font-size:14.5px;max-width:34ch}
+ /* hero: same look, centered, no clutter */
+ .hero-top .led{display:none}
+ .hero .callout{display:none!important}
+ .hero-copy{text-align:center;padding-inline:20px!important}
+ .hero-copy .hc-kick{justify-content:center}
+ .hero-copy h1{text-align:center;font-size:clamp(32px,9.6vw,42px)}
+ .hero-copy h1 span{white-space:normal}
+ .hero-copy .lead{margin-left:auto;margin-right:auto;text-align:center}
+ .hero-copy .hero-cta{justify-content:center}
+ .hero-copy .hc-proof{justify-content:center;width:100%}
+ /* too good: centered, cleaner */
+ .g-tg{padding-block:150px 140px}
+ /* story combos: swipe, centered card text */
+ .hc-i{text-align:center}.hc-buy{justify-content:center}
+ /* menu */
+ .g-menu .g-head-r{display:none}
+ /* order: hide the long steps, keep phone + buttons */
+ .g-ord .g-steps{display:none}
+ .g-ord .g-p{display:block!important}
+ .g-ord-in{gap:24px}
+ /* reels */
+ .g-vibe .g-head-r{flex-direction:column;gap:12px}
+ /* catering */
+ .g-cat .g-p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+ /* visit */
+ .g-row{padding:14px 0}
+ /* footer */
+ .fx-top{text-align:center}
+ .fx-brand{display:grid;justify-items:center}
+ .fx-col h4{text-align:center}
+ .fx-col ul{align-items:center}
+ .fx-bot{text-align:center;justify-content:center}
+ .fx{padding-bottom:0!important}
+}
+
+/* tablets (portrait up to 1100): stacked, centered hero like phones */
+@media (max-width:1100px) and (min-width:901px) and (orientation:portrait){
+ .hero{height:auto;min-height:0;max-height:none;padding-top:calc(76px + env(safe-area-inset-top,0px));padding-bottom:0;display:flex;flex-direction:column}
+ .hero-top{position:relative;top:0;flex-direction:column;gap:14px}.hstat{display:none}
+ .wordmark{position:relative;top:0;margin-top:26px;font-size:10.4vw}
+ .hphoto{position:relative;left:auto;top:auto;width:min(60vw,520px);height:auto;aspect-ratio:2/3;margin:-12vw auto -10vw}
+ .smoke-gl{height:70%}
+ #hero .hero-copy{position:relative;bottom:auto!important;padding-top:30px;padding-bottom:44px;width:auto}
+ .hero{min-height:0!important}
+}
+@media (max-width:1100px) and (orientation:portrait),(max-width:900px){
+ .hero-top .led{display:none}
+ .hero .callout{display:none!important}
+ .hero-copy{text-align:center;padding-inline:32px!important;max-width:720px;margin:0 auto}
+ .hero-copy .hc-kick{justify-content:center}
+ .hero-copy h1{text-align:center}
+ .hero-copy .lead{margin-left:auto;margin-right:auto;text-align:center}
+ .hero-copy .hero-cta{justify-content:center}
+ .hero-copy .hc-proof{justify-content:center;width:100%}
+}
+/* 1024 landscape tablets/small laptops: keep hero, hide crowding callout */
+@media (max-width:1100px) and (min-width:901px) and (orientation:landscape){.hero .callout{display:none!important}}
+/* tablet visit: center, single column feels cleaner */
+@media (min-width:701px) and (max-width:1100px){
+ .g-visit-in{grid-template-columns:1fr!important;max-width:640px;margin:0 auto}
+ .g-visit-l{text-align:center}.g-row small,.g-two{justify-content:center}.g-hrs{margin:0 auto}
+ .g-vibe .ig3-t.big{grid-row:span 2}
+ .g-tg .tgF,.g-tg .tgL,.g-tg .tgG{display:none}
+}
 
 /* ================= story page v2 ================= */
 .sp{overflow-x:clip}
