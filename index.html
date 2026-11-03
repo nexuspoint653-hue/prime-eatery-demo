@@ -1668,6 +1668,12 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 .tp-fx .fr{left:calc(100%*11/12);background:linear-gradient(270deg,#1c1800,#6b5a00);clip-path:polygon(0 0,100% 14%,100% 86%,0 100%)}
 .tp-clip{border-radius:28px}
 @media (max-width:700px){.tp-fx .fl{display:none}}
+/* skew (not rotate) so the band's ends stay vertical and meet the panel edges + folds exactly */
+.tp-f{transform:skewY(var(--a))!important}
+.tp-fx{transform:skewY(var(--a))!important}
+.tp-fx .fl{clip-path:polygon(0 10%,100% 0,100% 100%,0 90%)!important}
+.tp-fx .fr{clip-path:polygon(0 0,100% 10%,100% 90%,0 100%)!important}
+.tp-clip::before,.tp-clip::after{display:none}
 
 /* ================= v39: born full-bleed, menu cards, fixes, responsive, mobile ================= */
 /* born: text left, burger stage bleeds to the right edge */
