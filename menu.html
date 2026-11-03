@@ -59,6 +59,31 @@ footer{margin-top:clamp(50px,6vw,90px);background:var(--ink);color:#f2efe8;paddi
 
 @media (max-width:1200px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{display:none}.hd{grid-template-columns:auto 1fr}.brand{justify-self:start}.ft{grid-template-columns:1fr}.pills{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}}
+
+/* mobile polish */
+.pills a{flex:none;white-space:nowrap}
+@media (max-width:760px){
+ .pills{gap:8px;padding:12px 18px;margin:0 -18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 18px,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,transparent,#000 18px,#000 calc(100% - 28px),transparent);top:68px}
+ .pills::-webkit-scrollbar{display:none}
+ .pills a{height:38px;padding:0 16px;font-size:13px}
+ .grid{gap:10px}
+ .card{padding:12px 10px 16px;border-radius:16px}
+ .card h3{font-size:14.5px;line-height:1.2;text-wrap:balance}
+ .card .pr{font-size:14px}
+}
+@media (max-width:420px){header .brand{font-size:15px}header .ord{padding:0 14px;font-size:13px}}
+
+/* footer centered on phones (sitewide) */
+@media (max-width:700px){
+ .fx-top{text-align:center}
+ .fx-brand{display:grid;justify-items:center}
+ .fx-brand p{margin-left:auto;margin-right:auto}
+ .fx-col h4{text-align:center}
+ .fx-col ul{align-items:center;padding:0}
+ .fx-bot{grid-template-columns:1fr!important;justify-items:center;text-align:center;gap:10px}
+ .fx-live{flex-direction:column;align-items:center;text-align:center}
+}
+html,body{overflow-x:clip}header a{white-space:nowrap}@media (max-width:420px){header .brand{font-size:15px;white-space:nowrap}}
 </style></head><body>
 <header><div class="w hd"><nav class="nav"><a href="./">Home</a><a href="#burgers">Menu</a><a href="./#catering">Catering</a><a href="./#story">Our story</a></nav><a class="brand" href="./"><img src="brand/logo.png" alt="">Prime Eatery</a><a class="ord" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&utm_medium=website&utm_campaign=menu_header" target="_blank" rel="noopener">Order now →</a></div></header>
 <main class="w">

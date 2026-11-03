@@ -1660,6 +1660,30 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 .tp-l{transform-origin:100% 50%!important;transform:rotate(-7deg) skewY(38deg)!important;background:linear-gradient(270deg,#5e4f00,#2e2700)!important;clip-path:polygon(0 22%,100% 0,100% 100%,0 78%)}
 .tp-clip::before,.tp-clip::after{width:22px}
 
+/* folds v2: flaps attached to the band at the panel edges, tucking behind */
+.tp-l,.tp-r{display:none!important}
+.tp-fx{position:absolute;left:-10%;right:-10%;height:var(--h);top:calc(var(--ty) - var(--h)/2);transform:rotate(var(--a));pointer-events:none;z-index:-1}
+.tp-fx i{position:absolute;top:0;height:100%;width:24px}
+.tp-fx .fl{left:calc(100%/12 - 24px);background:linear-gradient(90deg,#1c1800,#6b5a00);clip-path:polygon(0 14%,100% 0,100% 100%,0 86%)}
+.tp-fx .fr{left:calc(100%*11/12);background:linear-gradient(270deg,#1c1800,#6b5a00);clip-path:polygon(0 0,100% 14%,100% 86%,0 100%)}
+.tp-clip{border-radius:28px}
+@media (max-width:700px){.tp-fx .fl{display:none}}
+/* skew (not rotate) so the band's ends stay vertical and meet the panel edges + folds exactly */
+.tp-f{transform:skewY(var(--a))!important}
+.tp-fx{transform:skewY(var(--a))!important}
+.tp-fx .fl{clip-path:polygon(0 10%,100% 0,100% 100%,0 90%)!important}
+.tp-fx .fr{clip-path:polygon(0 0,100% 10%,100% 90%,0 100%)!important}
+.tp-clip::before,.tp-clip::after{display:none}
+/* 3D curl: band shades as it curves at the panel edge, then wraps away in perspective */
+.tp-f{background:
+  linear-gradient(90deg,rgba(0,0,0,.42) calc(100%/12),rgba(255,255,255,.22) calc(100%/12 + 10px),rgba(0,0,0,0) calc(100%/12 + 70px),rgba(0,0,0,0) calc(100%*11/12 - 70px),rgba(255,255,255,.22) calc(100%*11/12 - 10px),rgba(0,0,0,.42) calc(100%*11/12)),var(--accent)!important}
+.tp-fx{perspective:420px}
+.tp-fx .fl,.tp-fx .fr{width:60px!important;clip-path:none!important;background:none!important;overflow:visible}
+.tp-fx .fl{left:calc(100%/12 - 60px)!important}
+.tp-fx i b{position:absolute;inset:0;background:var(--accent);border-radius:0 40% 40% 0/0 50% 50% 0}
+.tp-fx .fr b{transform-origin:0 50%;transform:rotateY(72deg);background:linear-gradient(90deg,#b39500 0%,#5a4a00 55%,rgba(20,18,0,0) 100%);border-radius:0 60% 60% 0/0 50% 50% 0}
+.tp-fx .fl b{transform-origin:100% 50%;transform:rotateY(-72deg);background:linear-gradient(270deg,#b39500 0%,#5a4a00 55%,rgba(20,18,0,0) 100%);border-radius:60% 0 0 60%/50% 0 0 50%}
+
 /* ================= v39: born full-bleed, menu cards, fixes, responsive, mobile ================= */
 /* born: text left, burger stage bleeds to the right edge */
 .g-born{padding-block:clamp(70px,8vw,120px)}
@@ -1998,6 +2022,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
  .g-vibe .ig3-t.big{grid-row:span 2}
  .g-tg .tgF,.g-tg .tgL,.g-tg .tgG{display:none}
 }
+@media (max-width:700px){.fx-brand p{margin-left:auto;margin-right:auto}.fx-col ul{padding:0}.fx-live{flex-direction:column;align-items:center;text-align:center}}
 
 /* ================= story page v2 ================= */
 .sp{overflow-x:clip}
@@ -2199,6 +2224,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 footer.fx{position:relative;z-index:1}
 @media (max-width:760px){.sp-cta-food{right:-6%!important;bottom:-70px!important;width:190px!important}}
 .sp ~ footer .fx-live,body:has(.sp) .fx-live{display:none!important}
+@media (max-width:760px){.sp-cta-food{bottom:-10px!important;right:-14%!important;width:150px!important;opacity:.9}.sp-cta{padding-bottom:150px!important}}
 </style>
 
 </head><body><header class="hdr" id="hdr">

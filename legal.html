@@ -49,6 +49,18 @@ h1 em{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;let
 @media (max-width:980px){.fx-top{grid-template-columns:repeat(2,minmax(0,1fr))}.fx-brand{grid-column:1/-1}}
 @media (max-width:600px){.fx-mark{height:12.5vw}.fx-mark span{font-size:14vw;letter-spacing:-.04em}}
 
+
+/* footer centered on phones (sitewide) */
+@media (max-width:700px){
+ .fx-top{text-align:center}
+ .fx-brand{display:grid;justify-items:center}
+ .fx-brand p{margin-left:auto;margin-right:auto}
+ .fx-col h4{text-align:center}
+ .fx-col ul{align-items:center;padding:0}
+ .fx-bot{grid-template-columns:1fr!important;justify-items:center;text-align:center;gap:10px}
+ .fx-live{flex-direction:column;align-items:center;text-align:center}
+}
+html,body{overflow-x:clip}header a{white-space:nowrap}@media (max-width:420px){header .brand{font-size:15px;white-space:nowrap}}
 </style></head><body>
 <header><div class="w hd"><a class="brand" href="./"><img src="brand/logo.png" alt="">Prime Eatery</a><nav class="nav"><a href="./">Home</a><a href="menu.html">Menu</a><a href="./#catering">Catering</a><a href="./#story">Our story</a></nav><a class="ord" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&utm_medium=website&utm_campaign=legal" target="_blank" rel="noopener">Order ahead →</a></div></header>
 <main class="w">
