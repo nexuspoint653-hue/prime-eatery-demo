@@ -1658,8 +1658,25 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 .hstat b{gap:0}
 
 /* map: no pin overlay, no Google footer bar */
-.g-map{overflow:visible!important}.g-map iframe{border-radius:6px;clip-path:inset(0 0 34px 0 round 6px)}.g-pin{left:auto!important;top:-22px!important;right:76px;bottom:auto;z-index:3}
-.g-map iframe{height:calc(100% + 34px);bottom:auto}
+/* map v3: cropped Google embed, custom card */
+.g-map{position:relative;overflow:visible!important;border:0!important;background:none!important;min-height:560px}
+.g-map-frame{position:absolute;inset:0;border-radius:22px;overflow:hidden;background:#1a1a1b;box-shadow:inset 0 0 0 1px rgba(255,212,0,.14),0 50px 90px -40px rgba(0,0,0,.9)}
+.g-map-frame iframe{position:absolute;left:-440px;top:-300px;width:calc(100% + 880px);height:calc(100% + 600px);border:0;filter:grayscale(1) invert(.92) contrast(.95) brightness(.9);pointer-events:none}
+.g-map-tint{position:absolute;inset:0;border-radius:22px;pointer-events:none;background:radial-gradient(38% 42% at 50% 50%,rgba(255,212,0,.32),rgba(255,212,0,.06) 60%,transparent 80%);mix-blend-mode:overlay}
+.g-map-tint::after{content:"";position:absolute;inset:0;border-radius:22px;background:linear-gradient(180deg,rgba(13,13,14,0) 60%,rgba(13,13,14,.55))}
+.g-pin{left:auto!important;right:28px;top:-22px!important;bottom:auto;z-index:4;padding:10px 18px 10px 10px!important;border-radius:12px!important;box-shadow:0 20px 40px -14px rgba(0,0,0,.85)}
+.g-pin img{width:36px!important;height:36px!important}.g-pin b{font-size:20px!important}
+.g-mcard{position:absolute;left:22px;bottom:22px;z-index:3;width:min(340px,calc(100% - 44px));padding:18px 18px 16px;border-radius:16px;background:rgba(14,14,15,.82);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.09),0 30px 60px -24px rgba(0,0,0,.9);color:#f2efe8}
+.g-mcard-top{display:flex;align-items:center;gap:9px;margin-bottom:12px;font:700 11px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:#a9a59d}
+.g-mcard-top svg{flex:none;padding:5px;width:32px;height:32px;border-radius:9px;background:#fff}
+.g-mcard>b{display:block;font-family:var(--f);font-weight:700;font-size:17px;line-height:1.25}
+.g-mcard>small{display:block;margin-top:6px;font-size:13px;line-height:1.5;color:#a9a59d}
+.g-mcard-r{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px}
+.g-mcard-r b{font-size:15px}.g-mcard-r .st{color:#fbbc05;letter-spacing:1px}.g-mcard-r em{font-style:normal;color:#a9a59d}
+.g-mcard-a{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.g-mcard-a a{height:42px;display:flex;align-items:center;justify-content:center;border-radius:10px;font:700 12.5px/1 var(--f);transition:background .3s,color .3s}
+.g-mcard-a a:first-child{background:#f2efe8;color:#0d0d0e}.g-mcard-a a:first-child:hover{background:#fff}
+.g-mcard-a a:last-child{background:var(--accent);color:#0d0d0e}.g-mcard-a a:last-child:hover{background:#ffe14d}
 
 /* footer wordmark: show the whole word */
 .fx-mark{height:auto!important;overflow:visible;padding-bottom:clamp(10px,1.4vw,24px)}
@@ -1737,7 +1754,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
  #reviews .lau{transform:scale(.85);transform-origin:left center}
  /* visit */
  .g-row{padding:16px 0}.g-row b{font-size:22px}
- .g-map{min-height:240px}
+ .g-map{min-height:420px;margin-top:20px}.g-map-frame iframe{left:-300px;top:-260px;width:calc(100% + 600px);height:calc(100% + 520px)}.g-pin{right:16px}.g-pin b{font-size:16px!important}.g-mcard{left:12px;right:12px;bottom:12px;width:auto;padding:14px}
  /* footer */
  .fx-mark span{font-size:16.5vw!important;letter-spacing:0!important}
  .g-born-ph .g-born-tag{display:none}
@@ -1968,6 +1985,36 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
  .sp-cta-food{width:200px;right:-14%;bottom:-4%}
 }
 @media (prefers-reduced-motion:reduce){.sp-h1 .spl>span,.sp-lead,.sp-hero-ft{animation:none;transform:none;opacity:1}.sp-sticker{animation:none}}
+
+/* night v2: five-column timeline, no horizontal scroll */
+.sp-night2{padding-block:clamp(56px,6vw,96px)}
+.sp-n2-hd{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.sp-n2-hd .g-p{margin:0;max-width:38ch}
+.sp-n2-line{position:relative;height:2px;margin:clamp(30px,3vw,44px) 0 0;background:rgba(255,255,255,.08)}
+.sp-n2-line i{position:absolute;left:0;top:0;height:100%;width:0;background:var(--accent);transition:width 1.8s cubic-bezier(.16,1,.3,1)}
+.sp-night2.in .sp-n2-line i{width:100%}
+.sp-n2{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.2vw,20px)}
+.sp-n2c{position:relative;padding-top:26px}
+.sp-n2c::before{content:"";position:absolute;left:0;top:-7px;width:2px;height:20px;background:var(--accent)}
+.sp-n2c:nth-child(even){margin-top:56px}
+.sp-n2t{display:inline-block;margin-bottom:12px;padding:6px 10px;border-radius:6px;background:var(--accent);color:#0d0d0e;font:800 11px/1 var(--f);letter-spacing:.16em}
+.sp-n2ph{aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:#151515}
+.sp-n2ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.2s cubic-bezier(.16,1,.3,1),filter .6s;filter:saturate(.9) brightness(.92)}
+.sp-n2c:hover .sp-n2ph img{transform:scale(1);filter:none}
+.sp-n2c h3{margin:16px 0 6px;font-family:var(--disp);font-weight:400;font-size:clamp(22px,1.8vw,30px);text-transform:uppercase;line-height:1}
+.sp-n2c p{margin:0;color:#a9a59d;font-size:13.5px;line-height:1.6}
+.sp-n2c.sp-rv{transition-delay:var(--d)}
+/* tighter rhythm between sections */
+.sp-man{padding-block:clamp(56px,6vw,96px)!important}
+.sp-num{padding-block:clamp(40px,4.5vw,70px)!important}
+.sp-sig{padding-block:clamp(56px,6vw,96px)!important}
+.sp-row{margin-bottom:clamp(30px,4vw,60px)!important}.sp-row:last-child{margin-bottom:0!important}
+.sp-vals{padding-block:clamp(40px,5vw,80px)!important}
+.sp-crew{padding-block:clamp(56px,6vw,96px)!important}
+.sp-cta{padding-block:clamp(80px,9vw,140px)!important}
+.sp-sig-hd{margin-bottom:clamp(28px,3vw,50px)!important}
+@media (max-width:1100px){.sp-n2{grid-template-columns:repeat(3,minmax(0,1fr))}.sp-n2c:nth-child(even){margin-top:0}}
+@media (max-width:760px){.sp-n2{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px 6px;scrollbar-width:none}.sp-n2::-webkit-scrollbar{display:none}.sp-n2c{flex:0 0 64vw;scroll-snap-align:start}.sp-n2-line{display:none}.sp-n2c::before{display:none}.sp-n2c{padding-top:16px}}
 </style>
 
 </head><body><header class="hdr" id="hdr">
@@ -2008,22 +2055,18 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
   </div>
 </section>
 
-<!-- 3. a night at prime: horizontal scroll -->
-<section class="sp-night" id="spNight">
-  <div class="sp-night-pin">
-    <div class="sp-night-hd">
-      <div><p class="g-eb">02 <b>—</b> A night at Prime</p>
-      <h2 class="g-h">Noon to <em>3 AM.</em></h2></div>
-      <div class="sp-clock"><b id="spClock">12:00</b><small>PM</small></div>
+<!-- 3. a night at prime -->
+<section class="sp-night2">
+  <div class="g-wrap wide-x">
+    <div class="sp-n2-hd"><div><p class="g-eb">02 <b>—</b> A night at Prime</p><h2 class="g-h">Noon to <em>3 AM.</em></h2></div><p class="g-p">Five moments from a regular night at the counter, from the lunch rush to last call.</p></div>
+    <div class="sp-n2-line" aria-hidden="true"><i></i></div>
+    <div class="sp-n2">
+      <article class="sp-n2c" style="--d:0ms"><span class="sp-n2t">12 PM</span><div class="sp-n2ph"><img src="photos/prime-rice-bowl.jpg" alt="" loading="lazy"></div><h3>Doors open</h3><p>Lunch for the medical building upstairs and everyone on Michigan Ave.</p></article>
+      <article class="sp-n2c" style="--d:90ms"><span class="sp-n2t">5 PM</span><div class="sp-n2ph"><img src="photos/night-classic.jpg" alt="" loading="lazy"></div><h3>Families roll in</h3><p>Bowls big enough to share and a burger for every kid in the booth.</p></article>
+      <article class="sp-n2c" style="--d:180ms"><span class="sp-n2t">9 PM</span><div class="sp-n2ph"><img src="photos/night-mexicana.jpg" alt="" loading="lazy"></div><h3>The grill gets loud</h3><p>Hot Cheetos on the Mexicana, cheese pulls, tickets lining the rail.</p></article>
+      <article class="sp-n2c" style="--d:270ms"><span class="sp-n2t">1 AM</span><div class="sp-n2ph"><img src="video/reel-6.jpg" alt="" loading="lazy"></div><h3>The late crowd</h3><p>Everything else on the block is dark. Our counter is still busy.</p></article>
+      <article class="sp-n2c" style="--d:360ms"><span class="sp-n2t">3 AM</span><div class="sp-n2ph"><img src="photos/night-prime.jpg" alt="" loading="lazy"></div><h3>Last call</h3><p>The grill shuts off at 3 on weekends and 2 the rest of the week.</p></article>
     </div>
-    <div class="sp-track" id="spTrack">
-      <article class="sp-card"><div class="sp-ph"><img src="photos/prime-rice-bowl.jpg" alt="" loading="lazy"></div><span class="sp-t">12 PM</span><h3>Doors open</h3><p>Lunch for the medical building upstairs and everyone working on Michigan Ave.</p></article>
-      <article class="sp-card"><div class="sp-ph"><img src="photos/night-classic.jpg" alt="" loading="lazy"></div><span class="sp-t">5 PM</span><h3>Families roll in</h3><p>Bowls big enough to share and a burger for every kid in the booth.</p></article>
-      <article class="sp-card"><div class="sp-ph"><img src="photos/night-mexicana.jpg" alt="" loading="lazy"></div><span class="sp-t">9 PM</span><h3>The grill gets loud</h3><p>Hot Cheetos on the Mexicana, cheese pulls, tickets lining the rail.</p></article>
-      <article class="sp-card"><div class="sp-ph"><img src="video/reel-6.jpg" alt="" loading="lazy"></div><span class="sp-t">1 AM</span><h3>The late crowd</h3><p>Everything else on the block is dark. Our counter is still busy.</p></article>
-      <article class="sp-card"><div class="sp-ph"><img src="photos/night-prime.jpg" alt="" loading="lazy"></div><span class="sp-t">3 AM</span><h3>Last call</h3><p>The grill shuts off at 3 on weekends and 2 the rest of the week.</p></article>
-    </div>
-    <div class="sp-bar"><i id="spBar"></i></div>
   </div>
 </section>
 
@@ -2143,8 +2186,9 @@ function spPar(){var bg=$('.sp-hero-bg img');if(bg)bg.style.setProperty('--py',(
 var spRaf=0;function spTick(){spRaf=0;if(W.__man)W.__man();spNight();if(!RM2)spPar()}
 W.addEventListener('scroll',function(){if(!spRaf)spRaf=requestAnimationFrame(spTick)},{passive:true});W.addEventListener('resize',spTick);spTick();
 /* reveals */
-$$('.sp-card,.sp-row,.sp-b,.sp-num-in>div,.sp-crew-ph,.sp-crew-tx,.sp-sig-hd,.sp-cta-in').forEach(function(e,i){e.classList.add('sp-rv')});
+$$('.sp-n2c,.sp-card,.sp-row,.sp-b,.sp-num-in>div,.sp-crew-ph,.sp-crew-tx,.sp-sig-hd,.sp-cta-in').forEach(function(e,i){e.classList.add('sp-rv')});
 if('IntersectionObserver' in W){var spo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');spo.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});$$('.sp-rv').forEach(function(e){if(e.closest('.sp-night-pin')&&!MOB.matches)e.classList.add('in');else spo.observe(e)})}else $$('.sp-rv').forEach(function(e){e.classList.add('in')});
+(function(){var s=$('.sp-night2');if(s&&'IntersectionObserver' in W)new IntersectionObserver(function(es,o){if(es[0].isIntersecting){s.classList.add('in');o.disconnect()}},{threshold:.2}).observe(s)})();
 /* count up */
 if('IntersectionObserver' in W){var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cio.unobserve(e.target);var b=e.target,to=+b.getAttribute('data-to'),plain=b.hasAttribute('data-plain'),t0=performance.now(),from=plain?1990:0;
  (function f(t){var k=Math.min(1,(t-t0)/1400),v=Math.round(from+(to-from)*(1-Math.pow(1-k,3)));b.textContent=plain?v:v.toLocaleString('en-US');if(k<1)requestAnimationFrame(f)})(t0)})},{threshold:.6});$$('.sp-num-in b').forEach(function(b){cio.observe(b)})}
