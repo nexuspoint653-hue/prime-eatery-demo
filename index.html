@@ -1658,8 +1658,25 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 .hstat b{gap:0}
 
 /* map: no pin overlay, no Google footer bar */
-.g-map{overflow:visible!important}.g-map iframe{border-radius:6px;clip-path:inset(0 0 34px 0 round 6px)}.g-pin{left:auto!important;top:-22px!important;right:76px;bottom:auto;z-index:3}
-.g-map iframe{height:calc(100% + 34px);bottom:auto}
+/* map v3: cropped Google embed, custom card */
+.g-map{position:relative;overflow:visible!important;border:0!important;background:none!important;min-height:560px}
+.g-map-frame{position:absolute;inset:0;border-radius:22px;overflow:hidden;background:#1a1a1b;box-shadow:inset 0 0 0 1px rgba(255,212,0,.14),0 50px 90px -40px rgba(0,0,0,.9)}
+.g-map-frame iframe{position:absolute;left:-440px;top:-300px;width:calc(100% + 880px);height:calc(100% + 600px);border:0;filter:grayscale(1) invert(.92) contrast(.95) brightness(.9);pointer-events:none}
+.g-map-tint{position:absolute;inset:0;border-radius:22px;pointer-events:none;background:radial-gradient(38% 42% at 50% 50%,rgba(255,212,0,.32),rgba(255,212,0,.06) 60%,transparent 80%);mix-blend-mode:overlay}
+.g-map-tint::after{content:"";position:absolute;inset:0;border-radius:22px;background:linear-gradient(180deg,rgba(13,13,14,0) 60%,rgba(13,13,14,.55))}
+.g-pin{left:auto!important;right:28px;top:-22px!important;bottom:auto;z-index:4;padding:10px 18px 10px 10px!important;border-radius:12px!important;box-shadow:0 20px 40px -14px rgba(0,0,0,.85)}
+.g-pin img{width:36px!important;height:36px!important}.g-pin b{font-size:20px!important}
+.g-mcard{position:absolute;left:22px;bottom:22px;z-index:3;width:min(340px,calc(100% - 44px));padding:18px 18px 16px;border-radius:16px;background:rgba(14,14,15,.82);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.09),0 30px 60px -24px rgba(0,0,0,.9);color:#f2efe8}
+.g-mcard-top{display:flex;align-items:center;gap:9px;margin-bottom:12px;font:700 11px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:#a9a59d}
+.g-mcard-top svg{flex:none;padding:5px;width:32px;height:32px;border-radius:9px;background:#fff}
+.g-mcard>b{display:block;font-family:var(--f);font-weight:700;font-size:17px;line-height:1.25}
+.g-mcard>small{display:block;margin-top:6px;font-size:13px;line-height:1.5;color:#a9a59d}
+.g-mcard-r{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px}
+.g-mcard-r b{font-size:15px}.g-mcard-r .st{color:#fbbc05;letter-spacing:1px}.g-mcard-r em{font-style:normal;color:#a9a59d}
+.g-mcard-a{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.g-mcard-a a{height:42px;display:flex;align-items:center;justify-content:center;border-radius:10px;font:700 12.5px/1 var(--f);transition:background .3s,color .3s}
+.g-mcard-a a:first-child{background:#f2efe8;color:#0d0d0e}.g-mcard-a a:first-child:hover{background:#fff}
+.g-mcard-a a:last-child{background:var(--accent);color:#0d0d0e}.g-mcard-a a:last-child:hover{background:#ffe14d}
 
 /* footer wordmark: show the whole word */
 .fx-mark{height:auto!important;overflow:visible;padding-bottom:clamp(10px,1.4vw,24px)}
@@ -1737,7 +1754,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
  #reviews .lau{transform:scale(.85);transform-origin:left center}
  /* visit */
  .g-row{padding:16px 0}.g-row b{font-size:22px}
- .g-map{min-height:240px}
+ .g-map{min-height:420px;margin-top:20px}.g-map-frame iframe{left:-300px;top:-260px;width:calc(100% + 600px);height:calc(100% + 520px)}.g-pin{right:16px}.g-pin b{font-size:16px!important}.g-mcard{left:12px;right:12px;bottom:12px;width:auto;padding:14px}
  /* footer */
  .fx-mark span{font-size:16.5vw!important;letter-spacing:0!important}
  .g-born-ph .g-born-tag{display:none}
@@ -2084,7 +2101,18 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
         <div class="g-row"><small>Delivery</small><b class="g-two"><a data-dd="visit" href="#" target="_blank" rel="noopener">DoorDash</a><i>/</i><a id="ueLink2" href="#" target="_blank" rel="noopener">Uber Eats</a></b></div>
         <div class="g-acts"><a class="g-btn" data-dir href="#" target="_blank" rel="noopener">Get directions</a><a class="g-btn o" data-dd="visit_btn" href="#" target="_blank" rel="noopener">Order ahead</a></div>
       </div>
-      <div class="g-map g-rv"><iframe title="Map to Prime Eatery" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Prime+Eatery,+13530+Michigan+Ave+%23120,+Dearborn,+MI+48126&amp;z=15&amp;output=embed"></iframe><span class="g-pin"><img src="brand/logo.png" alt=""><b>Prime Eatery</b></span></div>
+      <div class="g-map g-rv">
+        <div class="g-map-frame"><iframe title="Map to Prime Eatery" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Prime+Eatery,+13530+Michigan+Ave+%23120,+Dearborn,+MI+48126&amp;z=15&amp;output=embed"></iframe></div>
+        <span class="g-map-tint" aria-hidden="true"></span>
+        <span class="g-pin"><img src="brand/logo.png" alt=""><b>Prime Eatery</b></span>
+        <div class="g-mcard">
+          <div class="g-mcard-top"><svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span>Google Maps</span></div>
+          <b>Prime Eatery Burgers &amp; Sandwiches</b>
+          <small>Masri Medical Building, 13530 Michigan Ave #120, Dearborn, MI 48126</small>
+          <div class="g-mcard-r"><b>4.8</b><span class="st">★★★★★</span><em>1,744 reviews</em></div>
+          <div class="g-mcard-a"><a href="https://www.google.com/maps/search/?api=1&amp;query=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener">Open in Maps</a><a data-dir href="#" target="_blank" rel="noopener" aria-label="Directions">Directions →</a></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
