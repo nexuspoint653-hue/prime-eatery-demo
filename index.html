@@ -3062,10 +3062,10 @@ $('#ueLink2').href=UE;
   fit();addEventListener('resize',fit);addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);setTimeout(fit,800)})();
 </script>
 <style>
-.hc-nav{display:none}
+.hc-nav,.hc-hint{display:none!important}
 @media (max-width:700px){
  .hc-wrap{position:relative}
- .hc-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:22px}
+ .hc-nav{display:flex!important;align-items:center;justify-content:center;gap:18px;margin-top:22px}
  .hc-nav button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:transparent;color:#f2efe8;display:grid;place-items:center;cursor:pointer;transition:background .3s,border-color .3s,opacity .3s}
  .hc-nav button:active{background:var(--accent);border-color:var(--accent);color:#111}
  .hc-nav button[disabled]{opacity:.28;pointer-events:none}
@@ -3073,10 +3073,10 @@ $('#ueLink2').href=UE;
  .hc-dots{display:flex;gap:8px}
  .hc-dots i{width:7px;height:7px;border-radius:99px;background:rgba(255,255,255,.22);transition:width .35s cubic-bezier(.2,.7,.2,1),background .35s}
  .hc-dots i.on{width:24px;background:var(--accent)}
- .hc-hint{position:absolute;right:16px;top:120px;z-index:5;display:flex;align-items:center;gap:8px;padding:9px 14px 9px 12px;border-radius:99px;background:rgba(12,12,13,.78);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,212,0,.35);color:#f2efe8;font:700 11px/1 var(--f,Inter,sans-serif);letter-spacing:.16em;text-transform:uppercase;pointer-events:none;transition:opacity .4s,transform .4s}
- .hc-hint svg{width:18px;height:18px;color:var(--accent);animation:hcnudge 1.4s ease-in-out infinite}
+ .hc-hint{position:absolute;right:16px;top:120px;z-index:5;display:flex;align-items:center;gap:8px;padding:9px 12px 9px 14px;border-radius:99px;background:rgba(12,12,13,.78);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,212,0,.35);color:#f2efe8;font:700 11px/1 var(--f,Inter,sans-serif);letter-spacing:.16em;text-transform:uppercase;pointer-events:none;transition:opacity .4s,transform .4s;display:flex!important}
+ .hc-hint svg{width:16px;height:16px;flex:none;color:var(--accent);animation:hcnudge 1.4s ease-in-out infinite}
  .hc-hint.gone{opacity:0;transform:translateX(10px)}
- @keyframes hcnudge{0%,100%{transform:translateX(0)}50%{transform:translateX(-7px)}}
+ @keyframes hcnudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
 }
 </style>
 <script>
@@ -3089,7 +3089,7 @@ function hcCarousel(row,label){if(!row)return;var items=[].slice.call(row.childr
   nav.innerHTML='<button type="button" aria-label="Previous '+label+'">'+al+'</button><div class="hc-dots">'+items.map(function(){return '<i></i>'}).join('')+'</div><button type="button" aria-label="Next '+label+'">'+ar+'</button>';
   row.insertAdjacentElement('afterend',nav);
   var hint=document.createElement('div');hint.className='hc-hint';hint.setAttribute('aria-hidden','true');
-  hint.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V6.5a1.5 1.5 0 013 0V11m0-1.5a1.5 1.5 0 013 0V11m0-.5a1.5 1.5 0 013 0V15a6 6 0 01-6 6h-1a6 6 0 01-4.6-2.2L4 15.5a1.4 1.4 0 012-2l1.5 1.5V8.5"/></svg>Swipe';
+  hint.innerHTML='Swipe<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>';
   wrap.appendChild(hint);
   var b=nav.querySelectorAll('button'),dots=nav.querySelectorAll('i');
   function idx(){var c=row.scrollLeft+row.clientWidth/2,best=0,d=1e9;items.forEach(function(it,i){var m=it.offsetLeft+it.offsetWidth/2-row.offsetLeft;var dd=Math.abs(m-c);if(dd<d){d=dd;best=i}});return best}
