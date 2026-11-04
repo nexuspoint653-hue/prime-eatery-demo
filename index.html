@@ -2058,6 +2058,14 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
  .g-tg .tg-i[data-from=l]{--fx:-30vw;--fr:-20deg}
  .g-tg .tg-i[data-from=r]{--fx:30vw;--fr:20deg}
 }
+
+/* 07 map on phones: map on top (pin visible), Google card underneath */
+@media (max-width:700px){
+ .g-map{min-height:0!important;display:flex;flex-direction:column;margin-top:22px}
+ .g-map-frame{position:relative!important;inset:auto!important;height:300px;flex:none}
+ .g-map-tint{inset:0 0 auto 0!important;height:300px}
+ .g-mcard{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;top:auto!important;width:auto!important;max-width:none!important;margin-top:14px;transform:none!important}
+}
 </style>
 
 </head><body><header class="hdr" id="hdr">
@@ -2340,7 +2348,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
         <div class="g-acts"><a class="g-btn" data-dir href="#" target="_blank" rel="noopener">Get directions</a><a class="g-btn o" data-dd="visit_btn" href="#" target="_blank" rel="noopener">Order ahead</a></div>
       </div>
       <div class="g-map g-rv">
-        <div class="g-map-frame"><iframe title="Map to Prime Eatery" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Prime+Eatery,+13530+Michigan+Ave+%23120,+Dearborn,+MI+48126&amp;z=15&amp;output=embed"></iframe></div>
+        <div class="g-map-frame"><iframe title="Map to Prime Eatery" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Prime+Eatery,+13530+Michigan+Ave+%23120,+Dearborn,+MI+48126&amp;z=15&amp;output=embed"></iframe></div>
         <span class="g-map-tint" aria-hidden="true"></span>
         <span class="g-pin"><img src="brand/logo.png" alt=""><b>Prime Eatery</b></span>
         <div class="g-mcard">
@@ -3052,6 +3060,50 @@ $('#ueLink2').href=UE;
     var r=document.createRange();r.selectNodeContents(w);var real=r.getBoundingClientRect().width;
     if(real>avail){var fs=parseFloat(getComputedStyle(w).fontSize);w.style.fontSize=(fs*avail/real).toFixed(2)+'px'}}
   fit();addEventListener('resize',fit);addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);setTimeout(fit,800)})();
+</script>
+<style>
+.hc-nav{display:none}
+@media (max-width:700px){
+ .hc-wrap{position:relative}
+ .hc-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:22px}
+ .hc-nav button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:transparent;color:#f2efe8;display:grid;place-items:center;cursor:pointer;transition:background .3s,border-color .3s,opacity .3s}
+ .hc-nav button:active{background:var(--accent);border-color:var(--accent);color:#111}
+ .hc-nav button[disabled]{opacity:.28;pointer-events:none}
+ .hc-nav svg{width:16px;height:16px}
+ .hc-dots{display:flex;gap:8px}
+ .hc-dots i{width:7px;height:7px;border-radius:99px;background:rgba(255,255,255,.22);transition:width .35s cubic-bezier(.2,.7,.2,1),background .35s}
+ .hc-dots i.on{width:24px;background:var(--accent)}
+ .hc-hint{position:absolute;right:16px;top:120px;z-index:5;display:flex;align-items:center;gap:8px;padding:9px 14px 9px 12px;border-radius:99px;background:rgba(12,12,13,.78);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,212,0,.35);color:#f2efe8;font:700 11px/1 var(--f,Inter,sans-serif);letter-spacing:.16em;text-transform:uppercase;pointer-events:none;transition:opacity .4s,transform .4s}
+ .hc-hint svg{width:18px;height:18px;color:var(--accent);animation:hcnudge 1.4s ease-in-out infinite}
+ .hc-hint.gone{opacity:0;transform:translateX(10px)}
+ @keyframes hcnudge{0%,100%{transform:translateX(0)}50%{transform:translateX(-7px)}}
+}
+</style>
+<script>
+/* combos carousel (phones): swipe hint, arrows, dots, one-time peek */
+function hcCarousel(row,label){if(!row)return;var items=[].slice.call(row.children),n=items.length;
+  var wrap=row.parentNode;wrap.classList.add('hc-wrap');
+  var ar='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>';
+  var al='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>';
+  var nav=document.createElement('div');nav.className='hc-nav';
+  nav.innerHTML='<button type="button" aria-label="Previous '+label+'">'+al+'</button><div class="hc-dots">'+items.map(function(){return '<i></i>'}).join('')+'</div><button type="button" aria-label="Next '+label+'">'+ar+'</button>';
+  row.insertAdjacentElement('afterend',nav);
+  var hint=document.createElement('div');hint.className='hc-hint';hint.setAttribute('aria-hidden','true');
+  hint.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V6.5a1.5 1.5 0 013 0V11m0-1.5a1.5 1.5 0 013 0V11m0-.5a1.5 1.5 0 013 0V15a6 6 0 01-6 6h-1a6 6 0 01-4.6-2.2L4 15.5a1.4 1.4 0 012-2l1.5 1.5V8.5"/></svg>Swipe';
+  wrap.appendChild(hint);
+  var b=nav.querySelectorAll('button'),dots=nav.querySelectorAll('i');
+  function idx(){var c=row.scrollLeft+row.clientWidth/2,best=0,d=1e9;items.forEach(function(it,i){var m=it.offsetLeft+it.offsetWidth/2-row.offsetLeft;var dd=Math.abs(m-c);if(dd<d){d=dd;best=i}});return best}
+  function go(i){i=Math.max(0,Math.min(n-1,i));var it=items[i];row.scrollTo({left:it.offsetLeft-row.offsetLeft-(row.clientWidth-it.offsetWidth)/2,behavior:'smooth'})}
+  function upd(){var i=idx();dots.forEach(function(d,j){d.classList.toggle('on',j===i)});b[0].disabled=i===0;b[1].disabled=i===n-1}
+  var moved=false;row.addEventListener('scroll',function(){if(!moved&&row.scrollLeft>20){moved=true;hint.classList.add('gone')}requestAnimationFrame(upd)},{passive:true});
+  b[0].addEventListener('click',function(){go(idx()-1)});b[1].addEventListener('click',function(){go(idx()+1)});
+  function place(){hint.style.top=(row.offsetTop+Math.min(140,row.offsetHeight*.3))+'px'}place();addEventListener('resize',place);addEventListener('load',place);
+  upd();
+  /* one gentle peek when the row first shows, so people see there's more */
+  if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){var io=new IntersectionObserver(function(es){if(!es[0].isIntersecting||moved||innerWidth>700)return;io.disconnect();
+    setTimeout(function(){if(moved)return;row.style.scrollSnapType='none';row.scrollTo({left:70,behavior:'smooth'});setTimeout(function(){row.scrollTo({left:0,behavior:'smooth'});setTimeout(function(){row.style.scrollSnapType='';moved=false;hint.classList.remove('gone')},500)},650)},700)},{threshold:.55});io.observe(row)}
+}
+hcCarousel(document.querySelector('#about .hc-row'),'burger');hcCarousel(document.getElementById('board'),'item');
 </script>
 <style>html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}.lenis.lenis-stopped{overflow:hidden}
 </style>
