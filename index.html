@@ -2023,6 +2023,22 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
  .g-tg .tgF,.g-tg .tgL,.g-tg .tgG{display:none}
 }
 @media (max-width:700px){.fx-brand p{margin-left:auto;margin-right:auto}.fx-col ul{padding:0}.fx-live{flex-direction:column;align-items:center;text-align:center}}
+
+/* hero fit: short laptops + short phones */
+@media (min-width:1101px) and (max-height:860px){
+#hero.hero,.hero{height:100svh;min-height:620px;max-height:none}
+.hero-top{top:calc(78px + env(safe-area-inset-top,0px))}
+.wordmark{top:calc(168px + env(safe-area-inset-top,0px))}
+#hero .hero-copy{bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+.hero-copy .hc-kick{margin-bottom:14px}
+.hero-copy h1{font-size:min(clamp(36px,3.05vw,50px),5.6svh)}
+.hero-copy .lead{margin-top:12px}
+.hero-copy .hero-cta{margin-top:18px}
+}
+@media (min-width:1101px) and (max-height:740px){.hero-copy .hc-proof{display:none}}
+@media (max-width:700px){.hphoto{width:min(86vw,440px,calc(58svh * .6667))!important}}
+@media (max-width:700px) and (max-height:720px){.hphoto{width:min(86vw,440px,calc(48svh * .6667))!important}#hero .hero-copy{padding-top:20px}.hero-copy .hc-kick{margin-bottom:12px}.hero-copy .lead{margin-top:12px}.hero-copy .hero-cta{margin-top:16px}}
+@media (max-width:400px){.hero-copy .hc-kick{font-size:9.5px;letter-spacing:.12em}}
 </style>
 
 </head><body><header class="hdr" id="hdr">
