@@ -2747,8 +2747,8 @@ shBody.addEventListener('scroll',function(){var y=shBody.scrollTop+40,on=null;$$
 /* ---------- sms ---------- */
 $('#smsForm').addEventListener('submit',function(e){e.preventDefault();var ph=$('#smsPhone'),d=ph.value.replace(/\D/g,'');if(d.length===11&&d[0]==='1')d=d.slice(1);
   if(d.length!==10){ph.setAttribute('aria-invalid','true');$('#smsErr').textContent='Enter a 10-digit US mobile number, like (313) 555-0142.';ph.focus();return}
-  var w=$('#smsWrap'),fav=$('#smsFav').value.toLowerCase();
-  w.innerHTML='<div class="okmsg"><h3>You’re on the list.</h3><p class="lead" style="font-size:15px">We’ll text ('+d.slice(0,3)+') '+d.slice(3,6)+'-'+d.slice(6)+' when there’s a '+esc(fav)+' deal. Reply STOP any time.</p><div><button class="btn btn-g btn-sm" type="button" id="smsBack">Use a different number</button></div></div>';
+  var w=$('#smsWrap');
+  w.innerHTML='<div class="okmsg"><h3>Text deals are coming soon.</h3><p class="lead" style="font-size:15px">We haven’t saved your number. Call <a href="tel:+13137577200">(313) 757-7200</a> to ask about deals.</p><div><button class="btn btn-g btn-sm" type="button" id="smsBack">Back</button></div></div>';
   $('#smsBack').addEventListener('click',function(){location.hash='';location.reload()});});
 $('#smsPhone').addEventListener('input',function(){this.removeAttribute('aria-invalid');$('#smsErr').textContent=''});
 $$('#smsFavs button').forEach(function(b){b.addEventListener('click',function(){$$('#smsFavs button').forEach(function(x){x.classList.toggle('on',x===b)});$('#smsFav').value=b.getAttribute('data-v')})});
