@@ -1,7 +1,9 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#101011"><link rel="icon" href="brand/logo.png"><title>Prime Eatery Dearborn</title>
+<!-- TODO(go-live): add "url" to the Restaurant JSON-LD once the real domain is known; no aggregateRating until the review count is verified -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Restaurant", "name": "Prime Eatery", "address": {"@type": "PostalAddress", "streetAddress": "13530 Michigan Ave #120", "addressLocality": "Dearborn", "addressRegion": "MI", "postalCode": "48126", "addressCountry": "US"}, "telephone": "+1-313-757-7200", "servesCuisine": ["Burgers", "Halal", "Rice bowls", "Chicken"], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "15:00", "closes": "01:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "12:00", "closes": "02:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "12:00", "closes": "02:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "12:00", "closes": "02:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "12:00", "closes": "02:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "12:00", "closes": "03:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "12:00", "closes": "03:00"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are Prime Eatery's hours?", "acceptedAnswer": {"@type": "Answer", "text": "Open late: Sunday 3 PM to 1 AM, Monday to Thursday 12 PM to 2 AM, Friday and Saturday 12 PM to 3 AM."}}, {"@type": "Question", "name": "Where is Prime Eatery?", "acceptedAnswer": {"@type": "Answer", "text": "13530 Michigan Ave #120, Dearborn, MI 48126, in the Masri Medical Building. The entrance is in the back."}}, {"@type": "Question", "name": "Does Prime Eatery do catering?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Most events need about 48 hours notice, and delivery is free within 8 miles of the restaurant."}}, {"@type": "Question", "name": "Does Prime Eatery deliver?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, on DoorDash and Uber Eats. Pickup is usually ready in about 15 minutes."}}]}</script>
 <script>document.documentElement.classList.add('ldg')</script>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Prime Eatery, Dearborn. Loaded burgers, rice bowls and chicken sandwiches, made to order and open late, till 3 AM Fri-Sat. 100% halal. Order on DoorDash.">
+<meta name="description" content="Prime Eatery, Dearborn. Loaded burgers, rice bowls and chicken sandwiches, made to order and open late (Sun to 1 AM, Mon-Thu to 2 AM, Fri-Sat to 3 AM). 100% halal. Order on DoorDash.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Archivo:wdth,wght@62..125,400..900&family=Doto:wght@700;900&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500;600&display=swap">
@@ -2072,14 +2074,14 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
   <div class="wide hdr-in">
     <a class="brand" href="#top" aria-label="Prime Eatery home"><img src="brand/logo.png" alt="" width="52" height="52">Prime Eatery</a>
     <nav class="nav" aria-label="Main"><a href="menu.html">Menu</a><a href="story.html">Our story</a><a href="#catering">Catering</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></nav>
-    <div class="hdr-r"><a class="ph" href="tel:+13137577200">(313) 757-7200</a><a class="g-btn sm" data-dd="header" href="#" target="_blank" rel="noopener">Order ahead</a></div>
+    <div class="hdr-r"><a class="ph" href="tel:+13137577200">(313) 757-7200</a><a class="g-btn sm" data-dd="header" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=header" target="_blank" rel="noopener">Order ahead</a></div>
     <button class="burger-btn" id="mOpen" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span></button>
   </div>
 </header>
 <div class="mnav" id="mnav" aria-hidden="true">
   <button class="x" id="mClose" aria-label="Close menu">×</button>
   <a href="menu.html">Menu</a><a href="story.html">Our story</a><a href="#catering">Catering</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a>
-  <a class="g-btn" data-dd="mobile_nav" href="#" target="_blank" rel="noopener">Order on DoorDash</a>
+  <a class="g-btn" data-dd="mobile_nav" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=mobile_nav" target="_blank" rel="noopener">Order on DoorDash</a>
 </div>
 
 <main id="top">
@@ -2089,9 +2091,9 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
       <div class="led" aria-hidden="true"><div class="l1" id="led1">Hours · Michigan Ave</div><div class="l2"><span id="led2">13530 Michigan Ave · Dearborn ·</span></div></div>
       <p class="sub"><span class="dot" id="liveDot"></span><span id="liveLine">Michigan Ave, Dearborn · hours update live</span></p>
     </div>
-    <div class="hstat"><b><span class="dot y"></span><span id="stMain">Hours at Michigan Ave</span></b><span id="stSub">Dearborn, MI</span><a data-dir href="#" target="_blank" rel="noopener">Directions ↗</a></div>
+    <div class="hstat"><b><span class="dot y"></span><span id="stMain">Hours at Michigan Ave</span></b><span id="stSub">Dearborn, MI</span><a data-dir href="https://www.google.com/maps/dir/?api=1&amp;destination=Prime+Eatery+13530+Michigan+Ave+%23120+Dearborn+MI+48126" target="_blank" rel="noopener">Directions ↗</a></div>
   </div>
-  <div class="hphoto"><img src="photos/hero-burger.jpg" alt="A double smash burger with pickles and melted American" fetchpriority="high"></div>
+  <div class="hphoto"><img src="photos/hero-burger.jpg" alt="A double smash burger with pickles and melted American" fetchpriority="high" width="2600" height="3900"></div>
   <canvas class="smoke-gl" id="smokeGL" aria-hidden="true"></canvas>
   <div class="wordmark" aria-hidden="true">Prime Eatery</div>
   <div class="callout" id="callout" aria-live="polite"></div>
@@ -2099,12 +2101,12 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
     <p class="hc-kick rv"><span>Dearborn, MI</span><i></i><span>Est. 2022</span><i></i><span>100% halal</span></p>
     <h1 class="rv"><span>Loaded burgers &amp;</span><span>rice bowls, made</span><span>to order <em>till late.</em></span></h1>
     <p class="lead rv">Order ahead and skip the line. Or book Prime for the party, the office lunch or the walima.</p>
-    <div class="hero-cta rv"><a class="g-btn" data-dd="hero" href="#" target="_blank" rel="noopener">Order ahead</a><a class="g-btn o" href="#catering">Book catering</a></div>
+    <div class="hero-cta rv"><a class="g-btn" data-dd="hero" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=hero" target="_blank" rel="noopener">Order ahead</a><a class="g-btn o" href="#catering">Book catering</a></div>
     <a class="hc-proof rv" href="https://www.google.com/search?q=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener"><span class="st" aria-hidden="true">★★★★★</span><b>4.8</b><span>from 1,742 Google reviews</span></a>
   </div>
 </section>
 
-<div class="g-mq" aria-hidden="true"><div class="g-mq-t"><span class="g-mq-s">100% Halal<i></i>Made to order<i></i>Open late, till 3 AM Fri-Sat<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i>100% Halal<i></i>Made to order<i></i>Open late, till 3 AM Fri-Sat<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i></span><span class="g-mq-s">100% Halal<i></i>Made to order<i></i>Open late, till 3 AM Fri-Sat<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i>100% Halal<i></i>Made to order<i></i>Open late, till 3 AM Fri-Sat<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i></span></div></div>
+<div class="g-mq" aria-hidden="true"><div class="g-mq-t"><span class="g-mq-s">100% Halal<i></i>Made to order<i></i>Open late: Sun to 1 AM, Mon-Thu to 2 AM, Fri-Sat to 3 AM<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i>100% Halal<i></i>Made to order<i></i>Open late: Sun to 1 AM, Mon-Thu to 2 AM, Fri-Sat to 3 AM<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i></span><span class="g-mq-s">100% Halal<i></i>Made to order<i></i>Open late: Sun to 1 AM, Mon-Thu to 2 AM, Fri-Sat to 3 AM<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i>100% Halal<i></i>Made to order<i></i>Open late: Sun to 1 AM, Mon-Thu to 2 AM, Fri-Sat to 3 AM<i></i>Loaded burgers<i></i>Rice bowls<i></i>Wings &amp; tenders<i></i>Hand-spun shakes<i></i>Dearborn, MI<i></i></span></div></div>
 
 <section class="g-sec g-tg" id="eat">
   <div class="g-tg-food">
@@ -2127,7 +2129,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
     <p class="g-eb c">Halal <b>·</b> Made to order <b>·</b> Loaded</p>
     <h2 class="g-h">Too good to<br><em>sit still.</em></h2>
     <p class="g-p">Burgers, rice bowls, wings, wraps and shakes, stacked fresh and out the door while they're still hot. One halal kitchen on Michigan Ave, serious flavor, open late.</p>
-    <div class="g-acts c"><a class="g-btn" href="menu.html">Explore the menu</a><a class="g-btn o" data-dd="too_good" href="#" target="_blank" rel="noopener">Order ahead</a></div>
+    <div class="g-acts c"><a class="g-btn" href="menu.html">Explore the menu</a><a class="g-btn o" data-dd="too_good" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=too_good" target="_blank" rel="noopener">Order ahead</a></div>
   </div>
 </section>
 
@@ -2146,7 +2148,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
           <h3>Mexicana Burger</h3>
           <p>Hot Cheetos crust, grilled jalapeño, corn and nacho cheese on brioche.</p>
           <small>Combo · fries + Coke</small>
-          <div class="hc-buy"><span class="hc-pr">$20</span><a class="hc-btn" data-dd="story_mexicana" href="#" target="_blank" rel="noopener"><span class="hc-a">Order</span><span class="hc-b">I want this one →</span></a></div>
+          <div class="hc-buy"><span class="hc-pr">$20</span><a class="hc-btn" data-dd="story_mexicana" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=story_mexicana" target="_blank" rel="noopener"><span class="hc-a">Order</span><span class="hc-b">I want this one →</span></a></div>
         </div>
       </article>
       <article class="hc-i g-rv" style="transition-delay:120ms">
@@ -2155,7 +2157,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
           <h3>The Prime Burger</h3>
           <p>Egg, onion ring, mozzarella sticks and turkey bacon on a pretzel bun.</p>
           <small>Combo · fries + Fanta</small>
-          <div class="hc-buy"><span class="hc-pr">$21</span><a class="hc-btn" data-dd="story_prime" href="#" target="_blank" rel="noopener"><span class="hc-a">Order</span><span class="hc-b">I want this one →</span></a></div>
+          <div class="hc-buy"><span class="hc-pr">$21</span><a class="hc-btn" data-dd="story_prime" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=story_prime" target="_blank" rel="noopener"><span class="hc-a">Order</span><span class="hc-b">I want this one →</span></a></div>
         </div>
       </article>
       <article class="hc-i g-rv" style="transition-delay:240ms">
@@ -2164,7 +2166,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
           <h3>Nacho Burger</h3>
           <p>Nacho cheese poured over the top bun, crushed chips and jalapeño.</p>
           <small>Combo · fries + Pepsi</small>
-          <div class="hc-buy"><span class="hc-pr">$20</span><a class="hc-btn" data-dd="story_nacho" href="#" target="_blank" rel="noopener"><span class="hc-a">Order</span><span class="hc-b">I want this one →</span></a></div>
+          <div class="hc-buy"><span class="hc-pr">$20</span><a class="hc-btn" data-dd="story_nacho" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=story_nacho" target="_blank" rel="noopener"><span class="hc-a">Order</span><span class="hc-b">I want this one →</span></a></div>
         </div>
       </article>
     </div>
@@ -2198,7 +2200,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
         <button type="button" data-s="3"><i>04</i><span><b>Pay in two taps</b><small>Apple Pay, Google Pay or card. No app, no account.</small></span><u></u></button>
         <button type="button" data-s="4"><i>05</i><span><b>It's on its way</b><small>Live updates from the grill to the pickup shelf.</small></span><u></u></button>
       </div>
-      <div class="g-acts"><a class="g-btn" data-dd="order_section" href="#" target="_blank" rel="noopener">Start an order</a><a class="g-btn o" id="ueLink" href="#" target="_blank" rel="noopener">Uber Eats</a></div>
+      <div class="g-acts"><a class="g-btn" data-dd="order_section" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=order_section" target="_blank" rel="noopener">Start an order</a><a class="g-btn o" id="ueLink" href="https://www.ubereats.com/store/prime-eatery-dearborn/iJTSNcz5UgW3g1HnHxQAsw" target="_blank" rel="noopener">Uber Eats</a></div>
     </div>
 
     <div class="g-ord-stage" aria-hidden="true">
@@ -2215,8 +2217,8 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
             <div class="pf-view">
               <!-- 0 home -->
               <div class="pf-s on" data-k="home">
-                <div class="pa-top"><img src="brand/logo.png" alt=""><div><b>Prime Eatery</b><small>13530 Michigan Ave · Dearborn</small></div><em>Open</em></div>
-                <div class="pa-hero"><img src="photos/night-mexicana.jpg" alt=""><span><small>Tonight's pick</small><b>Mexicana Burger</b></span></div>
+                <div class="pa-top"><img src="brand/logo.png" alt="" width="480" height="480" loading="lazy" decoding="async"><div><b>Prime Eatery</b><small>13530 Michigan Ave · Dearborn</small></div><em>Open</em></div>
+                <div class="pa-hero"><img src="photos/night-mexicana.jpg" alt="" width="1222" height="1276" loading="lazy" decoding="async"><span><small>Tonight's pick</small><b>Mexicana Burger</b></span></div>
                 <div class="pa-meta"><div><b>15 min</b><small>Pickup</small></div><div><b>4.8 ★</b><small>1,742 reviews</small></div><div><b>Halal</b><small>100%</small></div></div>
                 <button class="pa-cta" data-tap="start">Start your order</button>
               </div>
@@ -2225,22 +2227,22 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
                 <div class="pa-head"><b>Menu</b><span class="pa-bagic">Bag <i id="pfBagN">0</i></span></div>
                 <div class="pa-chips"><span class="on">Burgers</span><span>Bowls</span><span>Chicken</span><span>Wraps</span></div>
                 <div class="pa-list">
-                  <div class="pa-row" data-tap="pick"><div class="pa-im"><img src="photos/cut/mexicana-burger.webp?v=45" alt=""></div><div><b>Mexicana Burger</b><small>Hot Cheetos, jalapeño, nacho cheese</small><span>$16</span></div><i>+</i></div>
-                  <div class="pa-row"><div class="pa-im"><img src="photos/cut/prime-burger.webp?v=45" alt=""></div><div><b>Prime Burger</b><small>Egg, onion ring, pretzel bun</small><span>$17</span></div><i>+</i></div>
-                  <div class="pa-row"><div class="pa-im"><img src="photos/cut/nacho-burger.webp?v=45" alt=""></div><div><b>Nacho Burger</b><small>Nacho cheese, crushed chips</small><span>$16</span></div><i>+</i></div>
-                  <div class="pa-row"><div class="pa-im"><img src="photos/cut/classic-burger.webp?v=45" alt=""></div><div><b>Classic Burger</b><small>Pickles, American, ketchup</small><span>$11</span></div><i>+</i></div>
-                  <div class="pa-row"><div class="pa-im"><img src="photos/cut/smash-burger.webp?v=45" alt=""></div><div><b>Smash Burger</b><small>Double smashed, Prime sauce</small><span>$13</span></div><i>+</i></div>
+                  <div class="pa-row" data-tap="pick"><div class="pa-im"><img src="photos/cut/mexicana-burger.webp?v=45" alt="" width="833" height="696" loading="lazy" decoding="async"></div><div><b>Mexicana Burger</b><small>Hot Cheetos, jalapeño, nacho cheese</small><span>$16</span></div><i>+</i></div>
+                  <div class="pa-row"><div class="pa-im"><img src="photos/cut/prime-burger.webp?v=45" alt="" width="944" height="805" loading="lazy" decoding="async"></div><div><b>Prime Burger</b><small>Egg, onion ring, pretzel bun</small><span>$17</span></div><i>+</i></div>
+                  <div class="pa-row"><div class="pa-im"><img src="photos/cut/nacho-burger.webp?v=45" alt="" width="857" height="628" loading="lazy" decoding="async"></div><div><b>Nacho Burger</b><small>Nacho cheese, crushed chips</small><span>$16</span></div><i>+</i></div>
+                  <div class="pa-row"><div class="pa-im"><img src="photos/cut/classic-burger.webp?v=45" alt="" width="1035" height="706" loading="lazy" decoding="async"></div><div><b>Classic Burger</b><small>Pickles, American, ketchup</small><span>$11</span></div><i>+</i></div>
+                  <div class="pa-row"><div class="pa-im"><img src="photos/cut/smash-burger.webp?v=45" alt="" width="797" height="542" loading="lazy" decoding="async"></div><div><b>Smash Burger</b><small>Double smashed, Prime sauce</small><span>$13</span></div><i>+</i></div>
                 </div>
               </div>
               <!-- 2 item -->
               <div class="pf-s" data-k="item">
-                <div class="pa-itemph"><img src="photos/cut/hero-mexicana-burger.webp?v=45" alt=""></div>
+                <div class="pa-itemph"><img src="photos/cut/hero-mexicana-burger.webp?v=45" alt="" width="1500" height="1253" loading="lazy" decoding="async"></div>
                 <div class="pa-item">
                   <div class="pa-itemh"><b>Mexicana Burger</b><span id="pfItemP">$16.00</span></div>
                   <small>Grilled jalapeño, corn, American cheese, Prime sauce, crushed Hot Cheetos and nacho cheese.</small>
                   <div class="pa-opt" data-tap="combo"><div><b>Make it a combo</b><small>Waffle fries + a drink</small></div><span class="pa-tog"><i></i></span><em>+$4</em></div>
                   <div class="pa-drinks"><p>Choose your drink</p>
-                    <div><span data-tap="drink"><img src="photos/cut/can-coke.webp?v=45" alt=""><b>Coke</b></span><span><img src="photos/cut/can-pepsi.webp?v=45" alt=""><b>Pepsi</b></span><span><img src="photos/cut/can-fanta.webp?v=45" alt=""><b>Fanta</b></span></div>
+                    <div><span data-tap="drink"><img src="photos/cut/can-coke.webp?v=45" alt="" width="136" height="260" loading="lazy" decoding="async"><b>Coke</b></span><span><img src="photos/cut/can-pepsi.webp?v=45" alt="" width="135" height="260" loading="lazy" decoding="async"><b>Pepsi</b></span><span><img src="photos/cut/can-fanta.webp?v=45" alt="" width="132" height="260" loading="lazy" decoding="async"><b>Fanta</b></span></div>
                   </div>
                 </div>
                 <button class="pa-cta" data-tap="add">Add to bag · <span id="pfAddP">$16.00</span></button>
@@ -2249,8 +2251,8 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
               <div class="pf-s" data-k="bag">
                 <div class="pa-head"><b>Your bag</b><span class="pa-sub">Pickup · ready in 15 min</span></div>
                 <div class="pa-bag">
-                  <div class="pa-bl"><div class="pa-im"><img src="photos/cut/mexicana-burger.webp?v=45" alt=""></div><div><b>Mexicana Burger combo</b><small>Waffle fries · Coca-Cola</small></div><span>$20.00</span></div>
-                  <div class="pa-bl"><div class="pa-im"><img src="photos/cut/prime-sauce.webp?v=45" alt=""></div><div><b>Extra Prime sauce</b><small>2 oz</small></div><span>$1.00</span></div>
+                  <div class="pa-bl"><div class="pa-im"><img src="photos/cut/mexicana-burger.webp?v=45" alt="" width="833" height="696" loading="lazy" decoding="async"></div><div><b>Mexicana Burger combo</b><small>Waffle fries · Coca-Cola</small></div><span>$20.00</span></div>
+                  <div class="pa-bl"><div class="pa-im"><img src="photos/cut/prime-sauce.webp?v=45" alt="" width="760" height="464" loading="lazy" decoding="async"></div><div><b>Extra Prime sauce</b><small>2 oz</small></div><span>$1.00</span></div>
                 </div>
                 <div class="pa-sum"><div><span>Subtotal</span><span>$21.00</span></div><div><span>Tax 6%</span><span>$1.26</span></div><div class="t"><span>Total</span><span>$22.26</span></div></div>
                 <button class="pa-pay" data-tap="pay">Pay · $22.26</button>
@@ -2271,7 +2273,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
                 <div class="pa-eta"><small>Ready at</small><b id="pfEta">9:56</b></div>
                 <div class="pa-prog"><i id="pfProg"></i></div>
                 <ul class="pa-steps"><li class="ok">Placed</li><li class="ok" data-p="1">On the grill</li><li data-p="2">Bagged</li><li data-p="3">Pickup shelf</li></ul>
-                <div class="pa-map"><svg viewBox="0 0 240 120" preserveAspectRatio="none"><path d="M0 30h240M0 78h240M60 0v120M150 0v120M205 0v120" stroke="#e8e2d6" stroke-width="7"/><path id="pfRoute" d="M24 102 L60 78 L150 78 L150 30 L205 30" fill="none" stroke="#151413" stroke-width="3.5" stroke-dasharray="6 5"/></svg><span class="pa-pin" id="pfPin"><img src="brand/logo.png" alt=""></span><span class="pa-home">You</span></div>
+                <div class="pa-map"><svg viewBox="0 0 240 120" preserveAspectRatio="none"><path d="M0 30h240M0 78h240M60 0v120M150 0v120M205 0v120" stroke="#e8e2d6" stroke-width="7"/><path id="pfRoute" d="M24 102 L60 78 L150 78 L150 30 L205 30" fill="none" stroke="#151413" stroke-width="3.5" stroke-dasharray="6 5"/></svg><span class="pa-pin" id="pfPin"><img src="brand/logo.png" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="pa-home">You</span></div>
                 <div class="pa-note"><b>Prime Eatery</b><small>Your combo is on the grill. We'll text you at the shelf.</small></div>
               </div>
             </div>
@@ -2280,7 +2282,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
           </div>
         </div>
       </div>
-      <div class="g-toast t1" id="tstA"><img src="brand/logo.png" alt=""><div><b>Prime Eatery</b><small>Order #1042 placed · ready in 15 min</small></div></div>
+      <div class="g-toast t1" id="tstA"><img src="brand/logo.png" alt="" width="480" height="480" loading="lazy" decoding="async"><div><b>Prime Eatery</b><small>Order #1042 placed · ready in 15 min</small></div></div>
       <div class="g-toast t2" id="tstB"><b>4.8 ★</b><small>1,742 Google reviews</small></div>
     </div>
   </div>
@@ -2332,7 +2334,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
     <div class="rv4-rule" aria-hidden="true"><i></i></div>
   </div>
   <div class="rv2-rows" id="mq"><div class="rrow" id="rrA"></div><div class="rrow rev" id="rrB"></div></div>
-  <div class="rv4-wrap rv2-cta"><a class="rv4-btn" data-dd="reviews" href="#" target="_blank" rel="noopener">Join them · Order ahead <span class="arr">→</span></a><span>Rated 4.8 from 1,742 Google reviews</span></div>
+  <div class="rv4-wrap rv2-cta"><a class="rv4-btn" data-dd="reviews" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=reviews" target="_blank" rel="noopener">Join them · Order ahead <span class="arr">→</span></a><span>Rated 4.8 from 1,742 Google reviews</span></div>
 </section>
 
 <section class="g-sec g-visit" id="visit">
@@ -2342,10 +2344,10 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
     <div class="g-visit-in">
       <div class="g-visit-l g-rv">
         <div class="g-row"><small>Address</small><b>13530 Michigan Ave #120</b><span>Masri Medical Building, Dearborn · entrance in back</span></div>
-        <div class="g-row"><small>Hours <em class="g-live" id="vLive">Open now</em></small><ul class="g-hrs" id="vHrs"></ul></div>
+        <div class="g-row"><small>Hours <em class="g-live" id="vLive">Open now</em></small><ul class="g-hrs" id="vHrs"><li><span>Mon</span><b>12 PM – 2 AM</b></li><li><span>Tue</span><b>12 PM – 2 AM</b></li><li><span>Wed</span><b>12 PM – 2 AM</b></li><li><span>Thu</span><b>12 PM – 2 AM</b></li><li><span>Fri</span><b>12 PM – 3 AM</b></li><li><span>Sat</span><b>12 PM – 3 AM</b></li><li><span>Sun</span><b>3 PM – 1 AM</b></li></ul></div>
         <div class="g-row"><small>Phone</small><b><a href="tel:+13137577200">(313) 757-7200</a></b><span>Call ahead for big orders or custom requests</span></div>
-        <div class="g-row"><small>Delivery</small><b class="g-two"><a data-dd="visit" href="#" target="_blank" rel="noopener">DoorDash</a><i>/</i><a id="ueLink2" href="#" target="_blank" rel="noopener">Uber Eats</a></b></div>
-        <div class="g-acts"><a class="g-btn" data-dir href="#" target="_blank" rel="noopener">Get directions</a><a class="g-btn o" data-dd="visit_btn" href="#" target="_blank" rel="noopener">Order ahead</a></div>
+        <div class="g-row"><small>Delivery</small><b class="g-two"><a data-dd="visit" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=visit" target="_blank" rel="noopener">DoorDash</a><i>/</i><a id="ueLink2" href="https://www.ubereats.com/store/prime-eatery-dearborn/iJTSNcz5UgW3g1HnHxQAsw" target="_blank" rel="noopener">Uber Eats</a></b></div>
+        <div class="g-acts"><a class="g-btn" data-dir href="https://www.google.com/maps/dir/?api=1&amp;destination=Prime+Eatery+13530+Michigan+Ave+%23120+Dearborn+MI+48126" target="_blank" rel="noopener">Get directions</a><a class="g-btn o" data-dd="visit_btn" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=visit_btn" target="_blank" rel="noopener">Order ahead</a></div>
       </div>
       <div class="g-map g-rv">
         <div class="g-map-frame"><iframe title="Map to Prime Eatery" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Prime+Eatery,+13530+Michigan+Ave+%23120,+Dearborn,+MI+48126&amp;z=15&amp;output=embed"></iframe></div>
@@ -2355,8 +2357,8 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
           <div class="g-mcard-top"><svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span>Google Maps</span></div>
           <b>Prime Eatery Burgers &amp; Sandwiches</b>
           <small>Masri Medical Building, 13530 Michigan Ave #120, Dearborn, MI 48126</small>
-          <div class="g-mcard-r"><b>4.8</b><span class="st">★★★★★</span><em>1,744 reviews</em></div>
-          <div class="g-mcard-a"><a href="https://www.google.com/maps/search/?api=1&amp;query=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener">Open in Maps</a><a data-dir href="#" target="_blank" rel="noopener" aria-label="Directions">Directions →</a></div>
+          <div class="g-mcard-r"><b>4.8</b><span class="st">★★★★★</span><em>1,742 reviews</em></div>
+          <div class="g-mcard-a"><a href="https://www.google.com/maps/search/?api=1&amp;query=Prime+Eatery+13530+Michigan+Ave+Dearborn+MI" target="_blank" rel="noopener">Open in Maps</a><a data-dir href="https://www.google.com/maps/dir/?api=1&amp;destination=Prime+Eatery+13530+Michigan+Ave+%23120+Dearborn+MI+48126" target="_blank" rel="noopener" aria-label="Directions">Directions →</a></div>
         </div>
       </div>
     </div>
@@ -2364,12 +2366,12 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 </section>
 </main>
 
-<div class="g-mbar" id="mbar"><a href="menu.html">Menu</a><a data-dd="mobile_bar" href="#" target="_blank" rel="noopener">Order ahead</a></div>
+<div class="g-mbar" id="mbar"><a href="menu.html">Menu</a><a data-dd="mobile_bar" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=mobile_bar" target="_blank" rel="noopener">Order ahead</a></div>
 <footer class="fx">
   <div class="fx-in">
-    <div class="fx-live" id="fxLive"><div class="led led-sm" id="led2wrap" aria-hidden="true"><div class="l1" id="ledB1">Hours · Michigan Ave</div><div class="l2"><span id="ledB2">Michigan Ave ·</span></div></div><span class="fx-live-t">Our hours, live from Michigan Ave.</span><a class="btn btn-p shbtn btn-sm" data-dd="footer_live" href="#" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a></div>
+    <div class="fx-live" id="fxLive"><div class="led led-sm" id="led2wrap" aria-hidden="true"><div class="l1" id="ledB1">Hours · Michigan Ave</div><div class="l2"><span id="ledB2">Michigan Ave ·</span></div></div><span class="fx-live-t">Our hours, live from Michigan Ave.</span><a class="btn btn-p shbtn btn-sm" data-dd="footer_live" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=footer_live" target="_blank" rel="noopener">Order ahead <span class="arr">→</span></a></div>
     <div class="fx-top">
-      <div class="fx-brand"><a class="fx-logo" href="#top"><img src="brand/logo.png" alt="" width="44" height="44">Prime Eatery</a><p>Loaded burgers, rice bowls and shakes, made to order till late, 3 AM Fri-Sat. A small halal kitchen on Michigan Ave in Dearborn.</p><p class="fx-ad">13530 Michigan Ave #120 · entrance in back<br><a class="fx-a" href="tel:+13137577200"><span>(313) 757-7200</span></a></p></div>
+      <div class="fx-brand"><a class="fx-logo" href="#top"><img src="brand/logo.png" alt="" width="44" height="44">Prime Eatery</a><p>Loaded burgers, rice bowls and shakes, made to order till late: Sun to 1 AM, Mon-Thu to 2 AM, Fri-Sat to 3 AM. A small halal kitchen on Michigan Ave in Dearborn.</p><p class="fx-ad">13530 Michigan Ave #120 · entrance in back<br><a class="fx-a" href="tel:+13137577200"><span>(313) 757-7200</span></a></p></div>
       <div class="fx-col"><h4>Eat</h4><ul><li><a class="fx-a" href="menu.html"><span>Full menu</span></a></li><li><a class="fx-a" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&utm_medium=website&utm_campaign=footer" target="_blank" rel="noopener"><span>Order ahead</span></a></li><li><a class="fx-a" href="#visit"><span>Hours</span></a></li><li><a class="fx-a" href="#catering" data-cmenu><span>Catering menu</span></a></li></ul></div>
       <div class="fx-col"><h4>Prime</h4><ul><li><a class="fx-a" href="story.html"><span>Our story</span></a></li><li><a class="fx-a" href="#catering"><span>Events we cater</span></a></li><li><a class="fx-a" href="#reviews"><span>Reviews</span></a></li><li><a class="fx-a" href="https://www.google.com/maps/dir/?api=1&destination=Prime+Eatery+13530+Michigan+Ave+%23120+Dearborn+MI+48126" target="_blank" rel="noopener"><span>Directions</span></a></li></ul></div>
       <div class="fx-col"><h4>Legal</h4><ul><li><a class="fx-a" href="legal.html"><span>Legal notice</span></a></li><li><a class="fx-a" href="privacy.html"><span>Privacy policy</span></a></li><li><a class="fx-a" href="terms.html"><span>Terms of use</span></a></li><li><a class="fx-a" href="social.html"><span>Social media disclaimer</span></a></li></ul></div>
@@ -2403,14 +2405,14 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
     <div class="sh-top"><h3 id="shTitle">The full menu</h3><button class="sh-x" data-close aria-label="Close menu">×</button></div>
     <div class="sh-cats" id="shCats"></div>
     <div class="sh-body" id="shBody"></div>
-    <div class="sh-foot"><p class="fine">Delivery-app prices. Add-ons and sauces are chosen at checkout.</p><a class="btn btn-p shbtn" data-dd="menu_sheet" href="#" target="_blank" rel="noopener">Order on DoorDash <span class="arr">→</span></a></div>
+    <div class="sh-foot"><p class="fine">Delivery-app prices. Add-ons and sauces are chosen at checkout.</p><a class="btn btn-p shbtn" data-dd="menu_sheet" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=menu_sheet" target="_blank" rel="noopener">Order on DoorDash <span class="arr">→</span></a></div>
   </div>
 </div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Instagram reel">
   <button class="x" id="lbX" aria-label="Close video">×</button>
   <div class="vw"><video id="lbV" playsinline controls preload="none"></video></div>
-  <div class="side"><p class="eyebrow">@primeeatery</p><h3 id="lbT">Straight from the grill</h3><p class="lead" style="font-size:14px" id="lbD"></p><a class="btn btn-p shbtn" data-dd="reel" href="#" target="_blank" rel="noopener">Order this on DoorDash →</a><a class="btn btn-g" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener">More on Instagram ↗</a></div>
+  <div class="side"><p class="eyebrow">@primeeatery</p><h3 id="lbT">Straight from the grill</h3><p class="lead" style="font-size:14px" id="lbD"></p><a class="btn btn-p shbtn" data-dd="reel" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=reel" target="_blank" rel="noopener">Order this on DoorDash →</a><a class="btn btn-g" href="https://www.instagram.com/primeeatery/" target="_blank" rel="noopener">More on Instagram ↗</a></div>
 </div>
 <div class="plan" id="plan" role="dialog" aria-modal="true" aria-labelledby="planT" aria-hidden="true">
   <div class="plan-scrim" data-pclose></div>
@@ -2590,7 +2592,7 @@ function paint(){
 /* ---------- week data ---------- */
 var order=[1,2,3,4,5,6,0];
 var NIGHT={1:{k:'mexicana-bowl',bg:'mexicana-bowl'},2:{k:'classic-burger',bg:'night-classic'},3:{k:'mexicana-burger',bg:'night-mexicana'},4:{k:'tenders',bg:'tenders-fries'},5:{k:'prime-burger',bg:'night-prime'},6:{k:'wings',bg:'wings'},0:{k:'midwest-chicken',bg:'midwest-chicken'}};
-function lateTxt(d){return HOURS[d][1]>=27*60?'Late night till 3 AM':d===0?'Opens at 3 PM':'Pickup and delivery'}
+function lateTxt(d){return HOURS[d][1]>=27*60?'Open till 3 AM':d===0?'Opens at 3 PM':'Pickup and delivery'}
 $('#strip').innerHTML=order.map(function(d){return '<div class="strip-cell" data-day="'+d+'"><span class="d">'+DAYS[d].slice(0,3)+'<span class="tdy"></span></span><span class="n">'+lateTxt(d)+'</span><span class="t">'+range(d)+'</span></div>'}).join('');
 var fOn=false,ftimer=null;function findPlay(){}
 
@@ -2598,7 +2600,7 @@ var fOn=false,ftimer=null;function findPlay(){}
 var PICKS=[['mexicana-burger','photos/cut/hero-mexicana-burger.webp?v=45','Bestseller'],['prime-burger','photos/cut/hero-prime-burger.webp?v=45','The big one'],['prime-rice-bowl','photos/cut/prime-rice-bowl.webp?v=45','House bowl'],['nashville-chicken','photos/cut/nashville-chicken.webp?v=45','Spicy'],['wings','photos/cut/wings.webp?v=45','Share it'],['philly-steak-wrap','photos/cut/philly-steak-wrap.webp?v=45','Grilled'],['tenders','photos/cut/tenders.webp?v=45','Crispy'],['oreo-shake','photos/cut/oreo-shake.webp?v=45','Hand-spun']];
 
 /* item detail: stays on the site, one tap to order */
-D.body.insertAdjacentHTML('beforeend','<div class="itm" id="itm" role="dialog" aria-modal="true" aria-labelledby="itmT" aria-hidden="true"><div class="itm-scrim" data-iclose></div><div class="itm-box"><button type="button" class="itm-x" data-iclose aria-label="Close">×</button><div class="itm-ph"><img id="itmImg" alt="" src="photos/cut/hero-mexicana-burger.webp?v=45" loading="lazy"></div><div class="itm-tx"><span class="itm-tag" id="itmTag"></span><h3 id="itmT"></h3><b class="mono" id="itmP"></b><p id="itmD"></p><ul class="itm-li"><li>100% halal</li><li>Made to order</li><li>Pickup in about 15 min</li></ul><a class="btn itm-go" id="itmGo" href="#" target="_blank" rel="noopener">Order on DoorDash <span class="arr">→</span></a><a class="tlink" id="itmUe" href="#" target="_blank" rel="noopener">or Uber Eats <span class="arr">↗</span></a></div></div></div>');
+D.body.insertAdjacentHTML('beforeend','<div class="itm" id="itm" role="dialog" aria-modal="true" aria-labelledby="itmT" aria-hidden="true"><div class="itm-scrim" data-iclose></div><div class="itm-box"><button type="button" class="itm-x" data-iclose aria-label="Close">×</button><div class="itm-ph"><img id="itmImg" alt="" src="photos/cut/hero-mexicana-burger.webp?v=45" loading="lazy"></div><div class="itm-tx"><span class="itm-tag" id="itmTag"></span><h3 id="itmT"></h3><b class="mono" id="itmP"></b><p id="itmD"></p><ul class="itm-li"><li>100% halal</li><li>Made to order</li><li>Pickup in about 15 min</li></ul><a class="btn itm-go" id="itmGo" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/" target="_blank" rel="noopener">Order on DoorDash <span class="arr">→</span></a><a class="tlink" id="itmUe" href="https://www.ubereats.com/store/prime-eatery-dearborn/iJTSNcz5UgW3g1HnHxQAsw" target="_blank" rel="noopener">or Uber Eats <span class="arr">↗</span></a></div></div></div>');
 var itm=$('#itm'),itmLast=null;
 function itmOpen(i){var p=PICKS[i],it=IDX[p[0]];itmLast=D.activeElement;$('#itmImg').src=p[1];$('#itmImg').alt=it[1];$('#itmTag').textContent=p[2];$('#itmT').textContent=it[1];$('#itmP').textContent='$'+it[2];$('#itmD').textContent=it[3];$('#itmGo').href=dd('item_'+p[0]);$('#itmUe').href=UE;itm.classList.add('open');itm.setAttribute('aria-hidden','false');D.body.classList.add('lock');setTimeout(function(){$('.itm-x',itm).focus()},60)}
 function itmClose(){itm.classList.remove('open');itm.setAttribute('aria-hidden','true');D.body.classList.remove('lock');itmLast&&itmLast.focus()}
@@ -2685,7 +2687,7 @@ var EV=[
  ['event-office','Office','Metro Detroit','Office lunches','Boxed bowls and wraps, labeled by name, dropped off in Dearborn, Detroit and downriver.'],
  ['event-eid','Family','Eid and holidays','Eid and family parties','Trays sized for the cousins you forgot were coming. Halal from the fryer oil up.'],
  ['catering-party','Party','Open houses','Graduation open houses','Burgers on trays, shakes on ice, and a crew that cleans up after.'],
- ['../video/reel-6','Late night','Till 3 AM','After-hours events','We stay open till 3 on weekends, so a 1 AM drop at your venue is normal for us.'],
+ ['../video/reel-6','Late night','Open late','After-hours events','We close at 3 AM Fri-Sat, 2 AM Mon-Thu and 1 AM Sunday, so a 1 AM drop at your venue is normal for us.'],
  ['merch','Crew','Branded','Prime crew and gear','Black tees, caps and branded bags on every job, so your guests know who brought dinner.']
 ];
 $('#ev').innerHTML=EV.map(function(e,i){return '<article class="evb-c'+(i===0?' big':'')+' rv"><img src="photos/'+e[0]+'.jpg" alt="'+esc(e[3])+'" loading="lazy" decoding="async"><div class="evb-tx"><span class="tg"><b>'+e[1]+'</b> · '+e[2]+'</span><h3>'+e[3]+'</h3><p>'+esc(e[4])+'</p></div><button type="button" class="evb-go" data-plan data-type="'+esc(e[1])+'" aria-label="Plan a '+esc(e[3])+'">Plan this →</button></article>'}).join('');
@@ -2822,7 +2824,7 @@ var SN=[[12*60,'12 PM','Doors open','Lunch for the medical building upstairs and
  [17*60,'5 PM','Families come in','Kids’ menu, bowls big enough to share, and a table under the Michigan memorabilia.','night-classic.jpg','classic-burger'],
  [21*60,'9 PM','The grill gets loud','Hot Cheetos on the Mexicana, cheese pulls, and tickets lining the rail.','night-mexicana.jpg','mexicana-burger'],
  [25*60,'1 AM','The late crowd','Everything else on the block is dark. The counter is still busy.','../video/reel-6.jpg','mexicana-burger'],
- [27*60,'3 AM','Last call','The grill shuts off at 3 Friday and Saturday, 1 on Sunday and 2 the other nights.','night-prime.jpg','prime-burger']];
+ [27*60,'3 AM','Last call','The grill closes at 3 AM Friday and Saturday, 1 AM Sunday and 2 AM Monday to Thursday.','night-prime.jpg','prime-burger']];
 $('#snRow').innerHTML=SN.map(function(x,i){return '<a class="sn-c" href="'+dd('story_'+x[5])+'" target="_blank" rel="noopener" ><span class="sn-dot"></span><span class="sn-t">'+x[1]+'</span><span class="sn-ph"><img src="photos/'+x[4]+'" alt="" loading="lazy" decoding="async"></span><b>'+x[2]+'</b><span class="sn-p">'+x[3]+'</span></a>'}).join('');
 function snPaint(){var s=state(),n=s.n,m=n.min<6*60?n.min+1440:n.min,cards=$$('.sn-c'),idx=-1;
   for(var i=0;i<SN.length;i++){if(m>=SN[i][0])idx=i}
@@ -2892,8 +2894,7 @@ $('#ueLink2').href=UE;
 
 /* visit: hours with today marked, live status */
 (function(){var ul=$('#vHrs');if(!ul.querySelector)return;
-  var rows=[[[1,2,3,4],'Mon – Thu'],[[5,6],'Fri – Sat'],[[0],'Sunday']];
-  function paintV(){var s=state(),t=s.today;ul.innerHTML=rows.map(function(r){var d=r[0][0];return '<li class="'+(r[0].indexOf(t)>-1?'today':'')+'"><span>'+r[1]+'</span><b>'+fmt12(HOURS[d][0])+' – '+fmt12(HOURS[d][1])+'</b></li>'}).join('');
+  function paintV(){var s=state(),t=s.today;$$('li',ul).forEach(function(li,i){li.classList.toggle('today',i===(t+6)%7)});
     var l=$('#vLive');l.textContent=s.open?'Open now · till '+fmt12(s.closeAt):'Closed · opens '+fmt12(s.openAt);l.classList.toggle('off',!s.open)}
   paintV();setInterval(paintV,60000)})();
 
