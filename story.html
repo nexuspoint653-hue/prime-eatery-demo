@@ -2040,6 +2040,33 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 @media (max-width:700px) and (max-height:720px){.hphoto{width:min(86vw,440px,calc(48svh * .6667))!important}#hero .hero-copy{padding-top:20px}.hero-copy .hc-kick{margin-bottom:12px}.hero-copy .lead{margin-top:12px}.hero-copy .hero-cta{margin-top:16px}}
 @media (max-width:400px){.hero-copy .hc-kick{font-size:9.5px;letter-spacing:.12em}}
 
+/* "Too good" on phones: clean text block, then a tidy three-item plate line */
+@media (max-width:820px) and (orientation:portrait){
+ .g-tg{display:flex!important;flex-direction:column;align-items:center;min-height:0!important;padding-block:104px 64px!important}
+ .g-tg::after{display:none}
+ .g-tg-c{order:1;max-width:560px;padding-inline:24px}
+ .g-tg .g-eb{margin-bottom:16px}
+ .g-tg .g-p{margin-top:16px;font-size:15px;line-height:1.65;max-width:34ch}
+ .g-tg .g-acts{margin-top:26px}
+ .g-tg-food{order:2;position:relative!important;inset:auto!important;width:100%;max-width:560px;height:min(66vw,370px);margin-top:44px}
+ .g-tg-food::before{content:"";position:absolute;left:8%;right:8%;bottom:4%;height:34%;background:radial-gradient(50% 50% at 50% 60%,rgba(255,212,0,.13),rgba(255,212,0,0) 70%);pointer-events:none}
+ .g-tg .tg-i{display:none!important}
+ .g-tg .tgE,.g-tg .tgE2,.g-tg .tgJ{display:block!important;top:auto!important;right:auto!important;bottom:6%!important;--b:0px;--o:1}
+ .g-tg .tgE{left:24%!important;width:52%!important;--r:0deg;z-index:2}
+ .g-tg .tgE2{left:0!important;width:34%!important;--r:-7deg;bottom:4%!important;z-index:1}
+ .g-tg .tgJ{left:auto!important;right:3%!important;width:23%!important;--r:7deg;z-index:1}
+ .g-tg .tg-i[data-from=l]{--fx:-30vw;--fr:-20deg}
+ .g-tg .tg-i[data-from=r]{--fx:30vw;--fr:20deg}
+}
+
+/* 07 map on phones: map on top (pin visible), Google card underneath */
+@media (max-width:700px){
+ .g-map{min-height:0!important;display:flex;flex-direction:column;margin-top:22px}
+ .g-map-frame{position:relative!important;inset:auto!important;height:300px;flex:none}
+ .g-map-tint{inset:0 0 auto 0!important;height:300px}
+ .g-mcard{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;top:auto!important;width:auto!important;max-width:none!important;margin-top:14px;transform:none!important}
+}
+
 /* ================= story page v2 ================= */
 .sp{overflow-x:clip}
 .sp-serif{margin:0;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(46px,5.4vw,90px);line-height:1;letter-spacing:-.01em;color:#f2efe8}
@@ -2333,7 +2360,7 @@ footer.fx{position:relative;z-index:1}
   <div class="g-wrap wide-x">
     <div class="sp-sig-hd"><p class="g-eb">04 <b>—</b> What we stand for</p><h2 class="g-h">No shortcuts. <em>Ever.</em></h2></div>
     <div class="sp-bento">
-      <div class="sp-b big"><img src="photos/hero-burger.jpg" alt="" loading="lazy"><div><i>01</i><h3>Made to order</h3><p>Nothing sits under a heat lamp. Patties hit the grill when you order and the fries drop when your ticket prints.</p></div></div>
+      <div class="sp-b big"><img src="photos/hero-burger.jpg?v=mx1" alt="" loading="lazy"><div><i>01</i><h3>Made to order</h3><p>Nothing sits under a heat lamp. Patties hit the grill when you order and the fries drop when your ticket prints.</p></div></div>
       <div class="sp-b y"><i>02</i><h3>100% halal</h3><p>Every protein, every sauce, from the fryer oil up.</p></div>
       <div class="sp-b"><i>03</i><h3>Sauces in house</h3><p>Prime sauce, ranch and Asian Zing made in our kitchen.</p></div>
       <div class="sp-b ph"><img src="photos/tenders-fries.jpg" alt="" loading="lazy"><div><i>04</i><h3>Portions that share</h3></div></div>
