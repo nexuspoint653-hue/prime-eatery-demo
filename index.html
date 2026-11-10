@@ -2068,7 +2068,22 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
  .g-map-tint{inset:0 0 auto 0!important;height:300px}
  .g-mcard{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;top:auto!important;width:auto!important;max-width:none!important;margin-top:14px;transform:none!important}
 }
-#smokeGL{display:none!important}.hsteam{position:absolute;left:-5%;width:110%;top:-36%;height:auto;mix-blend-mode:screen;opacity:.8;pointer-events:none;filter:brightness(1.05) contrast(1.7);-webkit-mask-image:radial-gradient(48% 50% at 50% 58%,#000 25%,transparent 100%);mask-image:radial-gradient(48% 50% at 50% 58%,#000 25%,transparent 100%)}@media (prefers-reduced-motion:reduce){.hsteam{display:none}}</style>
+#smokeGL{display:none!important}.hsteam{position:absolute;left:-2%;width:104%;top:-34%;height:auto;mix-blend-mode:screen;opacity:.55;pointer-events:none;filter:brightness(1.05) contrast(1.8) blur(.6px);-webkit-mask-image:radial-gradient(46% 52% at 50% 62%,#000 20%,transparent 100%);mask-image:radial-gradient(46% 52% at 50% 62%,#000 20%,transparent 100%)}@media (prefers-reduced-motion:reduce){.hsteam{display:none}}@media (min-width:821px),(orientation:landscape){
+.g-tg .tg-i[class*=tgP]{display:block!important;bottom:auto;right:auto;left:auto;top:auto}
+.g-tg .tg-i img{filter:drop-shadow(0 28px 30px rgba(0,0,0,.65))}
+.g-tg .tgP1{left:4%!important;top:9%!important;width:clamp(160px,14vw,240px)!important;--r:-6deg;--d:.05s}
+.g-tg .tgP2{left:19%!important;top:31%!important;width:clamp(110px,9.5vw,160px)!important;--r:9deg;--d:.15s}
+.g-tg .tgP3{left:3.5%!important;top:50%!important;width:clamp(160px,13.5vw,230px)!important;--r:-8deg;--d:.22s}
+.g-tg .tgP4{left:17%!important;top:auto!important;bottom:5%!important;width:clamp(140px,12.5vw,210px)!important;--r:6deg;--d:.3s}
+.g-tg .tgP10{left:33%!important;top:auto!important;bottom:3%!important;width:clamp(70px,5.6vw,98px)!important;--r:-9deg;--d:.38s}
+.g-tg .tgP6{right:3.5%!important;top:7%!important;width:clamp(180px,15vw,260px)!important;--r:5deg;--d:.08s}
+.g-tg .tgP11{right:31%!important;top:4%!important;width:clamp(110px,9vw,150px)!important;--r:-7deg;--d:.18s}
+.g-tg .tgP7{right:20%!important;top:30%!important;width:clamp(76px,6.2vw,108px)!important;--r:7deg;--d:.2s}
+.g-tg .tgP8{right:4%!important;top:50%!important;width:clamp(150px,12.5vw,215px)!important;--r:6deg;--d:.26s}
+.g-tg .tgP9{right:18%!important;top:auto!important;bottom:4%!important;width:clamp(120px,10.5vw,180px)!important;--r:-8deg;--d:.34s}
+.g-tg .tgP12{left:30%!important;top:5%!important;width:clamp(100px,8.5vw,140px)!important;--r:8deg;--d:.12s}
+.g-tg .tgP13{right:34%!important;top:auto!important;bottom:3%!important;width:clamp(70px,5.6vw,98px)!important;--r:9deg;--d:.4s}
+}#board .g-card-ph{aspect-ratio:1.18!important;height:auto}#board .g-card-ph img{position:absolute;inset:0;margin:auto;width:84%!important;height:86%!important;max-height:none;object-fit:contain}</style>
 
 </head><body><header class="hdr" id="hdr">
   <div class="wide hdr-in">
@@ -2093,7 +2108,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
     </div>
     <div class="hstat"><b><span class="dot y"></span><span id="stMain">Hours at Michigan Ave</span></b><span id="stSub">Dearborn, MI</span><a data-dir href="https://www.google.com/maps/dir/?api=1&amp;destination=Prime+Eatery+13530+Michigan+Ave+%23120+Dearborn+MI+48126" target="_blank" rel="noopener">Directions ↗</a></div>
   </div>
-  <div class="hphoto"><img src="photos/hero-burger.jpg?v=mx1" alt="A double smash burger with pickles and melted American" fetchpriority="high" width="2600" height="3900"><video class="hsteam" muted loop autoplay playsinline preload="auto" aria-hidden="true"><source src="photos/steam-loop.webm" type="video/webm"><source src="photos/steam-loop.mp4" type="video/mp4"></video></div>
+  <div class="hphoto"><img src="photos/hero-burger.jpg?v=mx1" alt="A double smash burger with pickles and melted American" fetchpriority="high" width="2600" height="3900"><video class="hsteam" muted loop autoplay playsinline preload="auto" aria-hidden="true"><source src="photos/steam-slow.webm" type="video/webm"><source src="photos/steam-slow.mp4" type="video/mp4"></video></div>
   <canvas class="smoke-gl" id="smokeGL" aria-hidden="true"></canvas>
   <div class="wordmark" aria-hidden="true">Prime Eatery</div>
   <div class="callout" id="callout" aria-live="polite"></div>
@@ -2110,20 +2125,18 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 
 <section class="g-sec g-tg" id="eat">
   <div class="g-tg-food">
-    <span class="tg-i tgA" data-from="l"><span class="tg-f"><img src="photos/cut/tenders.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
-    <span class="tg-i tgB" data-from="l"><span class="tg-f"><img src="photos/cut/nuggets.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
-    <span class="tg-i tgD" data-from="r"><span class="tg-f"><img src="photos/cut/mac-bites.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
-    <span class="tg-i tgM" data-from="r"><span class="tg-f"><img src="photos/cut/nashville-chicken.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
-    <span class="tg-i tgN" data-from="r"><span class="tg-f"><img src="photos/cut/asian-zing-bowl.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
-    <span class="tg-i tgE2" data-from="r"><span class="tg-f"><img src="photos/cut/fries.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
-    <span class="tg-i tgE" data-from="r"><span class="tg-f"><img src="photos/cut/hero-prime-burger.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
-    <span class="tg-i tgF" data-from="l"><span class="tg-f"><img src="photos/cut/philly-steak-wrap.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
-    <span class="tg-i tgG" data-from="l"><span class="tg-f"><img src="photos/cut/prime-dog.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
-    <span class="tg-i tgH" data-from="l"><span class="tg-f"><img src="photos/cut/fries.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
-    <span class="tg-i tgI" data-from="l"><span class="tg-f"><img src="photos/cut/prime-sauce.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
-    <span class="tg-i tgJ" data-from="r"><span class="tg-f"><img src="photos/cut/oreo-shake.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
-    <span class="tg-i tgK" data-from="r"><span class="tg-f"><img src="photos/cut/mexicana-bowl.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
-    <span class="tg-i tgL" data-from="r"><span class="tg-f"><img src="photos/cut/wings8.webp?v=45" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tgP1" data-from="l"><span class="tg-f"><img src="photos/cut/boneless-wings.webp?v=50" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tgP2" data-from="l"><span class="tg-f"><img src="photos/cut/mozzarella-sticks.webp?v=50" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tgP3" data-from="l"><span class="tg-f"><img src="photos/cut/philly-steak-wrap.webp?v=50" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tgP4 tgE2" data-from="l"><span class="tg-f"><img src="photos/cut/waffle-fries.webp?v=50" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tgP10" data-from="l"><span class="tg-f"><img src="photos/cut/biscoff-shake.webp?v=50" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tgP6 tgE" data-from="r"><span class="tg-f"><img src="photos/cut/hero-mexicana-burger.webp?v=50" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tgP7 tgJ" data-from="r"><span class="tg-f"><img src="photos/cut/oreo-shake.webp?v=50" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tgP8" data-from="r"><span class="tg-f"><img src="photos/cut/caesar-salad.webp?v=50" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tgP9" data-from="r"><span class="tg-f"><img src="photos/cut/onion-rings.webp?v=50" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tgP11" data-from="r"><span class="tg-f"><img src="photos/cut/nacho-dog.webp?v=50" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tgP12" data-from="l"><span class="tg-f"><img src="photos/cut/jalapeno-poppers.webp?v=50" alt="" loading="lazy" decoding="async"></span></span>
+    <span class="tg-i tgP13" data-from="r"><span class="tg-f"><img src="photos/cut/strawberry-shake.webp?v=50" alt="" loading="lazy" decoding="async"></span></span>
   </div>
   <div class="g-tg-c g-rv">
     <p class="g-eb c">Halal <b>·</b> Made to order <b>·</b> Loaded</p>
@@ -2148,7 +2161,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
           <h3>Mexicana Burger</h3>
           <p>Hot Cheetos crust, grilled jalapeño, corn and nacho cheese on brioche.</p>
           <small>Combo · fries + Coke</small>
-          <div class="hc-buy"><span class="hc-pr">$20</span><a class="hc-btn" data-dd="story_mexicana" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=story_mexicana" target="_blank" rel="noopener"><span class="hc-a">Order</span><span class="hc-b">I want this one →</span></a></div>
+          <div class="hc-buy"><span class="hc-pr">$17</span><a class="hc-btn" data-dd="story_mexicana" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=story_mexicana" target="_blank" rel="noopener"><span class="hc-a">Order</span><span class="hc-b">I want this one →</span></a></div>
         </div>
       </article>
       <article class="hc-i g-rv" style="transition-delay:120ms">
@@ -2157,7 +2170,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
           <h3>The Prime Burger</h3>
           <p>Egg, onion ring, mozzarella sticks and turkey bacon on a pretzel bun.</p>
           <small>Combo · fries + Fanta</small>
-          <div class="hc-buy"><span class="hc-pr">$21</span><a class="hc-btn" data-dd="story_prime" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=story_prime" target="_blank" rel="noopener"><span class="hc-a">Order</span><span class="hc-b">I want this one →</span></a></div>
+          <div class="hc-buy"><span class="hc-pr">$18</span><a class="hc-btn" data-dd="story_prime" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=story_prime" target="_blank" rel="noopener"><span class="hc-a">Order</span><span class="hc-b">I want this one →</span></a></div>
         </div>
       </article>
       <article class="hc-i g-rv" style="transition-delay:240ms">
@@ -2166,7 +2179,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
           <h3>Nacho Burger</h3>
           <p>Nacho cheese poured over the top bun, crushed chips and jalapeño.</p>
           <small>Combo · fries + Pepsi</small>
-          <div class="hc-buy"><span class="hc-pr">$20</span><a class="hc-btn" data-dd="story_nacho" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=story_nacho" target="_blank" rel="noopener"><span class="hc-a">Order</span><span class="hc-b">I want this one →</span></a></div>
+          <div class="hc-buy"><span class="hc-pr">$17</span><a class="hc-btn" data-dd="story_nacho" href="https://www.doordash.com/store/prime-eatery-dearborn-2829646/?utm_source=primeeatery.com&amp;utm_medium=website&amp;utm_campaign=story_nacho" target="_blank" rel="noopener"><span class="hc-a">Order</span><span class="hc-b">I want this one →</span></a></div>
         </div>
       </article>
     </div>
@@ -2178,7 +2191,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
   <div class="g-wrap wide-x">
     <div class="g-head g-rv">
       <div><p class="g-eb">02 <b>—</b> The menu</p><h2 class="g-h">Stacked to <em>perfection.</em></h2></div>
-      <div class="g-head-r"><p class="g-p">The ones regulars come back for. Thirty on the full board, all halal, grilled or crispy on every bowl.</p></div>
+      <div class="g-head-r"><p class="g-p">The ones regulars come back for. Forty on the full board, all halal, grilled or crispy on every bowl.</p></div>
     </div>
     <div class="g-board" id="board"></div>
     <div class="g-board-ft g-rv"><a class="g-pillbtn" href="menu.html">See the full menu</a></div>
@@ -2194,7 +2207,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
       <h2 class="g-h">Skip the<br><em>line.</em></h2>
       <p class="g-p">Watch a real order go through: pick a burger, make it a combo, grab a drink and pay. It's on the grill before you're out the door.</p>
       <div class="g-steps" id="ordTabs" role="tablist">
-        <button type="button" class="on" data-s="0"><i>01</i><span><b>Open the menu</b><small>Thirty items, the same add-ons you get at the counter.</small></span><u></u></button>
+        <button type="button" class="on" data-s="0"><i>01</i><span><b>Open the menu</b><small>Forty items, the same add-ons you get at the counter.</small></span><u></u></button>
         <button type="button" data-s="1"><i>02</i><span><b>Pick your burger</b><small>Tap the Mexicana, the Prime or whatever you're craving.</small></span><u></u></button>
         <button type="button" data-s="2"><i>03</i><span><b>Make it a combo</b><small>Waffle fries and a cold drink for four bucks more.</small></span><u></u></button>
         <button type="button" data-s="3"><i>04</i><span><b>Pay in two taps</b><small>Apple Pay, Google Pay or card. No app, no account.</small></span><u></u></button>
@@ -2238,24 +2251,24 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
               <div class="pf-s" data-k="item">
                 <div class="pa-itemph"><img src="photos/cut/hero-mexicana-burger.webp?v=45" alt="" width="1500" height="1253" loading="lazy" decoding="async"></div>
                 <div class="pa-item">
-                  <div class="pa-itemh"><b>Mexicana Burger</b><span id="pfItemP">$16.00</span></div>
+                  <div class="pa-itemh"><b>Mexicana Burger</b><span id="pfItemP">$13.00</span></div>
                   <small>Grilled jalapeño, corn, American cheese, Prime sauce, crushed Hot Cheetos and nacho cheese.</small>
                   <div class="pa-opt" data-tap="combo"><div><b>Make it a combo</b><small>Waffle fries + a drink</small></div><span class="pa-tog"><i></i></span><em>+$4</em></div>
                   <div class="pa-drinks"><p>Choose your drink</p>
                     <div><span data-tap="drink"><img src="photos/cut/can-coke.webp?v=45" alt="" width="136" height="260" loading="lazy" decoding="async"><b>Coke</b></span><span><img src="photos/cut/can-pepsi.webp?v=45" alt="" width="135" height="260" loading="lazy" decoding="async"><b>Pepsi</b></span><span><img src="photos/cut/can-fanta.webp?v=45" alt="" width="132" height="260" loading="lazy" decoding="async"><b>Fanta</b></span></div>
                   </div>
                 </div>
-                <button class="pa-cta" data-tap="add">Add to bag · <span id="pfAddP">$16.00</span></button>
+                <button class="pa-cta" data-tap="add">Add to bag · <span id="pfAddP">$13.00</span></button>
               </div>
               <!-- 3 bag -->
               <div class="pf-s" data-k="bag">
                 <div class="pa-head"><b>Your bag</b><span class="pa-sub">Pickup · ready in 15 min</span></div>
                 <div class="pa-bag">
-                  <div class="pa-bl"><div class="pa-im"><img src="photos/cut/mexicana-burger.webp?v=45" alt="" width="833" height="696" loading="lazy" decoding="async"></div><div><b>Mexicana Burger combo</b><small>Waffle fries · Coca-Cola</small></div><span>$20.00</span></div>
+                  <div class="pa-bl"><div class="pa-im"><img src="photos/cut/mexicana-burger.webp?v=45" alt="" width="833" height="696" loading="lazy" decoding="async"></div><div><b>Mexicana Burger combo</b><small>Waffle fries · Coca-Cola</small></div><span>$17.00</span></div>
                   <div class="pa-bl"><div class="pa-im"><img src="photos/cut/prime-sauce.webp?v=45" alt="" width="760" height="464" loading="lazy" decoding="async"></div><div><b>Extra Prime sauce</b><small>2 oz</small></div><span>$1.00</span></div>
                 </div>
-                <div class="pa-sum"><div><span>Subtotal</span><span>$21.00</span></div><div><span>Tax 6%</span><span>$1.26</span></div><div class="t"><span>Total</span><span>$22.26</span></div></div>
-                <button class="pa-pay" data-tap="pay">Pay · $22.26</button>
+                <div class="pa-sum"><div><span>Subtotal</span><span>$18.00</span></div><div><span>Tax 6%</span><span>$1.08</span></div><div class="t"><span>Total</span><span>$19.08</span></div></div>
+                <button class="pa-pay" data-tap="pay">Pay · $19.08</button>
                 <p class="pa-fine">Apple Pay · Google Pay · Card</p>
               </div>
               <!-- 4 placed -->
@@ -2438,41 +2451,57 @@ var RM=W.matchMedia&&W.matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ---------- menu (Uber Eats / DoorDash listing, Oct 2026) ---------- */
 var MENU=[
  {cat:'Burgers',items:[
-  ['mexicana-burger','Mexicana Burger',16,'Grilled jalapeño, corn, American cheese, Prime sauce, crushed Hot Cheetos and nacho cheese on brioche.'],
-  ['nacho-burger','Nacho Burger',16,'Grilled jalapeño, corn, American cheese, Prime sauce, lettuce, crushed Doritos and nacho cheese on brioche.'],
-  ['prime-burger','Prime Burger',17,'Coleslaw, mozzarella sticks, turkey bacon, onion ring, fried egg and Prime sauce on a pretzel bun.'],
-  ['steak-bbq-burger','Steak BBQ Burger',16,'Grilled steak, mushrooms, turkey bacon, onion ring, lettuce, BBQ sauce and mozzarella on a pretzel bun.'],
-  ['classic-burger','Classic Burger',11,'Lettuce, pickles, American cheese, ketchup and mayo on brioche.'],
-  ['smash-burger','Smash Burger',10,'Smashed patty, American cheese, ketchup and mayo on brioche.']]},
- {cat:'Rice bowls',items:[
-  ['prime-rice-bowl','Prime Rice Bowl',17,'Grilled or crispy chicken over rice with lettuce, tomato, Prime sauce and homemade ranch.'],
-  ['steak-bowl','Steak Rice Bowl',17,'Grilled steak, mushrooms, lettuce, tomato, Prime sauce and homemade ranch over rice.'],
-  ['asian-zing-bowl','Asian Zing Rice Bowl',17,'Crispy or grilled chicken, rice, fried egg, Prime sauce and homemade Asian Zing.'],
-  ['mexicana-bowl','Mexicana Bowl',17,'Crispy or grilled chicken, jalapeño, corn, crushed Hot Cheetos and Prime sauce over waffle fries.'],
-  ['nacho-bowl','Nacho Bowl',17,'Grilled or crispy chicken, jalapeño, corn, crushed Doritos and Prime sauce over waffle fries.'],
-  ['midwestern-bowl','Midwestern Bowl',17,'Crispy or grilled chicken, coleslaw, corn and Prime sauce over waffle fries.']]},
+  ['smash-burger','Smash Burger','8','Smashed patty, American cheese, ketchup and mayo on a brioche bun.'],
+  ['classic-burger','Classic Burger','9','Lettuce, pickles, mayo, ketchup and American cheese on a brioche bun.'],
+  ['mexicana-burger','Mexicana Burger','13','Grilled jalapeño, corn, American cheese, Prime sauce, nacho cheese and crushed Hot Cheetos on top.'],
+  ['nacho-burger','Nacho Burger','13','Grilled jalapeño, corn, American cheese, Prime sauce, mayo, lettuce, nacho cheese and crushed Doritos on top.'],
+  ['steak-bbq-burger','Steak BBQ Burger','13','Grilled steak, grilled mushrooms, bacon, onion rings, lettuce, BBQ sauce and mozzarella on a brioche bun.'],
+  ['prime-burger','Prime Burger','14','Coleslaw, mozzarella sticks, turkey bacon, onion ring, egg and Prime sauce on a pretzel bun.']]},
+ {cat:'Bowls',items:[
+  ['midwestern-bowl','Midwestern Bowl','14','Chicken, coleslaw, corn and Prime sauce over waffle fries.'],
+  ['mexicana-bowl','Mexicana Bowl','14','Chicken, corn, Hot Cheetos, grilled jalapeño, nacho cheese and Prime sauce over waffle fries.'],
+  ['nacho-bowl','Nacho Bowl','14','Chicken, onion, corn, Doritos, nacho cheese and Prime sauce over waffle fries.'],
+  ['asian-zing-bowl','Asian Zing Rice Bowl','14','Rice, lettuce, grilled or crispy chicken, fried egg, Asian Zing and Prime sauce.'],
+  ['steak-bowl','Steak Rice Bowl','14','Steak, rice, lettuce, tomato, mushrooms, Prime sauce and ranch.'],
+  ['prime-rice-bowl','Prime Rice Bowl','14','Rice, lettuce, grilled or crispy chicken, tomato, ranch and Prime sauce.']]},
  {cat:'Chicken sandwiches',items:[
-  ['asian-zing-chicken','Asian Zing Crispy Chicken',14,'Crispy chicken, coleslaw, pickles, Prime sauce and homemade Asian Zing on brioche.'],
-  ['nashville-chicken','Nashville Chicken Sandwich',14,'Crispy chicken, coleslaw, pickles, Prime sauce and Nashville hot sauce on brioche.'],
-  ['midwest-chicken','Midwest Crispy Chicken',14,'Crispy chicken, coleslaw, pickles, Prime sauce and mayo on brioche.']]},
+  ['nashville-chicken','Nashville Chicken','11','Crispy chicken, coleslaw, pickles, Prime sauce and Nashville sauce.'],
+  ['asian-zing-chicken','Asian Zing Crispy Chicken','11','Crispy chicken, Asian Zing, coleslaw, pickles and Prime sauce.'],
+  ['midwest-chicken','Midwest Crispy Chicken','11','Crispy chicken, coleslaw, pickles, Prime sauce and mayo.']]},
+ {cat:'Chicken corner',items:[
+  ['boneless-wings','Boneless Wings','10 / $18','Fresh battered. 8 wings $10, 16 wings $18. Pick your sauce.'],
+  ['wings','Bone-In Wings','12 / $20','Fresh bone-in, naked or sauced. 8 wings $12, 16 wings $20.'],
+  ['tenders','Hand-Battered Tenders','7 / $12','3 piece $7, 6 piece $12. Sauce them up for $1.50.']]},
  {cat:'Wraps',items:[
-  ['mexicana-wrap','Mexicana Wrap',14,'Grilled or crispy chicken, lettuce, tomato, nacho cheese, jalapeño, corn, Hot Cheetos and Prime sauce.'],
-  ['buffalo-ranch-wrap','Buffalo Ranch Wrap',14,'Buffalo-tossed chicken, lettuce, tomato, pickles, American cheese and ranch.'],
-  ['philly-steak-wrap','Philly Steak Wrap',14,'Grilled steak, lettuce, tomato, mushrooms, mozzarella and BBQ sauce.'],
-  ['cheesy-chicken-wrap','Cheesy Chicken Wrap',14,'Crispy chicken, mozzarella, nacho cheese, mac and cheese bites, lettuce and Prime sauce.']]},
- {cat:'Wings & tenders',items:[
-  ['wings8','8 pc Bone-In Wings',16,'Tossed in your sauce: buffalo, BBQ, Nashville, Asian Zing and more.'],
-  ['wings','16 pc Bone-In Wings',25,'The sharing size. Pick up to two sauces.'],
-  ['tenders','6 pc Chicken Tenders',15,'Hand-breaded tenders with your choice of dip.'],
-  ['nuggets','20 pc Breaded Nuggets',11,'Crispy nuggets with a side sauce.']]},
- {cat:'Sides & dogs',items:[
-  ['fries','Large Fries',8,'House, Cajun or waffle cut.'],
-  ['prime-dog','Prime Dog',9,'All-beef hot dog, loaded the Prime way.']]},
- {cat:'Shakes',items:[
-  ['oreo-shake','Oreo Milkshake',9,'Vanilla ice cream, milk, Oreos, cane sugar and whipped cream.']]}
+  ['philly-steak-wrap','Philly Steak Wrap','11','Sliced ribeye, lettuce, tomato, sautéed mushrooms, mozzarella and BBQ sauce.'],
+  ['buffalo-ranch-wrap','Buffalo Ranch Wrap','11','Grilled or crispy chicken tossed in buffalo, lettuce, tomato, pickles, American cheese and homemade ranch.'],
+  ['mexicana-wrap','Mexicana Wrap','11','Grilled or crispy chicken, lettuce, tomato, nacho cheese, corn, grilled jalapeño, Cheetos and Prime sauce.'],
+  ['cheesy-chicken-wrap','Cheesy Chicken Wrap','11','Crispy chicken, lettuce, mozzarella, nacho cheese, mac and cheese bites and Prime sauce.']]},
+ {cat:'Hot dogs',items:[
+  ['classic-dog','Classic Dog','5','Ketchup and mustard.'],
+  ['prime-dog','Prime Dog','7','Grilled jalapeño, Cheetos, nacho cheese and Prime sauce.'],
+  ['nacho-dog','Nacho Dog','7','Grilled jalapeño, Doritos, cheese and mayo.']]},
+ {cat:'Salads',items:[
+  ['house-salad','House Salad','10','Lettuce, tomato, garlic croutons and ranch. Add chicken or steak $4.'],
+  ['caesar-salad','Caesar Salad','10','Lettuce, whole parmesan, garlic croutons and Caesar dressing. Add chicken or steak $4.']]},
+ {cat:'Finger bitez',items:[
+  ['jalapeno-poppers','Jalapeño Poppers','6','Golden, crispy and stuffed with cheese.'],
+  ['mac-bites','Mac & Cheese Bitez','5','Crispy outside, creamy inside.'],
+  ['nuggets','Chicken Nuggets','5 / $9','Small $5, large $9.'],
+  ['fries','Fries','4 / $6','Small $4, large $6.'],
+  ['waffle-fries','Waffle Fries','5 / $7','Small $5, large $7.'],
+  ['mozzarella-sticks','Mozzarella Sticks','5','With marinara.'],
+  ['onion-rings','Onion Rings','4','Thick and crispy.']]},
+ {cat:'Homemade milkshakes',items:[
+  ['vanilla-shake','Vanilla Shake','6','Hand-spun with whipped cream.'],
+  ['chocolate-shake','Chocolate Shake','6','Hand-spun with whipped cream.'],
+  ['strawberry-shake','Strawberry Shake','6','Hand-spun with whipped cream.'],
+  ['oreo-shake','Oreo Shake','7','Cookies and cream, hand-spun.'],
+  ['biscoff-shake','Biscoff Shake','7','Cookie butter, hand-spun.'],
+  ['pebbles-shake','Fruity Pebbles Shake','7','Cereal-milk vanilla with Fruity Pebbles.']]}
 ];
 var IDX={};MENU.forEach(function(c){c.items.forEach(function(i){IDX[i[0]]=i})});
-var CUT={'mexicana-burger':1,'nacho-burger':1,'prime-burger':1,'steak-bbq-burger':1,'classic-burger':1,'asian-zing-chicken':1,'mexicana-wrap':1,'tenders':1,'steak-bowl':1};
+var CUT={'smash-burger':1,'classic-burger':1,'mexicana-burger':1,'nacho-burger':1,'steak-bbq-burger':1,'prime-burger':1,'midwestern-bowl':1,'mexicana-bowl':1,'nacho-bowl':1,'asian-zing-bowl':1,'steak-bowl':1,'prime-rice-bowl':1,'nashville-chicken':1,'asian-zing-chicken':1,'midwest-chicken':1,'boneless-wings':1,'wings':1,'tenders':1,'philly-steak-wrap':1,'buffalo-ranch-wrap':1,'mexicana-wrap':1,'cheesy-chicken-wrap':1,'classic-dog':1,'prime-dog':1,'nacho-dog':1,'house-salad':1,'caesar-salad':1,'jalapeno-poppers':1,'mac-bites':1,'nuggets':1,'fries':1,'waffle-fries':1,'mozzarella-sticks':1,'onion-rings':1,'vanilla-shake':1,'chocolate-shake':1,'strawberry-shake':1,'oreo-shake':1,'biscoff-shake':1,'pebbles-shake':1};
 var LIFE={'mexicana-bowl':'mexicana-bowl','wings':'wings','wings8':'wings','fries':'fries','midwest-chicken':'midwest-chicken','prime-rice-bowl':'prime-rice-bowl','prime-dog':'prime-dog'};
 function pic(k){if(CUT[k])return {src:'photos/cut/'+k+'.webp?v=45',cut:1};if(LIFE[k])return {src:'photos/'+LIFE[k]+'.jpg'};return null}
 function imgTag(k,cls){var p=pic(k);if(!p)return '<img class="mk" src="brand/logo.png" alt="">';return '<img'+(p.cut?'':' class="cover"')+' src="'+p.src+'" alt="" loading="lazy" decoding="async">'}
@@ -2942,7 +2971,7 @@ $('#ueLink2').href=UE;
   function step(i){tabs.forEach(function(b,j){b.classList.toggle('on',j===i);var u=b.querySelector('u');if(u){u.style.animation='none';void u.offsetWidth;u.style.animation=''}})}
   function tap(k){var el=pf.querySelector('[data-tap="'+k+'"]');if(!el)return;el.classList.add('tap');setTimeout(function(){el.classList.remove('tap')},420)}
   function q(id){return pf.querySelector('#'+id)||NUL}
-  function reset(){sc('home');pf.querySelector('.pa-opt').classList.remove('sel');$$('.pa-drinks span',pf).forEach(function(s){s.classList.remove('sel')});q('pfItemP').textContent='$16.00';q('pfAddP').textContent='$16.00';q('pfBagN').textContent='0';q('pfProg').style.width='18%';
+  function reset(){sc('home');pf.querySelector('.pa-opt').classList.remove('sel');$$('.pa-drinks span',pf).forEach(function(s){s.classList.remove('sel')});q('pfItemP').textContent='$13.00';q('pfAddP').textContent='$13.00';q('pfBagN').textContent='0';q('pfProg').style.width='18%';
     $$('.pa-steps li[data-p]',pf).forEach(function(l){l.classList.toggle('ok',l.getAttribute('data-p')==='1')});pf.querySelector('.pa-list').scrollTop=0;q('pfPin').style.offsetDistance='0%';$$('.g-toast').forEach(function(t){t.classList.remove('in')})}
   var now=new Date(),mm=now.getHours()*60+now.getMinutes();function hm(m){m=m%1440;var h=Math.floor(m/60)%12||12,x=m%60;return h+':'+(x<10?'0':'')+x}
   var EV=[
@@ -2953,7 +2982,7 @@ $('#ueLink2').href=UE;
    [3600,function(){var l=pf.querySelector('.pa-list');l.scrollTo({top:0,behavior:'smooth'})}],
    [4300,function(){tap('pick');step(1)}],
    [4700,function(){sc('item')}],
-   [6200,function(){tap('combo');pf.querySelector('.pa-opt').classList.add('sel');q('pfItemP').textContent='$20.00';q('pfAddP').textContent='$20.00';step(2)}],
+   [6200,function(){tap('combo');pf.querySelector('.pa-opt').classList.add('sel');q('pfItemP').textContent='$17.00';q('pfAddP').textContent='$17.00';step(2)}],
    [7400,function(){tap('drink');pf.querySelector('.pa-drinks span').classList.add('sel')}],
    [8700,function(){tap('add');q('pfBagN').textContent='1'}],
    [9100,function(){sc('bag');step(3)}],
@@ -3115,4 +3144,4 @@ hcCarousel(document.querySelector('#about .hc-row'),'burger');hcCarousel(documen
   /* freeze page while a sheet/menu is open */
   new MutationObserver(function(){D.body.classList.contains('lock')?L.stop():L.start()}).observe(D.body,{attributes:true,attributeFilter:['class']})})();
 </script>
-</body></html>
+<script>(function(){var v=document.querySelector('.hsteam');if(!v)return;function sl(){try{v.playbackRate=1}catch(e){}}sl();v.addEventListener('loadedmetadata',sl);v.addEventListener('play',sl)})();</script></body></html>
