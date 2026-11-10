@@ -2068,7 +2068,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
  .g-map-tint{inset:0 0 auto 0!important;height:300px}
  .g-mcard{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;top:auto!important;width:auto!important;max-width:none!important;margin-top:14px;transform:none!important}
 }
-</style>
+#smokeGL{display:none!important}.hsteam{position:absolute;left:-5%;width:110%;top:-36%;height:auto;mix-blend-mode:screen;opacity:.8;pointer-events:none;filter:brightness(1.05) contrast(1.7);-webkit-mask-image:radial-gradient(48% 50% at 50% 58%,#000 25%,transparent 100%);mask-image:radial-gradient(48% 50% at 50% 58%,#000 25%,transparent 100%)}@media (prefers-reduced-motion:reduce){.hsteam{display:none}}</style>
 
 </head><body><header class="hdr" id="hdr">
   <div class="wide hdr-in">
@@ -2093,7 +2093,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
     </div>
     <div class="hstat"><b><span class="dot y"></span><span id="stMain">Hours at Michigan Ave</span></b><span id="stSub">Dearborn, MI</span><a data-dir href="https://www.google.com/maps/dir/?api=1&amp;destination=Prime+Eatery+13530+Michigan+Ave+%23120+Dearborn+MI+48126" target="_blank" rel="noopener">Directions ↗</a></div>
   </div>
-  <div class="hphoto"><img src="photos/hero-burger.jpg?v=mx1" alt="A double smash burger with pickles and melted American" fetchpriority="high" width="2600" height="3900"></div>
+  <div class="hphoto"><img src="photos/hero-burger.jpg?v=mx1" alt="A double smash burger with pickles and melted American" fetchpriority="high" width="2600" height="3900"><video class="hsteam" muted loop autoplay playsinline preload="auto" aria-hidden="true"><source src="photos/steam-loop.webm" type="video/webm"><source src="photos/steam-loop.mp4" type="video/mp4"></video></div>
   <canvas class="smoke-gl" id="smokeGL" aria-hidden="true"></canvas>
   <div class="wordmark" aria-hidden="true">Prime Eatery</div>
   <div class="callout" id="callout" aria-live="polite"></div>
@@ -2530,7 +2530,7 @@ paintCall();
 /* ---------- hero smoke: WebGL, rising wisps over the burger ---------- */
 var smokeOn=false,smokeRaf=0,sGL=null;
 (function(){
-  var c=$('#smokeGL');if(!c||RM)return;var gl=c.getContext('webgl',{premultipliedAlpha:true,alpha:true,antialias:false});if(!gl)return;
+  var c=$('#smokeGL');return;var gl=c.getContext('webgl',{premultipliedAlpha:true,alpha:true,antialias:false});if(!gl)return;
   var vs='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
   var fs='precision highp float;uniform vec2 r;uniform float t;uniform vec2 src;'+
   'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}'+
