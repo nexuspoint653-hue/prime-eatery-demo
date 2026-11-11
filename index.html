@@ -1399,7 +1399,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 /* reviews heading in the new type */
 #reviews{z-index:2;background:none!important}
 #reviews::before,#reviews::after{display:none!important}
-#reviews h2.g-h{font-family:var(--disp)!important;font-weight:400!important;font-size:clamp(46px,5vw,80px)!important;letter-spacing:.004em!important;line-height:.94!important;font-stretch:100%!important}
+#reviews h2.g-h{font-family:var(--disp)!important;font-weight:400!important;font-size:clamp(46px,5vw,80px)!important;letter-spacing:.004em!important;line-height:1.06!important;font-stretch:100%!important}
 #reviews .rv4-eb{font:800 11px/1 var(--f);letter-spacing:.26em;color:var(--accent)}
 #reviews .rv4-eb::before{display:none}
 #reviews .rv4-btn{font-family:var(--f);border-radius:4px}
@@ -2097,7 +2097,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
 .g-card:hover,.hc-i:hover,.sp-n2c:hover,.evc:hover,.ig3-t:hover{transform:none!important}
 .g-card:hover .g-card-ph img,.hc-i:hover .hc-ph img,.evc:hover .ph img,.ig3-t:hover img,.g-card:hover .g-card-tag,.sp-n2c:hover .sp-n2ph img,.card:hover img,.card:hover{transform:none!important}
 .g-card,.hc-i,.sp-n2c,.card{transition:none!important}}
-@media (max-width:700px){#hero .hphoto{width:min(104vw,540px)!important;aspect-ratio:4/5!important;margin:-14vw auto -12vw!important}#hero .hphoto img{object-position:50% 52%}#hero .hsteam{bottom:62%}}@media (max-width:700px) and (max-height:720px){#hero .hphoto{width:min(100vw,520px)!important}}</style></head><body><header class="hdr" id="hdr">
+@media (max-width:700px){#hero .hphoto{width:min(104vw,540px)!important;aspect-ratio:4/5!important;margin:-14vw auto -12vw!important}#hero .hphoto img{object-position:50% 52%}#hero .hsteam{bottom:62%}}@media (max-width:700px) and (max-height:720px){#hero .hphoto{width:min(100vw,520px)!important}}.hsteam-src{position:absolute;width:2px;height:2px;opacity:0;pointer-events:none;left:0;top:0}.hsteam{mix-blend-mode:normal!important;filter:none!important;aspect-ratio:480/620;opacity:.85!important;-webkit-mask-image:none!important;mask-image:none!important}</style><style id="lh-fix">/* tall display headings never touch between lines */.hero-copy h1,.g-h,.hc-h,.cm-hd h3,.igc-l,.sp-h1,.sp-row-tx h3,.sp-n2c h3,.g-card-tx h3,.cb-h,.sp-cta h2,.sp-man-t,main h1,.ft .big,.top h1{line-height:1.06!important}.hero-copy h1{letter-spacing:.005em}@media (max-width:380px){header .ord{padding:0 12px!important;font-size:12px!important;height:38px!important}header .brand img{width:38px;height:38px}}</style></head><body><header class="hdr" id="hdr">
   <div class="wide hdr-in">
     <a class="brand" href="#top" aria-label="Prime Eatery home"><img src="brand/logo.png" alt="" width="52" height="52">Prime Eatery</a>
     <nav class="nav" aria-label="Main"><a href="menu.html">Menu</a><a href="story.html">Our story</a><a href="#catering">Catering</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></nav>
@@ -2120,7 +2120,7 @@ html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,b
     </div>
     <div class="hstat"><b><span class="dot y"></span><span id="stMain">Hours at Michigan Ave</span></b><span id="stSub">Dearborn, MI</span><a data-dir href="https://www.google.com/maps/dir/?api=1&amp;destination=Prime+Eatery+13530+Michigan+Ave+%23120+Dearborn+MI+48126" target="_blank" rel="noopener">Directions ↗</a></div>
   </div>
-  <div class="hphoto"><img src="photos/hero-burger.jpg?v=mx1" alt="A double smash burger with pickles and melted American" fetchpriority="high" width="2600" height="3900"><video class="hsteam" muted loop autoplay playsinline preload="auto" aria-hidden="true"><source src="photos/ribbon.webm" type="video/webm"><source src="photos/ribbon.mp4" type="video/mp4"></video></div>
+  <div class="hphoto"><img src="photos/hero-burger.jpg?v=mx1" alt="A double smash burger with pickles and melted American" fetchpriority="high" width="2600" height="3900"><canvas class="hsteam" aria-hidden="true"></canvas><video class="hsteam-src" muted loop autoplay playsinline preload="auto" aria-hidden="true"><source src="photos/ribbon.webm" type="video/webm"><source src="photos/ribbon.mp4" type="video/mp4"></video></div>
   <canvas class="smoke-gl" id="smokeGL" aria-hidden="true"></canvas>
   <div class="wordmark" aria-hidden="true">Prime Eatery</div>
   <div class="callout" id="callout" aria-live="polite"></div>
@@ -3156,4 +3156,18 @@ hcCarousel(document.querySelector('#about .hc-row'),'burger');hcCarousel(documen
   /* freeze page while a sheet/menu is open */
   new MutationObserver(function(){D.body.classList.contains('lock')?L.stop():L.start()}).observe(D.body,{attributes:true,attributeFilter:['class']})})();
 </script>
-<script>(function(){var v=document.querySelector('.hsteam');if(!v)return;function sl(){try{v.playbackRate=1}catch(e){}}sl();v.addEventListener('loadedmetadata',sl);v.addEventListener('play',sl)})();</script></body></html>
+<script>(function(){var v=document.querySelector('.hsteam');if(!v)return;function sl(){try{v.playbackRate=1}catch(e){}}sl();v.addEventListener('loadedmetadata',sl);v.addEventListener('play',sl)})();</script><script>/* steam: video luminance -> real alpha via WebGL (no blend-mode boxes on iOS) */
+(function(){var c=document.querySelector('canvas.hsteam'),v=document.querySelector('.hsteam-src');if(!c||!v)return;
+var gl=c.getContext('webgl',{premultipliedAlpha:true,alpha:true});if(!gl){c.style.display='none';return}
+c.width=480;c.height=620;
+function sh(t,src){var o=gl.createShader(t);gl.shaderSource(o,src);gl.compileShader(o);return o}
+var pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,'attribute vec2 p;varying vec2 u;void main(){u=vec2(p.x*.5+.5,.5-p.y*.5);gl_Position=vec4(p,0,1);}'));
+gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,'precision mediump float;varying vec2 u;uniform sampler2D t;void main(){float l=texture2D(t,u).r;float a=smoothstep(.07,.75,l);float e=smoothstep(0.,.18,u.x)*smoothstep(1.,.82,u.x);float y=smoothstep(1.,.9,u.y)*smoothstep(.0,.55,u.y);a*=e*y*.62;gl_FragColor=vec4(vec3(.93)*a,a);}'));
+gl.linkProgram(pr);gl.useProgram(pr);
+var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+var loc=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+var tx=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tx);[gl.TEXTURE_WRAP_S,gl.TEXTURE_WRAP_T].forEach(function(k){gl.texParameteri(gl.TEXTURE_2D,k,gl.CLAMP_TO_EDGE)});gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+var on=true;new IntersectionObserver(function(e){on=e[0].isIntersecting;if(on){v.play().catch(function(){});loop()}else v.pause()}).observe(c);
+function draw(){if(v.readyState>=2){try{gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,v);gl.viewport(0,0,c.width,c.height);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.drawArrays(gl.TRIANGLE_STRIP,0,4)}catch(e){}}}
+var raf=0;function loop(){if(raf)return;(function f(){raf=0;if(!on)return;draw();raf=v.requestVideoFrameCallback?(v.requestVideoFrameCallback(function(){f()}),1):requestAnimationFrame(f)})()}
+v.play().catch(function(){});loop();})();</script></body></html>
