@@ -2275,7 +2275,17 @@ footer.fx{position:relative;z-index:1}
 @media (max-width:420px){.sp-hero .g-eb{font-size:9.5px;letter-spacing:.14em;gap:8px}.sp-hero .g-eb>*{white-space:nowrap}}
 </style>
 
-</head><body><header class="hdr" id="hdr">
+<style id="slider-fix">
+/* touch sliders: no hover jumps, no reveal motion inside scrollers, steady snapping */
+.g-board,.hc-row,.sp-n2,.sp-track,.evrow,.ig3,.sh-cats,.pills,.fx2-tabs,.strip{overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;scroll-behavior:auto}
+@media (max-width:1100px){.g-board,.hc-row,.sp-n2,.sp-track,.ig3{scroll-snap-type:x proximity!important}
+.g-board>*,.hc-row>*,.sp-n2>*,.sp-track>*,.ig3>*{scroll-snap-stop:normal}.g-board,.hc-row,.sp-n2,.sp-track,.ig3{scroll-padding-inline:20px}
+.g-board .g-rv,.g-board .sp-rv,.hc-row .g-rv,.sp-n2 .sp-rv,.sp-n2 .g-rv,.sp-track .sp-rv,.ig3 .g-rv,.hc-row>*,.sp-n2>*{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}}
+@media (hover:none),(pointer:coarse){
+.g-card:hover,.hc-i:hover,.sp-n2c:hover,.evc:hover,.ig3-t:hover{transform:none!important}
+.g-card:hover .g-card-ph img,.hc-i:hover .hc-ph img,.evc:hover .ph img,.ig3-t:hover img,.g-card:hover .g-card-tag,.sp-n2c:hover .sp-n2ph img,.card:hover img,.card:hover{transform:none!important}
+.g-card,.hc-i,.sp-n2c,.card{transition:none!important}}
+</style></head><body><header class="hdr" id="hdr">
   <div class="wide hdr-in">
     <a class="brand" href="index.html" aria-label="Prime Eatery home"><img src="brand/logo.png" alt="" width="52" height="52">Prime Eatery</a>
     <nav class="nav" aria-label="Main"><a href="menu.html">Menu</a><a href="story.html">Our story</a><a href="index.html#catering">Catering</a><a href="index.html#reviews">Reviews</a><a href="index.html#visit">Visit</a></nav>
@@ -2318,7 +2328,7 @@ footer.fx{position:relative;z-index:1}
   <div class="g-wrap wide-x">
     <div class="sp-n2-hd"><div><p class="g-eb">02 <b>—</b> A night at Prime</p><h2 class="g-h">Noon to <em>late.</em></h2></div><p class="g-p">Five moments from a regular night at the counter, from the lunch rush to last call.</p></div>
     <div class="sp-n2-line" aria-hidden="true"><i></i></div>
-    <div class="sp-n2">
+    <div class="sp-n2" data-lenis-prevent-wheel-x>
       <article class="sp-n2c" style="--d:0ms"><span class="sp-n2t">12 PM</span><div class="sp-n2ph"><img src="photos/prime-rice-bowl.jpg" alt="Prime rice bowl" loading="lazy"></div><h3>Doors open</h3><p>Lunch for the medical building upstairs and everyone on Michigan Ave.</p></article>
       <article class="sp-n2c" style="--d:90ms"><span class="sp-n2t">5 PM</span><div class="sp-n2ph"><img src="photos/night-classic.jpg" alt="Classic burger at night" loading="lazy"></div><h3>Families roll in</h3><p>Bowls big enough to share and a burger for every kid in the booth.</p></article>
       <article class="sp-n2c" style="--d:180ms"><span class="sp-n2t">9 PM</span><div class="sp-n2ph"><img src="photos/night-mexicana.jpg" alt="Mexicana burger at night" loading="lazy"></div><h3>The grill gets loud</h3><p>Hot Cheetos on the Mexicana, cheese pulls, tickets lining the rail.</p></article>
@@ -2464,7 +2474,7 @@ if('IntersectionObserver' in W){var cio=new IntersectionObserver(function(es){es
 <script>/* smooth scroll (Lenis): wheel/trackpad only, phones keep native touch scroll */
 (function(){var W=window,D=document;if(!W.Lenis||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   ['#shBody','.pa-list','.mnav','.sheet','.lb','[data-lenis-prevent]'].forEach(function(q){[].forEach.call(D.querySelectorAll(q),function(e){e.setAttribute('data-lenis-prevent','')})});
-  var L=new Lenis({lerp:.11,wheelMultiplier:1,smoothWheel:true,syncTouch:false});W.lenis=L;
+  var L=new Lenis({lerp:.11,wheelMultiplier:1,smoothWheel:true,syncTouch:false,prevent:function(n){return !!(n&&n.closest&&n.closest('[data-lenis-prevent-wheel-x],[data-lenis-prevent]'))}});W.lenis=L;
   (function raf(t){L.raf(t);requestAnimationFrame(raf)})(performance.now());
   /* in-page links glide instead of jumping */
   D.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||e.defaultPrevented)return;var h=a.getAttribute('href');if(h.length<2)return;var t=D.querySelector(h);if(!t)return;e.preventDefault();L.scrollTo(t,{offset:-84,duration:1.2});history.replaceState(null,'',h)},false);
